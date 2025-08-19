@@ -1,0 +1,799 @@
+
+<!DOCTYPE html>
+
+
+<html lang="fr" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Can I Cast a Spell? &#8212; BCS Snippets</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=72dce1d2"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/translations.js?v=041d0952"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'spell/base';</script>
+    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Peau de pierre (SPWI408)" href="stoneskin.html" />
+    <link rel="prev" title="✅ Can PickPocket" href="../snippet/canpickpocket.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="fr"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Passer au contenu principal</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Haut de page</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="BCS Snippets - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="BCS Snippets - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Recherche</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Bienvenue sur BSC Snippets
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Généralités</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../general/dialog.html">Dialogue - Initialisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/athkatla_magec.html">Surveillance des Mages Cagoulés</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Snippets</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../snippet/list.html">Sommaire</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../snippet/globalexists.html">✅ GlobalExists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../snippet/backstab.html">⚠️ Réaliser une attaque sournoise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../snippet/opportunityattack.html">✅ Réaliser une attaque d’opportunité</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../snippet/canpickpocket.html">✅ Can PickPocket</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Sorts spécifiques</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Can I Cast a Spell?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stoneskin.html">Peau de pierre (SPWI408)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="massraise.html">Résurrection de masse (SPPR729)</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/RiwsPy/BCS_Snippets" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Dépôt source"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/RiwsPy/BCS_Snippets/issues/new?title=Issue%20on%20page%20%2Fspell/base.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Ouvrez un problème"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Téléchargez cette page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/spell/base.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Télécharger le fichier source"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimer au format PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Mode plein écran"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="clair/sombre" aria-label="clair/sombre" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Can I Cast a Spell?</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenu </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#posseder-le-sort">Posséder le sort</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#silence">Silence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#blocage-de-la-capacite-a-lancer-des-sorts">Blocage de la capacité à lancer des sorts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#poison">Poison</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#etat-des-lieux-des-autres-mods">État des lieux des autres mods</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#theorycrafting-sur-le-poison">TheoryCrafting sur le poison</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#balance-ton-sort-de-niveau-1">Balance ton sort (de niveau 1)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#snippet">Snippet</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maladie">Maladie</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Snippet</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mages-cagoules-d-athkatla">Mages cagoulés d’Athkatla</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hiatus-entropiques">Hiatus entropiques</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Snippet</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zone-anti-magie-et-autre-modificateur-de-reussite-a-l-incantation">Zone anti-magie et autre modificateur de réussite à l’incantation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#temps-d-attente-entre-chaque-incantation-utilisation-d-objet">Temps d’attente entre chaque incantation/utilisation d’objet</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="can-i-cast-a-spell">
+<h1>Can I Cast a Spell?<a class="headerlink" href="#can-i-cast-a-spell" title="Lien vers cette rubrique">#</a></h1>
+<p>Avant de lancer des sorts, il est utile de savoir si celui-ci a des chances d’être incanté.<br />
+Plusieurs paramètres sont à prendre en compte.</p>
+<section id="posseder-le-sort">
+<h2>Posséder le sort<a class="headerlink" href="#posseder-le-sort" title="Lien vers cette rubrique">#</a></h2>
+<p>Dans la plupart des cas, on ne voudra lancer que les sorts que l’on possède, on utilisera alors le trigger <code class="docutils literal notranslate"><span class="pre">HaveSpell</span></code> ou <code class="docutils literal notranslate"><span class="pre">HaveSpellRES</span></code> avec l’action <code class="docutils literal notranslate"><span class="pre">Spell</span></code>.<br />
+Si on souhaite lancer des sorts non possédés on privilégiera les actions <code class="docutils literal notranslate"><span class="pre">ForceSpell</span></code> ou <code class="docutils literal notranslate"><span class="pre">ReallyForceSpell</span></code> ou encore <code class="docutils literal notranslate"><span class="pre">ForceSpellDead</span></code>.<br />
+Le choix de l’action impacte fortement le choix des contraintes du block <code class="docutils literal notranslate"><span class="pre">IF</span></code>.</p>
+</section>
+<section id="silence">
+<h2>Silence<a class="headerlink" href="#silence" title="Lien vers cette rubrique">#</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Concerne les actions :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Spell</span></code></p></li>
+</ul>
+</div>
+<p>Il existe une condition minimale à l’incantation des sorts : ne pas être silencieux.<br />
+Pour cela, nous avons <code class="docutils literal notranslate"><span class="pre">StateCheck(Myself,</span> <span class="pre">STATE_SILENCED)</span></code>.<br />
+C’est une chose que vous verrez dans tous les scripts depuis 25 ans.</p>
+<p>Mais il faut bien penser que nombre de capacités et quelques sorts peuvent être lancés sous silence.<br />
+Il faut donc bien penser à le mettre que lorsque cela est bien nécessaire.</p>
+<p>Deux inconvénients :</p>
+<ol class="arabic simple">
+<li><p>les fautes d’inattention sont fréquentes</p></li>
+<li><p>des mods peuvent modifier la composante verbale des sorts, le script devient alors partiellement inadapté</p></li>
+</ol>
+<hr class="docutils" />
+<p>Il existe une solution à ces deux problèmatiques, que l’on utilise déjà sans le savoir : <code class="docutils literal notranslate"><span class="pre">HaveSpell</span></code>.<br />
+Celui-ci vérifie que :</p>
+<ul class="simple">
+<li><p>le sort est mémorisé</p></li>
+<li><p>si le sort nécessite une composante verbale, le lanceur de sort n’est pas sous l’effet d’un silence</p></li>
+<li><p>le lanceur n’est pas sous l’effet empêchant le lancement de sort (comme celle dans la Transformation de Tenser par exemple)</p></li>
+</ul>
+<p>Oui, <code class="docutils literal notranslate"><span class="pre">HaveSpell(XX)</span></code> peut renvoyer faux même si le sort est mémorisé.</p>
+<p>Cela signifie que la présence d’une composante verbale est checkée au moment de le lancer :</p>
+<ul class="simple">
+<li><p>cela gère donc les modifications faites par les mods</p></li>
+<li><p>pas d’erreur d’inattention puisqu’il suffit de ne pas mettre <code class="docutils literal notranslate"><span class="pre">StateCheck(Myself,</span> <span class="pre">STATE_SILENCED)</span></code></p></li>
+</ul>
+<p>Ainsi, le meilleur moyen de gérer le silence, c’est de laisser l’action <code class="docutils literal notranslate"><span class="pre">HaveSpell</span></code> faire le travail.</p>
+</section>
+<section id="blocage-de-la-capacite-a-lancer-des-sorts">
+<h2>Blocage de la capacité à lancer des sorts<a class="headerlink" href="#blocage-de-la-capacite-a-lancer-des-sorts" title="Lien vers cette rubrique">#</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Concerne les actions :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Spell</span></code></p></li>
+</ul>
+</div>
+<p>Infligé par l’opcode 145, cet effet est géré automatiquement par <code class="docutils literal notranslate"><span class="pre">HaveSpell</span></code>.<br />
+Voir le point précédent pour plus d’informations.</p>
+</section>
+<section id="poison">
+<h2>Poison<a class="headerlink" href="#poison" title="Lien vers cette rubrique">#</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Concerne les actions :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Spell</span></code></p></li>
+</ul>
+</div>
+<p>Un désastre pour les magiciens, le poison lui inflige des dégâts sur la durée. Double effet kisscool :</p>
+<ol class="arabic simple">
+<li><p>Il n’a pas beaucoup de points de vie donc c’est vite dramatique</p></li>
+<li><p>Cela affecte clairement sa capacité à lancer des sorts (et de façon imprévisible)</p></li>
+</ol>
+<p>Le comble étant qu’il existe des sorts pour se soigner mais qu’elle est leur probabilité de réussite ?</p>
+<section id="etat-des-lieux-des-autres-mods">
+<h3>État des lieux des autres mods<a class="headerlink" href="#etat-des-lieux-des-autres-mods" title="Lien vers cette rubrique">#</a></h3>
+<ul class="simple">
+<li><p>ep scripts : un mage empoisonné ne lance plus aucun sort</p></li>
+<li><p>bddefai : yolo on tente quand même</p></li>
+<li><p>uScript v2 : yolo sauf pour Contagion</p></li>
+</ul>
+<p>La raison pour laquelle les moddeurs y répondent par des solutions opposées c’est qu’il n’y a pas de réponse.<br />
+Mais tentons une analyse.</p>
+</section>
+<section id="theorycrafting-sur-le-poison">
+<h3>TheoryCrafting sur le poison<a class="headerlink" href="#theorycrafting-sur-le-poison" title="Lien vers cette rubrique">#</a></h3>
+<p>Le poison frappe avec une fréquence fixe pouvant provoquer aléatoirement à chaque fois une interrumption de l’incantation du sort.</p>
+<p>Lancer un sort est donc risqué car la probabilité d’échec est réelle mais… est-ce moins risqué de ne lancer AUCUN sort pendant 30 secondes ?</p>
+<p>Idéalement il faudrait incanter le sort entre deux dégâts afin de ne pas être inquiété. Sauf que l’on ne connait pas la fréquence à l’avance.</p>
+<p>Voici quelques chiffres approximatifs :</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>Répartition des poison en fonction de leur fréquence d’apparition :</p>
+<ul>
+<li><p>1 seconde : 75%</p></li>
+<li><p>2 secondes : 5%</p></li>
+<li><p>3 secondes : 20%</p></li>
+</ul>
+</li>
+<li><p>Temps nécessaire à l’incantation des sorts : valeur * 0.6 secondes</p></li>
+<li><p>Probabilité d’échec si des dégâts du poison sont infligés lors de l’incantation : 50%</p></li>
+</ul>
+</div>
+<p>Pourcentage d’échec d’incantation approximatif en fonction de la durée d’incantation :</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Durée d’incantation</p></th>
+<th class="head"><p>% d’interruption</p></th>
+<th class="head"><p>Risque</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>25%</p></td>
+<td><p>Acceptable</p></td>
+</tr>
+<tr class="row-odd"><td><p>2 à 4</p></td>
+<td><p>43% à 48%</p></td>
+<td><p>Déconseillé</p></td>
+</tr>
+<tr class="row-even"><td><p>5 et +</p></td>
+<td><p>50%</p></td>
+<td><p>Pas envisagé</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="balance-ton-sort-de-niveau-1">
+<h3>Balance ton sort (de niveau 1)<a class="headerlink" href="#balance-ton-sort-de-niveau-1" title="Lien vers cette rubrique">#</a></h3>
+<p>Les sorts de niveau faible ont deux avantages :</p>
+<ol class="arabic simple">
+<li><p>Ils ont généralement une durée d’incantation courte, donc un taux de réussite plus important</p></li>
+<li><p>En cas d’échec, le sort perdu est beaucoup moins dramatique</p></li>
+</ol>
+<p>Quelques exceptions existent, comme les mots de pouvoir qui ont un temps d’incantation très court.<br />
+Il peut donc être intéressant de s’autoriser de lancer des sorts à incantation très rapide même empoisonné.</p>
+</section>
+<section id="snippet">
+<h3>Snippet<a class="headerlink" href="#snippet" title="Lien vers cette rubrique">#</a></h3>
+<p>Pour s’assurer qu’un personnage n’est pas empoisonné ou qu’il ne puisse en subir les dégâts :</p>
+<div class="highlight-vb.net notranslate"><div class="highlight"><pre><span></span><span class="k">IF</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="w">    </span><span class="ow">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="p">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="n">STATE_POISONED</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">99</span><span class="p">,</span><span class="w"> </span><span class="n">RESISTPOISON</span><span class="p">)</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="k">THEN</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="maladie">
+<h2>Maladie<a class="headerlink" href="#maladie" title="Lien vers cette rubrique">#</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Concerne les actions :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Spell</span></code></p></li>
+</ul>
+</div>
+<p>Côté maladie, on observe une fréquence plus faible.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Répartition des poison en fonction de leur fréquence d’apparition :</p>
+<ul class="simple">
+<li><p>1 seconde : 10%</p></li>
+<li><p>2 secondes : 10%</p></li>
+<li><p>6 secondes : 80%</p></li>
+</ul>
+</div>
+<p>De plus, les effets de la maladie sont plus variés (toutes n’infligent pas des dégâts).<br />
+Et il est difficilement possible de pouvoir les différencier.<br />
+Il serait alors dommage d’empêcher un mage de lancer des sorts parce qu’il a une maladie qui lui donne un malus de 1 en Force.<br />
+Il serait quand même envisageable de bloquer les sorts de haut niveau, au cas où.</p>
+<section id="id1">
+<h3>Snippet<a class="headerlink" href="#id1" title="Lien vers cette rubrique">#</a></h3>
+<p>Pour s’assurer qu’un personnage n’est pas malade ou qu’il ne puisse pas subir les dégâts de la maladie :</p>
+<div class="highlight-vb.net notranslate"><div class="highlight"><pre><span></span><span class="k">IF</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="w">    </span><span class="ow">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="p">!</span><span class="n">CheckSpellState</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="n">DISEASED</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">99</span><span class="p">,</span><span class="w"> </span><span class="n">RESISTPOISON</span><span class="p">)</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="k">THEN</span>
+</pre></div>
+</div>
+<p>Mais sans certitude que la maladie inflige bien des dommages.</p>
+</section>
+</section>
+<section id="mages-cagoules-d-athkatla">
+<h2>Mages cagoulés d’Athkatla<a class="headerlink" href="#mages-cagoules-d-athkatla" title="Lien vers cette rubrique">#</a></h2>
+<p>Lire <a class="reference internal" href="../general/athkatla_magec.html"><span class="std std-doc">cette page</span></a>.</p>
+</section>
+<section id="hiatus-entropiques">
+<h2>Hiatus entropiques<a class="headerlink" href="#hiatus-entropiques" title="Lien vers cette rubrique">#</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Concerne les actions :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Spell</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ForceSpell</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ReallyForceSpellDead</span></code></p></li>
+</ul>
+</div>
+<p>Les hiatus entropiques sont également à prendre en compte lors d’un lancement d’un sort.<br />
+Il est possible de savoir si le prochain sort sera un hiatus.</p>
+<section id="id2">
+<h3>Snippet<a class="headerlink" href="#id2" title="Lien vers cette rubrique">#</a></h3>
+<p>Pour s’assurer que le prochain sort ne sera pas un hiatus :</p>
+<div class="highlight-vb.net notranslate"><div class="highlight"><pre><span></span><span class="k">IF</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="w">    </span><span class="ow">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">FORCESURGE</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">CHAOS_SHIELD</span><span class="p">)</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="k">THEN</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="zone-anti-magie-et-autre-modificateur-de-reussite-a-l-incantation">
+<h2>Zone anti-magie et autre modificateur de réussite à l’incantation<a class="headerlink" href="#zone-anti-magie-et-autre-modificateur-de-reussite-a-l-incantation" title="Lien vers cette rubrique">#</a></h2>
+<p>TODO</p>
+</section>
+<section id="temps-d-attente-entre-chaque-incantation-utilisation-d-objet">
+<h2>Temps d’attente entre chaque incantation/utilisation d’objet<a class="headerlink" href="#temps-d-attente-entre-chaque-incantation-utilisation-d-objet" title="Lien vers cette rubrique">#</a></h2>
+<p>Concerne toutes les actions sauf <code class="docutils literal notranslate"><span class="pre">ReallyForceSpell</span></code>.
+TODO</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./spell"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../snippet/canpickpocket.html"
+       title="page précédente">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">précédent</p>
+        <p class="prev-next-title">✅ Can PickPocket</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="stoneskin.html"
+       title="page suivante">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">suivant</p>
+        <p class="prev-next-title">Peau de pierre (SPWI408)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenu
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#posseder-le-sort">Posséder le sort</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#silence">Silence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#blocage-de-la-capacite-a-lancer-des-sorts">Blocage de la capacité à lancer des sorts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#poison">Poison</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#etat-des-lieux-des-autres-mods">État des lieux des autres mods</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#theorycrafting-sur-le-poison">TheoryCrafting sur le poison</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#balance-ton-sort-de-niveau-1">Balance ton sort (de niveau 1)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#snippet">Snippet</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maladie">Maladie</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Snippet</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mages-cagoules-d-athkatla">Mages cagoulés d’Athkatla</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hiatus-entropiques">Hiatus entropiques</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Snippet</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zone-anti-magie-et-autre-modificateur-de-reussite-a-l-incantation">Zone anti-magie et autre modificateur de réussite à l’incantation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#temps-d-attente-entre-chaque-incantation-utilisation-d-objet">Temps d’attente entre chaque incantation/utilisation d’objet</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Par rivvers
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

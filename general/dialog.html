@@ -1,0 +1,815 @@
+
+<!DOCTYPE html>
+
+
+<html lang="fr" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Dialogue - Initialisation &#8212; BCS Snippets</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=72dce1d2"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/translations.js?v=041d0952"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'general/dialog';</script>
+    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Surveillance des Mages Cagoulés" href="athkatla_magec.html" />
+    <link rel="prev" title="Bienvenue sur BSC Snippets" href="../intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="fr"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Passer au contenu principal</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Haut de page</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="BCS Snippets - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="BCS Snippets - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Recherche</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Bienvenue sur BSC Snippets
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Généralités</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Dialogue - Initialisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="athkatla_magec.html">Surveillance des Mages Cagoulés</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Snippets</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../snippet/list.html">Sommaire</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../snippet/globalexists.html">✅ GlobalExists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../snippet/backstab.html">⚠️ Réaliser une attaque sournoise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../snippet/opportunityattack.html">✅ Réaliser une attaque d’opportunité</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../snippet/canpickpocket.html">✅ Can PickPocket</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Sorts spécifiques</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../spell/base.html">Can I Cast a Spell?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../spell/stoneskin.html">Peau de pierre (SPWI408)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../spell/massraise.html">Résurrection de masse (SPPR729)</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/RiwsPy/BCS_Snippets" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Dépôt source"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/RiwsPy/BCS_Snippets/issues/new?title=Issue%20on%20page%20%2Fgeneral/dialog.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Ouvrez un problème"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Téléchargez cette page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/general/dialog.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Télécharger le fichier source"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimer au format PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Mode plein écran"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="clair/sombre" aria-label="clair/sombre" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Dialogue - Initialisation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenu </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectif">Objectif</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#les-deux-enjeux">Les deux enjeux</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyse-des-blocs">Analyse des blocs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#combatcounter-0">CombatCounter(0)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inparty-myself">InParty(Myself)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#see-enemy">See([ENEMY])</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#startdialoguenoset">StartDialogueNoSet</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#les-manques">Les manques</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#state-charmed">STATE_CHARMED</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arret-du-temps-en-cours">Arrêt du temps en cours</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#held-casterhold-summon-disable-action-inselectionnable-isactive">HELD / CASTERHOLD / SUMMON_DISABLE_ACTION / Insélectionnable / IsActive</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pour-aller-plus-loin">Pour aller plus loin</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#polymorphie">Polymorphie</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#surdite">Surdité</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performances">Performances</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bonnes-pratiques">Bonnes pratiques</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="dialogue-initialisation">
+<h1>Dialogue - Initialisation<a class="headerlink" href="#dialogue-initialisation" title="Lien vers cette rubrique">#</a></h1>
+<section id="objectif">
+<h2>Objectif<a class="headerlink" href="#objectif" title="Lien vers cette rubrique">#</a></h2>
+<p>Initier un dialogue entre deux personnages.</p>
+<hr class="docutils" />
+<p>Ex Bête noire des moddeurs, véritable générateur de bug et grand maître arracheur de cheveux, la question : « <em>À quel moment je peux être sûr de pouvoir dialoguer avec un personnage</em> » a dû faire perdre quelques heures de sommeil à pas mal de personne.</p>
+<p>Mais ça, c’était avant…<br />
+Il existe désormais un template presque automatique à appliquer partout. Tout le temps et c’est comme ça et puis c’est tout.</p>
+</section>
+<section id="les-deux-enjeux">
+<h2>Les deux enjeux<a class="headerlink" href="#les-deux-enjeux" title="Lien vers cette rubrique">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Technique</strong> : être certain que le dialogue va pouvoir se lancer</p></li>
+<li><p><strong>RP</strong> : qu’il se lance au moment opportun (hors combat, en capacité de parler etc)</p></li>
+</ol>
+<hr class="docutils" />
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-0">
+BCS Snippet</label><div class="sd-tab-content docutils">
+<div class="highlight-vb.net notranslate"><div class="highlight"><pre><span></span><span class="k">IF</span>
+<span class="w">    </span><span class="p">!</span><span class="n">ActualityInCombat</span><span class="p">()</span>
+<span class="w">    </span><span class="p">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="n">CD_STATE_NOTVALID</span><span class="p">)</span>
+<span class="w">    </span><span class="p">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Player1</span><span class="p">,</span><span class="w"> </span><span class="n">CD_STATE_NOTVALID</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Allegiance</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="n">PC</span><span class="p">)</span>
+<span class="w">    </span><span class="p">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="n">BUTTON_DIALOG</span><span class="p">)</span>
+<span class="w">    </span><span class="n">NextTriggerObject</span><span class="p">(</span><span class="n">Player1</span><span class="p">)</span>
+<span class="w">    </span><span class="p">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="n">BUTTON_DIALOG</span><span class="p">)</span>
+<span class="w">    </span><span class="p">!</span><span class="n">Detect</span><span class="p">(</span><span class="o">[</span><span class="n">EVILCUTOFF</span><span class="o">]</span><span class="p">)</span>
+<span class="w">    </span><span class="n">See</span><span class="p">(</span><span class="n">Player1</span><span class="p">)</span>
+<span class="k">THEN</span>
+<span class="w">    </span><span class="n">RESPONSE</span><span class="w"> </span><span class="p">#</span><span class="mi">100</span>
+<span class="w">        </span><span class="n">StartDialogueNoSet</span><span class="p">(</span><span class="n">Player1</span><span class="p">)</span>
+<span class="k">END</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-1">
+Classique</label><div class="sd-tab-content docutils">
+<div class="highlight-vb.net notranslate"><div class="highlight"><pre><span></span><span class="k">IF</span>
+<span class="w">    </span><span class="n">CombatCounter</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="n">InParty</span><span class="p">(</span><span class="n">Myself</span><span class="p">)</span>
+<span class="w">    </span><span class="p">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Player1</span><span class="p">,</span><span class="n">CD_STATE_NOTVALID</span><span class="p">)</span>
+<span class="w">    </span><span class="p">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="n">CD_STATE_NOTVALID</span><span class="p">)</span>
+<span class="w">    </span><span class="p">!</span><span class="n">See</span><span class="p">(</span><span class="o">[</span><span class="n">ENEMY</span><span class="o">]</span><span class="p">)</span>
+<span class="w">    </span><span class="n">See</span><span class="p">(</span><span class="n">Player1</span><span class="p">)</span>
+<span class="k">THEN</span>
+<span class="w">    </span><span class="n">RESPONSE</span><span class="w"> </span><span class="p">#</span><span class="mi">100</span>
+<span class="w">        </span><span class="n">StartDialogueNoSet</span><span class="p">(</span><span class="n">Player1</span><span class="p">)</span>
+<span class="k">END</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>On vérifie que :</p>
+<ul class="simple">
+<li><p>Il n’y a pas de combat en cours</p></li>
+<li><p>Les deux créatures sont en état de parler</p></li>
+<li><p>Elles se voient</p></li>
+<li><p>La créature active fait partie du groupe (dans le cas d’un banter)</p></li>
+</ul>
+</section>
+<section id="analyse-des-blocs">
+<h2>Analyse des blocs<a class="headerlink" href="#analyse-des-blocs" title="Lien vers cette rubrique">#</a></h2>
+<section id="combatcounter-0">
+<h3>CombatCounter(0)<a class="headerlink" href="#combatcounter-0" title="Lien vers cette rubrique">#</a></h3>
+<p>Pratique pour savoir si aucun combat n’est en cours mais il est un peu buggé : il renvoie faux à la fin d’un dialogue par exemple.<br />
+Dans ce cas précis c’est secondaire mais mieux vaut prendre les bonnes hatitudes dès le début.</p>
+<div class="admonition tip">
+<p class="admonition-title">Astuce</p>
+<p><code class="docutils literal notranslate"><span class="pre">CombatCounter(0)</span></code> → <code class="docutils literal notranslate"><span class="pre">!ActualityInCombat()</span></code> ou <code class="docutils literal notranslate"><span class="pre">CombatCounterLT(1)</span></code></p>
+</div>
+</section>
+<section id="inparty-myself">
+<h3>InParty(Myself)<a class="headerlink" href="#inparty-myself" title="Lien vers cette rubrique">#</a></h3>
+<p>C’est un classique pour vérifier que le personnage fait bien partie du groupe avant de lancer un dialogue.<br />
+Est-ce une nécessité ? Pas forcément.<br />
+De nos jours, il y a des mods de « suiveurs » qui permettent d’avoir des « 7ème » membre du groupe.<br />
+On pourrait vouloir que ces personnages puissent discuter avec le groupe sans en faire partie.<br />
+Ces suiveurs ont une EA qui vaut <code class="docutils literal notranslate"><span class="pre">FAMILIAR</span></code>.</p>
+<div class="dropdown tip admonition">
+<p class="admonition-title">Alternatives</p>
+<div class="highlight-vb.net notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">Allegiance</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="n">GOODCUTOFF</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Ou un peu plus restrictif :</p>
+<div class="highlight-vb.net notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="ow">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="n">InParty</span><span class="p">(</span><span class="n">Myself</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Allegiance</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="n">FAMILIAR</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Ou encore un peu plus restrictif :</p>
+<div class="highlight-vb.net notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="ow">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Allegiance</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="n">PC</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Allegiance</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="n">FAMILIAR</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="note dropdown admonition">
+<p class="admonition-title">Pourquoi Allegiance(Myself, PC) est-il plus restrictif que InParty(Myself) ?</p>
+<p>Être membre du groupe ne renseigne pas sur l’allégeance du personnage. Un membre du groupe <code class="docutils literal notranslate"><span class="pre">NEUTRAL</span></code> ou charmé par un adversaire renvoie faux dans le premier cas et vrai dans le second.</p>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Astuce</p>
+<p><code class="docutils literal notranslate"><span class="pre">InParty(Myself)</span></code> → <code class="docutils literal notranslate"><span class="pre">Allegiance(Myself,</span> <span class="pre">PC)</span></code><br />
+ou, s’il on veut pouvoir discuter avec les suiveurs</p>
+<div class="highlight-vb.net notranslate"><div class="highlight"><pre><span></span><span class="ow">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Allegiance</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="n">PC</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Allegiance</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="n">FAMILIAR</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="see-enemy">
+<h3>See([ENEMY])<a class="headerlink" href="#see-enemy" title="Lien vers cette rubrique">#</a></h3>
+<p>Un classique pour déterminer si des adversaires sont à proximité.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">N’est-il pas redondant avec CombatCounter(0) ?</p>
+<p>Il arrive que des adversaires soient visibles sans qu’aucun combat ne soit en cours. C’est donc un complément intéressant.</p>
+</div>
+<p>Le problème de <code class="docutils literal notranslate"><span class="pre">ENEMY</span></code> c’est qu’il ne regroupe pas tous les personnages adverses.<br />
+<code class="docutils literal notranslate"><span class="pre">EVILCUTOFF</span></code> ici est plus large car il concerne toutes les créatures avec un cercle de sélection rouge.<br />
+C’est notamment pertinent pour détecter les membres du groupe charmés, nous y reviendrons plus bas.</p>
+<p>La plupart du temps, le dialogue n’est pas urgent et on ne veut pas déclencher un dialogue s’il y a des ennemis à proximité même si aucun combat n’a lieu.<br />
+Or <code class="docutils literal notranslate"><span class="pre">See</span></code> a des limites que ne possède pas <code class="docutils literal notranslate"><span class="pre">Detect</span></code> dans sa capacité à détecter les créatures invisibles.</p>
+<div class="admonition tip">
+<p class="admonition-title">Astuce</p>
+<p><code class="docutils literal notranslate"><span class="pre">See([ENEMY])</span></code> → <code class="docutils literal notranslate"><span class="pre">Detect([EVILCUTOFF])</span></code></p>
+</div>
+</section>
+</section>
+<section id="startdialoguenoset">
+<h2>StartDialogueNoSet<a class="headerlink" href="#startdialoguenoset" title="Lien vers cette rubrique">#</a></h2>
+<p>Pour savoir si la solution proposée est cohérente, il faut connaître <code class="docutils literal notranslate"><span class="pre">StartDialogueNoSet</span></code> et vérifier que ses contraintes sont bien respectées dans le <code class="docutils literal notranslate"><span class="pre">IF</span></code>.<br />
+On explique pourquoi <a class="reference internal" href="../base.html"><span class="doc std std-doc">ici</span></a>.</p>
+<p>Les contraintes du <code class="docutils literal notranslate"><span class="pre">StartDialogueNoSet</span></code> s’applique sur la personne qui va initier le dialogue. On va donc se focaliser sur elle.</p>
+</section>
+<section id="les-manques">
+<h2>Les manques<a class="headerlink" href="#les-manques" title="Lien vers cette rubrique">#</a></h2>
+<section id="state-charmed">
+<h3>STATE_CHARMED<a class="headerlink" href="#state-charmed" title="Lien vers cette rubrique">#</a></h3>
+<p>L’ajout d’une condition pourrait être intéressante dans les versions originales du snippet car <code class="docutils literal notranslate"><span class="pre">STATE_CHARMED</span></code> ne matche pas avec <code class="docutils literal notranslate"><span class="pre">CD_STATE_NOTVALID</span></code>.<br />
+<code class="docutils literal notranslate"><span class="pre">Player1</span></code> pourrait être charmé avec un EA à <code class="docutils literal notranslate"><span class="pre">CHARMED_PC</span></code> (qui ne matche pas avec <code class="docutils literal notranslate"><span class="pre">[ENEMY]</span></code>).</p>
+<p>Mais dans notre cas, avec l’utilisation de <code class="docutils literal notranslate"><span class="pre">!Detect([EVILCUTOFF])</span></code> et <code class="docutils literal notranslate"><span class="pre">Allegiance(Myself,</span> <span class="pre">PC)</span></code>, on gère déjà bien assez ce cas de figure.</p>
+</section>
+<section id="arret-du-temps-en-cours">
+<h3>Arrêt du temps en cours<a class="headerlink" href="#arret-du-temps-en-cours" title="Lien vers cette rubrique">#</a></h3>
+<blockquote>
+<div><p>Vous connaissez l’histoire du mage qui arrête le temps et qui est soudain pris d’un doute ? Il pose alors une question à son pote…</p>
+</div></blockquote>
+<p>Il n’existe pas de moyen sûr pour déterminer si un arrêt du temps est en cours ou non.<br />
+Et comme il ne s’agit pas d’un sort offensif, le compteur de combat n’est d’aucune utilité.<br />
+Il y a une solution alternative, incomplète, qui offre des effets secondaires intéressants :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    !ButtonDisabled(BUTTON_DIALOG)
+</pre></div>
+</div>
+<p>Le bouton de dialogue est désactivé pour le lanceur d’un Arrêt du temps.<br />
+De plus, ce bouton peut être désactivé pour d’autres raisons : Illusion projetée, plusieurs polymorphies…<br />
+Autant de raisons RP où le dialogue ne devrait pas avoir lieu.</p>
+<div class="tip admonition">
+<p class="admonition-title">Ajout de</p>
+<div class="highlight-vb.net notranslate"><div class="highlight"><pre><span></span><span class="p">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="n">BUTTON_DIALOG</span><span class="p">)</span>
+<span class="n">NextTriggerObject</span><span class="p">(</span><span class="n">Player1</span><span class="p">)</span>
+<span class="p">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="n">BUTTON_DIALOG</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="held-casterhold-summon-disable-action-inselectionnable-isactive">
+<h3>HELD / CASTERHOLD / SUMMON_DISABLE_ACTION / Insélectionnable / IsActive<a class="headerlink" href="#held-casterhold-summon-disable-action-inselectionnable-isactive" title="Lien vers cette rubrique">#</a></h3>
+<p>TODO. Trop marginales pour être pertinente (dans la version vanilla).</p>
+</section>
+</section>
+<section id="pour-aller-plus-loin">
+<h2>Pour aller plus loin<a class="headerlink" href="#pour-aller-plus-loin" title="Lien vers cette rubrique">#</a></h2>
+<section id="polymorphie">
+<h3>Polymorphie<a class="headerlink" href="#polymorphie" title="Lien vers cette rubrique">#</a></h3>
+<p>Certaines polymorphies ne bloquent pas le bouton dialogue, dans ce cas, il est possible de forcer cette condition :</p>
+<div class="highlight-vb.net notranslate"><div class="highlight"><pre><span></span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">POLYMORPHED</span><span class="p">)</span>
+<span class="n">CheckStat</span><span class="p">(</span><span class="n">Player1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">POLYMORPHED</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="surdite">
+<h3>Surdité<a class="headerlink" href="#surdite" title="Lien vers cette rubrique">#</a></h3>
+<p>On gère le cas du silence mais pas celui de la surdité. Les dialogues étant verbaux, ajouter une contrainte peut être pertinente pour des raisons RP. Libre à vous de le rajouter ou non.<br />
+C’est d’autant plus intéressant qu’avec <code class="docutils literal notranslate"><span class="pre">StartDialogueNoSet</span></code> les personnages peuvent se parler de loin.</p>
+<div class="highlight-vb.net notranslate"><div class="highlight"><pre><span></span><span class="p">!</span><span class="n">CheckSpellState</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="n">DEAFENED</span><span class="p">)</span>
+<span class="p">!</span><span class="n">CheckSpellState</span><span class="p">(</span><span class="n">Player1</span><span class="p">,</span><span class="w"> </span><span class="n">DEAFENED</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Ou moins restrictif, si on considère qu’ils sont malentendants.</p>
+<div class="highlight-vb.net notranslate"><div class="highlight"><pre><span></span><span class="ow">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">    </span><span class="p">!</span><span class="n">CheckSpellState</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="n">DEAFENED</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Range</span><span class="p">(</span><span class="n">Player1</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span>
+<span class="ow">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">    </span><span class="p">!</span><span class="n">CheckSpellState</span><span class="p">(</span><span class="n">Player1</span><span class="p">,</span><span class="w"> </span><span class="n">DEAFENED</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Range</span><span class="p">(</span><span class="n">Player1</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="performances">
+<h2>Performances<a class="headerlink" href="#performances" title="Lien vers cette rubrique">#</a></h2>
+<p>Ici, les actions qui demanderont des ressources pour les calculs sont <code class="docutils literal notranslate"><span class="pre">See</span></code> et <code class="docutils literal notranslate"><span class="pre">Detect</span></code>.<br />
+Il est donc conseillé de les placer à la fin du bloc.</p>
+</section>
+<section id="bonnes-pratiques">
+<h2>Bonnes pratiques<a class="headerlink" href="#bonnes-pratiques" title="Lien vers cette rubrique">#</a></h2>
+<p>Ce que l’on comprend c’est qu’il y a pas de façon unique ou même complète pour régler ce genre de problèmatique. Cela dépend notamment du contexte et de la conception du moddeur.<br />
+Comme on ne peut pas être assuré que le dialogue se lance, une règle s’impose : ne pas setter de variables dans le script en même temps que le lancement du dialogue.</p>
+<p>Voilà ce qu’il ne faut <strong>pas</strong> faire :</p>
+<div class="admonition warning">
+<p class="admonition-title">Avertissement</p>
+<div class="highlight-vb.net notranslate"><div class="highlight"><pre><span></span><span class="k">IF</span>
+<span class="w">    </span><span class="k">Global</span><span class="p">(</span><span class="s">&quot;NOT_TODO&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="k">THEN</span>
+<span class="w">    </span><span class="n">RESPONSE</span><span class="w"> </span><span class="p">#</span><span class="mi">100</span>
+<span class="w">        </span><span class="n">StartDialogueNoSet</span><span class="p">(</span><span class="n">Player1</span><span class="p">)</span>
+<span class="w">        </span><span class="n">SetGlobal</span><span class="p">(</span><span class="s">&quot;NOT_TODO&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="k">END</span>
+</pre></div>
+</div>
+</div>
+<p>Pourquoi ? Car si le dialogue ne se lance pas pour une condition ou une autre, la variable est modifiée et le dialogue ne se lancera donc <strong>jamais</strong>.
+S’il est important de modifier cette variable, une solution s’offre à vous :</p>
+<p>Faîtes votre affaire DANS le dialogue. C’est le seul moyen d’être sûr qu’il soit bien lancé.</p>
+<div class="admonition tip">
+<p class="admonition-title">Astuce</p>
+<div class="highlight-vb.net notranslate"><div class="highlight"><pre><span></span><span class="k">IF</span>
+<span class="w">    </span><span class="k">Global</span><span class="p">(</span><span class="s">&quot;OK&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="k">THEN</span>
+<span class="w">    </span><span class="n">RESPONSE</span><span class="w"> </span><span class="p">#</span><span class="mi">100</span>
+<span class="w">        </span><span class="n">StartDialogueNoSet</span><span class="p">(</span><span class="n">Player1</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">mettre</span><span class="w"> </span><span class="n">le</span><span class="w"> </span><span class="n">SetGlobal</span><span class="w"> </span><span class="n">dans</span><span class="w"> </span><span class="n">le</span><span class="w"> </span><span class="n">dialogue</span><span class="w"> </span><span class="p">(</span><span class="n">ou</span><span class="w"> </span><span class="n">tout</span><span class="w"> </span><span class="n">autre</span><span class="w"> </span><span class="n">évènement</span><span class="w"> </span><span class="n">qui</span><span class="w"> </span><span class="n">va</span><span class="w"> </span><span class="n">empêcher</span><span class="w"> </span><span class="n">le</span><span class="w"> </span><span class="n">bloc</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">se</span><span class="w"> </span><span class="n">répéter</span><span class="p">)</span>
+<span class="k">END</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./general"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../intro.html"
+       title="page précédente">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">précédent</p>
+        <p class="prev-next-title">Bienvenue sur BSC Snippets</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="athkatla_magec.html"
+       title="page suivante">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">suivant</p>
+        <p class="prev-next-title">Surveillance des Mages Cagoulés</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenu
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectif">Objectif</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#les-deux-enjeux">Les deux enjeux</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyse-des-blocs">Analyse des blocs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#combatcounter-0">CombatCounter(0)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inparty-myself">InParty(Myself)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#see-enemy">See([ENEMY])</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#startdialoguenoset">StartDialogueNoSet</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#les-manques">Les manques</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#state-charmed">STATE_CHARMED</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arret-du-temps-en-cours">Arrêt du temps en cours</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#held-casterhold-summon-disable-action-inselectionnable-isactive">HELD / CASTERHOLD / SUMMON_DISABLE_ACTION / Insélectionnable / IsActive</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pour-aller-plus-loin">Pour aller plus loin</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#polymorphie">Polymorphie</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#surdite">Surdité</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performances">Performances</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bonnes-pratiques">Bonnes pratiques</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Par rivvers
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
