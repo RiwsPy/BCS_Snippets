@@ -10,7 +10,7 @@ C'est notamment utile pour tester les variables de la version vanilla que l'on n
 
 ## GlobalExists
 
-```vb.net
+```cr
 IF
     OR(2)
         !Global("var", "GLOBAL", 0)
@@ -21,7 +21,7 @@ THEN
 
 ## GlobalNotExists
 
-```vb.net
+```cr
 IF
     Global("var", "GLOBAL", 0)
     !GlobalTimerExpired("var", "GLOBAL")
@@ -33,7 +33,7 @@ THEN
 ## Exemple
 
 La string ne s'affichera qu'une seule fois :
-```vb.net
+```cr
 IF
     Global("var", "LOCALS", 0)
     !GlobalTimerExpired("var", "LOCALS")

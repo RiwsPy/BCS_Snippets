@@ -7,9 +7,9 @@ Une difficulté ici est que l'on ne peut pas se baser sur des [object], car les 
 
 `````{tab-set}
 ````{tab-item} BCS Snippet
-```vb.net
+```cr
 IF
-    ...
+    //# …
     NumInPartyGT(2)
     NumInPartyAliveLT(4)
     OR(2)
@@ -18,7 +18,7 @@ IF
     OR(2)
         NumInPartyGT(4)
         NumInPartyAliveLT(2)
-    ...
+    //# …
 THEN
 ```
 Il est possible de connaître la taille du groupe ainsi que le nombre de membre encore en vie.\
@@ -35,12 +35,13 @@ Le sort est lancé si :
 ````{note}
 N'hésitez pas à attendre la fin du combat et de le faire lancer que par les alliés.
 
-```vb.net
+```cr
 IF
     !ActuallyInCombat()
     Allegiance(Myself, GOODCUTOFF)
+    Global("BDAI_DISABLE_DEFENSIVE", "LOCALS", 0)
     !See(NearestEnemyOf(Myself))
-    ...
+    //# …
 THEN
 ```
 ````

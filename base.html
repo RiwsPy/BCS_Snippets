@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -418,14 +418,14 @@ document.write(`
 </ol>
 <p>Un exemple connu est celui de l’initialisation d’un dialogue.<br />
 Si je fais :</p>
-<div class="highlight-vb.net notranslate"><div class="highlight"><pre><span></span><span class="k">IF</span>
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
 <span class="w">    </span><span class="n">See</span><span class="p">(</span><span class="n">Player1</span><span class="p">)</span>
-<span class="w">    </span><span class="k">Global</span><span class="p">(</span><span class="s">&quot;myvar&quot;</span><span class="p">,</span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="k">THEN</span>
-<span class="w">    </span><span class="n">RESPONSE</span><span class="w"> </span><span class="p">#</span><span class="mi">100</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;myvar&quot;</span><span class="p">,</span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#100</span>
 <span class="w">        </span><span class="n">StartDialogNotSet</span><span class="p">(</span><span class="n">Player1</span><span class="p">)</span>
-<span class="w">        </span><span class="n">SetGlobal</span><span class="p">(</span><span class="s">&quot;myvar&quot;</span><span class="p">,</span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="k">END</span>
+<span class="w">        </span><span class="n">SetGlobal</span><span class="p">(</span><span class="s2">&quot;myvar&quot;</span><span class="p">,</span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="no">END</span>
 </pre></div>
 </div>
 <p>Pas mal de moddeurs risquent de sauter au plafond.</p>

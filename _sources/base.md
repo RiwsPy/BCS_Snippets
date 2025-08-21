@@ -10,7 +10,7 @@ Les *Actions* ont leurs propres contraintes :
 
 Un exemple connu est celui de l'initialisation d'un dialogue.\
 Si je fais :
-```vb.net
+```cr
 IF
     See(Player1)
     Global("myvar","LOCALS",1)

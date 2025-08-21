@@ -20,10 +20,11 @@ On différencie ici, plusieurs cas :
 
 `````{tab-set}
 ````{tab-item} Classique
-```vb.net
+```cr
 IF
     ActionListEmpty()
     Global("BDAI_NO_ARCANE", "LOCALS", 0)
+    Global("BDAI_DISABLE_DEFENSIVE", "LOCALS", 0)
     CheckStatLT(Myself, 50, SPELLFAILUREMAGE)
     OR(2)
         CheckStat(Myself, 0, FORCESURGE)
@@ -61,10 +62,11 @@ Conditions :
 ````
 
 ````{tab-item} Classique en combat
-```vb.net
+```cr
 IF
     ActionListEmpty()
     Global("BDAI_NO_ARCANE", "LOCALS", 0)
+    Global("BDAI_DISABLE_DEFENSIVE", "LOCALS", 0)
     CheckStatLT(Myself, 50, SPELLFAILUREMAGE)
     OR(2)
         CheckStat(Myself, 0, FORCESURGE)
@@ -95,10 +97,11 @@ Conditions :
 
 
 ````{tab-item} Économique
-```vb.net
+```cr
 IF
     ActionListEmpty()
     Global("BDAI_NO_ARCANE", "LOCALS", 0)
+    Global("BDAI_DISABLE_DEFENSIVE", "LOCALS", 0)
     CheckStatLT(Myself, 50, SPELLFAILUREMAGE)
     OR(2)
         CheckStat(Myself, 0, FORCESURGE)
@@ -113,7 +116,7 @@ IF
         HitBy([ANYONE], MISSILE)
         HitBy([ANYONE], SLASHING)
         HitBy([ANYONE], STUNNING)
-        // -_-'
+        // -_-
         // HitBy([ANYONE], CRUSHING)
     HaveSpell(WIZARD_STONE_SKIN)
 THEN
@@ -147,10 +150,11 @@ Conditions :
 ````
 
 ````{tab-item} Continuité
-```vb.net
+```cr
 IF
     ActionListEmpty()
     Global("BDAI_NO_ARCANE", "LOCALS", 0)
+    Global("BDAI_DISABLE_DEFENSIVE", "LOCALS", 0)
     CheckStatLT(Myself, 50, SPELLFAILUREMAGE)
     OR(2)
         CheckStat(Myself, 0, FORCESURGE)

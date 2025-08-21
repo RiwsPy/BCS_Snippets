@@ -21,8 +21,9 @@ Il existe désormais un template presque automatique à appliquer partout. Tout 
 
 `````{tab-set}
 ````{tab-item} BCS Snippet
-```vb.net
+```cr
 IF
+    ActionListEmpty()
     !ActualityInCombat()
     !StateCheck(Myself, CD_STATE_NOTVALID)
     !StateCheck(Player1, CD_STATE_NOTVALID)
@@ -39,7 +40,7 @@ END
 ```
 ````
 ````{tab-item} Classique
-```vb.net
+```cr
 IF
     CombatCounter(0)
     InParty(Myself)
@@ -86,19 +87,19 @@ Ces suiveurs ont une EA qui vaut `FAMILIAR`.
 
 ````{admonition} Alternatives
 :class: dropdown, tip
-```vb.net
+```cr
     Allegiance(Myself, GOODCUTOFF)
 ```
 
 Ou un peu plus restrictif :
-```vb.net
+```cr
     OR(2)
         InParty(Myself)
         Allegiance(Myself, FAMILIAR)
 ```
 
 Ou encore un peu plus restrictif :
-```vb.net
+```cr
     OR(2)
         Allegiance(Myself, PC)
         Allegiance(Myself, FAMILIAR)
@@ -113,7 +114,7 @@ Ou encore un peu plus restrictif :
 ````{tip}
 `InParty(Myself)` → `Allegiance(Myself, PC)`\
 ou, s'il on veut pouvoir discuter avec les suiveurs
-```vb.net
+```cr
 OR(2)
     Allegiance(Myself, PC)
     Allegiance(Myself, FAMILIAR)
@@ -166,13 +167,13 @@ Il y a une solution alternative, incomplète, qui offre des effets secondaires i
 ```
     !ButtonDisabled(BUTTON_DIALOG)
 ```
-Le bouton de dialogue est désactivé pour le lanceur d'un Arrêt du temps.\
+Le bouton de dialogue est désactivé lors d'un Arrêt du temps.\
 De plus, ce bouton peut être désactivé pour d'autres raisons : Illusion projetée, plusieurs polymorphies…\
 Autant de raisons RP où le dialogue ne devrait pas avoir lieu.
 
 ````{admonition} Ajout de
 :class: tip
-```vb.net
+```cr
 !ButtonDisabled(BUTTON_DIALOG)
 NextTriggerObject(Player1)
 !ButtonDisabled(BUTTON_DIALOG)
@@ -191,7 +192,7 @@ TODO. Trop marginales pour être pertinente (dans la version vanilla).
 ### Polymorphie
 
 Certaines polymorphies ne bloquent pas le bouton dialogue, dans ce cas, il est possible de forcer cette condition :
-```vb.net
+```cr
 CheckStat(Myself, 0, POLYMORPHED)
 CheckStat(Player1, 0, POLYMORPHED)
 ```
@@ -201,14 +202,14 @@ CheckStat(Player1, 0, POLYMORPHED)
 On gère le cas du silence mais pas celui de la surdité. Les dialogues étant verbaux, ajouter une contrainte peut être pertinente pour des raisons RP. Libre à vous de le rajouter ou non.\
 C'est d'autant plus intéressant qu'avec `StartDialogueNoSet` les personnages peuvent se parler de loin.
 
-```vb.net
+```cr
 !CheckSpellState(Myself, DEAFENED)
 !CheckSpellState(Player1, DEAFENED)
 ```
 
 Ou moins restrictif, si on considère qu'ils sont malentendants.
 
-```vb.net
+```cr
 OR(2)
     !CheckSpellState(Myself, DEAFENED)
     Range(Player1, 10)
@@ -231,10 +232,10 @@ Comme on ne peut pas être assuré que le dialogue se lance, une règle s'impose
 
 Voilà ce qu'il ne faut **pas** faire :
 ````{warning}
-```vb.net
+```cr
 IF
     Global("NOT_TODO", "LOCALS", 0)
-    ...
+    //# …
 THEN
     RESPONSE #100
         StartDialogueNoSet(Player1)
@@ -243,19 +244,19 @@ END
 ```
 ````
 
-Pourquoi ? Car si le dialogue ne se lance pas pour une condition ou une autre, la variable est modifiée et le dialogue ne se lancera donc **jamais**.
+Car si le dialogue ne se lance pas pour une condition ou une autre, la variable est modifiée et le dialogue ne se lancera donc **jamais**.
 S'il est important de modifier cette variable, une solution s'offre à vous :
 
-Faîtes votre affaire DANS le dialogue. C'est le seul moyen d'être sûr qu'il soit bien lancé.
+Insérez le contenu du block `RESPONSE` dans le dialogue. C'est le seul moyen d'être sûr qu'il soit bien lancé.
 ````{tip}
 
-```vb.net
+```cr
 IF
     Global("OK", "LOCALS", 0)
-    ...
+    //# …
 THEN
     RESPONSE #100
-        StartDialogueNoSet(Player1) -> mettre le SetGlobal dans le dialogue (ou tout autre évènement qui va empêcher le bloc de se répéter)
+        StartDialogueNoSet(Player1) //# mettre le SetGlobal dans le dialogue (ou tout autre évènement qui va empêcher le bloc de se répéter)
 END
 ```
 ````

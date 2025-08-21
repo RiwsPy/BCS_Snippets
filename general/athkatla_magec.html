@@ -415,16 +415,16 @@ document.write(`
 <section id="script-de-surveillance">
 <h2>Script de surveillance<a class="headerlink" href="#script-de-surveillance" title="Lien vers cette rubrique">#</a></h2>
 <p>Exemple de script qui permet aux mages d’intervenir (ici AR0020.bcs) :</p>
-<div class="highlight-vb.net notranslate"><div class="highlight"><pre><span></span><span class="k">IF</span>
-<span class="w">    </span><span class="n">SpellCast</span><span class="p">(</span><span class="o">[</span><span class="n">PC</span><span class="o">]</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-<span class="w">    </span><span class="p">!</span><span class="n">GlobalTimerNotExpired</span><span class="p">(</span><span class="s">&quot;SpellsBad&quot;</span><span class="p">,</span><span class="s">&quot;GLOBAL&quot;</span><span class="p">)</span>
-<span class="w">    </span><span class="k">Global</span><span class="p">(</span><span class="s">&quot;BribedCowled&quot;</span><span class="p">,</span><span class="s">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-<span class="w">    </span><span class="n">GlobalLT</span><span class="p">(</span><span class="s">&quot;CowledWarning&quot;</span><span class="p">,</span><span class="s">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span>
-<span class="k">THEN</span>
-<span class="w">    </span><span class="n">RESPONSE</span><span class="w"> </span><span class="p">#</span><span class="mi">100</span>
-<span class="w">        </span><span class="n">CreateCreatureObjectDoor</span><span class="p">(</span><span class="s">&quot;COWENF2&quot;</span><span class="p">,</span><span class="n">LastTrigger</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="n">Cowled</span><span class="w"> </span><span class="n">Enforcer</span>
-<span class="w">        </span><span class="n">SetGlobalTimer</span><span class="p">(</span><span class="s">&quot;SpellsBad&quot;</span><span class="p">,</span><span class="s">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="n">ONE_HOUR</span><span class="p">)</span>
-<span class="k">END</span>
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
+<span class="w">    </span><span class="n">SpellCast</span><span class="p">(</span><span class="o">[</span><span class="no">PC</span><span class="o">]</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">GlobalTimerNotExpired</span><span class="p">(</span><span class="s2">&quot;SpellsBad&quot;</span><span class="p">,</span><span class="s2">&quot;GLOBAL&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BribedCowled&quot;</span><span class="p">,</span><span class="s2">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="n">GlobalLT</span><span class="p">(</span><span class="s2">&quot;CowledWarning&quot;</span><span class="p">,</span><span class="s2">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#100</span>
+<span class="w">        </span><span class="n">CreateCreatureObjectDoor</span><span class="p">(</span><span class="s2">&quot;COWENF2&quot;</span><span class="p">,</span><span class="n">LastTrigger</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="w">  </span><span class="sr">//</span><span class="c1"># Cowled Enforcer</span>
+<span class="w">        </span><span class="n">SetGlobalTimer</span><span class="p">(</span><span class="s2">&quot;SpellsBad&quot;</span><span class="p">,</span><span class="s2">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="no">ONE_HOUR</span><span class="p">)</span>
+<span class="no">END</span>
 </pre></div>
 </div>
 </section>
@@ -449,107 +449,117 @@ document.write(`
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" for="sd-tab-item-0">
 BCS Snippet</label><div class="sd-tab-content docutils">
-<div class="highlight-vb.net notranslate"><div class="highlight"><pre><span></span><span class="k">IF</span>
-<span class="w">    </span><span class="n">Allegiance</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="n">PC</span><span class="p">)</span>
-<span class="w">    </span><span class="k">Global</span><span class="p">(</span><span class="s">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="w">    </span><span class="k">Global</span><span class="p">(</span><span class="s">&quot;BribedCowled&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="w">    </span><span class="n">GlobalLT</span><span class="p">(</span><span class="s">&quot;CowledWarning&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">)</span>
-<span class="w">    </span><span class="p">!</span><span class="n">GlobalTimerNotExpired</span><span class="p">(</span><span class="s">&quot;SpellsBad&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;GLOBAL&quot;</span><span class="p">)</span>
-<span class="w">    </span><span class="ow">OR</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
-<span class="w">        </span><span class="n">AreaCheck</span><span class="p">(</span><span class="s">&quot;AR0020&quot;</span><span class="p">)</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="n">City</span><span class="w"> </span><span class="n">Gates</span>
-<span class="w">        </span><span class="n">AreaCheck</span><span class="p">(</span><span class="s">&quot;AR0300&quot;</span><span class="p">)</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="n">Docks</span>
-<span class="w">        </span><span class="n">AreaCheck</span><span class="p">(</span><span class="s">&quot;AR0400&quot;</span><span class="p">)</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="n">Slums</span>
-<span class="w">        </span><span class="n">AreaCheck</span><span class="p">(</span><span class="s">&quot;AR0500&quot;</span><span class="p">)</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="n">Bridge</span><span class="w"> </span><span class="n">District</span>
-<span class="w">        </span><span class="n">AreaCheck</span><span class="p">(</span><span class="s">&quot;AR0700&quot;</span><span class="p">)</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="n">Waukeen</span><span class="c">&#39;s Promenade</span>
-<span class="w">        </span><span class="n">AreaCheck</span><span class="p">(</span><span class="s">&quot;AR0900&quot;</span><span class="p">)</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="n">Temple</span><span class="w"> </span><span class="n">District</span>
-<span class="w">        </span><span class="n">AreaCheck</span><span class="p">(</span><span class="s">&quot;AR1000&quot;</span><span class="p">)</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="n">Government</span><span class="w"> </span><span class="n">District</span>
-<span class="k">THEN</span>
-<span class="w">    </span><span class="n">RESPONSE</span><span class="w"> </span><span class="p">#</span><span class="mi">100</span>
-<span class="w">        </span><span class="n">SetGlobal</span><span class="p">(</span><span class="s">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
-<span class="k">END</span>
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
+<span class="w">    </span><span class="n">Allegiance</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">PC</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BribedCowled&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="n">GlobalLT</span><span class="p">(</span><span class="s2">&quot;CowledWarning&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">GlobalTimerNotExpired</span><span class="p">(</span><span class="s2">&quot;SpellsBad&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;GLOBAL&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="w">        </span><span class="n">AreaCheck</span><span class="p">(</span><span class="s2">&quot;AR0020&quot;</span><span class="p">)</span><span class="w">  </span><span class="sr">//</span><span class="c1"># City Gates</span>
+<span class="w">        </span><span class="n">AreaCheck</span><span class="p">(</span><span class="s2">&quot;AR0300&quot;</span><span class="p">)</span><span class="w">  </span><span class="sr">//</span><span class="c1"># The Docks</span>
+<span class="w">        </span><span class="n">AreaCheck</span><span class="p">(</span><span class="s2">&quot;AR0400&quot;</span><span class="p">)</span><span class="w">  </span><span class="sr">//</span><span class="c1"># Slums</span>
+<span class="w">        </span><span class="n">AreaCheck</span><span class="p">(</span><span class="s2">&quot;AR0500&quot;</span><span class="p">)</span><span class="w">  </span><span class="sr">//</span><span class="c1"># Bridge District</span>
+<span class="w">        </span><span class="n">AreaCheck</span><span class="p">(</span><span class="s2">&quot;AR0700&quot;</span><span class="p">)</span><span class="w">  </span><span class="sr">//</span><span class="c1"># Waukeen&#39;s Promenade</span>
+<span class="w">        </span><span class="n">AreaCheck</span><span class="p">(</span><span class="s2">&quot;AR0900&quot;</span><span class="p">)</span><span class="w">  </span><span class="sr">//</span><span class="c1"># Temple District</span>
+<span class="w">        </span><span class="n">AreaCheck</span><span class="p">(</span><span class="s2">&quot;AR1000&quot;</span><span class="p">)</span><span class="w">  </span><span class="sr">//</span><span class="c1"># Government District</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#100</span>
+<span class="w">        </span><span class="n">SetGlobal</span><span class="p">(</span><span class="s2">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="no">END</span>
 
-<span class="k">IF</span>
-<span class="w">    </span><span class="k">Global</span><span class="p">(</span><span class="s">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
-<span class="w">    </span><span class="ow">OR</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="w">        </span><span class="p">!</span><span class="n">Allegiance</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="n">PC</span><span class="p">)</span>
-<span class="w">        </span><span class="k">Global</span><span class="p">(</span><span class="s">&quot;BribedCowled&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
-<span class="w">        </span><span class="n">GlobalGT</span><span class="p">(</span><span class="s">&quot;CowledWarning&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">)</span>
-<span class="w">        </span><span class="n">GlobalTimerNotExpired</span><span class="p">(</span><span class="s">&quot;SpellsBad&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;GLOBAL&quot;</span><span class="p">)</span>
-<span class="k">THEN</span>
-<span class="w">    </span><span class="n">RESPONSE</span><span class="w"> </span><span class="p">#</span><span class="mi">100</span>
-<span class="w">        </span><span class="n">SetGlobal</span><span class="p">(</span><span class="s">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="k">END</span>
+<span class="no">IF</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="w">        </span><span class="o">!</span><span class="n">Allegiance</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">PC</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BribedCowled&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">        </span><span class="n">GlobalGT</span><span class="p">(</span><span class="s2">&quot;CowledWarning&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">)</span>
+<span class="w">        </span><span class="n">GlobalTimerNotExpired</span><span class="p">(</span><span class="s2">&quot;SpellsBad&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;GLOBAL&quot;</span><span class="p">)</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#100</span>
+<span class="w">        </span><span class="n">SetGlobal</span><span class="p">(</span><span class="s2">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="no">END</span>
 
-<span class="k">IF</span>
-<span class="w">    </span><span class="k">Global</span><span class="p">(</span><span class="s">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
-<span class="w">    </span><span class="p">!</span><span class="n">AreaCheck</span><span class="p">(</span><span class="s">&quot;AR0020&quot;</span><span class="p">)</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="n">City</span><span class="w"> </span><span class="n">Gates</span>
-<span class="w">    </span><span class="p">!</span><span class="n">AreaCheck</span><span class="p">(</span><span class="s">&quot;AR0300&quot;</span><span class="p">)</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="n">Docks</span>
-<span class="w">    </span><span class="p">!</span><span class="n">AreaCheck</span><span class="p">(</span><span class="s">&quot;AR0400&quot;</span><span class="p">)</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="n">Slums</span>
-<span class="w">    </span><span class="p">!</span><span class="n">AreaCheck</span><span class="p">(</span><span class="s">&quot;AR0500&quot;</span><span class="p">)</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="n">Bridge</span><span class="w"> </span><span class="n">District</span>
-<span class="w">    </span><span class="p">!</span><span class="n">AreaCheck</span><span class="p">(</span><span class="s">&quot;AR0700&quot;</span><span class="p">)</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="n">Waukeen</span><span class="c">&#39;s Promenade</span>
-<span class="w">    </span><span class="p">!</span><span class="n">AreaCheck</span><span class="p">(</span><span class="s">&quot;AR0900&quot;</span><span class="p">)</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="n">Temple</span><span class="w"> </span><span class="n">District</span>
-<span class="w">    </span><span class="p">!</span><span class="n">AreaCheck</span><span class="p">(</span><span class="s">&quot;AR1000&quot;</span><span class="p">)</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="n">Government</span><span class="w"> </span><span class="n">District</span>
-<span class="k">THEN</span>
-<span class="w">    </span><span class="n">RESPONSE</span><span class="w"> </span><span class="p">#</span><span class="mi">100</span>
-<span class="w">        </span><span class="n">SetGlobal</span><span class="p">(</span><span class="s">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="k">END</span>
+<span class="no">IF</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">AreaCheck</span><span class="p">(</span><span class="s2">&quot;AR0020&quot;</span><span class="p">)</span><span class="w">  </span><span class="sr">//</span><span class="c1"># City Gates</span>
+<span class="w">    </span><span class="o">!</span><span class="n">AreaCheck</span><span class="p">(</span><span class="s2">&quot;AR0300&quot;</span><span class="p">)</span><span class="w">  </span><span class="sr">//</span><span class="c1"># The Docks</span>
+<span class="w">    </span><span class="o">!</span><span class="n">AreaCheck</span><span class="p">(</span><span class="s2">&quot;AR0400&quot;</span><span class="p">)</span><span class="w">  </span><span class="sr">//</span><span class="c1"># Slums</span>
+<span class="w">    </span><span class="o">!</span><span class="n">AreaCheck</span><span class="p">(</span><span class="s2">&quot;AR0500&quot;</span><span class="p">)</span><span class="w">  </span><span class="sr">//</span><span class="c1"># Bridge District</span>
+<span class="w">    </span><span class="o">!</span><span class="n">AreaCheck</span><span class="p">(</span><span class="s2">&quot;AR0700&quot;</span><span class="p">)</span><span class="w">  </span><span class="sr">//</span><span class="c1"># Waukeen&#39;s Promenade</span>
+<span class="w">    </span><span class="o">!</span><span class="n">AreaCheck</span><span class="p">(</span><span class="s2">&quot;AR0900&quot;</span><span class="p">)</span><span class="w">  </span><span class="sr">//</span><span class="c1"># Temple District</span>
+<span class="w">    </span><span class="o">!</span><span class="n">AreaCheck</span><span class="p">(</span><span class="s2">&quot;AR1000&quot;</span><span class="p">)</span><span class="w">  </span><span class="sr">//</span><span class="c1"># Government District</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#100</span>
+<span class="w">        </span><span class="n">SetGlobal</span><span class="p">(</span><span class="s2">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="no">END</span>
 </pre></div>
 </div>
 </div>
 <input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" for="sd-tab-item-1">
 bddefai</label><div class="sd-tab-content docutils">
-<div class="highlight-vb.net notranslate"><div class="highlight"><pre><span></span><span class="k">IF</span>
-<span class="w">    </span><span class="k">Global</span><span class="p">(</span><span class="s">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-<span class="w">    </span><span class="k">Global</span><span class="p">(</span><span class="s">&quot;BribedCowled&quot;</span><span class="p">,</span><span class="s">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BribedCowled&quot;</span><span class="p">,</span><span class="s2">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
 <span class="w">    </span><span class="n">InParty</span><span class="p">(</span><span class="n">Myself</span><span class="p">)</span>
-<span class="w">    </span><span class="n">AreaType</span><span class="p">(</span><span class="n">OUTDOOR</span><span class="p">)</span>
-<span class="w">    </span><span class="ow">OR</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
-<span class="w">        </span><span class="n">AreaCheck</span><span class="p">(</span><span class="s">&quot;AR0020&quot;</span><span class="p">)</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="n">City</span><span class="w"> </span><span class="n">Gates</span>
-<span class="w">        </span><span class="n">AreaCheck</span><span class="p">(</span><span class="s">&quot;AR0300&quot;</span><span class="p">)</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="n">Docks</span>
-<span class="w">        </span><span class="n">AreaCheck</span><span class="p">(</span><span class="s">&quot;AR0400&quot;</span><span class="p">)</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="n">Slums</span>
-<span class="w">        </span><span class="n">AreaCheck</span><span class="p">(</span><span class="s">&quot;AR0500&quot;</span><span class="p">)</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="n">Bridge</span><span class="w"> </span><span class="n">District</span>
-<span class="w">        </span><span class="n">AreaCheck</span><span class="p">(</span><span class="s">&quot;AR0700&quot;</span><span class="p">)</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="n">Waukeen</span><span class="c">&#39;s Promenade</span>
-<span class="w">        </span><span class="n">AreaCheck</span><span class="p">(</span><span class="s">&quot;AR0900&quot;</span><span class="p">)</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="n">Temple</span><span class="w"> </span><span class="n">District</span>
-<span class="w">        </span><span class="n">AreaCheck</span><span class="p">(</span><span class="s">&quot;AR1000&quot;</span><span class="p">)</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="n">Government</span><span class="w"> </span><span class="n">District</span>
-<span class="k">THEN</span>
-<span class="w">    </span><span class="n">RESPONSE</span><span class="w"> </span><span class="p">#</span><span class="mi">100</span>
-<span class="w">        </span><span class="n">SetGlobal</span><span class="p">(</span><span class="s">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="k">END</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#100</span>
+<span class="w">        </span><span class="n">SetGlobal</span><span class="p">(</span><span class="s2">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="no">END</span>
 
-<span class="k">IF</span>
-<span class="w">    </span><span class="k">Global</span><span class="p">(</span><span class="s">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="no">IF</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BribedCowled&quot;</span><span class="p">,</span><span class="s2">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 <span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
 <span class="w">    </span><span class="n">InParty</span><span class="p">(</span><span class="n">Myself</span><span class="p">)</span>
-<span class="w">    </span><span class="p">!</span><span class="n">AreaType</span><span class="p">(</span><span class="n">OUTDOOR</span><span class="p">)</span>
-<span class="k">THEN</span>
-<span class="w">    </span><span class="n">RESPONSE</span><span class="w"> </span><span class="p">#</span><span class="mi">100</span>
-<span class="w">        </span><span class="n">SetGlobal</span><span class="p">(</span><span class="s">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-<span class="k">END</span>
+<span class="w">    </span><span class="n">AreaType</span><span class="p">(</span><span class="no">OUTDOOR</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="w">        </span><span class="n">AreaCheck</span><span class="p">(</span><span class="s2">&quot;AR0020&quot;</span><span class="p">)</span><span class="w">  </span><span class="sr">//</span><span class="c1"># City Gates</span>
+<span class="w">        </span><span class="n">AreaCheck</span><span class="p">(</span><span class="s2">&quot;AR0300&quot;</span><span class="p">)</span><span class="w">  </span><span class="sr">//</span><span class="c1"># The Docks</span>
+<span class="w">        </span><span class="n">AreaCheck</span><span class="p">(</span><span class="s2">&quot;AR0400&quot;</span><span class="p">)</span><span class="w">  </span><span class="sr">//</span><span class="c1"># Slums</span>
+<span class="w">        </span><span class="n">AreaCheck</span><span class="p">(</span><span class="s2">&quot;AR0500&quot;</span><span class="p">)</span><span class="w">  </span><span class="sr">//</span><span class="c1"># Bridge District</span>
+<span class="w">        </span><span class="n">AreaCheck</span><span class="p">(</span><span class="s2">&quot;AR0700&quot;</span><span class="p">)</span><span class="w">  </span><span class="sr">//</span><span class="c1"># Waukeen&#39;s Promenade</span>
+<span class="w">        </span><span class="n">AreaCheck</span><span class="p">(</span><span class="s2">&quot;AR0900&quot;</span><span class="p">)</span><span class="w">  </span><span class="sr">//</span><span class="c1"># Temple District</span>
+<span class="w">        </span><span class="n">AreaCheck</span><span class="p">(</span><span class="s2">&quot;AR1000&quot;</span><span class="p">)</span><span class="w">  </span><span class="sr">//</span><span class="c1"># Government District</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#100</span>
+<span class="w">        </span><span class="n">SetGlobal</span><span class="p">(</span><span class="s2">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="no">END</span>
 
-<span class="k">IF</span>
-<span class="w">    </span><span class="k">Global</span><span class="p">(</span><span class="s">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="no">IF</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
 <span class="w">    </span><span class="n">InParty</span><span class="p">(</span><span class="n">Myself</span><span class="p">)</span>
-<span class="w">    </span><span class="p">!</span><span class="n">AreaCheck</span><span class="p">(</span><span class="s">&quot;AR0020&quot;</span><span class="p">)</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="n">City</span><span class="w"> </span><span class="n">Gates</span>
-<span class="w">    </span><span class="p">!</span><span class="n">AreaCheck</span><span class="p">(</span><span class="s">&quot;AR0300&quot;</span><span class="p">)</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="n">Docks</span>
-<span class="w">    </span><span class="p">!</span><span class="n">AreaCheck</span><span class="p">(</span><span class="s">&quot;AR0400&quot;</span><span class="p">)</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="n">Slums</span>
-<span class="w">    </span><span class="p">!</span><span class="n">AreaCheck</span><span class="p">(</span><span class="s">&quot;AR0500&quot;</span><span class="p">)</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="n">Bridge</span><span class="w"> </span><span class="n">District</span>
-<span class="w">    </span><span class="p">!</span><span class="n">AreaCheck</span><span class="p">(</span><span class="s">&quot;AR0700&quot;</span><span class="p">)</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="n">Waukeen</span><span class="c">&#39;s Promenade</span>
-<span class="w">    </span><span class="p">!</span><span class="n">AreaCheck</span><span class="p">(</span><span class="s">&quot;AR0900&quot;</span><span class="p">)</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="n">Temple</span><span class="w"> </span><span class="n">District</span>
-<span class="w">    </span><span class="p">!</span><span class="n">AreaCheck</span><span class="p">(</span><span class="s">&quot;AR1000&quot;</span><span class="p">)</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="n">Government</span><span class="w"> </span><span class="n">District</span>
-<span class="k">THEN</span>
-<span class="w">    </span><span class="n">RESPONSE</span><span class="w"> </span><span class="p">#</span><span class="mi">100</span>
-<span class="w">        </span><span class="n">SetGlobal</span><span class="p">(</span><span class="s">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-<span class="k">END</span>
+<span class="w">    </span><span class="o">!</span><span class="n">AreaType</span><span class="p">(</span><span class="no">OUTDOOR</span><span class="p">)</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#100</span>
+<span class="w">        </span><span class="n">SetGlobal</span><span class="p">(</span><span class="s2">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="no">END</span>
+
+<span class="no">IF</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
+<span class="w">    </span><span class="n">InParty</span><span class="p">(</span><span class="n">Myself</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">AreaCheck</span><span class="p">(</span><span class="s2">&quot;AR0020&quot;</span><span class="p">)</span><span class="w">  </span><span class="sr">//</span><span class="c1"># City Gates</span>
+<span class="w">    </span><span class="o">!</span><span class="n">AreaCheck</span><span class="p">(</span><span class="s2">&quot;AR0300&quot;</span><span class="p">)</span><span class="w">  </span><span class="sr">//</span><span class="c1"># The Docks</span>
+<span class="w">    </span><span class="o">!</span><span class="n">AreaCheck</span><span class="p">(</span><span class="s2">&quot;AR0400&quot;</span><span class="p">)</span><span class="w">  </span><span class="sr">//</span><span class="c1"># Slums</span>
+<span class="w">    </span><span class="o">!</span><span class="n">AreaCheck</span><span class="p">(</span><span class="s2">&quot;AR0500&quot;</span><span class="p">)</span><span class="w">  </span><span class="sr">//</span><span class="c1"># Bridge District</span>
+<span class="w">    </span><span class="o">!</span><span class="n">AreaCheck</span><span class="p">(</span><span class="s2">&quot;AR0700&quot;</span><span class="p">)</span><span class="w">  </span><span class="sr">//</span><span class="c1"># Waukeen&#39;s Promenade</span>
+<span class="w">    </span><span class="o">!</span><span class="n">AreaCheck</span><span class="p">(</span><span class="s2">&quot;AR0900&quot;</span><span class="p">)</span><span class="w">  </span><span class="sr">//</span><span class="c1"># Temple District</span>
+<span class="w">    </span><span class="o">!</span><span class="n">AreaCheck</span><span class="p">(</span><span class="s2">&quot;AR1000&quot;</span><span class="p">)</span><span class="w">  </span><span class="sr">//</span><span class="c1"># Government District</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#100</span>
+<span class="w">        </span><span class="n">SetGlobal</span><span class="p">(</span><span class="s2">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="no">END</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">AreaType(OUTDOOR)</span></code> est ici superflu, il est vrai que toutes les zones concernées par la surveillance se situent en extérieur mais rien ne le garanti dans l’absolu (le second bloc ne sert donc pas)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AreaType(OUTDOOR)</span></code> est ici superflu, il est vrai que toutes les zones concernées par la surveillance se situent en extérieur mais rien ne le garanti dans l’absolu (le troisième bloc ne sert donc pas)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">InParty(Myself)</span></code> est bien mais ne correspond pas totalement avec le script des mages qui est <code class="docutils literal notranslate"><span class="pre">SpellCast([PC],0)</span></code>, il faudrait plutôt utiliser <code class="docutils literal notranslate"><span class="pre">Allegiance(Myself,</span> <span class="pre">PC)</span></code></p></li>
 <li><p>pas de gestion de <code class="docutils literal notranslate"><span class="pre">SpellsBad</span></code></p></li>
-<li><p>pas de gestion des cas où les conditions évolueraient au sein même d’une zone (par exemple, lors de la 7ème et dernière intervention, le script n’acceptera pas de lancer des sorts, car <code class="docutils literal notranslate"><span class="pre">BDAI_NO_ARCANE</span></code> vaudra toujours 1)</p></li>
+<li><p>gestion incomplète des cas où les conditions évolueraient au sein même d’une zone (par exemple, lors de la 7ème et dernière intervention, le script n’acceptera pas de lancer des sorts, car <code class="docutils literal notranslate"><span class="pre">BDAI_NO_ARCANE</span></code> vaudra toujours 1)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ActionListEmpty()</span></code> est discutable car cela empêche le personnage de s’arrêter (c’est bien) mais le chargement des variables est importante et il est possible que des sorts n’aient pas la containte <code class="docutils literal notranslate"><span class="pre">ActionListEmpty()</span></code> et puissent donc être lancés</p></li>
 </ul>
 </div>
@@ -570,39 +580,39 @@ En revanche, cela impacte les objets qui lancent de façon indirecte, un sort de
 <h2>Liste de carte dynamique<a class="headerlink" href="#liste-de-carte-dynamique" title="Lien vers cette rubrique">#</a></h2>
 <p>Une des diffcultés que rencontre chaque mod, est de lister les différentes zones surveillées par les mages cagoulés de façon « dynamique », en effet elle est actuellement « en dur » et correspond à celle de la version vanilla. Mais elle peut être modifiée par d’autres mods sans pouvoir être prise en compte par le script.</p>
 <p>Il serait utile d’ajouter <strong>collectivement</strong> une variable dans les zones surveillées par les mages cagoulés :</p>
-<div class="highlight-vb.net notranslate"><div class="highlight"><pre><span></span><span class="k">IF</span>
-<span class="w">    </span><span class="k">Global</span><span class="p">(</span><span class="s">&quot;CowledCheckArea&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;AR...&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="k">THEN</span>
-<span class="w">    </span><span class="n">RESPONSE</span><span class="w"> </span><span class="p">#</span><span class="mi">100</span>
-<span class="w">        </span><span class="n">SetGlobal</span><span class="p">(</span><span class="s">&quot;CowledCheckArea&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;AR...&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
-<span class="k">END</span>
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;CowledCheckArea&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;AR...&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#100</span>
+<span class="w">        </span><span class="n">SetGlobal</span><span class="p">(</span><span class="s2">&quot;CowledCheckArea&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;AR...&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="no">END</span>
 </pre></div>
 </div>
 <p>En appliquant le bloc ci-dessus dans les maps concernées, dans tous les scripts des personnages il serait possible de checker dynamiquement cette valeur même si des mods ajoutent ou enlèvent des zones.</p>
-<div class="highlight-vb.net notranslate"><div class="highlight"><pre><span></span><span class="k">IF</span>
-<span class="w">    </span><span class="n">Allegiance</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="n">PC</span><span class="p">)</span>
-<span class="w">    </span><span class="k">Global</span><span class="p">(</span><span class="s">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="w">    </span><span class="k">Global</span><span class="p">(</span><span class="s">&quot;BribedCowled&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="w">    </span><span class="n">GlobalLT</span><span class="p">(</span><span class="s">&quot;CowledWarning&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">)</span>
-<span class="w">    </span><span class="p">!</span><span class="n">GlobalTimerNotExpired</span><span class="p">(</span><span class="s">&quot;SpellsBad&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;GLOBAL&quot;</span><span class="p">)</span>
-<span class="w">    </span><span class="k">Global</span><span class="p">(</span><span class="s">&quot;CowledCheckArea&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;MYAREA&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
-<span class="k">THEN</span>
-<span class="w">    </span><span class="n">RESPONSE</span><span class="w"> </span><span class="p">#</span><span class="mi">100</span>
-<span class="w">        </span><span class="n">SetGlobal</span><span class="p">(</span><span class="s">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
-<span class="k">END</span>
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
+<span class="w">    </span><span class="n">Allegiance</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">PC</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BribedCowled&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="n">GlobalLT</span><span class="p">(</span><span class="s2">&quot;CowledWarning&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">GlobalTimerNotExpired</span><span class="p">(</span><span class="s2">&quot;SpellsBad&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;GLOBAL&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;CowledCheckArea&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;MYAREA&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#100</span>
+<span class="w">        </span><span class="n">SetGlobal</span><span class="p">(</span><span class="s2">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="no">END</span>
 
-<span class="k">IF</span>
-<span class="w">    </span><span class="k">Global</span><span class="p">(</span><span class="s">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
-<span class="w">    </span><span class="ow">OR</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="w">        </span><span class="p">!</span><span class="n">Allegiance</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="n">PC</span><span class="p">)</span>
-<span class="w">        </span><span class="k">Global</span><span class="p">(</span><span class="s">&quot;BribedCowled&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
-<span class="w">        </span><span class="n">GlobalGT</span><span class="p">(</span><span class="s">&quot;CowledWarning&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">)</span>
-<span class="w">        </span><span class="n">GlobalTimerNotExpired</span><span class="p">(</span><span class="s">&quot;SpellsBad&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;GLOBAL&quot;</span><span class="p">)</span>
-<span class="w">        </span><span class="k">Global</span><span class="p">(</span><span class="s">&quot;CowledCheckArea&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;MYAREA&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="k">THEN</span>
-<span class="w">    </span><span class="n">RESPONSE</span><span class="w"> </span><span class="p">#</span><span class="mi">100</span>
-<span class="w">        </span><span class="n">SetGlobal</span><span class="p">(</span><span class="s">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="k">END</span>
+<span class="no">IF</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="w">        </span><span class="o">!</span><span class="n">Allegiance</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">PC</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BribedCowled&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">        </span><span class="n">GlobalGT</span><span class="p">(</span><span class="s2">&quot;CowledWarning&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">)</span>
+<span class="w">        </span><span class="n">GlobalTimerNotExpired</span><span class="p">(</span><span class="s2">&quot;SpellsBad&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;GLOBAL&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;CowledCheckArea&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;MYAREA&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#100</span>
+<span class="w">        </span><span class="n">SetGlobal</span><span class="p">(</span><span class="s2">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="no">END</span>
 </pre></div>
 </div>
 </section>

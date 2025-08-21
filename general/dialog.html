@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -448,37 +448,38 @@ Il existe désormais un template presque automatique à appliquer partout. Tout 
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" for="sd-tab-item-0">
 BCS Snippet</label><div class="sd-tab-content docutils">
-<div class="highlight-vb.net notranslate"><div class="highlight"><pre><span></span><span class="k">IF</span>
-<span class="w">    </span><span class="p">!</span><span class="n">ActualityInCombat</span><span class="p">()</span>
-<span class="w">    </span><span class="p">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="n">CD_STATE_NOTVALID</span><span class="p">)</span>
-<span class="w">    </span><span class="p">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Player1</span><span class="p">,</span><span class="w"> </span><span class="n">CD_STATE_NOTVALID</span><span class="p">)</span>
-<span class="w">    </span><span class="n">Allegiance</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="n">PC</span><span class="p">)</span>
-<span class="w">    </span><span class="p">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="n">BUTTON_DIALOG</span><span class="p">)</span>
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
+<span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
+<span class="w">    </span><span class="o">!</span><span class="n">ActualityInCombat</span><span class="p">()</span>
+<span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">CD_STATE_NOTVALID</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Player1</span><span class="p">,</span><span class="w"> </span><span class="no">CD_STATE_NOTVALID</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Allegiance</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">PC</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="no">BUTTON_DIALOG</span><span class="p">)</span>
 <span class="w">    </span><span class="n">NextTriggerObject</span><span class="p">(</span><span class="n">Player1</span><span class="p">)</span>
-<span class="w">    </span><span class="p">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="n">BUTTON_DIALOG</span><span class="p">)</span>
-<span class="w">    </span><span class="p">!</span><span class="n">Detect</span><span class="p">(</span><span class="o">[</span><span class="n">EVILCUTOFF</span><span class="o">]</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="no">BUTTON_DIALOG</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">Detect</span><span class="p">(</span><span class="o">[</span><span class="no">EVILCUTOFF</span><span class="o">]</span><span class="p">)</span>
 <span class="w">    </span><span class="n">See</span><span class="p">(</span><span class="n">Player1</span><span class="p">)</span>
-<span class="k">THEN</span>
-<span class="w">    </span><span class="n">RESPONSE</span><span class="w"> </span><span class="p">#</span><span class="mi">100</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#100</span>
 <span class="w">        </span><span class="n">StartDialogueNoSet</span><span class="p">(</span><span class="n">Player1</span><span class="p">)</span>
-<span class="k">END</span>
+<span class="no">END</span>
 </pre></div>
 </div>
 </div>
 <input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" for="sd-tab-item-1">
 Classique</label><div class="sd-tab-content docutils">
-<div class="highlight-vb.net notranslate"><div class="highlight"><pre><span></span><span class="k">IF</span>
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
 <span class="w">    </span><span class="n">CombatCounter</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="w">    </span><span class="n">InParty</span><span class="p">(</span><span class="n">Myself</span><span class="p">)</span>
-<span class="w">    </span><span class="p">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Player1</span><span class="p">,</span><span class="n">CD_STATE_NOTVALID</span><span class="p">)</span>
-<span class="w">    </span><span class="p">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="n">CD_STATE_NOTVALID</span><span class="p">)</span>
-<span class="w">    </span><span class="p">!</span><span class="n">See</span><span class="p">(</span><span class="o">[</span><span class="n">ENEMY</span><span class="o">]</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Player1</span><span class="p">,</span><span class="no">CD_STATE_NOTVALID</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="no">CD_STATE_NOTVALID</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">See</span><span class="p">(</span><span class="o">[</span><span class="no">ENEMY</span><span class="o">]</span><span class="p">)</span>
 <span class="w">    </span><span class="n">See</span><span class="p">(</span><span class="n">Player1</span><span class="p">)</span>
-<span class="k">THEN</span>
-<span class="w">    </span><span class="n">RESPONSE</span><span class="w"> </span><span class="p">#</span><span class="mi">100</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#100</span>
 <span class="w">        </span><span class="n">StartDialogueNoSet</span><span class="p">(</span><span class="n">Player1</span><span class="p">)</span>
-<span class="k">END</span>
+<span class="no">END</span>
 </pre></div>
 </div>
 </div>
@@ -511,19 +512,19 @@ On pourrait vouloir que ces personnages puissent discuter avec le groupe sans en
 Ces suiveurs ont une EA qui vaut <code class="docutils literal notranslate"><span class="pre">FAMILIAR</span></code>.</p>
 <div class="dropdown tip admonition">
 <p class="admonition-title">Alternatives</p>
-<div class="highlight-vb.net notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">Allegiance</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="n">GOODCUTOFF</span><span class="p">)</span>
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">Allegiance</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">GOODCUTOFF</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Ou un peu plus restrictif :</p>
-<div class="highlight-vb.net notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="ow">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="w">        </span><span class="n">InParty</span><span class="p">(</span><span class="n">Myself</span><span class="p">)</span>
-<span class="w">        </span><span class="n">Allegiance</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="n">FAMILIAR</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Allegiance</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">FAMILIAR</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Ou encore un peu plus restrictif :</p>
-<div class="highlight-vb.net notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="ow">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="w">        </span><span class="n">Allegiance</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="n">PC</span><span class="p">)</span>
-<span class="w">        </span><span class="n">Allegiance</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="n">FAMILIAR</span><span class="p">)</span>
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Allegiance</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">PC</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Allegiance</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">FAMILIAR</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="note dropdown admonition">
@@ -535,9 +536,9 @@ Ces suiveurs ont une EA qui vaut <code class="docutils literal notranslate"><spa
 <p class="admonition-title">Astuce</p>
 <p><code class="docutils literal notranslate"><span class="pre">InParty(Myself)</span></code> → <code class="docutils literal notranslate"><span class="pre">Allegiance(Myself,</span> <span class="pre">PC)</span></code><br />
 ou, s’il on veut pouvoir discuter avec les suiveurs</p>
-<div class="highlight-vb.net notranslate"><div class="highlight"><pre><span></span><span class="ow">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="w">    </span><span class="n">Allegiance</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="n">PC</span><span class="p">)</span>
-<span class="w">    </span><span class="n">Allegiance</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="n">FAMILIAR</span><span class="p">)</span>
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Allegiance</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">PC</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Allegiance</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">FAMILIAR</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -585,14 +586,14 @@ Il y a une solution alternative, incomplète, qui offre des effets secondaires i
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    !ButtonDisabled(BUTTON_DIALOG)
 </pre></div>
 </div>
-<p>Le bouton de dialogue est désactivé pour le lanceur d’un Arrêt du temps.<br />
+<p>Le bouton de dialogue est désactivé lors d’un Arrêt du temps.<br />
 De plus, ce bouton peut être désactivé pour d’autres raisons : Illusion projetée, plusieurs polymorphies…<br />
 Autant de raisons RP où le dialogue ne devrait pas avoir lieu.</p>
 <div class="tip admonition">
 <p class="admonition-title">Ajout de</p>
-<div class="highlight-vb.net notranslate"><div class="highlight"><pre><span></span><span class="p">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="n">BUTTON_DIALOG</span><span class="p">)</span>
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="no">BUTTON_DIALOG</span><span class="p">)</span>
 <span class="n">NextTriggerObject</span><span class="p">(</span><span class="n">Player1</span><span class="p">)</span>
-<span class="p">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="n">BUTTON_DIALOG</span><span class="p">)</span>
+<span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="no">BUTTON_DIALOG</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -607,8 +608,8 @@ Autant de raisons RP où le dialogue ne devrait pas avoir lieu.</p>
 <section id="polymorphie">
 <h3>Polymorphie<a class="headerlink" href="#polymorphie" title="Lien vers cette rubrique">#</a></h3>
 <p>Certaines polymorphies ne bloquent pas le bouton dialogue, dans ce cas, il est possible de forcer cette condition :</p>
-<div class="highlight-vb.net notranslate"><div class="highlight"><pre><span></span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">POLYMORPHED</span><span class="p">)</span>
-<span class="n">CheckStat</span><span class="p">(</span><span class="n">Player1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">POLYMORPHED</span><span class="p">)</span>
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">POLYMORPHED</span><span class="p">)</span>
+<span class="n">CheckStat</span><span class="p">(</span><span class="n">Player1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">POLYMORPHED</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -616,16 +617,16 @@ Autant de raisons RP où le dialogue ne devrait pas avoir lieu.</p>
 <h3>Surdité<a class="headerlink" href="#surdite" title="Lien vers cette rubrique">#</a></h3>
 <p>On gère le cas du silence mais pas celui de la surdité. Les dialogues étant verbaux, ajouter une contrainte peut être pertinente pour des raisons RP. Libre à vous de le rajouter ou non.<br />
 C’est d’autant plus intéressant qu’avec <code class="docutils literal notranslate"><span class="pre">StartDialogueNoSet</span></code> les personnages peuvent se parler de loin.</p>
-<div class="highlight-vb.net notranslate"><div class="highlight"><pre><span></span><span class="p">!</span><span class="n">CheckSpellState</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="n">DEAFENED</span><span class="p">)</span>
-<span class="p">!</span><span class="n">CheckSpellState</span><span class="p">(</span><span class="n">Player1</span><span class="p">,</span><span class="w"> </span><span class="n">DEAFENED</span><span class="p">)</span>
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="n">CheckSpellState</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">DEAFENED</span><span class="p">)</span>
+<span class="o">!</span><span class="n">CheckSpellState</span><span class="p">(</span><span class="n">Player1</span><span class="p">,</span><span class="w"> </span><span class="no">DEAFENED</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Ou moins restrictif, si on considère qu’ils sont malentendants.</p>
-<div class="highlight-vb.net notranslate"><div class="highlight"><pre><span></span><span class="ow">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="w">    </span><span class="p">!</span><span class="n">CheckSpellState</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="n">DEAFENED</span><span class="p">)</span>
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">CheckSpellState</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">DEAFENED</span><span class="p">)</span>
 <span class="w">    </span><span class="n">Range</span><span class="p">(</span><span class="n">Player1</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span>
-<span class="ow">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="w">    </span><span class="p">!</span><span class="n">CheckSpellState</span><span class="p">(</span><span class="n">Player1</span><span class="p">,</span><span class="w"> </span><span class="n">DEAFENED</span><span class="p">)</span>
+<span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">CheckSpellState</span><span class="p">(</span><span class="n">Player1</span><span class="p">,</span><span class="w"> </span><span class="no">DEAFENED</span><span class="p">)</span>
 <span class="w">    </span><span class="n">Range</span><span class="p">(</span><span class="n">Player1</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -643,29 +644,29 @@ Comme on ne peut pas être assuré que le dialogue se lance, une règle s’impo
 <p>Voilà ce qu’il ne faut <strong>pas</strong> faire :</p>
 <div class="admonition warning">
 <p class="admonition-title">Avertissement</p>
-<div class="highlight-vb.net notranslate"><div class="highlight"><pre><span></span><span class="k">IF</span>
-<span class="w">    </span><span class="k">Global</span><span class="p">(</span><span class="s">&quot;NOT_TODO&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="w">    </span><span class="p">...</span>
-<span class="k">THEN</span>
-<span class="w">    </span><span class="n">RESPONSE</span><span class="w"> </span><span class="p">#</span><span class="mi">100</span>
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;NOT_TODO&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="sr">//</span><span class="c1"># …</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#100</span>
 <span class="w">        </span><span class="n">StartDialogueNoSet</span><span class="p">(</span><span class="n">Player1</span><span class="p">)</span>
-<span class="w">        </span><span class="n">SetGlobal</span><span class="p">(</span><span class="s">&quot;NOT_TODO&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
-<span class="k">END</span>
+<span class="w">        </span><span class="n">SetGlobal</span><span class="p">(</span><span class="s2">&quot;NOT_TODO&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="no">END</span>
 </pre></div>
 </div>
 </div>
-<p>Pourquoi ? Car si le dialogue ne se lance pas pour une condition ou une autre, la variable est modifiée et le dialogue ne se lancera donc <strong>jamais</strong>.
+<p>Car si le dialogue ne se lance pas pour une condition ou une autre, la variable est modifiée et le dialogue ne se lancera donc <strong>jamais</strong>.
 S’il est important de modifier cette variable, une solution s’offre à vous :</p>
-<p>Faîtes votre affaire DANS le dialogue. C’est le seul moyen d’être sûr qu’il soit bien lancé.</p>
+<p>Insérez le contenu du block <code class="docutils literal notranslate"><span class="pre">RESPONSE</span></code> dans le dialogue. C’est le seul moyen d’être sûr qu’il soit bien lancé.</p>
 <div class="admonition tip">
 <p class="admonition-title">Astuce</p>
-<div class="highlight-vb.net notranslate"><div class="highlight"><pre><span></span><span class="k">IF</span>
-<span class="w">    </span><span class="k">Global</span><span class="p">(</span><span class="s">&quot;OK&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="w">    </span><span class="p">...</span>
-<span class="k">THEN</span>
-<span class="w">    </span><span class="n">RESPONSE</span><span class="w"> </span><span class="p">#</span><span class="mi">100</span>
-<span class="w">        </span><span class="n">StartDialogueNoSet</span><span class="p">(</span><span class="n">Player1</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">mettre</span><span class="w"> </span><span class="n">le</span><span class="w"> </span><span class="n">SetGlobal</span><span class="w"> </span><span class="n">dans</span><span class="w"> </span><span class="n">le</span><span class="w"> </span><span class="n">dialogue</span><span class="w"> </span><span class="p">(</span><span class="n">ou</span><span class="w"> </span><span class="n">tout</span><span class="w"> </span><span class="n">autre</span><span class="w"> </span><span class="n">évènement</span><span class="w"> </span><span class="n">qui</span><span class="w"> </span><span class="n">va</span><span class="w"> </span><span class="n">empêcher</span><span class="w"> </span><span class="n">le</span><span class="w"> </span><span class="n">bloc</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">se</span><span class="w"> </span><span class="n">répéter</span><span class="p">)</span>
-<span class="k">END</span>
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;OK&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="sr">//</span><span class="c1"># …</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#100</span>
+<span class="w">        </span><span class="n">StartDialogueNoSet</span><span class="p">(</span><span class="n">Player1</span><span class="p">)</span><span class="w"> </span><span class="sr">//</span><span class="c1"># mettre le SetGlobal dans le dialogue (ou tout autre évènement qui va empêcher le bloc de se répéter)</span>
+<span class="no">END</span>
 </pre></div>
 </div>
 </div>

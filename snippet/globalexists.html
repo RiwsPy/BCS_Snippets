@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -420,34 +420,34 @@ document.write(`
 C’est notamment utile pour tester les variables de la version vanilla que l’on ne peut pas modifier ou celles des autres mods sur lesquelles on a pas la main.</p>
 <section id="id1">
 <h2>GlobalExists<a class="headerlink" href="#id1" title="Lien vers cette rubrique">#</a></h2>
-<div class="highlight-vb.net notranslate"><div class="highlight"><pre><span></span><span class="k">IF</span>
-<span class="w">    </span><span class="ow">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="w">        </span><span class="p">!</span><span class="k">Global</span><span class="p">(</span><span class="s">&quot;var&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="w">        </span><span class="n">GlobalTimerExpired</span><span class="p">(</span><span class="s">&quot;var&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;GLOBAL&quot;</span><span class="p">)</span>
-<span class="k">THEN</span>
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="o">!</span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;var&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">        </span><span class="n">GlobalTimerExpired</span><span class="p">(</span><span class="s2">&quot;var&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;GLOBAL&quot;</span><span class="p">)</span>
+<span class="no">THEN</span>
 </pre></div>
 </div>
 </section>
 <section id="globalnotexists">
 <h2>GlobalNotExists<a class="headerlink" href="#globalnotexists" title="Lien vers cette rubrique">#</a></h2>
-<div class="highlight-vb.net notranslate"><div class="highlight"><pre><span></span><span class="k">IF</span>
-<span class="w">    </span><span class="k">Global</span><span class="p">(</span><span class="s">&quot;var&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="w">    </span><span class="p">!</span><span class="n">GlobalTimerExpired</span><span class="p">(</span><span class="s">&quot;var&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;GLOBAL&quot;</span><span class="p">)</span>
-<span class="k">THEN</span>
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;var&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">GlobalTimerExpired</span><span class="p">(</span><span class="s2">&quot;var&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;GLOBAL&quot;</span><span class="p">)</span>
+<span class="no">THEN</span>
 </pre></div>
 </div>
 </section>
 <section id="exemple">
 <h2>Exemple<a class="headerlink" href="#exemple" title="Lien vers cette rubrique">#</a></h2>
 <p>La string ne s’affichera qu’une seule fois :</p>
-<div class="highlight-vb.net notranslate"><div class="highlight"><pre><span></span><span class="k">IF</span>
-<span class="w">    </span><span class="k">Global</span><span class="p">(</span><span class="s">&quot;var&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="w">    </span><span class="p">!</span><span class="n">GlobalTimerExpired</span><span class="p">(</span><span class="s">&quot;var&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LOCALS&quot;</span><span class="p">)</span>
-<span class="k">THEN</span>
-<span class="w">    </span><span class="n">RESPONSE</span><span class="w"> </span><span class="p">#</span><span class="mi">1</span>
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;var&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">GlobalTimerExpired</span><span class="p">(</span><span class="s2">&quot;var&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">)</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
 <span class="w">        </span><span class="n">DisplayStringHead</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
-<span class="w">        </span><span class="n">SetGlobal</span><span class="p">(</span><span class="s">&quot;var&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="k">END</span>
+<span class="w">        </span><span class="n">SetGlobal</span><span class="p">(</span><span class="s2">&quot;var&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="no">END</span>
 </pre></div>
 </div>
 </section>

@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -430,32 +430,33 @@ On différencie ici, plusieurs cas :</p>
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" for="sd-tab-item-0">
 Classique</label><div class="sd-tab-content docutils">
-<div class="highlight-vb.net notranslate"><div class="highlight"><pre><span></span><span class="k">IF</span>
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
 <span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
-<span class="w">    </span><span class="k">Global</span><span class="p">(</span><span class="s">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="w">    </span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="n">SPELLFAILUREMAGE</span><span class="p">)</span>
-<span class="w">    </span><span class="ow">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="w">        </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">FORCESURGE</span><span class="p">)</span>
-<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">CHAOS_SHIELD</span><span class="p">)</span>
-<span class="w">    </span><span class="ow">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="w">        </span><span class="p">!</span><span class="n">GlobalTimerNotExpired</span><span class="p">(</span><span class="s">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="s">&quot;LOCALS&quot;</span><span class="p">)</span>
-<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">AURACLEANSING</span><span class="p">)</span>
-<span class="w">    </span><span class="ow">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_DISABLE_DEFENSIVE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="no">SPELLFAILUREMAGE</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">FORCESURGE</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CHAOS_SHIELD</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="o">!</span><span class="n">GlobalTimerNotExpired</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="s2">&quot;LOCALS&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">AURACLEANSING</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="w">        </span><span class="n">See</span><span class="p">(</span><span class="n">NearestEnemyOf</span><span class="p">(</span><span class="n">Myself</span><span class="p">))</span>
-<span class="w">        </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">SPELLFAILUREMAGE</span><span class="p">)</span>
-<span class="w">    </span><span class="ow">OR</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">SPELLFAILUREMAGE</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <span class="w">        </span><span class="n">See</span><span class="p">(</span><span class="n">NearestEnemyOf</span><span class="p">(</span><span class="n">Myself</span><span class="p">))</span>
-<span class="w">        </span><span class="p">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="n">STATE_POISONED</span><span class="p">)</span>
-<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">99</span><span class="p">,</span><span class="w"> </span><span class="n">RESISTPOISON</span><span class="p">)</span>
-<span class="w">    </span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">STONESKINS</span><span class="p">)</span>
-<span class="w">    </span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">STONESKINSGOLEM</span><span class="p">)</span>
-<span class="w">    </span><span class="p">!</span><span class="n">ModalState</span><span class="p">(</span><span class="n">STEALTH</span><span class="p">)</span>
-<span class="w">    </span><span class="n">HaveSpell</span><span class="p">(</span><span class="n">WIZARD_STONE_SKIN</span><span class="p">)</span>
-<span class="k">THEN</span>
-<span class="w">    </span><span class="n">RESPONSE</span><span class="w"> </span><span class="p">#</span><span class="mi">100</span>
-<span class="w">        </span><span class="n">SetGlobalTimer</span><span class="p">(</span><span class="s">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ONE_ROUND</span><span class="p">)</span>
-<span class="w">        </span><span class="n">Spell</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="n">WIZARD_STONE_SKIN</span><span class="p">)</span>
-<span class="k">END</span>
+<span class="w">        </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_POISONED</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">99</span><span class="p">,</span><span class="w"> </span><span class="no">RESISTPOISON</span><span class="p">)</span>
+<span class="w">    </span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="no">STONESKINS</span><span class="p">)</span>
+<span class="w">    </span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="no">STONESKINSGOLEM</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">ModalState</span><span class="p">(</span><span class="no">STEALTH</span><span class="p">)</span>
+<span class="w">    </span><span class="n">HaveSpell</span><span class="p">(</span><span class="no">WIZARD_STONE_SKIN</span><span class="p">)</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#100</span>
+<span class="w">        </span><span class="n">SetGlobalTimer</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="no">ONE_ROUND</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Spell</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">WIZARD_STONE_SKIN</span><span class="p">)</span>
+<span class="no">END</span>
 </pre></div>
 </div>
 <p>Cette version propose de lancer le sort même hors combat, dès que les peaux s’estompent.<br />
@@ -472,26 +473,27 @@ Comme sa durée est longue, il est utilisable à titre préventif.</p>
 <input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" for="sd-tab-item-1">
 Classique en combat</label><div class="sd-tab-content docutils">
-<div class="highlight-vb.net notranslate"><div class="highlight"><pre><span></span><span class="k">IF</span>
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
 <span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
-<span class="w">    </span><span class="k">Global</span><span class="p">(</span><span class="s">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="w">    </span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="n">SPELLFAILUREMAGE</span><span class="p">)</span>
-<span class="w">    </span><span class="ow">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="w">        </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">FORCESURGE</span><span class="p">)</span>
-<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">CHAOS_SHIELD</span><span class="p">)</span>
-<span class="w">    </span><span class="ow">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="w">        </span><span class="p">!</span><span class="n">GlobalTimerNotExpired</span><span class="p">(</span><span class="s">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="s">&quot;LOCALS&quot;</span><span class="p">)</span>
-<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">AURACLEANSING</span><span class="p">)</span>
-<span class="w">    </span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">STONESKINS</span><span class="p">)</span>
-<span class="w">    </span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">STONESKINSGOLEM</span><span class="p">)</span>
-<span class="w">    </span><span class="p">!</span><span class="n">ModalState</span><span class="p">(</span><span class="n">STEALTH</span><span class="p">)</span>
-<span class="w">    </span><span class="n">HaveSpell</span><span class="p">(</span><span class="n">WIZARD_STONE_SKIN</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_DISABLE_DEFENSIVE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="no">SPELLFAILUREMAGE</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">FORCESURGE</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CHAOS_SHIELD</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="o">!</span><span class="n">GlobalTimerNotExpired</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="s2">&quot;LOCALS&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">AURACLEANSING</span><span class="p">)</span>
+<span class="w">    </span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="no">STONESKINS</span><span class="p">)</span>
+<span class="w">    </span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="no">STONESKINSGOLEM</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">ModalState</span><span class="p">(</span><span class="no">STEALTH</span><span class="p">)</span>
+<span class="w">    </span><span class="n">HaveSpell</span><span class="p">(</span><span class="no">WIZARD_STONE_SKIN</span><span class="p">)</span>
 <span class="w">    </span><span class="n">See</span><span class="p">(</span><span class="n">NearestEnemyOf</span><span class="p">(</span><span class="n">Myself</span><span class="p">))</span>
-<span class="k">THEN</span>
-<span class="w">    </span><span class="n">RESPONSE</span><span class="w"> </span><span class="p">#</span><span class="mi">100</span>
-<span class="w">        </span><span class="n">SetGlobalTimer</span><span class="p">(</span><span class="s">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ONE_ROUND</span><span class="p">)</span>
-<span class="w">        </span><span class="n">Spell</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="n">WIZARD_STONE_SKIN</span><span class="p">)</span>
-<span class="k">END</span><span class="w">  </span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#100</span>
+<span class="w">        </span><span class="n">SetGlobalTimer</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="no">ONE_ROUND</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Spell</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">WIZARD_STONE_SKIN</span><span class="p">)</span>
+<span class="no">END</span><span class="w">  </span>
 </pre></div>
 </div>
 <p>C’est la même que la précédente mais on ne l’active que si on voit un ennemi.</p>
@@ -506,31 +508,32 @@ Classique en combat</label><div class="sd-tab-content docutils">
 <input id="sd-tab-item-2" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" for="sd-tab-item-2">
 Économique</label><div class="sd-tab-content docutils">
-<div class="highlight-vb.net notranslate"><div class="highlight"><pre><span></span><span class="k">IF</span>
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
 <span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
-<span class="w">    </span><span class="k">Global</span><span class="p">(</span><span class="s">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="w">    </span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="n">SPELLFAILUREMAGE</span><span class="p">)</span>
-<span class="w">    </span><span class="ow">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="w">        </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">FORCESURGE</span><span class="p">)</span>
-<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">CHAOS_SHIELD</span><span class="p">)</span>
-<span class="w">    </span><span class="ow">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="w">        </span><span class="p">!</span><span class="n">GlobalTimerNotExpired</span><span class="p">(</span><span class="s">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="s">&quot;LOCALS&quot;</span><span class="p">)</span>
-<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">AURACLEANSING</span><span class="p">)</span>
-<span class="w">    </span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">STONESKINS</span><span class="p">)</span>
-<span class="w">    </span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">STONESKINSGOLEM</span><span class="p">)</span>
-<span class="w">    </span><span class="ow">OR</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="w">        </span><span class="n">HitBy</span><span class="p">(</span><span class="o">[</span><span class="n">ANYONE</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="n">PIERCING</span><span class="p">)</span>
-<span class="w">        </span><span class="n">HitBy</span><span class="p">(</span><span class="o">[</span><span class="n">ANYONE</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="n">MISSILE</span><span class="p">)</span>
-<span class="w">        </span><span class="n">HitBy</span><span class="p">(</span><span class="o">[</span><span class="n">ANYONE</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="n">SLASHING</span><span class="p">)</span>
-<span class="w">        </span><span class="n">HitBy</span><span class="p">(</span><span class="o">[</span><span class="n">ANYONE</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="n">STUNNING</span><span class="p">)</span>
-<span class="w">        </span><span class="o">//</span><span class="w"> </span><span class="o">-</span><span class="n">_</span><span class="o">-</span><span class="c">&#39;</span>
-<span class="w">        </span><span class="o">//</span><span class="w"> </span><span class="n">HitBy</span><span class="p">(</span><span class="o">[</span><span class="n">ANYONE</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="n">CRUSHING</span><span class="p">)</span>
-<span class="w">    </span><span class="n">HaveSpell</span><span class="p">(</span><span class="n">WIZARD_STONE_SKIN</span><span class="p">)</span>
-<span class="k">THEN</span>
-<span class="w">    </span><span class="n">RESPONSE</span><span class="w"> </span><span class="p">#</span><span class="mi">100</span>
-<span class="w">        </span><span class="n">SetGlobalTimer</span><span class="p">(</span><span class="s">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ONE_ROUND</span><span class="p">)</span>
-<span class="w">        </span><span class="n">Spell</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="n">WIZARD_STONE_SKIN</span><span class="p">)</span>
-<span class="k">END</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_DISABLE_DEFENSIVE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="no">SPELLFAILUREMAGE</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">FORCESURGE</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CHAOS_SHIELD</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="o">!</span><span class="n">GlobalTimerNotExpired</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="s2">&quot;LOCALS&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">AURACLEANSING</span><span class="p">)</span>
+<span class="w">    </span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="no">STONESKINS</span><span class="p">)</span>
+<span class="w">    </span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="no">STONESKINSGOLEM</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="w">        </span><span class="n">HitBy</span><span class="p">(</span><span class="o">[</span><span class="no">ANYONE</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="no">PIERCING</span><span class="p">)</span>
+<span class="w">        </span><span class="n">HitBy</span><span class="p">(</span><span class="o">[</span><span class="no">ANYONE</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="no">MISSILE</span><span class="p">)</span>
+<span class="w">        </span><span class="n">HitBy</span><span class="p">(</span><span class="o">[</span><span class="no">ANYONE</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="no">SLASHING</span><span class="p">)</span>
+<span class="w">        </span><span class="n">HitBy</span><span class="p">(</span><span class="o">[</span><span class="no">ANYONE</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="no">STUNNING</span><span class="p">)</span>
+<span class="w">        </span><span class="sr">//</span><span class="w"> </span><span class="o">-</span><span class="n">_</span><span class="o">-</span>
+<span class="w">        </span><span class="sr">//</span><span class="w"> </span><span class="n">HitBy</span><span class="p">(</span><span class="o">[</span><span class="no">ANYONE</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="no">CRUSHING</span><span class="p">)</span>
+<span class="w">    </span><span class="n">HaveSpell</span><span class="p">(</span><span class="no">WIZARD_STONE_SKIN</span><span class="p">)</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#100</span>
+<span class="w">        </span><span class="n">SetGlobalTimer</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="no">ONE_ROUND</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Spell</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">WIZARD_STONE_SKIN</span><span class="p">)</span>
+<span class="no">END</span>
 </pre></div>
 </div>
 <p>Cette version propose d’attendre de subir une attaque susceptible d’être bloquée par une peau avant de réagir.<br />
@@ -560,25 +563,26 @@ Par exemple, réserver celle-ci si on a plus de 50% de santé et basculer sur l�
 <input id="sd-tab-item-3" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" for="sd-tab-item-3">
 Continuité</label><div class="sd-tab-content docutils">
-<div class="highlight-vb.net notranslate"><div class="highlight"><pre><span></span><span class="k">IF</span>
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
 <span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
-<span class="w">    </span><span class="k">Global</span><span class="p">(</span><span class="s">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="w">    </span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="n">SPELLFAILUREMAGE</span><span class="p">)</span>
-<span class="w">    </span><span class="ow">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="w">        </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">FORCESURGE</span><span class="p">)</span>
-<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">CHAOS_SHIELD</span><span class="p">)</span>
-<span class="w">    </span><span class="ow">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="w">        </span><span class="p">!</span><span class="n">GlobalTimerNotExpired</span><span class="p">(</span><span class="s">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="s">&quot;LOCALS&quot;</span><span class="p">)</span>
-<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">AURACLEANSING</span><span class="p">)</span>
-<span class="w">    </span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">STONESKINS</span><span class="p">)</span>
-<span class="w">    </span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">STONESKINSGOLEM</span><span class="p">)</span>
-<span class="w">    </span><span class="n">AttackedBy</span><span class="p">(</span><span class="o">[</span><span class="n">ANYONE</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="k">DEFAULT</span><span class="p">)</span>
-<span class="w">    </span><span class="n">HaveSpell</span><span class="p">(</span><span class="n">WIZARD_STONE_SKIN</span><span class="p">)</span>
-<span class="k">THEN</span>
-<span class="w">    </span><span class="n">RESPONSE</span><span class="w"> </span><span class="p">#</span><span class="mi">100</span>
-<span class="w">        </span><span class="n">SetGlobalTimer</span><span class="p">(</span><span class="s">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ONE_ROUND</span><span class="p">)</span>
-<span class="w">        </span><span class="n">Spell</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="n">WIZARD_STONE_SKIN</span><span class="p">)</span>
-<span class="k">END</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_DISABLE_DEFENSIVE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="no">SPELLFAILUREMAGE</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">FORCESURGE</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CHAOS_SHIELD</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="o">!</span><span class="n">GlobalTimerNotExpired</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="s2">&quot;LOCALS&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">AURACLEANSING</span><span class="p">)</span>
+<span class="w">    </span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="no">STONESKINS</span><span class="p">)</span>
+<span class="w">    </span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="no">STONESKINSGOLEM</span><span class="p">)</span>
+<span class="w">    </span><span class="n">AttackedBy</span><span class="p">(</span><span class="o">[</span><span class="no">ANYONE</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="no">DEFAULT</span><span class="p">)</span>
+<span class="w">    </span><span class="n">HaveSpell</span><span class="p">(</span><span class="no">WIZARD_STONE_SKIN</span><span class="p">)</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#100</span>
+<span class="w">        </span><span class="n">SetGlobalTimer</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="no">ONE_ROUND</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Spell</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">WIZARD_STONE_SKIN</span><span class="p">)</span>
+<span class="no">END</span>
 </pre></div>
 </div>
 <p>Cette version assure la continuité entre les peaux de pierre.<br />

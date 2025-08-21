@@ -2,8 +2,11 @@
 
 Snippet qui cherche à savoir si le personnage est en mesure de réussir une attaque sournoise et d'infliger des dégâts.
 
-```vb.net
+```cr
 IF
+    ActionListEmpty()
+    Global("BDAI_DISABLE_ATTACK", "LOCALS", 0)
+
     // arme compatible et utilisable par les voleurs
     !IsWeaponRanged(Myself)
 
@@ -18,6 +21,8 @@ IF
         CheckStat(Myself, 2, ASSASSINATE)
         False() // Check 3E sneak attack
 
+    See([ANYONE]) //# TODO
+
     // Contrainte de position
     OR(4)
         Allegiance(Myself, NOTGOOD)
@@ -25,7 +30,6 @@ IF
         CheckStat(Myself, 4, ASSASSINATE)
         False()  // placement dans le dos
 
-    See(NearestEnemyOf(Myself))
     CheckStat(LastSeenBy(Myself), 0, IMMUNITY_TO_BACKSTAB)
     !Kit(LastSeenBy(Myself), BARBARIAN)
     CheckStatLT(LastSeenBy(Myself), 1, STONESKINS)

@@ -410,29 +410,129 @@ document.write(`
 <h1>✅ Can PickPocket<a class="headerlink" href="#can-pickpocket" title="Lien vers cette rubrique">#</a></h1>
 <p>Snippet qui permet de savoir si le vol à la tire est envisageable ou non.</p>
 <p>Utilisable quelque soit l’allégeance de la créature.<br />
-Il n’est pas limité aux « Voleurs » par contre un minimum de maîtrise est nécessaire (valeur minimale dans SLTSTEAL.2DA sur la version Vanilla).</p>
-<div class="highlight-vb.net notranslate"><div class="highlight"><pre><span></span><span class="k">IF</span>
+Il n’est pas limité aux « Voleurs » par contre un minimum de maîtrise est nécessaire.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-0">
+Minimale</label><div class="sd-tab-content docutils">
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
 <span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
-<span class="w">    </span><span class="k">Global</span><span class="p">(</span><span class="s">&quot;BDAI_SKILL_MODE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="w">    </span><span class="p">!</span><span class="n">DisabledButton</span><span class="p">(</span><span class="n">BUTTON_THIEVING</span><span class="p">)</span>
-<span class="w">    </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="n">PICKPOCKET</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="c">&#39;&#39; Facultatif mais conseillé</span>
-<span class="w">    </span><span class="p">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="n">STATE_INVISIBLE</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="c">&#39;&#39; Facultatif, à savoir que le larçin est une action qui dissipe l&#39;invisibilité</span>
-<span class="w">    </span><span class="p">!</span><span class="n">InventoryFull</span><span class="p">(</span><span class="n">Myself</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_SKILL_MODE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">DisabledButton</span><span class="p">(</span><span class="no">BUTTON_THIEVING</span><span class="p">)</span>
+<span class="w">    </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">PICKPOCKET</span><span class="p">)</span><span class="w"> </span><span class="sr">//</span><span class="c1"># Facultatif mais conseillé</span>
+<span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_SLEEPING</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_HELPLESS</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_REALLY_DEAD</span><span class="p">)</span>
+<span class="w">    </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CASTERHOLD</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">InventoryFull</span><span class="p">(</span><span class="n">Myself</span><span class="p">)</span>
 
-<span class="w">    </span><span class="n">See</span><span class="p">(</span><span class="o">[</span><span class="p">...</span><span class="o">]</span><span class="p">)</span>
+<span class="w">    </span><span class="n">See</span><span class="p">(</span><span class="o">[</span><span class="no">ANYONE</span><span class="o">]</span><span class="p">)</span><span class="w"> </span><span class="sr">//</span><span class="c1"># TODO</span>
 
-<span class="w">    </span><span class="n">Range</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="c">&#39;&#39; Facultatif, à savoir que dans le cas contraire, le personnage se déplacera</span>
-<span class="w">    </span><span class="p">!</span><span class="n">CheckStat</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="n">PICKPOCKET</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="c">&#39;&#39; Facultatif, pas très RP</span>
-<span class="w">    </span><span class="ow">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="c">&#39;&#39; Un NOTEVIL ne peut voler un EVILCUTOFF et inversement</span>
-<span class="w">        </span><span class="n">Allegiance</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="n">NOTEVIL</span><span class="p">)</span>
-<span class="w">        </span><span class="n">Allegiance</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="n">NOTGOOD</span><span class="p">)</span>
-<span class="w">    </span><span class="ow">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="w">        </span><span class="n">Allegiance</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="n">EVILCUTOFF</span><span class="p">)</span>
-<span class="w">        </span><span class="n">Allegiance</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="n">NOTEVIL</span><span class="p">)</span>
-<span class="w">    </span><span class="n">HasItemType</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="n">DROPPABLE</span><span class="p">)</span>
-<span class="w">    </span><span class="p">...</span>
-<span class="k">THEN</span>
+<span class="w">    </span><span class="o">!</span><span class="n">CheckStat</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="no">PICKPOCKET</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="sr">//</span><span class="c1"># Un NOTEVIL ne peut voler un EVILCUTOFF et inversement</span>
+<span class="w">        </span><span class="n">Allegiance</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">NOTEVIL</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Allegiance</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="no">NOTGOOD</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Allegiance</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">EVILCUTOFF</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Allegiance</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="no">NOTEVIL</span><span class="p">)</span>
+<span class="w">    </span><span class="n">HasItemType</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="no">DROPPABLE</span><span class="p">)</span>
+
+<span class="w">    </span><span class="sr">//</span><span class="c1"># …</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
+<span class="w">        </span><span class="n">PickPocket</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">))</span>
+<span class="no">END</span>
 </pre></div>
+</div>
+<p>La version minimale qui prévient les cas où le larçin sera impossible ou l’échec sera automatique.</p>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-1">
+RP</label><div class="sd-tab-content docutils">
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
+<span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_SKILL_MODE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">DisabledButton</span><span class="p">(</span><span class="no">BUTTON_THIEVING</span><span class="p">)</span>
+<span class="w">    </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="no">PICKPOCKET</span><span class="p">)</span><span class="w"> </span><span class="sr">//</span><span class="c1"># Facultatif mais conseillé</span>
+<span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_INVISIBLE</span><span class="p">)</span><span class="w"> </span><span class="sr">//</span><span class="c1"># Facultatif, à savoir que le larçin est une action qui dissipe l&#39;invisibilité</span>
+<span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_DISABLED</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_REALLY_DEAD</span><span class="p">)</span>
+<span class="w">    </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CASTERHOLD</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">InventoryFull</span><span class="p">(</span><span class="n">Myself</span><span class="p">)</span>
+
+<span class="w">    </span><span class="o">!</span><span class="n">See</span><span class="p">(</span><span class="n">NearestEnemyOf</span><span class="p">(</span><span class="n">Myself</span><span class="p">))</span>
+<span class="w">    </span><span class="n">See</span><span class="p">(</span><span class="o">[</span><span class="no">NEUTRAL</span><span class="o">]</span><span class="p">)</span>
+
+<span class="w">    </span><span class="n">Range</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="sr">//</span><span class="c1"># Facultatif, à savoir que dans le cas contraire, le personnage se déplacera et devra donc pouvoir se déplacer</span>
+<span class="w">    </span><span class="o">!</span><span class="n">CheckStat</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="no">PICKPOCKET</span><span class="p">)</span>
+<span class="w">    </span><span class="n">HasItemType</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="no">DROPPABLE</span><span class="p">)</span>
+
+<span class="w">    </span><span class="sr">//</span><span class="c1"># …</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
+<span class="w">        </span><span class="n">PickPocket</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">))</span>
+<span class="no">END</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Pas de vol si un ennemi est à vue</p></li>
+<li><p>Une maîtrise de 10 en vol est requise (valeur minimale dans SLTSTEAL.2DA sur la version Vanilla)</p></li>
+<li><p>Blocage si certains State sont actifs</p></li>
+<li><p>On ne peut voler les ennemis et voler les alliés n’est pas encouragé, on ne vise alors que les neutres</p></li>
+</ul>
+</div>
+<input id="sd-tab-item-2" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-2">
+RP Safe</label><div class="sd-tab-content docutils">
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
+<span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_SKILL_MODE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">DisabledButton</span><span class="p">(</span><span class="no">BUTTON_THIEVING</span><span class="p">)</span>
+<span class="w">    </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">49</span><span class="p">,</span><span class="w"> </span><span class="no">PICKPOCKET</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_INVISIBLE</span><span class="p">)</span><span class="w"> </span><span class="sr">//</span><span class="c1"># Facultatif, à savoir que le larçin est une action qui dissipe l&#39;invisibilité</span>
+<span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_DISABLED</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_REALLY_DEAD</span><span class="p">)</span>
+<span class="w">    </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CASTERHOLD</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">InventoryFull</span><span class="p">(</span><span class="n">Myself</span><span class="p">)</span>
+
+<span class="w">    </span><span class="o">!</span><span class="n">See</span><span class="p">(</span><span class="n">NearestEnemyOf</span><span class="p">(</span><span class="n">Myself</span><span class="p">))</span>
+<span class="w">    </span><span class="n">See</span><span class="p">(</span><span class="o">[</span><span class="no">NEUTRAL</span><span class="o">]</span><span class="p">)</span>
+
+<span class="w">    </span><span class="n">Range</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="sr">//</span><span class="c1"># Facultatif, à savoir que dans le cas contraire, le personnage se déplacera et devra donc pouvoir se déplacer</span>
+<span class="w">    </span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="no">PICKPOCKET</span><span class="p">)</span>
+<span class="w">    </span><span class="n">HasItemType</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="no">DROPPABLE</span><span class="p">)</span>
+
+<span class="w">    </span><span class="sr">//</span><span class="c1"># Check safe</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">PICKPOCKET</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">74</span><span class="p">,</span><span class="w"> </span><span class="no">PICKPOCKET</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w"> </span><span class="no">PICKPOCKET</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">99</span><span class="p">,</span><span class="w"> </span><span class="no">PICKPOCKET</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="no">PICKPOCKET</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">124</span><span class="p">,</span><span class="w"> </span><span class="no">PICKPOCKET</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">75</span><span class="p">,</span><span class="w"> </span><span class="no">PICKPOCKET</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">149</span><span class="p">,</span><span class="w"> </span><span class="no">PICKPOCKET</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="no">PICKPOCKET</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">174</span><span class="p">,</span><span class="w"> </span><span class="no">PICKPOCKET</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">125</span><span class="p">,</span><span class="w"> </span><span class="no">PICKPOCKET</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">199</span><span class="p">,</span><span class="w"> </span><span class="no">PICKPOCKET</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">150</span><span class="p">,</span><span class="w"> </span><span class="no">PICKPOCKET</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">224</span><span class="p">,</span><span class="w"> </span><span class="no">PICKPOCKET</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">175</span><span class="p">,</span><span class="w"> </span><span class="no">PICKPOCKET</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">249</span><span class="p">,</span><span class="w"> </span><span class="no">PICKPOCKET</span><span class="p">)</span>
+
+<span class="w">    </span><span class="sr">//</span><span class="c1"># …</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
+<span class="w">        </span><span class="n">PickPocket</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">))</span>
+<span class="no">END</span>
+</pre></div>
+</div>
+<p>La version RP mais en vérifiant d’avoir au minimum 50% de réussite.</p>
+</div>
 </div>
 <section id="limites">
 <h2>Limites<a class="headerlink" href="#limites" title="Lien vers cette rubrique">#</a></h2>

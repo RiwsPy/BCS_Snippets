@@ -124,14 +124,10 @@ Il peut donc être intéressant de s'autoriser de lancer des sorts à incantatio
 
 ### Snippet
 Pour s'assurer qu'un personnage n'est pas empoisonné ou qu'il ne puisse en subir les dégâts :
-```vb.net
-IF
-    ...
+```cr
     OR(2)
         !StateCheck(Myself, STATE_POISONED)
         CheckStatGT(Myself, 99, RESISTPOISON)
-    ...
-THEN
 ```
 
 
@@ -159,14 +155,10 @@ Il serait quand même envisageable de bloquer les sorts de haut niveau, au cas o
 
 ### Snippet
 Pour s'assurer qu'un personnage n'est pas malade ou qu'il ne puisse pas subir les dégâts de la maladie :
-```vb.net
-IF
-    ...
+```cr
     OR(2)
         !CheckSpellState(Myself, DISEASED)
         CheckStatGT(Myself, 99, RESISTPOISON)
-    ...
-THEN
 ```
 Mais sans certitude que la maladie inflige bien des dommages.
 
@@ -191,14 +183,10 @@ Il est possible de savoir si le prochain sort sera un hiatus.
 
 ### Snippet
 Pour s'assurer que le prochain sort ne sera pas un hiatus :
-```vb.net
-IF
-    ...
+```cr
     OR(2)
         CheckStat(Myself, 0, FORCESURGE)
         CheckStatGT(Myself, 0, CHAOS_SHIELD)
-    ...
-THEN
 ```
 
 

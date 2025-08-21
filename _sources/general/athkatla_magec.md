@@ -7,7 +7,7 @@ Les mages cagoulés surveillent Athkatla, comment éviter de les attirer ?
 ## Script de surveillance
 
 Exemple de script qui permet aux mages d'intervenir (ici AR0020.bcs) :
-```vb.net
+```cr
 IF
     SpellCast([PC],0)
     !GlobalTimerNotExpired("SpellsBad","GLOBAL")
@@ -15,7 +15,7 @@ IF
     GlobalLT("CowledWarning","GLOBAL",7)
 THEN
     RESPONSE #100
-        CreateCreatureObjectDoor("COWENF2",LastTrigger,0,0,0)  // Cowled Enforcer
+        CreateCreatureObjectDoor("COWENF2",LastTrigger,0,0,0)  //# Cowled Enforcer
         SetGlobalTimer("SpellsBad","GLOBAL",ONE_HOUR)
 END
 ```
@@ -37,7 +37,7 @@ END
 
 `````{tab-set}
 ````{tab-item} BCS Snippet
-```vb.net
+```cr
 IF
     Allegiance(Myself, PC)
     Global("BDAI_NO_ARCANE", "LOCALS", 0)
@@ -45,13 +45,13 @@ IF
     GlobalLT("CowledWarning", "GLOBAL", 7)
     !GlobalTimerNotExpired("SpellsBad", "GLOBAL")
     OR(7)
-        AreaCheck("AR0020")  // City Gates
-        AreaCheck("AR0300")  // The Docks
-        AreaCheck("AR0400")  // Slums
-        AreaCheck("AR0500")  // Bridge District
-        AreaCheck("AR0700")  // Waukeen's Promenade
-        AreaCheck("AR0900")  // Temple District
-        AreaCheck("AR1000")  // Government District
+        AreaCheck("AR0020")  //# City Gates
+        AreaCheck("AR0300")  //# The Docks
+        AreaCheck("AR0400")  //# Slums
+        AreaCheck("AR0500")  //# Bridge District
+        AreaCheck("AR0700")  //# Waukeen's Promenade
+        AreaCheck("AR0900")  //# Temple District
+        AreaCheck("AR1000")  //# Government District
 THEN
     RESPONSE #100
         SetGlobal("BDAI_NO_ARCANE", "LOCALS", 1)
@@ -71,13 +71,13 @@ END
 
 IF
     Global("BDAI_NO_ARCANE", "LOCALS", 1)
-    !AreaCheck("AR0020")  // City Gates
-    !AreaCheck("AR0300")  // The Docks
-    !AreaCheck("AR0400")  // Slums
-    !AreaCheck("AR0500")  // Bridge District
-    !AreaCheck("AR0700")  // Waukeen's Promenade
-    !AreaCheck("AR0900")  // Temple District
-    !AreaCheck("AR1000")  // Government District
+    !AreaCheck("AR0020")  //# City Gates
+    !AreaCheck("AR0300")  //# The Docks
+    !AreaCheck("AR0400")  //# Slums
+    !AreaCheck("AR0500")  //# Bridge District
+    !AreaCheck("AR0700")  //# Waukeen's Promenade
+    !AreaCheck("AR0900")  //# Temple District
+    !AreaCheck("AR1000")  //# Government District
 THEN
     RESPONSE #100
         SetGlobal("BDAI_NO_ARCANE", "LOCALS", 0)
@@ -86,7 +86,17 @@ END
 ````
 
 ````{tab-item} bddefai
-```vb.net
+```cr
+IF
+    Global("BDAI_NO_ARCANE","LOCALS",1)
+    Global("BribedCowled","GLOBAL",1)
+    ActionListEmpty()
+    InParty(Myself)
+THEN
+    RESPONSE #100
+        SetGlobal("BDAI_NO_ARCANE","LOCALS",0)
+END
+
 IF
     Global("BDAI_NO_ARCANE","LOCALS",0)
     Global("BribedCowled","GLOBAL",0)
@@ -94,13 +104,13 @@ IF
     InParty(Myself)
     AreaType(OUTDOOR)
     OR(7)
-        AreaCheck("AR0020")  // City Gates
-        AreaCheck("AR0300")  // The Docks
-        AreaCheck("AR0400")  // Slums
-        AreaCheck("AR0500")  // Bridge District
-        AreaCheck("AR0700")  // Waukeen's Promenade
-        AreaCheck("AR0900")  // Temple District
-        AreaCheck("AR1000")  // Government District
+        AreaCheck("AR0020")  //# City Gates
+        AreaCheck("AR0300")  //# The Docks
+        AreaCheck("AR0400")  //# Slums
+        AreaCheck("AR0500")  //# Bridge District
+        AreaCheck("AR0700")  //# Waukeen's Promenade
+        AreaCheck("AR0900")  //# Temple District
+        AreaCheck("AR1000")  //# Government District
 THEN
     RESPONSE #100
         SetGlobal("BDAI_NO_ARCANE","LOCALS",1)
@@ -120,22 +130,22 @@ IF
     Global("BDAI_NO_ARCANE","LOCALS",1)
     ActionListEmpty()
     InParty(Myself)
-    !AreaCheck("AR0020")  // City Gates
-    !AreaCheck("AR0300")  // The Docks
-    !AreaCheck("AR0400")  // Slums
-    !AreaCheck("AR0500")  // Bridge District
-    !AreaCheck("AR0700")  // Waukeen's Promenade
-    !AreaCheck("AR0900")  // Temple District
-    !AreaCheck("AR1000")  // Government District
+    !AreaCheck("AR0020")  //# City Gates
+    !AreaCheck("AR0300")  //# The Docks
+    !AreaCheck("AR0400")  //# Slums
+    !AreaCheck("AR0500")  //# Bridge District
+    !AreaCheck("AR0700")  //# Waukeen's Promenade
+    !AreaCheck("AR0900")  //# Temple District
+    !AreaCheck("AR1000")  //# Government District
 THEN
     RESPONSE #100
         SetGlobal("BDAI_NO_ARCANE","LOCALS",0)
 END
 ```
-- `AreaType(OUTDOOR)` est ici superflu, il est vrai que toutes les zones concernées par la surveillance se situent en extérieur mais rien ne le garanti dans l'absolu (le second bloc ne sert donc pas)
+- `AreaType(OUTDOOR)` est ici superflu, il est vrai que toutes les zones concernées par la surveillance se situent en extérieur mais rien ne le garanti dans l'absolu (le troisième bloc ne sert donc pas)
 - `InParty(Myself)` est bien mais ne correspond pas totalement avec le script des mages qui est `SpellCast([PC],0)`, il faudrait plutôt utiliser `Allegiance(Myself, PC)`
 - pas de gestion de `SpellsBad`
-- pas de gestion des cas où les conditions évolueraient au sein même d'une zone (par exemple, lors de la 7ème et dernière intervention, le script n'acceptera pas de lancer des sorts, car `BDAI_NO_ARCANE` vaudra toujours 1)
+- gestion incomplète des cas où les conditions évolueraient au sein même d'une zone (par exemple, lors de la 7ème et dernière intervention, le script n'acceptera pas de lancer des sorts, car `BDAI_NO_ARCANE` vaudra toujours 1)
 - `ActionListEmpty()` est discutable car cela empêche le personnage de s'arrêter (c'est bien) mais le chargement des variables est importante et il est possible que des sorts n'aient pas la containte `ActionListEmpty()` et puissent donc être lancés
 ````
 `````
@@ -157,7 +167,7 @@ Ce snippet peut s'ajouter aux scripts de tous les personnages, y compris les enn
 Une des diffcultés que rencontre chaque mod, est de lister les différentes zones surveillées par les mages cagoulés de façon "dynamique", en effet elle est actuellement "en dur" et correspond à celle de la version vanilla. Mais elle peut être modifiée par d'autres mods sans pouvoir être prise en compte par le script.
 
 Il serait utile d'ajouter **collectivement** une variable dans les zones surveillées par les mages cagoulés :
-```vb.net
+```cr
 IF
     Global("CowledCheckArea", "AR...", 0)
 THEN
@@ -172,7 +182,7 @@ END
 En appliquant le bloc ci-dessus dans les maps concernées, dans tous les scripts des personnages il serait possible de checker dynamiquement cette valeur même si des mods ajoutent ou enlèvent des zones.
 
 
-```vb.net
+```cr
 IF
     Allegiance(Myself, PC)
     Global("BDAI_NO_ARCANE", "LOCALS", 0)
