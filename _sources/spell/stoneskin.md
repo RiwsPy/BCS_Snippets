@@ -23,6 +23,7 @@ On différencie ici, plusieurs cas :
 ```cr
 IF
     ActionListEmpty()
+    !ButtonDisabled(BUTTON_CASTSPELL)
     Global("BDAI_NO_ARCANE", "LOCALS", 0)
     Global("BDAI_DISABLE_DEFENSIVE", "LOCALS", 0)
     CheckStatLT(Myself, 50, SPELLFAILUREMAGE)
@@ -30,7 +31,7 @@ IF
         CheckStat(Myself, 0, FORCESURGE)
         CheckStatGT(Myself, 0, CHAOS_SHIELD)
     OR(2)
-        !GlobalTimerNotExpired("BD_Cast","LOCALS")
+        !GlobalTimerNotExpired("BD_Cast", "LOCALS")
         CheckStatGT(Myself, 0, AURACLEANSING)
     OR(2)
         See(NearestEnemyOf(Myself))
@@ -65,6 +66,7 @@ Conditions :
 ```cr
 IF
     ActionListEmpty()
+    !ButtonDisabled(BUTTON_CASTSPELL)
     Global("BDAI_NO_ARCANE", "LOCALS", 0)
     Global("BDAI_DISABLE_DEFENSIVE", "LOCALS", 0)
     CheckStatLT(Myself, 50, SPELLFAILUREMAGE)
@@ -72,7 +74,7 @@ IF
         CheckStat(Myself, 0, FORCESURGE)
         CheckStatGT(Myself, 0, CHAOS_SHIELD)
     OR(2)
-        !GlobalTimerNotExpired("BD_Cast","LOCALS")
+        !GlobalTimerNotExpired("BD_Cast", "LOCALS")
         CheckStatGT(Myself, 0, AURACLEANSING)
     CheckStatLT(Myself, 1, STONESKINS)
     CheckStatLT(Myself, 1, STONESKINSGOLEM)
@@ -100,6 +102,7 @@ Conditions :
 ```cr
 IF
     ActionListEmpty()
+    !ButtonDisabled(BUTTON_CASTSPELL)
     Global("BDAI_NO_ARCANE", "LOCALS", 0)
     Global("BDAI_DISABLE_DEFENSIVE", "LOCALS", 0)
     CheckStatLT(Myself, 50, SPELLFAILUREMAGE)
@@ -107,7 +110,7 @@ IF
         CheckStat(Myself, 0, FORCESURGE)
         CheckStatGT(Myself, 0, CHAOS_SHIELD)
     OR(2)
-        !GlobalTimerNotExpired("BD_Cast","LOCALS")
+        !GlobalTimerNotExpired("BD_Cast", "LOCALS")
         CheckStatGT(Myself, 0, AURACLEANSING)
     CheckStatLT(Myself, 1, STONESKINS)
     CheckStatLT(Myself, 1, STONESKINSGOLEM)
@@ -153,6 +156,7 @@ Conditions :
 ```cr
 IF
     ActionListEmpty()
+    !ButtonDisabled(BUTTON_CASTSPELL)
     Global("BDAI_NO_ARCANE", "LOCALS", 0)
     Global("BDAI_DISABLE_DEFENSIVE", "LOCALS", 0)
     CheckStatLT(Myself, 50, SPELLFAILUREMAGE)
@@ -160,7 +164,7 @@ IF
         CheckStat(Myself, 0, FORCESURGE)
         CheckStatGT(Myself, 0, CHAOS_SHIELD)
     OR(2)
-        !GlobalTimerNotExpired("BD_Cast","LOCALS")
+        !GlobalTimerNotExpired("BD_Cast", "LOCALS")
         CheckStatGT(Myself, 0, AURACLEANSING)
     CheckStatLT(Myself, 2, STONESKINS)
     CheckStatLT(Myself, 2, STONESKINSGOLEM)

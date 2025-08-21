@@ -6,10 +6,11 @@ Il soigne également de 3D10 points de vie. Mais soyons honnête : ça serait du
 Une difficulté ici est que l'on ne peut pas se baser sur des [object], car les personnages sont morts.
 
 `````{tab-set}
-````{tab-item} BCS Snippet
+````{tab-item} Base
 ```cr
 IF
-    //# …
+    //# Snippet sort divin
+
     NumInPartyGT(2)
     NumInPartyAliveLT(4)
     OR(2)
@@ -29,19 +30,28 @@ Le sort est lancé si :
 - ou s'il n'y a qu'un survivant dans un groupe de 3
 - ça gère même certain cas où il y aurait plus de 6 personnes dans le groupe
 ````
-`````
 
-
-````{note}
-N'hésitez pas à attendre la fin du combat et de le faire lancer que par les alliés.
-
+````{tab-item} Hors-combat
 ```cr
 IF
+    //# Snippet sort divin
+
     !ActuallyInCombat()
     Allegiance(Myself, GOODCUTOFF)
-    Global("BDAI_DISABLE_DEFENSIVE", "LOCALS", 0)
     !See(NearestEnemyOf(Myself))
+
+    NumInPartyGT(2)
+    NumInPartyAliveLT(4)
+    OR(2)
+        NumInPartyGT(5)
+        NumInPartyAliveLT(3)
+    OR(2)
+        NumInPartyGT(4)
+        NumInPartyAliveLT(2)
     //# …
 THEN
 ```
+- Aucun combat en cours
+- Le lanceur de sort est un allié
 ````
+`````

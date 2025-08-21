@@ -125,6 +125,55 @@ END
 
 La version RP mais en vérifiant d'avoir au minimum 50% de réussite.
 ````
+
+````{tab-item} RP Safe+
+```cr
+IF
+    ActionListEmpty()
+    Global("BDAI_SKILL_MODE", "LOCALS", 0)
+    !DisabledButton(BUTTON_THIEVING)
+    CheckStatGT(Myself, 99, PICKPOCKET)
+    !StateCheck(Myself, STATE_INVISIBLE) //# Facultatif, à savoir que le larçin est une action qui dissipe l'invisibilité
+    !StateCheck(Myself, STATE_DISABLED | STATE_REALLY_DEAD)
+    CheckStat(Myself, 0, CASTERHOLD)
+    !InventoryFull(Myself)
+
+    !See(NearestEnemyOf(Myself))
+    See([NEUTRAL])
+
+    Range(LastSeenBy(Myself), 2) //# Facultatif, à savoir que dans le cas contraire, le personnage se déplacera et devra donc pouvoir se déplacer
+    CheckStatLT(LastSeenBy(Myself), 150, PICKPOCKET)
+    HasItemType(LastSeenBy(Myself), DROPPABLE)
+
+    //# Check safe
+    OR(2)
+        CheckStat(LastSeenBy(Myself), 0, PICKPOCKET)
+        CheckStatGT(Myself, 124, PICKPOCKET)
+    OR(2)
+        CheckStatLT(LastSeenBy(Myself), 25, PICKPOCKET)
+        CheckStatGT(Myself, 149, PICKPOCKET)
+    OR(2)
+        CheckStatLT(LastSeenBy(Myself), 50, PICKPOCKET)
+        CheckStatGT(Myself, 174, PICKPOCKET)
+    OR(2)
+        CheckStatLT(LastSeenBy(Myself), 75, PICKPOCKET)
+        CheckStatGT(Myself, 199, PICKPOCKET)
+    OR(2)
+        CheckStatLT(LastSeenBy(Myself), 100, PICKPOCKET)
+        CheckStatGT(Myself, 224, PICKPOCKET)
+    OR(2)
+        CheckStatLT(LastSeenBy(Myself), 125, PICKPOCKET)
+        CheckStatGT(Myself, 249, PICKPOCKET)
+
+    //# …
+THEN
+    RESPONSE #1
+        PickPocket(LastSeenBy(Myself))
+END
+```
+
+La version RP Safe mais en vérifiant d'avoir 99% de réussite.
+````
 `````
 
 ## Limites

@@ -4,6 +4,129 @@ Avant de lancer des sorts, il est utile de savoir si celui-ci a des chances d'ê
 Plusieurs paramètres sont à prendre en compte.
 
 
+## Snippets de base
+
+Adaptés pour les actions `Spell` et `SpellRES`.
+
+`````{tab-set}
+````{tab-item} Basique
+```cr
+IF
+    ActionListEmpty()
+    //#Global("BDAI_DISABLE_DEFENSIVE", "LOCALS", 0) //# Au choix
+    //#Global("BDAI_DISABLE_OFFENSIVE", "LOCALS", 0) //# Au choix
+    OR(2)
+        CheckStat(Myself, 0, FORCESURGE)
+        CheckStatGT(Myself, 0, CHAOS_SHIELD)
+    OR(2)
+        !GlobalTimerNotExpired("BD_Cast", "LOCALS")
+        CheckStatGT(Myself, 0, AURACLEANSING)
+    OR(2) //# Potentiellement facultatif
+        !StateCheck(Myself, STATE_POISONED)
+        CheckStatGT(Myself, 99, RESISTPOISON)
+    //# HaveSpell(…)
+
+    //# TODO: Code spécifique
+THEN
+    RESPONSE #1
+        SetGlobalTimer("BD_Cast", "LOCALS", ONE_ROUND)
+        //# Spell(…, …)
+END
+```
+````
+
+````{tab-item} Sort profane
+```cr
+IF
+    ActionListEmpty()
+    Global("BDAI_NO_ARCANE", "LOCALS", 0)
+    !ButtonDisabled(BUTTON_CASTSPELL)
+    //#Global("BDAI_DISABLE_DEFENSIVE", "LOCALS", 0) //# Au choix
+    //#Global("BDAI_DISABLE_OFFENSIVE", "LOCALS", 0) //# Au choix
+    CheckStatLT(Myself, 50, SPELLFAILUREMAGE) //# Valeur à configurer
+    OR(2)
+        CheckStat(Myself, 0, FORCESURGE)
+        CheckStatGT(Myself, 0, CHAOS_SHIELD)
+    OR(2)
+        !GlobalTimerNotExpired("BD_Cast", "LOCALS")
+        CheckStatGT(Myself, 0, AURACLEANSING)
+    OR(2) //# Potentiellement facultatif
+        !StateCheck(Myself, STATE_POISONED)
+        CheckStatGT(Myself, 99, RESISTPOISON)
+    //# HaveSpell(…)
+
+    //# TODO: Code spécifique
+THEN
+    RESPONSE #1
+        SetGlobalTimer("BD_Cast", "LOCALS", ONE_ROUND)
+        //# Spell(…, …)
+END
+```
+````
+
+````{tab-item} Sort divin/druidique
+```cr
+IF
+    ActionListEmpty()
+    !ButtonDisabled(BUTTON_CASTSPELL)
+    //#Global("BDAI_DISABLE_DEFENSIVE", "LOCALS", 0) //# Au choix
+    //#Global("BDAI_DISABLE_OFFENSIVE", "LOCALS", 0) //# Au choix
+    CheckStatLT(Myself, 50, SPELLFAILUREPRIEST) //# Valeur à configurer
+    OR(2)
+        CheckStat(Myself, 0, FORCESURGE)
+        CheckStatGT(Myself, 0, CHAOS_SHIELD)
+    OR(2)
+        !GlobalTimerNotExpired("BD_Cast", "LOCALS")
+        CheckStatGT(Myself, 0, AURACLEANSING)
+    OR(2) //# Potentiellement facultatif
+        !StateCheck(Myself, STATE_POISONED)
+        CheckStatGT(Myself, 99, RESISTPOISON)
+    //# HaveSpell(…)
+
+    //# TODO: Code spécifique
+THEN
+    RESPONSE #1
+        SetGlobalTimer("BD_Cast", "LOCALS", ONE_ROUND)
+        //# Spell(…, …)
+END
+```
+````
+
+````{tab-item} Capacités spéciales
+```cr
+IF
+    ActionListEmpty()
+    Global("BDAI_DISABLE_SPECIAL", "LOCALS", 0)
+    !ButtonDisabled(BUTTON_INNATEBUTTON)
+    //#Global("BDAI_DISABLE_DEFENSIVE", "LOCALS", 0) //# Au choix
+    //#Global("BDAI_DISABLE_OFFENSIVE", "LOCALS", 0) //# Au choix
+    CheckStatLT(Myself, 50, SPELL_FAILURE_INNATE) //# Valeur à configurer
+    OR(2)
+        CheckStat(Myself, 0, FORCESURGE)
+        CheckStatGT(Myself, 0, CHAOS_SHIELD)
+    OR(2)
+        !GlobalTimerNotExpired("BD_Cast", "LOCALS")
+        CheckStatGT(Myself, 0, AURACLEANSING)
+    OR(2) //# Potentiellement facultatif
+        !StateCheck(Myself, STATE_POISONED)
+        CheckStatGT(Myself, 99, RESISTPOISON)
+    //# HaveSpell(…)
+
+    //# TODO: Code spécifique
+THEN
+    RESPONSE #1
+        SetGlobalTimer("BD_Cast", "LOCALS", ONE_ROUND)
+        //# Spell(…, …)
+END
+```
+````
+`````
+
+
+
+
+
+
 ## Posséder le sort
 
 Dans la plupart des cas, on ne voudra lancer que les sorts que l'on possède, on utilisera alors le trigger `HaveSpell` ou `HaveSpellRES` avec l'action `Spell`.\
@@ -165,7 +288,7 @@ Mais sans certitude que la maladie inflige bien des dommages.
 
 ## Mages cagoulés d'Athkatla
 
-Lire [cette page](/general/athkatla_magec.md).
+Lire [cette page](/general/athkatla_magec).
 
 
 ## Hiatus entropiques

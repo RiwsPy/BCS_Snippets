@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -62,6 +62,7 @@
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Can I Use a Item?" href="../item/base.html" />
     <link rel="prev" title="Peau de pierre (SPWI408)" href="stoneskin.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="fr"/>
@@ -198,6 +199,11 @@
 <li class="toctree-l1"><a class="reference internal" href="base.html">Can I Cast a Spell?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stoneskin.html">Peau de pierre (SPWI408)</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Résurrection de masse (SPPR729)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Objets spécifiques</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../item/base.html">Can I Use a Item?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../item/potion_haste.html">Huile de rapidité (POTN14)</a></li>
 </ul>
 
     </div>
@@ -403,9 +409,10 @@ Il soigne également de 3D10 points de vie. Mais soyons honnête : ça serait du
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" for="sd-tab-item-0">
-BCS Snippet</label><div class="sd-tab-content docutils">
+Base</label><div class="sd-tab-content docutils">
 <div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
-<span class="w">    </span><span class="sr">//</span><span class="c1"># …</span>
+<span class="w">    </span><span class="sr">//</span><span class="c1"># Snippet sort divin</span>
+
 <span class="w">    </span><span class="n">NumInPartyGT</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="w">    </span><span class="n">NumInPartyAliveLT</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
@@ -427,18 +434,32 @@ Et sans pouvoir faire de soustraction, il est possible de faire des comparaisons
 <li><p>ça gère même certain cas où il y aurait plus de 6 personnes dans le groupe</p></li>
 </ul>
 </div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>N’hésitez pas à attendre la fin du combat et de le faire lancer que par les alliés.</p>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-1">
+Hors-combat</label><div class="sd-tab-content docutils">
 <div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
+<span class="w">    </span><span class="sr">//</span><span class="c1"># Snippet sort divin</span>
+
 <span class="w">    </span><span class="o">!</span><span class="n">ActuallyInCombat</span><span class="p">()</span>
 <span class="w">    </span><span class="n">Allegiance</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">GOODCUTOFF</span><span class="p">)</span>
-<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_DISABLE_DEFENSIVE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 <span class="w">    </span><span class="o">!</span><span class="n">See</span><span class="p">(</span><span class="n">NearestEnemyOf</span><span class="p">(</span><span class="n">Myself</span><span class="p">))</span>
+
+<span class="w">    </span><span class="n">NumInPartyGT</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">    </span><span class="n">NumInPartyAliveLT</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="n">NumInPartyGT</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="w">        </span><span class="n">NumInPartyAliveLT</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="n">NumInPartyGT</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="w">        </span><span class="n">NumInPartyAliveLT</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="w">    </span><span class="sr">//</span><span class="c1"># …</span>
 <span class="no">THEN</span>
 </pre></div>
+</div>
+<ul class="simple">
+<li><p>Aucun combat en cours</p></li>
+<li><p>Le lanceur de sort est un allié</p></li>
+</ul>
 </div>
 </div>
 </section>
@@ -481,6 +502,15 @@ Et sans pouvoir faire de soustraction, il est possible de faire des comparaisons
         <p class="prev-next-subtitle">précédent</p>
         <p class="prev-next-title">Peau de pierre (SPWI408)</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="../item/base.html"
+       title="page suivante">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">suivant</p>
+        <p class="prev-next-title">Can I Use a Item?</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
