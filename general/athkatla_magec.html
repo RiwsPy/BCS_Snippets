@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -450,10 +450,10 @@ document.write(`
 <label class="sd-tab-label" for="sd-tab-item-0">
 BCS Snippet</label><div class="sd-tab-content docutils">
 <div class="highlight-vb.net notranslate"><div class="highlight"><pre><span></span><span class="k">IF</span>
-<span class="w">    </span><span class="k">Global</span><span class="p">(</span><span class="s">&quot;CanCastAthkatla&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Allegiance</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="n">PC</span><span class="p">)</span>
+<span class="w">    </span><span class="k">Global</span><span class="p">(</span><span class="s">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 <span class="w">    </span><span class="k">Global</span><span class="p">(</span><span class="s">&quot;BribedCowled&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 <span class="w">    </span><span class="n">GlobalLT</span><span class="p">(</span><span class="s">&quot;CowledWarning&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">)</span>
-<span class="w">    </span><span class="n">Allegiance</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="n">PC</span><span class="p">)</span>
 <span class="w">    </span><span class="p">!</span><span class="n">GlobalTimerNotExpired</span><span class="p">(</span><span class="s">&quot;SpellsBad&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;GLOBAL&quot;</span><span class="p">)</span>
 <span class="w">    </span><span class="ow">OR</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
 <span class="w">        </span><span class="n">AreaCheck</span><span class="p">(</span><span class="s">&quot;AR0020&quot;</span><span class="p">)</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="n">City</span><span class="w"> </span><span class="n">Gates</span>
@@ -465,11 +465,11 @@ BCS Snippet</label><div class="sd-tab-content docutils">
 <span class="w">        </span><span class="n">AreaCheck</span><span class="p">(</span><span class="s">&quot;AR1000&quot;</span><span class="p">)</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="n">Government</span><span class="w"> </span><span class="n">District</span>
 <span class="k">THEN</span>
 <span class="w">    </span><span class="n">RESPONSE</span><span class="w"> </span><span class="p">#</span><span class="mi">100</span>
-<span class="w">        </span><span class="n">SetGlobal</span><span class="p">(</span><span class="s">&quot;CanCastAthkatla&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">        </span><span class="n">SetGlobal</span><span class="p">(</span><span class="s">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
 <span class="k">END</span>
 
 <span class="k">IF</span>
-<span class="w">    </span><span class="k">Global</span><span class="p">(</span><span class="s">&quot;CanCastAthkatla&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="k">Global</span><span class="p">(</span><span class="s">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
 <span class="w">    </span><span class="ow">OR</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="w">        </span><span class="p">!</span><span class="n">Allegiance</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="n">PC</span><span class="p">)</span>
 <span class="w">        </span><span class="k">Global</span><span class="p">(</span><span class="s">&quot;BribedCowled&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
@@ -477,11 +477,11 @@ BCS Snippet</label><div class="sd-tab-content docutils">
 <span class="w">        </span><span class="n">GlobalTimerNotExpired</span><span class="p">(</span><span class="s">&quot;SpellsBad&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;GLOBAL&quot;</span><span class="p">)</span>
 <span class="k">THEN</span>
 <span class="w">    </span><span class="n">RESPONSE</span><span class="w"> </span><span class="p">#</span><span class="mi">100</span>
-<span class="w">        </span><span class="n">SetGlobal</span><span class="p">(</span><span class="s">&quot;CanCastAthkatla&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">        </span><span class="n">SetGlobal</span><span class="p">(</span><span class="s">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 <span class="k">END</span>
 
 <span class="k">IF</span>
-<span class="w">    </span><span class="k">Global</span><span class="p">(</span><span class="s">&quot;CanCastAthkatla&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="k">Global</span><span class="p">(</span><span class="s">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
 <span class="w">    </span><span class="p">!</span><span class="n">AreaCheck</span><span class="p">(</span><span class="s">&quot;AR0020&quot;</span><span class="p">)</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="n">City</span><span class="w"> </span><span class="n">Gates</span>
 <span class="w">    </span><span class="p">!</span><span class="n">AreaCheck</span><span class="p">(</span><span class="s">&quot;AR0300&quot;</span><span class="p">)</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="n">Docks</span>
 <span class="w">    </span><span class="p">!</span><span class="n">AreaCheck</span><span class="p">(</span><span class="s">&quot;AR0400&quot;</span><span class="p">)</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="n">Slums</span>
@@ -491,7 +491,7 @@ BCS Snippet</label><div class="sd-tab-content docutils">
 <span class="w">    </span><span class="p">!</span><span class="n">AreaCheck</span><span class="p">(</span><span class="s">&quot;AR1000&quot;</span><span class="p">)</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="n">Government</span><span class="w"> </span><span class="n">District</span>
 <span class="k">THEN</span>
 <span class="w">    </span><span class="n">RESPONSE</span><span class="w"> </span><span class="p">#</span><span class="mi">100</span>
-<span class="w">        </span><span class="n">SetGlobal</span><span class="p">(</span><span class="s">&quot;CanCastAthkatla&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">        </span><span class="n">SetGlobal</span><span class="p">(</span><span class="s">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 <span class="k">END</span>
 </pre></div>
 </div>
@@ -556,9 +556,14 @@ bddefai</label><div class="sd-tab-content docutils">
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Les mages cagoulés surveillent les sorts de mage.<br />
-Pas les sorts druidiques, pas les sorts divins, pas les compétences spéciales…<br />
+<p>Pensez à ajouter <code class="docutils literal notranslate"><span class="pre">Global(&quot;BDAI_NO_ARCANE&quot;,</span> <span class="pre">&quot;LOCALS&quot;,</span> <span class="pre">0)</span></code> dans le block <code class="docutils literal notranslate"><span class="pre">IF</span></code> de vos sorts concernés.</p>
+<p>Les mages cagoulés ne surveillent que les sorts de mage.<br />
+Ni les sorts druidiques, ni les sorts divins, ni les compétences spéciales…<br />
 En revanche, cela impacte les objets qui lancent de façon indirecte, un sort de mage (comme les parchemins, mais aussi le casque de Vailhor).</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Ce snippet peut s’ajouter aux scripts de tous les personnages, y compris les ennemis. Il n’aura une influence que si le personnage rejoint le groupe.</p>
 </div>
 </section>
 <section id="liste-de-carte-dynamique">
@@ -575,19 +580,19 @@ En revanche, cela impacte les objets qui lancent de façon indirecte, un sort de
 </div>
 <p>En appliquant le bloc ci-dessus dans les maps concernées, dans tous les scripts des personnages il serait possible de checker dynamiquement cette valeur même si des mods ajoutent ou enlèvent des zones.</p>
 <div class="highlight-vb.net notranslate"><div class="highlight"><pre><span></span><span class="k">IF</span>
-<span class="w">    </span><span class="k">Global</span><span class="p">(</span><span class="s">&quot;CanCastAthkatla&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Allegiance</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="n">PC</span><span class="p">)</span>
+<span class="w">    </span><span class="k">Global</span><span class="p">(</span><span class="s">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 <span class="w">    </span><span class="k">Global</span><span class="p">(</span><span class="s">&quot;BribedCowled&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 <span class="w">    </span><span class="n">GlobalLT</span><span class="p">(</span><span class="s">&quot;CowledWarning&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">)</span>
-<span class="w">    </span><span class="n">Allegiance</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="n">PC</span><span class="p">)</span>
 <span class="w">    </span><span class="p">!</span><span class="n">GlobalTimerNotExpired</span><span class="p">(</span><span class="s">&quot;SpellsBad&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;GLOBAL&quot;</span><span class="p">)</span>
 <span class="w">    </span><span class="k">Global</span><span class="p">(</span><span class="s">&quot;CowledCheckArea&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;MYAREA&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
 <span class="k">THEN</span>
 <span class="w">    </span><span class="n">RESPONSE</span><span class="w"> </span><span class="p">#</span><span class="mi">100</span>
-<span class="w">        </span><span class="n">SetGlobal</span><span class="p">(</span><span class="s">&quot;CanCastAthkatla&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">        </span><span class="n">SetGlobal</span><span class="p">(</span><span class="s">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
 <span class="k">END</span>
 
 <span class="k">IF</span>
-<span class="w">    </span><span class="k">Global</span><span class="p">(</span><span class="s">&quot;CanCastAthkatla&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="k">Global</span><span class="p">(</span><span class="s">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
 <span class="w">    </span><span class="ow">OR</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 <span class="w">        </span><span class="p">!</span><span class="n">Allegiance</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="n">PC</span><span class="p">)</span>
 <span class="w">        </span><span class="k">Global</span><span class="p">(</span><span class="s">&quot;BribedCowled&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
@@ -596,7 +601,7 @@ En revanche, cela impacte les objets qui lancent de façon indirecte, un sort de
 <span class="w">        </span><span class="k">Global</span><span class="p">(</span><span class="s">&quot;CowledCheckArea&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;MYAREA&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 <span class="k">THEN</span>
 <span class="w">    </span><span class="n">RESPONSE</span><span class="w"> </span><span class="p">#</span><span class="mi">100</span>
-<span class="w">        </span><span class="n">SetGlobal</span><span class="p">(</span><span class="s">&quot;CanCastAthkatla&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">        </span><span class="n">SetGlobal</span><span class="p">(</span><span class="s">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 <span class="k">END</span>
 </pre></div>
 </div>

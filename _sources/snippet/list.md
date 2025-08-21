@@ -2,13 +2,17 @@
 
 ## Réalisés / En cours
 
-- [GlobalExists / GlobalNotExists](/snippet/globalexists)
-  - Différencier une variable qui est égale à 0 d'une variable qui n'existe pas
+### Combat
 - [Réaliser une attaque d'opportunité contre une créature](/snippet/opportunityattack)
   - Un bonus de +4 au dégâts et au toucher
 - [Réaliser une attaque sournoise contre une créature](/snippet/backstab)
 
+### Modales
+- [Vol à la tire](/snippets/canpickpocket)
 
+### Généralités
+- [GlobalExists / GlobalNotExists](/snippet/globalexists)
+  - Différencier une variable qui est égale à 0 d'une variable qui n'existe pas
 
 
 
@@ -29,7 +33,6 @@
 * Négativer une variable
 * Ressusciter un mort qui ne fait pas partie du groupe
 * Influencer le comportement en fonction de la race ennemie
-* Savoir si le voleur peut voler sa cible
 * Savoir si une créature est équipé d'une arme capable de me toucher
 * Garder le focus sur une cible une fois attaquée
 * Viser les créatures sans protection contre les CC quand on maîtrise le combat à 1 ou 2 mains

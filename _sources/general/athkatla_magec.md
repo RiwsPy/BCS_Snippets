@@ -39,10 +39,10 @@ END
 ````{tab-item} BCS Snippet
 ```vb.net
 IF
-    Global("CanCastAthkatla", "LOCALS", 1)
+    Allegiance(Myself, PC)
+    Global("BDAI_NO_ARCANE", "LOCALS", 0)
     Global("BribedCowled", "GLOBAL", 0)
     GlobalLT("CowledWarning", "GLOBAL", 7)
-    Allegiance(Myself, PC)
     !GlobalTimerNotExpired("SpellsBad", "GLOBAL")
     OR(7)
         AreaCheck("AR0020")  // City Gates
@@ -54,11 +54,11 @@ IF
         AreaCheck("AR1000")  // Government District
 THEN
     RESPONSE #100
-        SetGlobal("CanCastAthkatla", "LOCALS", 0)
+        SetGlobal("BDAI_NO_ARCANE", "LOCALS", 1)
 END
 
 IF
-    Global("CanCastAthkatla", "LOCALS", 0)
+    Global("BDAI_NO_ARCANE", "LOCALS", 1)
     OR(4)
         !Allegiance(Myself, PC)
         Global("BribedCowled", "GLOBAL", 1)
@@ -66,11 +66,11 @@ IF
         GlobalTimerNotExpired("SpellsBad", "GLOBAL")
 THEN
     RESPONSE #100
-        SetGlobal("CanCastAthkatla", "LOCALS", 1)
+        SetGlobal("BDAI_NO_ARCANE", "LOCALS", 0)
 END
 
 IF
-    Global("CanCastAthkatla", "LOCALS", 0)
+    Global("BDAI_NO_ARCANE", "LOCALS", 1)
     !AreaCheck("AR0020")  // City Gates
     !AreaCheck("AR0300")  // The Docks
     !AreaCheck("AR0400")  // Slums
@@ -80,7 +80,7 @@ IF
     !AreaCheck("AR1000")  // Government District
 THEN
     RESPONSE #100
-        SetGlobal("CanCastAthkatla", "LOCALS", 1)
+        SetGlobal("BDAI_NO_ARCANE", "LOCALS", 0)
 END
 ```
 ````
@@ -141,11 +141,16 @@ END
 `````
 
 ```{note}
-Les mages cagoulés surveillent les sorts de mage.\
-Pas les sorts druidiques, pas les sorts divins, pas les compétences spéciales…\
+Pensez à ajouter `Global("BDAI_NO_ARCANE", "LOCALS", 0)` dans le block `IF` de vos sorts concernés.
+
+Les mages cagoulés ne surveillent que les sorts de mage.\
+Ni les sorts druidiques, ni les sorts divins, ni les compétences spéciales…\
 En revanche, cela impacte les objets qui lancent de façon indirecte, un sort de mage (comme les parchemins, mais aussi le casque de Vailhor).
 ```
 
+```{note}
+Ce snippet peut s'ajouter aux scripts de tous les personnages, y compris les ennemis. Il n'aura une influence que si le personnage rejoint le groupe.
+```
 
 ## Liste de carte dynamique
 
@@ -169,19 +174,19 @@ En appliquant le bloc ci-dessus dans les maps concernées, dans tous les scripts
 
 ```vb.net
 IF
-    Global("CanCastAthkatla", "LOCALS", 1)
+    Allegiance(Myself, PC)
+    Global("BDAI_NO_ARCANE", "LOCALS", 0)
     Global("BribedCowled", "GLOBAL", 0)
     GlobalLT("CowledWarning", "GLOBAL", 7)
-    Allegiance(Myself, PC)
     !GlobalTimerNotExpired("SpellsBad", "GLOBAL")
     Global("CowledCheckArea", "MYAREA", 1)
 THEN
     RESPONSE #100
-        SetGlobal("CanCastAthkatla", "LOCALS", 0)
+        SetGlobal("BDAI_NO_ARCANE", "LOCALS", 1)
 END
 
 IF
-    Global("CanCastAthkatla", "LOCALS", 0)
+    Global("BDAI_NO_ARCANE", "LOCALS", 1)
     OR(5)
         !Allegiance(Myself, PC)
         Global("BribedCowled", "GLOBAL", 1)
@@ -190,6 +195,6 @@ IF
         Global("CowledCheckArea", "MYAREA", 0)
 THEN
     RESPONSE #100
-        SetGlobal("CanCastAthkatla", "LOCALS", 1)
+        SetGlobal("BDAI_NO_ARCANE", "LOCALS", 0)
 END
 ```
