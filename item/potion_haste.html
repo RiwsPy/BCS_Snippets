@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -477,6 +477,61 @@ Poussive</label><div class="sd-tab-content docutils">
 <li><p>Le personnage n’est pas immobilisé par surcharge (sa vitesse de déplacement étant nulle)</p></li>
 <li><p>Le personnage n’est pas empoisonné ou grignoté par des insectes (sinon cela double la fréquence des dégâts)</p></li>
 <li><p>Le personnage n’est pas immunisé contre la hâte (incomplet)</p></li>
+</ul>
+</div>
+<input id="sd-tab-item-3" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-3">
+Fuite</label><div class="sd-tab-content docutils">
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
+<span class="w">    </span><span class="sr">//</span><span class="c1"># Snippet Objet rapide</span>
+<span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_HASTED</span><span class="p">)</span>
+<span class="w">    </span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="no">ENCUMBERANCE</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">CheckSpellState</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">DEFENSIVE_SPIN</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">CheckSpellState</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">OFFENSIVE_SPIN</span><span class="p">)</span>
+<span class="w">    </span><span class="n">HPPercentLT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">)</span>
+<span class="w">    </span><span class="n">See</span><span class="p">(</span><span class="n">NearestEnemyOf</span><span class="p">(</span><span class="n">Myself</span><span class="p">))</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
+<span class="w">        </span><span class="n">UseItem</span><span class="p">(</span><span class="s2">&quot;POTN14&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Myself</span><span class="p">)</span>
+<span class="w">        </span><span class="n">RunAwayFromNoInterrupt</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">300</span><span class="p">)</span>
+<span class="no">END</span>
+</pre></div>
+</div>
+<p>Parce que cette potion permet aussi de courir plus vite.</p>
+<ul class="simple">
+<li><p>Le personnage profite de ce bonus pour s’enfuir</p></li>
+</ul>
+</div>
+<input id="sd-tab-item-4" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-4">
+Repli régénérant</label><div class="sd-tab-content docutils">
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
+<span class="w">    </span><span class="sr">//</span><span class="c1"># Snippet Objet rapide</span>
+<span class="w">    </span><span class="n">HasItemEquiped</span><span class="p">(</span><span class="s2">&quot;POTN42&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Myself</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_HASTED</span><span class="p">)</span>
+<span class="w">    </span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="no">ENCUMBERANCE</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">CheckSpellState</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">DEFENSIVE_SPIN</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">CheckSpellState</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">OFFENSIVE_SPIN</span><span class="p">)</span>
+<span class="w">    </span><span class="n">HPPercentLT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">25</span><span class="p">)</span>
+
+<span class="w">    </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CLERIC_INSECT_PLAGUE</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_POISONED</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">99</span><span class="p">,</span><span class="w"> </span><span class="no">RESISTPOISON</span><span class="p">)</span>
+
+<span class="w">    </span><span class="n">See</span><span class="p">(</span><span class="n">NearestEnemyOf</span><span class="p">(</span><span class="n">Myself</span><span class="p">))</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
+<span class="w">        </span><span class="n">UseItem</span><span class="p">(</span><span class="s2">&quot;POTN14&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Myself</span><span class="p">)</span>
+<span class="w">        </span><span class="n">RunAwayFromNoInterrupt</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span>
+<span class="w">        </span><span class="n">UseItem</span><span class="p">(</span><span class="s2">&quot;POTN42&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Myself</span><span class="p">)</span>
+<span class="w">        </span><span class="n">RunAwayFromNoInterrupt</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">300</span><span class="p">)</span>
+<span class="no">END</span>
+</pre></div>
+</div>
+<p>Parce que cette potion permet de courir et de régénérer plus vite.</p>
+<ul class="simple">
+<li><p>Le personnage profite de ce bonus pour reculer et boire une potion de régénération donc l’efficacité sera doublée</p></li>
 </ul>
 </div>
 </div>

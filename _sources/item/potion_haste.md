@@ -71,4 +71,54 @@ On reprend la précédente en ajoutant :
 - Le personnage n'est pas immunisé contre la hâte (incomplet)
 ````
 
+````{tab-item} Fuite
+```cr
+IF
+    //# Snippet Objet rapide
+    !StateCheck(Myself, STATE_HASTED)
+    CheckStatLT(Myself, 2, ENCUMBERANCE)
+    !CheckSpellState(Myself, DEFENSIVE_SPIN)
+    !CheckSpellState(Myself, OFFENSIVE_SPIN)
+    HPPercentLT(Myself, 15)
+    See(NearestEnemyOf(Myself))
+THEN
+    RESPONSE #1
+        UseItem("POTN14", Myself)
+        RunAwayFromNoInterrupt(LastSeenBy(Myself), 300)
+END
+```
+Parce que cette potion permet aussi de courir plus vite.
+- Le personnage profite de ce bonus pour s'enfuir
+````
+
+
+````{tab-item} Repli régénérant
+```cr
+IF
+    //# Snippet Objet rapide
+    HasItemEquiped("POTN42", Myself)
+    !StateCheck(Myself, STATE_HASTED)
+    CheckStatLT(Myself, 2, ENCUMBERANCE)
+    !CheckSpellState(Myself, DEFENSIVE_SPIN)
+    !CheckSpellState(Myself, OFFENSIVE_SPIN)
+    HPPercentLT(Myself, 25)
+
+    CheckStat(Myself, 0, CLERIC_INSECT_PLAGUE)
+    OR(2)
+        !StateCheck(Myself, STATE_POISONED)
+        CheckStatGT(Myself, 99, RESISTPOISON)
+
+    See(NearestEnemyOf(Myself))
+THEN
+    RESPONSE #1
+        UseItem("POTN14", Myself)
+        RunAwayFromNoInterrupt(LastSeenBy(Myself), 100)
+        UseItem("POTN42", Myself)
+        RunAwayFromNoInterrupt(LastSeenBy(Myself), 300)
+END
+```
+Parce que cette potion permet de courir et de régénérer plus vite.
+- Le personnage profite de ce bonus pour reculer et boire une potion de régénération donc l'efficacité sera doublée
+````
+
 `````
