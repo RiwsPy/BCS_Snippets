@@ -1,3 +1,9 @@
+---
+myst:
+  substitutions:
+    OBJ_FILENAME: ITEM_FILENAME
+---
+
 # Can I Use a Item?
 
 Il y a deux enjeux :
@@ -21,22 +27,24 @@ Cerise sur le gâteau, cela permet aussi d'améliorer les performances du script
 
 ## Snippets de base
 
+Il s'agit d'une base qui peut/doit être adapté aux besoins.
+
 `````{tab-set}
 ````{tab-item} Basique
 ```cr
 IF
+    ActionListEmpty()
     !GlobalTimerNotExpired("BD_Cast", "LOCALS")
     Global("BDAI_DISABLE_ITEMS", "LOCALS", 0)
     !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
     CheckStat(Myself, 0, CASTERHOLD)
-    HasItemEquiped("…", Myself)
-    ActionListEmpty()
+    HasItemEquiped("ITEM_FILENAME", Myself)
 
     //# TODO: Code spécifique
 THEN
     REPONSE #1
         SetGlobalTimer("BD_Cast", "LOCALS", ONE_ROUND)
-        UseItem("…", Myself)
+        UseItem("ITEM_FILENAME", Myself)
 END
 ```
 On vérifie que :
@@ -50,12 +58,12 @@ On vérifie que :
 ````{tab-item} Objets rapides
 ```cr
 IF
+    ActionListEmpty()
     !GlobalTimerNotExpired("BD_Cast", "LOCALS")
     Global("BDAI_DISABLE_ITEMS", "LOCALS", 0)
     !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
     CheckStat(Myself, 0, CASTERHOLD)
-    HasItemEquiped("…", Myself)
-    ActionListEmpty()
+    HasItemEquiped("ITEM_FILENAME", Myself)
     OR(3)
         !ButtonDisabled(BUTTON_QUICKITEM1)
         !ButtonDisabled(BUTTON_QUICKITEM2)
@@ -65,7 +73,7 @@ IF
 THEN
     REPONSE #1
         SetGlobalTimer("BD_Cast", "LOCALS", ONE_ROUND)
-        UseItem("…", Myself)
+        UseItem("ITEM_FILENAME", Myself)
 END
 ```
 On vérifie que :
@@ -75,19 +83,19 @@ On vérifie que :
 ````{tab-item} Capacités d'équipement
 ```cr
 IF
+    ActionListEmpty()
     !GlobalTimerNotExpired("BD_Cast", "LOCALS")
     Global("BDAI_DISABLE_ITEMS", "LOCALS", 0)
     !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
     CheckStat(Myself, 0, CASTERHOLD)
-    HasItemEquiped("…", Myself)
-    ActionListEmpty()
+    HasItemEquiped("ITEM_FILENAME", Myself)
     !ButtonDisabled(BUTTON_USEITEM)
 
     //# TODO: Code spécifique
 THEN
     REPONSE #1
         SetGlobalTimer("BD_Cast", "LOCALS", ONE_ROUND)
-        UseItem("…", Myself)
+        UseItem("ITEM_FILENAME", Myself)
 END
 ```
 On vérifie que :

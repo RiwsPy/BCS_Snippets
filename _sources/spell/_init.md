@@ -15,7 +15,7 @@ Plusieurs paramètres sont à prendre en compte.
 ## Snippets de base
 
 Adaptés pour les actions `Spell` et `SpellRES`.\
-Il s'agit d'une base qui peuvent/doivent être adaptés aux besoins.
+Il s'agit d'une base qui peut/doit être adapté aux besoins.
 
 `````{tab-set}
 ````{tab-item} Basique

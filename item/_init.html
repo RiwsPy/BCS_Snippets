@@ -438,23 +438,24 @@ document.write(`
 <p>Cerise sur le gâteau, cela permet aussi d’améliorer les performances du script en limitant le nombre de slots à checker.</p>
 <section id="snippets-de-base">
 <h2>Snippets de base<a class="headerlink" href="#snippets-de-base" title="Lien vers cette rubrique">#</a></h2>
+<p>Il s’agit d’une base qui peut/doit être adapté aux besoins.</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" for="sd-tab-item-0">
 Basique</label><div class="sd-tab-content docutils">
 <div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
+<span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
 <span class="w">    </span><span class="o">!</span><span class="n">GlobalTimerNotExpired</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">)</span>
 <span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_DISABLE_ITEMS&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 <span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_SLEEPING</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_HELPLESS</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_REALLY_DEAD</span><span class="p">)</span>
 <span class="w">    </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CASTERHOLD</span><span class="p">)</span>
-<span class="w">    </span><span class="n">HasItemEquiped</span><span class="p">(</span><span class="s2">&quot;…&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Myself</span><span class="p">)</span>
-<span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
+<span class="w">    </span><span class="n">HasItemEquiped</span><span class="p">(</span><span class="s2">&quot;ITEM_FILENAME&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Myself</span><span class="p">)</span>
 
 <span class="w">    </span><span class="sr">//</span><span class="c1"># TODO: Code spécifique</span>
 <span class="no">THEN</span>
 <span class="w">    </span><span class="no">REPONSE</span><span class="w"> </span><span class="c1">#1</span>
 <span class="w">        </span><span class="n">SetGlobalTimer</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="no">ONE_ROUND</span><span class="p">)</span>
-<span class="w">        </span><span class="n">UseItem</span><span class="p">(</span><span class="s2">&quot;…&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Myself</span><span class="p">)</span>
+<span class="w">        </span><span class="n">UseItem</span><span class="p">(</span><span class="s2">&quot;ITEM_FILENAME&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Myself</span><span class="p">)</span>
 <span class="no">END</span>
 </pre></div>
 </div>
@@ -471,12 +472,12 @@ Basique</label><div class="sd-tab-content docutils">
 <label class="sd-tab-label" for="sd-tab-item-1">
 Objets rapides</label><div class="sd-tab-content docutils">
 <div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
+<span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
 <span class="w">    </span><span class="o">!</span><span class="n">GlobalTimerNotExpired</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">)</span>
 <span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_DISABLE_ITEMS&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 <span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_SLEEPING</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_HELPLESS</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_REALLY_DEAD</span><span class="p">)</span>
 <span class="w">    </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CASTERHOLD</span><span class="p">)</span>
-<span class="w">    </span><span class="n">HasItemEquiped</span><span class="p">(</span><span class="s2">&quot;…&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Myself</span><span class="p">)</span>
-<span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
+<span class="w">    </span><span class="n">HasItemEquiped</span><span class="p">(</span><span class="s2">&quot;ITEM_FILENAME&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Myself</span><span class="p">)</span>
 <span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <span class="w">        </span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="n">BUTTON_QUICKITEM1</span><span class="p">)</span>
 <span class="w">        </span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="n">BUTTON_QUICKITEM2</span><span class="p">)</span>
@@ -486,7 +487,7 @@ Objets rapides</label><div class="sd-tab-content docutils">
 <span class="no">THEN</span>
 <span class="w">    </span><span class="no">REPONSE</span><span class="w"> </span><span class="c1">#1</span>
 <span class="w">        </span><span class="n">SetGlobalTimer</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="no">ONE_ROUND</span><span class="p">)</span>
-<span class="w">        </span><span class="n">UseItem</span><span class="p">(</span><span class="s2">&quot;…&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Myself</span><span class="p">)</span>
+<span class="w">        </span><span class="n">UseItem</span><span class="p">(</span><span class="s2">&quot;ITEM_FILENAME&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Myself</span><span class="p">)</span>
 <span class="no">END</span>
 </pre></div>
 </div>
@@ -499,19 +500,19 @@ Objets rapides</label><div class="sd-tab-content docutils">
 <label class="sd-tab-label" for="sd-tab-item-2">
 Capacités d’équipement</label><div class="sd-tab-content docutils">
 <div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
+<span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
 <span class="w">    </span><span class="o">!</span><span class="n">GlobalTimerNotExpired</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">)</span>
 <span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_DISABLE_ITEMS&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 <span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_SLEEPING</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_HELPLESS</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_REALLY_DEAD</span><span class="p">)</span>
 <span class="w">    </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CASTERHOLD</span><span class="p">)</span>
-<span class="w">    </span><span class="n">HasItemEquiped</span><span class="p">(</span><span class="s2">&quot;…&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Myself</span><span class="p">)</span>
-<span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
+<span class="w">    </span><span class="n">HasItemEquiped</span><span class="p">(</span><span class="s2">&quot;ITEM_FILENAME&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Myself</span><span class="p">)</span>
 <span class="w">    </span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="no">BUTTON_USEITEM</span><span class="p">)</span>
 
 <span class="w">    </span><span class="sr">//</span><span class="c1"># TODO: Code spécifique</span>
 <span class="no">THEN</span>
 <span class="w">    </span><span class="no">REPONSE</span><span class="w"> </span><span class="c1">#1</span>
 <span class="w">        </span><span class="n">SetGlobalTimer</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="no">ONE_ROUND</span><span class="p">)</span>
-<span class="w">        </span><span class="n">UseItem</span><span class="p">(</span><span class="s2">&quot;…&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Myself</span><span class="p">)</span>
+<span class="w">        </span><span class="n">UseItem</span><span class="p">(</span><span class="s2">&quot;ITEM_FILENAME&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Myself</span><span class="p">)</span>
 <span class="no">END</span>
 </pre></div>
 </div>
