@@ -8,7 +8,10 @@
 - [Réaliser une attaque sournoise contre une créature](/snippet/backstab)
 
 ### Modales
-- [Vol à la tire](/snippets/canpickpocket)
+- [Vol à la tire](/snippet/canpickpocket)
+
+### Objets
+- [Huile de rapidité](/item/potion_haste)
 
 ### Généralités
 - [GlobalExists / GlobalNotExists](/snippet/globalexists)
@@ -18,7 +21,6 @@
 
 ## TODO
 
-* Maximiser l'efficacité des potions de rapidité (plus on est lent mieux c'est)
 * Gestion du moral lors de l'utilisation des potions de soin
 * Utiliser les potions de force à ceux qui combattent
 * Gestion de la peur (ne pas lancer des sorts lents), de l'apaisement (perso et collectif)

@@ -1,15 +1,35 @@
-# Huile de rapidité (POTN14)
+---
+myst:
+  substitutions:
+    OBJ_FILENAME: POTN14
+---
 
-On hérite du snippet des [Objets rapides](/item/base).
+# Huile de rapidité ({{ OBJ_FILENAME }})
+
+On hérite du snippet des [Objets rapides](/item/_init).
 
 `````{tab-set}
 ````{tab-item} Basique
 ```cr
 IF
-    //# Snippet Objet rapide
+    ActionListEmpty()
+    !GlobalTimerNotExpired("BD_Cast", "LOCALS")
+    Global("BDAI_DISABLE_ITEMS", "LOCALS", 0)
+    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
+    CheckStat(Myself, 0, CASTERHOLD)
+    HasItemEquiped("POTN14", Myself)
+    OR(3)
+        !ButtonDisabled(BUTTON_QUICKITEM1)
+        !ButtonDisabled(BUTTON_QUICKITEM2)
+        !ButtonDisabled(BUTTON_QUICKITEM3)
+
     !StateCheck(Myself, STATE_HASTED)
     See(NearestEnemyOf(Myself))
 THEN
+    RESPONSE #1
+        SetGlobalTimer("BD_Cast", "LOCALS", ONE_ROUND)
+        UseItem("POTN14", Myself)
+END
 ```
 On vérifie que :
 - un effet similaire ne soit pas déjà en cours
@@ -19,7 +39,17 @@ On vérifie que :
 ````{tab-item} Spécifique
 ```cr
 IF
-    //# Snippet Objet rapide
+    ActionListEmpty()
+    !GlobalTimerNotExpired("BD_Cast", "LOCALS")
+    Global("BDAI_DISABLE_ITEMS", "LOCALS", 0)
+    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
+    CheckStat(Myself, 0, CASTERHOLD)
+    HasItemEquiped("POTN14", Myself)
+    OR(3)
+        !ButtonDisabled(BUTTON_QUICKITEM1)
+        !ButtonDisabled(BUTTON_QUICKITEM2)
+        !ButtonDisabled(BUTTON_QUICKITEM3)
+
     !StateCheck(Myself, STATE_HASTED | STATE_BLIND)
     HasWeaponEquiped(Myself)
     OR(2)
@@ -29,6 +59,10 @@ IF
         Allegiance(Myself, EVILCUTOFF)
         NumCreatureGT([EVILCUTOFF], 4)
 THEN
+    RESPONSE #1
+        SetGlobalTimer("BD_Cast", "LOCALS", ONE_ROUND)
+        UseItem("POTN14", Myself)
+END
 ```
 
 On reprend la précédente en ajoutant :
@@ -40,9 +74,18 @@ On reprend la précédente en ajoutant :
 ````{tab-item} Poussive
 ```cr
 IF
-    //# Snippet Objet rapide
+    ActionListEmpty()
+    !GlobalTimerNotExpired("BD_Cast", "LOCALS")
+    Global("BDAI_DISABLE_ITEMS", "LOCALS", 0)
+    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
+    CheckStat(Myself, 0, CASTERHOLD)
+    HasItemEquiped("POTN14", Myself)
+    OR(3)
+        !ButtonDisabled(BUTTON_QUICKITEM1)
+        !ButtonDisabled(BUTTON_QUICKITEM2)
+        !ButtonDisabled(BUTTON_QUICKITEM3)
+
     !StateCheck(Myself, STATE_HASTED | STATE_BLIND)
-    !Class(Myself, MAGE)
     CheckStatGT(Myself, 7, STR)
     HasWeaponEquiped(Myself)
     CheckStatLT(Myself, 2, ENCUMBERANCE)
@@ -61,10 +104,13 @@ IF
         Allegiance(Myself, EVILCUTOFF)
         NumCreatureGT([EVILCUTOFF], 4)
 THEN
+    RESPONSE #1
+        SetGlobalTimer("BD_Cast", "LOCALS", ONE_ROUND)
+        UseItem("POTN14", Myself)
+END
 ```
 
 On reprend la précédente en ajoutant :
-- Le personnage n'est pas un mage pur (il ne frappe pas)
 - Le personnage a une force minimale de 8 (pas de malus au toucher)
 - Le personnage n'est pas immobilisé par surcharge (sa vitesse de déplacement étant nulle)
 - Le personnage n'est pas empoisonné ou grignoté par des insectes (sinon cela double la fréquence des dégâts)
@@ -74,9 +120,19 @@ On reprend la précédente en ajoutant :
 ````{tab-item} Fuite
 ```cr
 IF
-    //# Snippet Objet rapide
-    !StateCheck(Myself, STATE_HASTED)
-    CheckStatLT(Myself, 2, ENCUMBERANCE)
+    ActionListEmpty()
+    !GlobalTimerNotExpired("BD_Cast", "LOCALS")
+    Global("BDAI_DISABLE_ITEMS", "LOCALS", 0)
+    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
+    CheckStat(Myself, 0, CASTERHOLD)
+    HasItemEquiped("POTN14", Myself)
+    OR(3)
+        !ButtonDisabled(BUTTON_QUICKITEM1)
+        !ButtonDisabled(BUTTON_QUICKITEM2)
+        !ButtonDisabled(BUTTON_QUICKITEM3)
+
+    !StateCheck(Myself, STATE_HASTED | STATE_PANIC)
+    CheckStat(Myself, 0, ENCUMBERANCE)
     !CheckSpellState(Myself, DEFENSIVE_SPIN)
     !CheckSpellState(Myself, OFFENSIVE_SPIN)
     HPPercentLT(Myself, 15)
@@ -88,17 +144,27 @@ THEN
 END
 ```
 Parce que cette potion permet aussi de courir plus vite.
-- Le personnage profite de ce bonus pour s'enfuir
+- Le personnage profite de cet avantage pour s'enfuir
 ````
 
 
 ````{tab-item} Repli régénérant
 ```cr
 IF
-    //# Snippet Objet rapide
+    ActionListEmpty()
+    !GlobalTimerNotExpired("BD_Cast", "LOCALS")
+    Global("BDAI_DISABLE_ITEMS", "LOCALS", 0)
+    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
+    CheckStat(Myself, 0, CASTERHOLD)
+    HasItemEquiped("POTN14", Myself)
+    OR(3)
+        !ButtonDisabled(BUTTON_QUICKITEM1)
+        !ButtonDisabled(BUTTON_QUICKITEM2)
+        !ButtonDisabled(BUTTON_QUICKITEM3)
+
     HasItemEquiped("POTN42", Myself)
-    !StateCheck(Myself, STATE_HASTED)
-    CheckStatLT(Myself, 2, ENCUMBERANCE)
+    !StateCheck(Myself, STATE_HASTED | STATE_PANIC)
+    CheckStat(Myself, 0, ENCUMBERANCE)
     !CheckSpellState(Myself, DEFENSIVE_SPIN)
     !CheckSpellState(Myself, OFFENSIVE_SPIN)
     HPPercentLT(Myself, 25)
@@ -118,7 +184,7 @@ THEN
 END
 ```
 Parce que cette potion permet de courir et de régénérer plus vite.
-- Le personnage profite de ce bonus pour reculer et boire une potion de régénération donc l'efficacité sera doublée
+- Le personnage profite de ce bonus pour reculer et boire une potion de régénération dont l'efficacité est doublée
 ````
 
 `````

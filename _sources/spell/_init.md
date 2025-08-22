@@ -1,36 +1,46 @@
+---
+myst:
+  substitutions:
+    OBJ_FILENAME: SPELL_FILENAME
+    SPELL: SPELL_NAME
+    SPELL_TYPE: DEFENSIVE_OR_OFFENSIVE_TODO
+    TARGET: TARGET
+---
+
 # Can I Cast a Spell?
 
 Avant de lancer des sorts, il est utile de savoir si celui-ci a des chances d'être incanté.\
 Plusieurs paramètres sont à prendre en compte.
 
-
 ## Snippets de base
 
-Adaptés pour les actions `Spell` et `SpellRES`.
+Adaptés pour les actions `Spell` et `SpellRES`.\
+Il s'agit d'une base qui peuvent/doivent être adaptés aux besoins.
 
 `````{tab-set}
 ````{tab-item} Basique
 ```cr
 IF
     ActionListEmpty()
-    //#Global("BDAI_DISABLE_DEFENSIVE", "LOCALS", 0) //# Au choix
-    //#Global("BDAI_DISABLE_OFFENSIVE", "LOCALS", 0) //# Au choix
-    OR(2)
-        CheckStat(Myself, 0, FORCESURGE)
-        CheckStatGT(Myself, 0, CHAOS_SHIELD)
+    Global("BDAI_DISABLE_DEFENSIVE_OR_OFFENSIVE_TODO", "LOCALS", 0)
+    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
+    CheckStat(Myself, 0, CASTERHOLD)
     OR(2)
         !GlobalTimerNotExpired("BD_Cast", "LOCALS")
         CheckStatGT(Myself, 0, AURACLEANSING)
-    OR(2) //# Potentiellement facultatif
+    OR(2)
         !StateCheck(Myself, STATE_POISONED)
         CheckStatGT(Myself, 99, RESISTPOISON)
-    //# HaveSpell(…)
+    OR(2)
+        CheckStat(Myself, 0, FORCESURGE)
+        CheckStatGT(Myself, 0, CHAOS_SHIELD)
+    HaveSpell(SPELL_NAME)
 
     //# TODO: Code spécifique
 THEN
     RESPONSE #1
         SetGlobalTimer("BD_Cast", "LOCALS", ONE_ROUND)
-        //# Spell(…, …)
+        Spell(TARGET, SPELL_NAME)
 END
 ```
 ````
@@ -39,27 +49,28 @@ END
 ```cr
 IF
     ActionListEmpty()
-    Global("BDAI_NO_ARCANE", "LOCALS", 0)
     !ButtonDisabled(BUTTON_CASTSPELL)
-    //#Global("BDAI_DISABLE_DEFENSIVE", "LOCALS", 0) //# Au choix
-    //#Global("BDAI_DISABLE_OFFENSIVE", "LOCALS", 0) //# Au choix
-    CheckStatLT(Myself, 50, SPELLFAILUREMAGE) //# Valeur à configurer
-    OR(2)
-        CheckStat(Myself, 0, FORCESURGE)
-        CheckStatGT(Myself, 0, CHAOS_SHIELD)
+    Global("BDAI_NO_ARCANE", "LOCALS", 0)
+    Global("BDAI_DISABLE_DEFENSIVE_OR_OFFENSIVE_TODO", "LOCALS", 0)
+    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
+    CheckStat(Myself, 0, CASTERHOLD)
+    CheckStatLT(Myself, 50, SPELLFAILUREMAGE)
     OR(2)
         !GlobalTimerNotExpired("BD_Cast", "LOCALS")
         CheckStatGT(Myself, 0, AURACLEANSING)
-    OR(2) //# Potentiellement facultatif
+    OR(2)
         !StateCheck(Myself, STATE_POISONED)
         CheckStatGT(Myself, 99, RESISTPOISON)
-    //# HaveSpell(…)
+    OR(2)
+        CheckStat(Myself, 0, FORCESURGE)
+        CheckStatGT(Myself, 0, CHAOS_SHIELD)
+    HaveSpell(SPELL_NAME)
 
     //# TODO: Code spécifique
 THEN
     RESPONSE #1
         SetGlobalTimer("BD_Cast", "LOCALS", ONE_ROUND)
-        //# Spell(…, …)
+        Spell(TARGET, SPELL_NAME)
 END
 ```
 ````
@@ -69,25 +80,26 @@ END
 IF
     ActionListEmpty()
     !ButtonDisabled(BUTTON_CASTSPELL)
-    //#Global("BDAI_DISABLE_DEFENSIVE", "LOCALS", 0) //# Au choix
-    //#Global("BDAI_DISABLE_OFFENSIVE", "LOCALS", 0) //# Au choix
-    CheckStatLT(Myself, 50, SPELLFAILUREPRIEST) //# Valeur à configurer
-    OR(2)
-        CheckStat(Myself, 0, FORCESURGE)
-        CheckStatGT(Myself, 0, CHAOS_SHIELD)
+    Global("BDAI_DISABLE_DEFENSIVE_OR_OFFENSIVE_TODO", "LOCALS", 0)
+    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
+    CheckStat(Myself, 0, CASTERHOLD)
+    CheckStatLT(Myself, 50, SPELLFAILUREPRIEST)
     OR(2)
         !GlobalTimerNotExpired("BD_Cast", "LOCALS")
         CheckStatGT(Myself, 0, AURACLEANSING)
-    OR(2) //# Potentiellement facultatif
+    OR(2)
         !StateCheck(Myself, STATE_POISONED)
         CheckStatGT(Myself, 99, RESISTPOISON)
-    //# HaveSpell(…)
+    OR(2)
+        CheckStat(Myself, 0, FORCESURGE)
+        CheckStatGT(Myself, 0, CHAOS_SHIELD)
+    HaveSpell(SPELL_NAME)
 
     //# TODO: Code spécifique
 THEN
     RESPONSE #1
         SetGlobalTimer("BD_Cast", "LOCALS", ONE_ROUND)
-        //# Spell(…, …)
+        Spell(TARGET, SPELL_NAME)
 END
 ```
 ````
@@ -96,48 +108,44 @@ END
 ```cr
 IF
     ActionListEmpty()
-    Global("BDAI_DISABLE_SPECIAL", "LOCALS", 0)
     !ButtonDisabled(BUTTON_INNATEBUTTON)
-    //#Global("BDAI_DISABLE_DEFENSIVE", "LOCALS", 0) //# Au choix
-    //#Global("BDAI_DISABLE_OFFENSIVE", "LOCALS", 0) //# Au choix
-    CheckStatLT(Myself, 50, SPELL_FAILURE_INNATE) //# Valeur à configurer
-    OR(2)
-        CheckStat(Myself, 0, FORCESURGE)
-        CheckStatGT(Myself, 0, CHAOS_SHIELD)
+    Global("BDAI_DISABLE_DEFENSIVE_OR_OFFENSIVE_TODO", "LOCALS", 0)
+    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
+    CheckStat(Myself, 0, CASTERHOLD)
+    CheckStatLT(Myself, 50, SPELL_FAILURE_INNATE)
     OR(2)
         !GlobalTimerNotExpired("BD_Cast", "LOCALS")
         CheckStatGT(Myself, 0, AURACLEANSING)
-    OR(2) //# Potentiellement facultatif
+    OR(2)
         !StateCheck(Myself, STATE_POISONED)
         CheckStatGT(Myself, 99, RESISTPOISON)
-    //# HaveSpell(…)
+    OR(2)
+        CheckStat(Myself, 0, FORCESURGE)
+        CheckStatGT(Myself, 0, CHAOS_SHIELD)
+    HaveSpell(SPELL_NAME)
 
     //# TODO: Code spécifique
 THEN
     RESPONSE #1
         SetGlobalTimer("BD_Cast", "LOCALS", ONE_ROUND)
-        //# Spell(…, …)
+        Spell(TARGET, SPELL_NAME)
 END
 ```
 ````
 `````
 
-
-
-
-
-
 ## Posséder le sort
 
 Dans la plupart des cas, on ne voudra lancer que les sorts que l'on possède, on utilisera alors le trigger `HaveSpell` ou `HaveSpellRES` avec l'action `Spell`.\
-Si on souhaite lancer des sorts non possédés on privilégiera les actions `ForceSpell` ou `ReallyForceSpell` ou encore `ForceSpellDead`.\
+Si on souhaite lancer des sorts non possédés on privilégiera les actions `SpellNoDec`, `ForceSpell` ou `ReallyForceSpell` ou encore `ForceSpellDead`.\
 Le choix de l'action impacte fortement le choix des contraintes du block `IF`.
 
 
+(silence-section)=
 ## Silence
 
 ```{note}
-Concerne les actions :
+Actions concernées :
 - `Spell`
 ```
 
@@ -173,18 +181,19 @@ Ainsi, le meilleur moyen de gérer le silence, c'est de laisser l'action `HaveSp
 ## Blocage de la capacité à lancer des sorts
 
 ```{note}
-Concerne les actions :
+Actions concernées :
 - `Spell`
 ```
 
 Infligé par l'opcode 145, cet effet est géré automatiquement par `HaveSpell`.\
-Voir le point précédent pour plus d'informations.
+Voir le point sur [Silence](silence-section) pour plus d'informations.
 
 ## Poison
 
 ```{note}
-Concerne les actions :
+Actions concernées :
 - `Spell`
+- `SpellNoDec`
 ```
 
 Un désastre pour les magiciens, le poison lui inflige des dégâts sur la durée. Double effet kisscool :
@@ -222,7 +231,7 @@ Voici quelques chiffres approximatifs :
   * 2 secondes : 5%
   * 3 secondes : 20%
 
-- Temps nécessaire à l'incantation des sorts : valeur * 0.6 secondes
+- Temps nécessaire à l'incantation des sorts : valeur × 0.6 secondes
 
 - Probabilité d'échec si des dégâts du poison sont infligés lors de l'incantation : 50%
 ```
@@ -257,8 +266,9 @@ Pour s'assurer qu'un personnage n'est pas empoisonné ou qu'il ne puisse en subi
 ## Maladie
 
 ```{note}
-Concerne les actions :
+Actions concernées :
 - `Spell`
+- `SpellNoDec`
 ```
 
 Côté maladie, on observe une fréquence plus faible.
@@ -294,14 +304,15 @@ Lire [cette page](/general/athkatla_magec).
 ## Hiatus entropiques
 
 ```{note}
-Concerne les actions :
+Actions concernées :
 - `Spell`
+- `SpellNoDec`
 - `ForceSpell`
 - `ReallyForceSpellDead`
 ```
 
 Les hiatus entropiques sont également à prendre en compte lors d'un lancement d'un sort.\
-Il est possible de savoir si le prochain sort sera un hiatus.
+Il est possible de savoir si le prochain sort sera un hiatus.\
 
 
 ### Snippet
@@ -312,6 +323,11 @@ Pour s'assurer que le prochain sort ne sera pas un hiatus :
         CheckStatGT(Myself, 0, CHAOS_SHIELD)
 ```
 
+```{note}
+Certains sorts ou capacités sont protégés contre les hiatus.\
+Dans ce cas, le snippet ne doit pas être utilisé.\
+Pour en [savoir plus](https://gibberlings3.github.io/iesdp/file_formats/ie_formats/spl_v1.htm#Header_Flags).
+```
 
 ## Zone anti-magie et autre modificateur de réussite à l'incantation
 
@@ -321,3 +337,17 @@ TODO
 
 Concerne toutes les actions sauf `ReallyForceSpell`.
 TODO
+
+
+## GUI: Bouton désactivé
+
+```{note}
+Actions concernées :
+- Toutes
+```
+
+On part du principe que si le bouton servant à accéder aux sorts est désactivé c'est que le personnage est en incapacité de lancer des sorts.\
+C'est notamment le cas lorsque l'on porte une armure lourde ou sous polymorphie.
+
+- `BUTTON_CASTSPELL` : pour les sorts profanes, divins et druidiques
+- `BUTTON_INNATEBUTTON` : pour les capacités spéciales

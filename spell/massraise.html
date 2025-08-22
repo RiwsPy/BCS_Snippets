@@ -62,7 +62,7 @@
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
-    <link rel="next" title="Can I Use a Item?" href="../item/base.html" />
+    <link rel="next" title="Can I Use a Item?" href="../item/_init.html" />
     <link rel="prev" title="Peau de pierre (SPWI408)" href="stoneskin.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="fr"/>
@@ -183,12 +183,12 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Généralités</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../general/_init.html">Sommaire</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../general/dialog.html">Dialogue - Initialisation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../general/athkatla_magec.html">Surveillance des Mages Cagoulés</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Snippets</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../snippet/list.html">Sommaire</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../snippet/globalexists.html">✅ GlobalExists</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../snippet/backstab.html">⚠️ Réaliser une attaque sournoise</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../snippet/opportunityattack.html">✅ Réaliser une attaque d’opportunité</a></li>
@@ -196,13 +196,13 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Sorts spécifiques</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="base.html">Can I Cast a Spell?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_init.html">Can I Cast a Spell?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stoneskin.html">Peau de pierre (SPWI408)</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Résurrection de masse (SPPR729)</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Objets spécifiques</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../item/base.html">Can I Use a Item?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../item/_init.html">Can I Use a Item?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../item/potion_haste.html">Huile de rapidité (POTN14)</a></li>
 </ul>
 
@@ -411,7 +411,22 @@ Il soigne également de 3D10 points de vie. Mais soyons honnête : ça serait du
 <label class="sd-tab-label" for="sd-tab-item-0">
 Base</label><div class="sd-tab-content docutils">
 <div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
-<span class="w">    </span><span class="sr">//</span><span class="c1"># Snippet sort divin</span>
+<span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
+<span class="w">    </span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="no">BUTTON_CASTSPELL</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_DISABLE_DEFENSIVE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_SLEEPING</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_HELPLESS</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_REALLY_DEAD</span><span class="p">)</span>
+<span class="w">    </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CASTERHOLD</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="o">!</span><span class="n">GlobalTimerNotExpired</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">AURACLEANSING</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_POISONED</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">99</span><span class="p">,</span><span class="w"> </span><span class="no">RESISTPOISON</span><span class="p">)</span>
+<span class="w">    </span><span class="n">HaveSpell</span><span class="p">(</span><span class="no">CLERIC_MASS_RAISE_DEAD</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="o">!</span><span class="n">CheckSpellState</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">DISEASED</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">99</span><span class="p">,</span><span class="w"> </span><span class="no">RESISTPOISON</span><span class="p">)</span>
+<span class="w">    </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CLERIC_INSECT_PLAGUE</span><span class="p">)</span>
 
 <span class="w">    </span><span class="n">NumInPartyGT</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="w">    </span><span class="n">NumInPartyAliveLT</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
@@ -423,6 +438,10 @@ Base</label><div class="sd-tab-content docutils">
 <span class="w">        </span><span class="n">NumInPartyAliveLT</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="w">    </span><span class="sr">//</span><span class="c1"># …</span>
 <span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
+<span class="w">        </span><span class="n">SetGlobalTimer</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="no">ONE_ROUND</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Spell</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">CLERIC_MASS_RAISE_DEAD</span><span class="p">)</span>
+<span class="no">END</span>
 </pre></div>
 </div>
 <p>Il est possible de connaître la taille du groupe ainsi que le nombre de membre encore en vie.<br />
@@ -436,9 +455,24 @@ Et sans pouvoir faire de soustraction, il est possible de faire des comparaisons
 </div>
 <input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" for="sd-tab-item-1">
-Hors-combat</label><div class="sd-tab-content docutils">
+Allié hors-combat</label><div class="sd-tab-content docutils">
 <div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
-<span class="w">    </span><span class="sr">//</span><span class="c1"># Snippet sort divin</span>
+<span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
+<span class="w">    </span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="no">BUTTON_CASTSPELL</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_DISABLE_DEFENSIVE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_SLEEPING</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_HELPLESS</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_REALLY_DEAD</span><span class="p">)</span>
+<span class="w">    </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CASTERHOLD</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="o">!</span><span class="n">GlobalTimerNotExpired</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">AURACLEANSING</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_POISONED</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">99</span><span class="p">,</span><span class="w"> </span><span class="no">RESISTPOISON</span><span class="p">)</span>
+<span class="w">    </span><span class="n">HaveSpell</span><span class="p">(</span><span class="no">CLERIC_MASS_RAISE_DEAD</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="o">!</span><span class="n">CheckSpellState</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">DISEASED</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">99</span><span class="p">,</span><span class="w"> </span><span class="no">RESISTPOISON</span><span class="p">)</span>
+<span class="w">    </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CLERIC_INSECT_PLAGUE</span><span class="p">)</span>
 
 <span class="w">    </span><span class="o">!</span><span class="n">ActuallyInCombat</span><span class="p">()</span>
 <span class="w">    </span><span class="n">Allegiance</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">GOODCUTOFF</span><span class="p">)</span>
@@ -454,6 +488,10 @@ Hors-combat</label><div class="sd-tab-content docutils">
 <span class="w">        </span><span class="n">NumInPartyAliveLT</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="w">    </span><span class="sr">//</span><span class="c1"># …</span>
 <span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
+<span class="w">        </span><span class="n">SetGlobalTimer</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="no">ONE_ROUND</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Spell</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">CLERIC_MASS_RAISE_DEAD</span><span class="p">)</span>
+<span class="no">END</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -504,7 +542,7 @@ Hors-combat</label><div class="sd-tab-content docutils">
       </div>
     </a>
     <a class="right-next"
-       href="../item/base.html"
+       href="../item/_init.html"
        title="page suivante">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">suivant</p>

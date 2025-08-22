@@ -7,28 +7,28 @@ IF
     ActionListEmpty()
     Global("BDAI_DISABLE_ATTACK", "LOCALS", 0)
 
-    // arme compatible et utilisable par les voleurs
+    //# arme compatible et utilisable par les voleurs
     !IsWeaponRanged(Myself)
 
     OR(2)
         CheckStatGT(Myself, 1, BACKSTABDAMAGEMULTIPLIER)
-        False() // Check 3E sneak attack + valeur (selon kit/class)
+        False() //# Check 3E sneak attack + valeur (selon kit/class)
 
-    // Contrainte d'invisibilité
+    //# Contrainte d'invisibilité
     OR(4)
         StateCheck(Myself, STATE_INVISIBLE)
         CheckStat(Myself, 1, ASSASSINATE) // BitCheck BIT0 and BIT1 instead
         CheckStat(Myself, 2, ASSASSINATE)
-        False() // Check 3E sneak attack
+        False() //# Check 3E sneak attack
 
     See([ANYONE]) //# TODO
 
-    // Contrainte de position
+    //# Contrainte de position
     OR(4)
         Allegiance(Myself, NOTGOOD)
-        CheckStat(Myself, 1, ASSASSINATE) // BitCheck BIT0 and BIT2 instead
+        CheckStat(Myself, 1, ASSASSINATE) //# BitCheck BIT0 and BIT2 instead
         CheckStat(Myself, 4, ASSASSINATE)
-        False()  // placement dans le dos
+        False()  //# placement dans le dos
 
     CheckStat(LastSeenBy(Myself), 0, IMMUNITY_TO_BACKSTAB)
     !Kit(LastSeenBy(Myself), BARBARIAN)

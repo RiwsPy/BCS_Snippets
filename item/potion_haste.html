@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -62,7 +62,7 @@
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
-    <link rel="prev" title="Can I Use a Item?" href="base.html" />
+    <link rel="prev" title="Can I Use a Item?" href="_init.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="fr"/>
   </head>
@@ -182,12 +182,12 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Généralités</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../general/_init.html">Sommaire</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../general/dialog.html">Dialogue - Initialisation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../general/athkatla_magec.html">Surveillance des Mages Cagoulés</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Snippets</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../snippet/list.html">Sommaire</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../snippet/globalexists.html">✅ GlobalExists</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../snippet/backstab.html">⚠️ Réaliser une attaque sournoise</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../snippet/opportunityattack.html">✅ Réaliser une attaque d’opportunité</a></li>
@@ -195,13 +195,13 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Sorts spécifiques</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../spell/base.html">Can I Cast a Spell?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../spell/_init.html">Can I Cast a Spell?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../spell/stoneskin.html">Peau de pierre (SPWI408)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../spell/massraise.html">Résurrection de masse (SPPR729)</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Objets spécifiques</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="base.html">Can I Use a Item?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_init.html">Can I Use a Item?</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Huile de rapidité (POTN14)</a></li>
 </ul>
 
@@ -402,16 +402,30 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="huile-de-rapidite-potn14">
 <h1>Huile de rapidité (POTN14)<a class="headerlink" href="#huile-de-rapidite-potn14" title="Lien vers cette rubrique">#</a></h1>
-<p>On hérite du snippet des <a class="reference internal" href="base.html"><span class="doc std std-doc">Objets rapides</span></a>.</p>
+<p>On hérite du snippet des <a class="reference internal" href="_init.html"><span class="doc std std-doc">Objets rapides</span></a>.</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" for="sd-tab-item-0">
 Basique</label><div class="sd-tab-content docutils">
 <div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
-<span class="w">    </span><span class="sr">//</span><span class="c1"># Snippet Objet rapide</span>
+<span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
+<span class="w">    </span><span class="o">!</span><span class="n">GlobalTimerNotExpired</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_DISABLE_ITEMS&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_SLEEPING</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_HELPLESS</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_REALLY_DEAD</span><span class="p">)</span>
+<span class="w">    </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CASTERHOLD</span><span class="p">)</span>
+<span class="w">    </span><span class="n">HasItemEquiped</span><span class="p">(</span><span class="s2">&quot;POTN14&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Myself</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="w">        </span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="n">BUTTON_QUICKITEM1</span><span class="p">)</span>
+<span class="w">        </span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="n">BUTTON_QUICKITEM2</span><span class="p">)</span>
+<span class="w">        </span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="n">BUTTON_QUICKITEM3</span><span class="p">)</span>
+
 <span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_HASTED</span><span class="p">)</span>
 <span class="w">    </span><span class="n">See</span><span class="p">(</span><span class="n">NearestEnemyOf</span><span class="p">(</span><span class="n">Myself</span><span class="p">))</span>
 <span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
+<span class="w">        </span><span class="n">SetGlobalTimer</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="no">ONE_ROUND</span><span class="p">)</span>
+<span class="w">        </span><span class="n">UseItem</span><span class="p">(</span><span class="s2">&quot;POTN14&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Myself</span><span class="p">)</span>
+<span class="no">END</span>
 </pre></div>
 </div>
 <p>On vérifie que :</p>
@@ -424,7 +438,17 @@ Basique</label><div class="sd-tab-content docutils">
 <label class="sd-tab-label" for="sd-tab-item-1">
 Spécifique</label><div class="sd-tab-content docutils">
 <div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
-<span class="w">    </span><span class="sr">//</span><span class="c1"># Snippet Objet rapide</span>
+<span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
+<span class="w">    </span><span class="o">!</span><span class="n">GlobalTimerNotExpired</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_DISABLE_ITEMS&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_SLEEPING</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_HELPLESS</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_REALLY_DEAD</span><span class="p">)</span>
+<span class="w">    </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CASTERHOLD</span><span class="p">)</span>
+<span class="w">    </span><span class="n">HasItemEquiped</span><span class="p">(</span><span class="s2">&quot;POTN14&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Myself</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="w">        </span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="n">BUTTON_QUICKITEM1</span><span class="p">)</span>
+<span class="w">        </span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="n">BUTTON_QUICKITEM2</span><span class="p">)</span>
+<span class="w">        </span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="n">BUTTON_QUICKITEM3</span><span class="p">)</span>
+
 <span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_HASTED</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_BLIND</span><span class="p">)</span>
 <span class="w">    </span><span class="n">HasWeaponEquiped</span><span class="p">(</span><span class="n">Myself</span><span class="p">)</span>
 <span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
@@ -434,6 +458,10 @@ Spécifique</label><div class="sd-tab-content docutils">
 <span class="w">        </span><span class="n">Allegiance</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">EVILCUTOFF</span><span class="p">)</span>
 <span class="w">        </span><span class="n">NumCreatureGT</span><span class="p">(</span><span class="o">[</span><span class="no">EVILCUTOFF</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span>
 <span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
+<span class="w">        </span><span class="n">SetGlobalTimer</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="no">ONE_ROUND</span><span class="p">)</span>
+<span class="w">        </span><span class="n">UseItem</span><span class="p">(</span><span class="s2">&quot;POTN14&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Myself</span><span class="p">)</span>
+<span class="no">END</span>
 </pre></div>
 </div>
 <p>On reprend la précédente en ajoutant :</p>
@@ -447,9 +475,18 @@ Spécifique</label><div class="sd-tab-content docutils">
 <label class="sd-tab-label" for="sd-tab-item-2">
 Poussive</label><div class="sd-tab-content docutils">
 <div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
-<span class="w">    </span><span class="sr">//</span><span class="c1"># Snippet Objet rapide</span>
+<span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
+<span class="w">    </span><span class="o">!</span><span class="n">GlobalTimerNotExpired</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_DISABLE_ITEMS&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_SLEEPING</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_HELPLESS</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_REALLY_DEAD</span><span class="p">)</span>
+<span class="w">    </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CASTERHOLD</span><span class="p">)</span>
+<span class="w">    </span><span class="n">HasItemEquiped</span><span class="p">(</span><span class="s2">&quot;POTN14&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Myself</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="w">        </span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="n">BUTTON_QUICKITEM1</span><span class="p">)</span>
+<span class="w">        </span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="n">BUTTON_QUICKITEM2</span><span class="p">)</span>
+<span class="w">        </span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="n">BUTTON_QUICKITEM3</span><span class="p">)</span>
+
 <span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_HASTED</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_BLIND</span><span class="p">)</span>
-<span class="w">    </span><span class="o">!</span><span class="n">Class</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">MAGE</span><span class="p">)</span>
 <span class="w">    </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="no">STR</span><span class="p">)</span>
 <span class="w">    </span><span class="n">HasWeaponEquiped</span><span class="p">(</span><span class="n">Myself</span><span class="p">)</span>
 <span class="w">    </span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="no">ENCUMBERANCE</span><span class="p">)</span>
@@ -468,11 +505,14 @@ Poussive</label><div class="sd-tab-content docutils">
 <span class="w">        </span><span class="n">Allegiance</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">EVILCUTOFF</span><span class="p">)</span>
 <span class="w">        </span><span class="n">NumCreatureGT</span><span class="p">(</span><span class="o">[</span><span class="no">EVILCUTOFF</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span>
 <span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
+<span class="w">        </span><span class="n">SetGlobalTimer</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="no">ONE_ROUND</span><span class="p">)</span>
+<span class="w">        </span><span class="n">UseItem</span><span class="p">(</span><span class="s2">&quot;POTN14&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Myself</span><span class="p">)</span>
+<span class="no">END</span>
 </pre></div>
 </div>
 <p>On reprend la précédente en ajoutant :</p>
 <ul class="simple">
-<li><p>Le personnage n’est pas un mage pur (il ne frappe pas)</p></li>
 <li><p>Le personnage a une force minimale de 8 (pas de malus au toucher)</p></li>
 <li><p>Le personnage n’est pas immobilisé par surcharge (sa vitesse de déplacement étant nulle)</p></li>
 <li><p>Le personnage n’est pas empoisonné ou grignoté par des insectes (sinon cela double la fréquence des dégâts)</p></li>
@@ -483,9 +523,19 @@ Poussive</label><div class="sd-tab-content docutils">
 <label class="sd-tab-label" for="sd-tab-item-3">
 Fuite</label><div class="sd-tab-content docutils">
 <div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
-<span class="w">    </span><span class="sr">//</span><span class="c1"># Snippet Objet rapide</span>
-<span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_HASTED</span><span class="p">)</span>
-<span class="w">    </span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="no">ENCUMBERANCE</span><span class="p">)</span>
+<span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
+<span class="w">    </span><span class="o">!</span><span class="n">GlobalTimerNotExpired</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_DISABLE_ITEMS&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_SLEEPING</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_HELPLESS</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_REALLY_DEAD</span><span class="p">)</span>
+<span class="w">    </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CASTERHOLD</span><span class="p">)</span>
+<span class="w">    </span><span class="n">HasItemEquiped</span><span class="p">(</span><span class="s2">&quot;POTN14&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Myself</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="w">        </span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="n">BUTTON_QUICKITEM1</span><span class="p">)</span>
+<span class="w">        </span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="n">BUTTON_QUICKITEM2</span><span class="p">)</span>
+<span class="w">        </span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="n">BUTTON_QUICKITEM3</span><span class="p">)</span>
+
+<span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_HASTED</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_PANIC</span><span class="p">)</span>
+<span class="w">    </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">ENCUMBERANCE</span><span class="p">)</span>
 <span class="w">    </span><span class="o">!</span><span class="n">CheckSpellState</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">DEFENSIVE_SPIN</span><span class="p">)</span>
 <span class="w">    </span><span class="o">!</span><span class="n">CheckSpellState</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">OFFENSIVE_SPIN</span><span class="p">)</span>
 <span class="w">    </span><span class="n">HPPercentLT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">)</span>
@@ -499,17 +549,27 @@ Fuite</label><div class="sd-tab-content docutils">
 </div>
 <p>Parce que cette potion permet aussi de courir plus vite.</p>
 <ul class="simple">
-<li><p>Le personnage profite de ce bonus pour s’enfuir</p></li>
+<li><p>Le personnage profite de cet avantage pour s’enfuir</p></li>
 </ul>
 </div>
 <input id="sd-tab-item-4" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" for="sd-tab-item-4">
 Repli régénérant</label><div class="sd-tab-content docutils">
 <div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
-<span class="w">    </span><span class="sr">//</span><span class="c1"># Snippet Objet rapide</span>
+<span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
+<span class="w">    </span><span class="o">!</span><span class="n">GlobalTimerNotExpired</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_DISABLE_ITEMS&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_SLEEPING</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_HELPLESS</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_REALLY_DEAD</span><span class="p">)</span>
+<span class="w">    </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CASTERHOLD</span><span class="p">)</span>
+<span class="w">    </span><span class="n">HasItemEquiped</span><span class="p">(</span><span class="s2">&quot;POTN14&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Myself</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="w">        </span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="n">BUTTON_QUICKITEM1</span><span class="p">)</span>
+<span class="w">        </span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="n">BUTTON_QUICKITEM2</span><span class="p">)</span>
+<span class="w">        </span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="n">BUTTON_QUICKITEM3</span><span class="p">)</span>
+
 <span class="w">    </span><span class="n">HasItemEquiped</span><span class="p">(</span><span class="s2">&quot;POTN42&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Myself</span><span class="p">)</span>
-<span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_HASTED</span><span class="p">)</span>
-<span class="w">    </span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="no">ENCUMBERANCE</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_HASTED</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_PANIC</span><span class="p">)</span>
+<span class="w">    </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">ENCUMBERANCE</span><span class="p">)</span>
 <span class="w">    </span><span class="o">!</span><span class="n">CheckSpellState</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">DEFENSIVE_SPIN</span><span class="p">)</span>
 <span class="w">    </span><span class="o">!</span><span class="n">CheckSpellState</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">OFFENSIVE_SPIN</span><span class="p">)</span>
 <span class="w">    </span><span class="n">HPPercentLT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">25</span><span class="p">)</span>
@@ -531,7 +591,7 @@ Repli régénérant</label><div class="sd-tab-content docutils">
 </div>
 <p>Parce que cette potion permet de courir et de régénérer plus vite.</p>
 <ul class="simple">
-<li><p>Le personnage profite de ce bonus pour reculer et boire une potion de régénération donc l’efficacité sera doublée</p></li>
+<li><p>Le personnage profite de ce bonus pour reculer et boire une potion de régénération dont l’efficacité est doublée</p></li>
 </ul>
 </div>
 </div>
@@ -568,7 +628,7 @@ Repli régénérant</label><div class="sd-tab-content docutils">
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="base.html"
+       href="_init.html"
        title="page précédente">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">

@@ -1,4 +1,15 @@
-# Peau de pierre (SPWI408)
+---
+myst:
+  substitutions:
+    OBJ_FILENAME: SPWI408
+    SPELL: WIZARD_STONE_SKIN
+    SPELL_TYPE: DEFENSIVE
+    TARGET: Myself
+    SPELL_PRIEST_FAILURE: →
+    SPELL_CHECK_WILDSURGE: →
+---
+
+# Peau de pierre ({{ OBJ_FILENAME }})
 
 Le sort `Peau de pierre` est l'un des plus usités en magie profane.\
 Ce qu'on oublie souvent, c'est qu'il existe *deux* types de peau :
@@ -26,10 +37,9 @@ IF
     !ButtonDisabled(BUTTON_CASTSPELL)
     Global("BDAI_NO_ARCANE", "LOCALS", 0)
     Global("BDAI_DISABLE_DEFENSIVE", "LOCALS", 0)
+    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
+    CheckStat(Myself, 0, CASTERHOLD)
     CheckStatLT(Myself, 50, SPELLFAILUREMAGE)
-    OR(2)
-        CheckStat(Myself, 0, FORCESURGE)
-        CheckStatGT(Myself, 0, CHAOS_SHIELD)
     OR(2)
         !GlobalTimerNotExpired("BD_Cast", "LOCALS")
         CheckStatGT(Myself, 0, AURACLEANSING)
@@ -40,12 +50,13 @@ IF
         See(NearestEnemyOf(Myself))
         !StateCheck(Myself, STATE_POISONED)
         CheckStatGT(Myself, 99, RESISTPOISON)
+    HaveSpell(WIZARD_STONE_SKIN)
+
     CheckStatLT(Myself, 1, STONESKINS)
     CheckStatLT(Myself, 1, STONESKINSGOLEM)
     !ModalState(STEALTH)
-    HaveSpell(WIZARD_STONE_SKIN)
 THEN
-    RESPONSE #100
+    RESPONSE #1
         SetGlobalTimer("BD_Cast", "LOCALS", ONE_ROUND)
         Spell(Myself, WIZARD_STONE_SKIN)
 END
@@ -69,20 +80,23 @@ IF
     !ButtonDisabled(BUTTON_CASTSPELL)
     Global("BDAI_NO_ARCANE", "LOCALS", 0)
     Global("BDAI_DISABLE_DEFENSIVE", "LOCALS", 0)
+    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
+    CheckStat(Myself, 0, CASTERHOLD)
     CheckStatLT(Myself, 50, SPELLFAILUREMAGE)
-    OR(2)
-        CheckStat(Myself, 0, FORCESURGE)
-        CheckStatGT(Myself, 0, CHAOS_SHIELD)
     OR(2)
         !GlobalTimerNotExpired("BD_Cast", "LOCALS")
         CheckStatGT(Myself, 0, AURACLEANSING)
+    OR(2)
+        !StateCheck(Myself, STATE_POISONED)
+        CheckStatGT(Myself, 99, RESISTPOISON)
+    HaveSpell(WIZARD_STONE_SKIN)
+
     CheckStatLT(Myself, 1, STONESKINS)
     CheckStatLT(Myself, 1, STONESKINSGOLEM)
     !ModalState(STEALTH)
-    HaveSpell(WIZARD_STONE_SKIN)
     See(NearestEnemyOf(Myself))
 THEN
-    RESPONSE #100
+    RESPONSE #1
         SetGlobalTimer("BD_Cast", "LOCALS", ONE_ROUND)
         Spell(Myself, WIZARD_STONE_SKIN)
 END  
@@ -105,13 +119,17 @@ IF
     !ButtonDisabled(BUTTON_CASTSPELL)
     Global("BDAI_NO_ARCANE", "LOCALS", 0)
     Global("BDAI_DISABLE_DEFENSIVE", "LOCALS", 0)
+    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
+    CheckStat(Myself, 0, CASTERHOLD)
     CheckStatLT(Myself, 50, SPELLFAILUREMAGE)
-    OR(2)
-        CheckStat(Myself, 0, FORCESURGE)
-        CheckStatGT(Myself, 0, CHAOS_SHIELD)
     OR(2)
         !GlobalTimerNotExpired("BD_Cast", "LOCALS")
         CheckStatGT(Myself, 0, AURACLEANSING)
+    OR(2)
+        !StateCheck(Myself, STATE_POISONED)
+        CheckStatGT(Myself, 99, RESISTPOISON)
+    HaveSpell(WIZARD_STONE_SKIN)
+
     CheckStatLT(Myself, 1, STONESKINS)
     CheckStatLT(Myself, 1, STONESKINSGOLEM)
     OR(4)
@@ -119,11 +137,10 @@ IF
         HitBy([ANYONE], MISSILE)
         HitBy([ANYONE], SLASHING)
         HitBy([ANYONE], STUNNING)
-        // -_-
-        // HitBy([ANYONE], CRUSHING)
-    HaveSpell(WIZARD_STONE_SKIN)
+        //# -_-'
+        //# HitBy([ANYONE], CRUSHING)
 THEN
-    RESPONSE #100
+    RESPONSE #1
         SetGlobalTimer("BD_Cast", "LOCALS", ONE_ROUND)
         Spell(Myself, WIZARD_STONE_SKIN)
 END
@@ -159,19 +176,22 @@ IF
     !ButtonDisabled(BUTTON_CASTSPELL)
     Global("BDAI_NO_ARCANE", "LOCALS", 0)
     Global("BDAI_DISABLE_DEFENSIVE", "LOCALS", 0)
+    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
+    CheckStat(Myself, 0, CASTERHOLD)
     CheckStatLT(Myself, 50, SPELLFAILUREMAGE)
-    OR(2)
-        CheckStat(Myself, 0, FORCESURGE)
-        CheckStatGT(Myself, 0, CHAOS_SHIELD)
     OR(2)
         !GlobalTimerNotExpired("BD_Cast", "LOCALS")
         CheckStatGT(Myself, 0, AURACLEANSING)
+    OR(2)
+        !StateCheck(Myself, STATE_POISONED)
+        CheckStatGT(Myself, 99, RESISTPOISON)
+    HaveSpell(WIZARD_STONE_SKIN)
+
     CheckStatLT(Myself, 2, STONESKINS)
     CheckStatLT(Myself, 2, STONESKINSGOLEM)
     AttackedBy([ANYONE], DEFAULT)
-    HaveSpell(WIZARD_STONE_SKIN)
 THEN
-    RESPONSE #100
+    RESPONSE #1
         SetGlobalTimer("BD_Cast", "LOCALS", ONE_ROUND)
         Spell(Myself, WIZARD_STONE_SKIN)
 END

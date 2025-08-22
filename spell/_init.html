@@ -58,7 +58,7 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'spell/base';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'spell/_init';</script>
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
@@ -183,12 +183,12 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Généralités</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../general/_init.html">Sommaire</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../general/dialog.html">Dialogue - Initialisation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../general/athkatla_magec.html">Surveillance des Mages Cagoulés</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Snippets</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../snippet/list.html">Sommaire</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../snippet/globalexists.html">✅ GlobalExists</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../snippet/backstab.html">⚠️ Réaliser une attaque sournoise</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../snippet/opportunityattack.html">✅ Réaliser une attaque d’opportunité</a></li>
@@ -202,7 +202,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Objets spécifiques</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../item/base.html">Can I Use a Item?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../item/_init.html">Can I Use a Item?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../item/potion_haste.html">Huile de rapidité (POTN14)</a></li>
 </ul>
 
@@ -275,7 +275,7 @@
       
       
       
-      <li><a href="https://github.com/RiwsPy/BCS_Snippets/issues/new?title=Issue%20on%20page%20%2Fspell/base.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/RiwsPy/BCS_Snippets/issues/new?title=Issue%20on%20page%20%2Fspell/_init.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Ouvrez un problème"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -305,7 +305,7 @@
       
       
       
-      <li><a href="../_sources/spell/base.md" target="_blank"
+      <li><a href="../_sources/spell/_init.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Télécharger le fichier source"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -421,6 +421,7 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zone-anti-magie-et-autre-modificateur-de-reussite-a-l-incantation">Zone anti-magie et autre modificateur de réussite à l’incantation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#temps-d-attente-entre-chaque-incantation-utilisation-d-objet">Temps d’attente entre chaque incantation/utilisation d’objet</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gui-bouton-desactive">GUI: Bouton désactivé</a></li>
 </ul>
             </nav>
         </div>
@@ -438,31 +439,33 @@ document.write(`
 Plusieurs paramètres sont à prendre en compte.</p>
 <section id="snippets-de-base">
 <h2>Snippets de base<a class="headerlink" href="#snippets-de-base" title="Lien vers cette rubrique">#</a></h2>
-<p>Adaptés pour les actions <code class="docutils literal notranslate"><span class="pre">Spell</span></code> et <code class="docutils literal notranslate"><span class="pre">SpellRES</span></code>.</p>
+<p>Adaptés pour les actions <code class="docutils literal notranslate"><span class="pre">Spell</span></code> et <code class="docutils literal notranslate"><span class="pre">SpellRES</span></code>.<br />
+Il s’agit d’une base qui peuvent/doivent être adaptés aux besoins.</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" for="sd-tab-item-0">
 Basique</label><div class="sd-tab-content docutils">
 <div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
 <span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
-<span class="w">    </span><span class="sr">//</span><span class="c1">#Global(&quot;BDAI_DISABLE_DEFENSIVE&quot;, &quot;LOCALS&quot;, 0) //# Au choix</span>
-<span class="w">    </span><span class="sr">//</span><span class="c1">#Global(&quot;BDAI_DISABLE_OFFENSIVE&quot;, &quot;LOCALS&quot;, 0) //# Au choix</span>
-<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="w">        </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">FORCESURGE</span><span class="p">)</span>
-<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CHAOS_SHIELD</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_DISABLE_DEFENSIVE_OR_OFFENSIVE_TODO&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_SLEEPING</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_HELPLESS</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_REALLY_DEAD</span><span class="p">)</span>
+<span class="w">    </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CASTERHOLD</span><span class="p">)</span>
 <span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="w">        </span><span class="o">!</span><span class="n">GlobalTimerNotExpired</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">)</span>
 <span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">AURACLEANSING</span><span class="p">)</span>
-<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="sr">//</span><span class="c1"># Potentiellement facultatif</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="w">        </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_POISONED</span><span class="p">)</span>
 <span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">99</span><span class="p">,</span><span class="w"> </span><span class="no">RESISTPOISON</span><span class="p">)</span>
-<span class="w">    </span><span class="sr">//</span><span class="c1"># HaveSpell(…)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">FORCESURGE</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CHAOS_SHIELD</span><span class="p">)</span>
+<span class="w">    </span><span class="n">HaveSpell</span><span class="p">(</span><span class="no">SPELL_NAME</span><span class="p">)</span>
 
 <span class="w">    </span><span class="sr">//</span><span class="c1"># TODO: Code spécifique</span>
 <span class="no">THEN</span>
 <span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
 <span class="w">        </span><span class="n">SetGlobalTimer</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="no">ONE_ROUND</span><span class="p">)</span>
-<span class="w">        </span><span class="sr">//</span><span class="c1"># Spell(…, …)</span>
+<span class="w">        </span><span class="n">Spell</span><span class="p">(</span><span class="no">TARGET</span><span class="p">,</span><span class="w"> </span><span class="no">SPELL_NAME</span><span class="p">)</span>
 <span class="no">END</span>
 </pre></div>
 </div>
@@ -472,27 +475,28 @@ Basique</label><div class="sd-tab-content docutils">
 Sort profane</label><div class="sd-tab-content docutils">
 <div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
 <span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
-<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 <span class="w">    </span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="no">BUTTON_CASTSPELL</span><span class="p">)</span>
-<span class="w">    </span><span class="sr">//</span><span class="c1">#Global(&quot;BDAI_DISABLE_DEFENSIVE&quot;, &quot;LOCALS&quot;, 0) //# Au choix</span>
-<span class="w">    </span><span class="sr">//</span><span class="c1">#Global(&quot;BDAI_DISABLE_OFFENSIVE&quot;, &quot;LOCALS&quot;, 0) //# Au choix</span>
-<span class="w">    </span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="no">SPELLFAILUREMAGE</span><span class="p">)</span><span class="w"> </span><span class="sr">//</span><span class="c1"># Valeur à configurer</span>
-<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="w">        </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">FORCESURGE</span><span class="p">)</span>
-<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CHAOS_SHIELD</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_DISABLE_DEFENSIVE_OR_OFFENSIVE_TODO&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_SLEEPING</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_HELPLESS</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_REALLY_DEAD</span><span class="p">)</span>
+<span class="w">    </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CASTERHOLD</span><span class="p">)</span>
+<span class="w">    </span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="no">SPELLFAILUREMAGE</span><span class="p">)</span>
 <span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="w">        </span><span class="o">!</span><span class="n">GlobalTimerNotExpired</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">)</span>
 <span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">AURACLEANSING</span><span class="p">)</span>
-<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="sr">//</span><span class="c1"># Potentiellement facultatif</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="w">        </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_POISONED</span><span class="p">)</span>
 <span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">99</span><span class="p">,</span><span class="w"> </span><span class="no">RESISTPOISON</span><span class="p">)</span>
-<span class="w">    </span><span class="sr">//</span><span class="c1"># HaveSpell(…)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">FORCESURGE</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CHAOS_SHIELD</span><span class="p">)</span>
+<span class="w">    </span><span class="n">HaveSpell</span><span class="p">(</span><span class="no">SPELL_NAME</span><span class="p">)</span>
 
 <span class="w">    </span><span class="sr">//</span><span class="c1"># TODO: Code spécifique</span>
 <span class="no">THEN</span>
 <span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
 <span class="w">        </span><span class="n">SetGlobalTimer</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="no">ONE_ROUND</span><span class="p">)</span>
-<span class="w">        </span><span class="sr">//</span><span class="c1"># Spell(…, …)</span>
+<span class="w">        </span><span class="n">Spell</span><span class="p">(</span><span class="no">TARGET</span><span class="p">,</span><span class="w"> </span><span class="no">SPELL_NAME</span><span class="p">)</span>
 <span class="no">END</span>
 </pre></div>
 </div>
@@ -503,25 +507,26 @@ Sort divin/druidique</label><div class="sd-tab-content docutils">
 <div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
 <span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
 <span class="w">    </span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="no">BUTTON_CASTSPELL</span><span class="p">)</span>
-<span class="w">    </span><span class="sr">//</span><span class="c1">#Global(&quot;BDAI_DISABLE_DEFENSIVE&quot;, &quot;LOCALS&quot;, 0) //# Au choix</span>
-<span class="w">    </span><span class="sr">//</span><span class="c1">#Global(&quot;BDAI_DISABLE_OFFENSIVE&quot;, &quot;LOCALS&quot;, 0) //# Au choix</span>
-<span class="w">    </span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="no">SPELLFAILUREPRIEST</span><span class="p">)</span><span class="w"> </span><span class="sr">//</span><span class="c1"># Valeur à configurer</span>
-<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="w">        </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">FORCESURGE</span><span class="p">)</span>
-<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CHAOS_SHIELD</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_DISABLE_DEFENSIVE_OR_OFFENSIVE_TODO&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_SLEEPING</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_HELPLESS</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_REALLY_DEAD</span><span class="p">)</span>
+<span class="w">    </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CASTERHOLD</span><span class="p">)</span>
+<span class="w">    </span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="no">SPELLFAILUREPRIEST</span><span class="p">)</span>
 <span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="w">        </span><span class="o">!</span><span class="n">GlobalTimerNotExpired</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">)</span>
 <span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">AURACLEANSING</span><span class="p">)</span>
-<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="sr">//</span><span class="c1"># Potentiellement facultatif</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="w">        </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_POISONED</span><span class="p">)</span>
 <span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">99</span><span class="p">,</span><span class="w"> </span><span class="no">RESISTPOISON</span><span class="p">)</span>
-<span class="w">    </span><span class="sr">//</span><span class="c1"># HaveSpell(…)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">FORCESURGE</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CHAOS_SHIELD</span><span class="p">)</span>
+<span class="w">    </span><span class="n">HaveSpell</span><span class="p">(</span><span class="no">SPELL_NAME</span><span class="p">)</span>
 
 <span class="w">    </span><span class="sr">//</span><span class="c1"># TODO: Code spécifique</span>
 <span class="no">THEN</span>
 <span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
 <span class="w">        </span><span class="n">SetGlobalTimer</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="no">ONE_ROUND</span><span class="p">)</span>
-<span class="w">        </span><span class="sr">//</span><span class="c1"># Spell(…, …)</span>
+<span class="w">        </span><span class="n">Spell</span><span class="p">(</span><span class="no">TARGET</span><span class="p">,</span><span class="w"> </span><span class="no">SPELL_NAME</span><span class="p">)</span>
 <span class="no">END</span>
 </pre></div>
 </div>
@@ -531,27 +536,27 @@ Sort divin/druidique</label><div class="sd-tab-content docutils">
 Capacités spéciales</label><div class="sd-tab-content docutils">
 <div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
 <span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
-<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_DISABLE_SPECIAL&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 <span class="w">    </span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="no">BUTTON_INNATEBUTTON</span><span class="p">)</span>
-<span class="w">    </span><span class="sr">//</span><span class="c1">#Global(&quot;BDAI_DISABLE_DEFENSIVE&quot;, &quot;LOCALS&quot;, 0) //# Au choix</span>
-<span class="w">    </span><span class="sr">//</span><span class="c1">#Global(&quot;BDAI_DISABLE_OFFENSIVE&quot;, &quot;LOCALS&quot;, 0) //# Au choix</span>
-<span class="w">    </span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="no">SPELL_FAILURE_INNATE</span><span class="p">)</span><span class="w"> </span><span class="sr">//</span><span class="c1"># Valeur à configurer</span>
-<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="w">        </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">FORCESURGE</span><span class="p">)</span>
-<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CHAOS_SHIELD</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_DISABLE_DEFENSIVE_OR_OFFENSIVE_TODO&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_SLEEPING</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_HELPLESS</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_REALLY_DEAD</span><span class="p">)</span>
+<span class="w">    </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CASTERHOLD</span><span class="p">)</span>
+<span class="w">    </span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="no">SPELL_FAILURE_INNATE</span><span class="p">)</span>
 <span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="w">        </span><span class="o">!</span><span class="n">GlobalTimerNotExpired</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">)</span>
 <span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">AURACLEANSING</span><span class="p">)</span>
-<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="sr">//</span><span class="c1"># Potentiellement facultatif</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="w">        </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_POISONED</span><span class="p">)</span>
 <span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">99</span><span class="p">,</span><span class="w"> </span><span class="no">RESISTPOISON</span><span class="p">)</span>
-<span class="w">    </span><span class="sr">//</span><span class="c1"># HaveSpell(…)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">FORCESURGE</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CHAOS_SHIELD</span><span class="p">)</span>
+<span class="w">    </span><span class="n">HaveSpell</span><span class="p">(</span><span class="no">SPELL_NAME</span><span class="p">)</span>
 
 <span class="w">    </span><span class="sr">//</span><span class="c1"># TODO: Code spécifique</span>
 <span class="no">THEN</span>
 <span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
 <span class="w">        </span><span class="n">SetGlobalTimer</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="no">ONE_ROUND</span><span class="p">)</span>
-<span class="w">        </span><span class="sr">//</span><span class="c1"># Spell(…, …)</span>
+<span class="w">        </span><span class="n">Spell</span><span class="p">(</span><span class="no">TARGET</span><span class="p">,</span><span class="w"> </span><span class="no">SPELL_NAME</span><span class="p">)</span>
 <span class="no">END</span>
 </pre></div>
 </div>
@@ -561,14 +566,14 @@ Capacités spéciales</label><div class="sd-tab-content docutils">
 <section id="posseder-le-sort">
 <h2>Posséder le sort<a class="headerlink" href="#posseder-le-sort" title="Lien vers cette rubrique">#</a></h2>
 <p>Dans la plupart des cas, on ne voudra lancer que les sorts que l’on possède, on utilisera alors le trigger <code class="docutils literal notranslate"><span class="pre">HaveSpell</span></code> ou <code class="docutils literal notranslate"><span class="pre">HaveSpellRES</span></code> avec l’action <code class="docutils literal notranslate"><span class="pre">Spell</span></code>.<br />
-Si on souhaite lancer des sorts non possédés on privilégiera les actions <code class="docutils literal notranslate"><span class="pre">ForceSpell</span></code> ou <code class="docutils literal notranslate"><span class="pre">ReallyForceSpell</span></code> ou encore <code class="docutils literal notranslate"><span class="pre">ForceSpellDead</span></code>.<br />
+Si on souhaite lancer des sorts non possédés on privilégiera les actions <code class="docutils literal notranslate"><span class="pre">SpellNoDec</span></code>, <code class="docutils literal notranslate"><span class="pre">ForceSpell</span></code> ou <code class="docutils literal notranslate"><span class="pre">ReallyForceSpell</span></code> ou encore <code class="docutils literal notranslate"><span class="pre">ForceSpellDead</span></code>.<br />
 Le choix de l’action impacte fortement le choix des contraintes du block <code class="docutils literal notranslate"><span class="pre">IF</span></code>.</p>
 </section>
 <section id="silence">
-<h2>Silence<a class="headerlink" href="#silence" title="Lien vers cette rubrique">#</a></h2>
+<span id="silence-section"></span><h2>Silence<a class="headerlink" href="#silence" title="Lien vers cette rubrique">#</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Concerne les actions :</p>
+<p>Actions concernées :</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Spell</span></code></p></li>
 </ul>
@@ -603,21 +608,22 @@ Celui-ci vérifie que :</p>
 <h2>Blocage de la capacité à lancer des sorts<a class="headerlink" href="#blocage-de-la-capacite-a-lancer-des-sorts" title="Lien vers cette rubrique">#</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Concerne les actions :</p>
+<p>Actions concernées :</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Spell</span></code></p></li>
 </ul>
 </div>
 <p>Infligé par l’opcode 145, cet effet est géré automatiquement par <code class="docutils literal notranslate"><span class="pre">HaveSpell</span></code>.<br />
-Voir le point précédent pour plus d’informations.</p>
+Voir le point sur <a class="reference internal" href="#silence-section"><span class="std std-ref">Silence</span></a> pour plus d’informations.</p>
 </section>
 <section id="poison">
 <h2>Poison<a class="headerlink" href="#poison" title="Lien vers cette rubrique">#</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Concerne les actions :</p>
+<p>Actions concernées :</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Spell</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SpellNoDec</span></code></p></li>
 </ul>
 </div>
 <p>Un désastre pour les magiciens, le poison lui inflige des dégâts sur la durée. Double effet kisscool :</p>
@@ -652,7 +658,7 @@ Mais tentons une analyse.</p>
 <li><p>3 secondes : 20%</p></li>
 </ul>
 </li>
-<li><p>Temps nécessaire à l’incantation des sorts : valeur * 0.6 secondes</p></li>
+<li><p>Temps nécessaire à l’incantation des sorts : valeur × 0.6 secondes</p></li>
 <li><p>Probabilité d’échec si des dégâts du poison sont infligés lors de l’incantation : 50%</p></li>
 </ul>
 </div>
@@ -705,9 +711,10 @@ Il peut donc être intéressant de s’autoriser de lancer des sorts à incantat
 <h2>Maladie<a class="headerlink" href="#maladie" title="Lien vers cette rubrique">#</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Concerne les actions :</p>
+<p>Actions concernées :</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Spell</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SpellNoDec</span></code></p></li>
 </ul>
 </div>
 <p>Côté maladie, on observe une fréquence plus faible.</p>
@@ -743,15 +750,16 @@ Il serait quand même envisageable de bloquer les sorts de haut niveau, au cas o
 <h2>Hiatus entropiques<a class="headerlink" href="#hiatus-entropiques" title="Lien vers cette rubrique">#</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Concerne les actions :</p>
+<p>Actions concernées :</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Spell</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SpellNoDec</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ForceSpell</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ReallyForceSpellDead</span></code></p></li>
 </ul>
 </div>
 <p>Les hiatus entropiques sont également à prendre en compte lors d’un lancement d’un sort.<br />
-Il est possible de savoir si le prochain sort sera un hiatus.</p>
+Il est possible de savoir si le prochain sort sera un hiatus.\</p>
 <section id="id2">
 <h3>Snippet<a class="headerlink" href="#id2" title="Lien vers cette rubrique">#</a></h3>
 <p>Pour s’assurer que le prochain sort ne sera pas un hiatus :</p>
@@ -759,6 +767,12 @@ Il est possible de savoir si le prochain sort sera un hiatus.</p>
 <span class="w">        </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">FORCESURGE</span><span class="p">)</span>
 <span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CHAOS_SHIELD</span><span class="p">)</span>
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Certains sorts ou capacités sont protégés contre les hiatus.<br />
+Dans ce cas, le snippet ne doit pas être utilisé.<br />
+Pour en <a class="reference external" href="https://gibberlings3.github.io/iesdp/file_formats/ie_formats/spl_v1.htm#Header_Flags">savoir plus</a>.</p>
 </div>
 </section>
 </section>
@@ -770,6 +784,22 @@ Il est possible de savoir si le prochain sort sera un hiatus.</p>
 <h2>Temps d’attente entre chaque incantation/utilisation d’objet<a class="headerlink" href="#temps-d-attente-entre-chaque-incantation-utilisation-d-objet" title="Lien vers cette rubrique">#</a></h2>
 <p>Concerne toutes les actions sauf <code class="docutils literal notranslate"><span class="pre">ReallyForceSpell</span></code>.
 TODO</p>
+</section>
+<section id="gui-bouton-desactive">
+<h2>GUI: Bouton désactivé<a class="headerlink" href="#gui-bouton-desactive" title="Lien vers cette rubrique">#</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Actions concernées :</p>
+<ul class="simple">
+<li><p>Toutes</p></li>
+</ul>
+</div>
+<p>On part du principe que si le bouton servant à accéder aux sorts est désactivé c’est que le personnage est en incapacité de lancer des sorts.<br />
+C’est notamment le cas lorsque l’on porte une armure lourde ou sous polymorphie.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">BUTTON_CASTSPELL</span></code> : pour les sorts profanes, divins et druidiques</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BUTTON_INNATEBUTTON</span></code> : pour les capacités spéciales</p></li>
+</ul>
 </section>
 </section>
 
@@ -859,6 +889,7 @@ TODO</p>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zone-anti-magie-et-autre-modificateur-de-reussite-a-l-incantation">Zone anti-magie et autre modificateur de réussite à l’incantation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#temps-d-attente-entre-chaque-incantation-utilisation-d-objet">Temps d’attente entre chaque incantation/utilisation d’objet</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gui-bouton-desactive">GUI: Bouton désactivé</a></li>
 </ul>
   </nav></div>
 
