@@ -38,7 +38,7 @@ IF
 
     //# TODO: Code spécifique
 THEN
-    RESPONSE #1
+    RESPONSE #1
         SetGlobalTimer("BD_Cast", "LOCALS", ONE_ROUND)
         Spell(TARGET, SPELL_NAME)
 END
@@ -68,7 +68,7 @@ IF
 
     //# TODO: Code spécifique
 THEN
-    RESPONSE #1
+    RESPONSE #1
         SetGlobalTimer("BD_Cast", "LOCALS", ONE_ROUND)
         Spell(TARGET, SPELL_NAME)
 END
@@ -97,7 +97,7 @@ IF
 
     //# TODO: Code spécifique
 THEN
-    RESPONSE #1
+    RESPONSE #1
         SetGlobalTimer("BD_Cast", "LOCALS", ONE_ROUND)
         Spell(TARGET, SPELL_NAME)
 END
@@ -126,7 +126,7 @@ IF
 
     //# TODO: Code spécifique
 THEN
-    RESPONSE #1
+    RESPONSE #1
         SetGlobalTimer("BD_Cast", "LOCALS", ONE_ROUND)
         Spell(TARGET, SPELL_NAME)
 END
@@ -154,7 +154,7 @@ IF
 
     //# TODO: Code spécifique
 THEN
-    RESPONSE #1
+    RESPONSE #1
         SetGlobalTimer("BD_Cast", "LOCALS", ONE_ROUND)
         UseItem("SPELL_FILENAME", TARGET)
 END
@@ -387,13 +387,14 @@ Voici les choix de plusieurs mods, valeur au-delà de laquelle, les sorts ne son
 
 Comme toujours, la question n'a pas une unique réponse.
 
-En combat, par défaut, 49% paraît acceptable. Avec des variations selon le niveau du sort 24% pour les plus hauts, 74% pour les plus bas.\
-Hors-combat, l'urgence n'existe pas, 0% d'échec est conseillé, quelque soit le sort. Sauf pour ceux qui soignent du poison…
+En combat, par défaut, 49% paraît acceptable. Avec des variations selon le niveau du sort : 24% pour les plus hauts, 74% pour les plus bas.\
+Dans toute situation où l'urgence n'existe pas (notamment hors combat), 0% d'échec est conseillé, quelque soit le sort.
 
 La réponse peut également évoluer selon les cas de figure : un demi-dieu qui doit affronter une horde dans un donjon aura une gestion différente du minion qui sait qu'il n'a pratiquement aucune chance de survivre à l'affrontement.\
 Dans une situation dramatique, 99% d'échec, soit 1% de réussite, c'est mieux que rien.
 
-Cela peut dépendre du caractère du personnage. Certains n'acceptant pas l'échec, d'autres aiment jouer avec le feu. Enfin, d'autres n'auront même pas conscience de tout ça et lanceront leurs sorts quelque soit la probabilité.
+Cela peut aussi dépendre du caractère du personnage.\
+Certains n'acceptant pas l'échec, d'autres aiment jouer avec le feu. Enfin, d'autres n'auront même pas conscience de tout ça et lanceront leurs sorts quelque soit la probabilité.
 
 ```{note}
 Certains sorts ou capacités sont protégés contre la valeur de ces caractéristiques.\
@@ -424,17 +425,24 @@ C'est notamment le cas lorsque l'on porte une armure lourde ou sous polymorphie.
 
 ```{note}
 Actions concernées :
-- Spell
-- SpellNoDec
+- `Spell`
+- `SpellNoDec`
 ```
 
 ### Cant target invisible
 
-La plupart des sorts ne peuvent pas cibler de personnage invisible (autre que soi-même).
+La plupart des sorts ciblant un personnage ne peuvent se faire si ce dernier est invisible (sauf pour soi-même).
 
 ```cr
     !StateCheck(TARGET, STATE_NOT_TARGETABLE)
     CheckStat(TARGET, 0, SANCTUARY)
+```
+
+L'action `See` filtre le plus souvent `STATE_INVISIBLE` et `SANCTUARY`.\
+Dans ce cas, ce bloc suffira :
+
+```cr
+    !StateCheck(TARGET, STATE_IMPROVEDINVISIBILITY)
 ```
 
 ### Outdoor

@@ -47,7 +47,7 @@ IF
         NumInPartyAliveLT(2)
     //# …
 THEN
-    RESPONSE #1
+    RESPONSE #1
         SetGlobalTimer("BD_Cast", "LOCALS", ONE_ROUND)
         Spell(Myself, CLERIC_MASS_RAISE_DEAD)
 END
@@ -95,7 +95,7 @@ IF
         NumInPartyAliveLT(2)
     //# …
 THEN
-    RESPONSE #1
+    RESPONSE #1
         SetGlobalTimer("BD_Cast", "LOCALS", ONE_ROUND)
         Spell(Myself, CLERIC_MASS_RAISE_DEAD)
 END

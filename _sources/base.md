@@ -15,7 +15,7 @@ IF
     See(Player1)
     Global("myvar","LOCALS",1)
 THEN
-    RESPONSE #100
+    RESPONSE #100
         StartDialogNotSet(Player1)
         SetGlobal("myvar","LOCALS",2)
 END
