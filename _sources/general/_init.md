@@ -58,7 +58,12 @@
 * Savoir si un objet maudit est équipé
 * Se protéger contre les dégâts élémentaires adaptés (par déduction/anticipation ou après avoir reçu des dégâts élémentaires)
 * Utiliser son arme de jet/trait sans malus
+* Contrôler mentalement les STATE_FEEBLEMINDED
+* Que faire une fois paniqué ?
+* Savoir si un personnage est contrôlable par le joueur ou non
 
-
-* Réflexion : que faire une fois paniqué ?
-
+D'une manière générale, gérer :
+- les sorts particuliers
+- l'utilisation des objets particuliers
+- les modales
+- les states

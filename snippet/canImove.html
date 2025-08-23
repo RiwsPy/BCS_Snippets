@@ -376,7 +376,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -392,6 +394,14 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contenu </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#state-feebleminded">STATE_FEEBLEMINDED</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -408,7 +418,7 @@ Aussi bizarre que cela puisse paraître, il n’existe pas de solution efficace 
 <div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
 <span class="w">    </span><span class="sr">//</span><span class="c1"># …</span>
 
-<span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_HELPLESS</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_SLEEPING</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_REALLY_DEAD</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_HELPLESS</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_SLEEPING</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_REALLY_DEAD</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_FEEBLEMINDED</span><span class="p">)</span>
 <span class="w">    </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CASTERHOLD</span><span class="p">)</span>
 <span class="w">    </span><span class="o">!</span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="no">ENCUMBERANCE</span><span class="p">)</span>
 <span class="w">    </span><span class="o">!</span><span class="n">CheckSpellState</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">DEFENSIVE_SPIN</span><span class="p">)</span><span class="w"> </span><span class="sr">//</span><span class="c1"># non fiable</span>
@@ -422,6 +432,17 @@ Aussi bizarre que cela puisse paraître, il n’existe pas de solution efficace 
 <p>Lorsqu’on lance un sort, on vérifie rarement la distance entre la cible et le lanceur.<br />
 Or si la distance entre les deux personnes est supérieure à la portée du sort et que le lanceur ne peut se déplacer… cela va bloquer le script.</p>
 </div>
+<section id="state-feebleminded">
+<h2>STATE_FEEBLEMINDED<a class="headerlink" href="#state-feebleminded" title="Lien vers cette rubrique">#</a></h2>
+<p>La gestion de la débilité mentale est discutable selon les cas d’usage.<br />
+En effet, cet état n’empêche pas le mouvement en tant que tel, le personnage :</p>
+<ul class="simple">
+<li><p>n’est plus sélectionnable par le joueur</p></li>
+<li><p>n’exécute plus ces scripts</p></li>
+</ul>
+<p>Cependant, il n’empêche pas les interventions extérieures : <code class="docutils literal notranslate"><span class="pre">ActionOverride(LastSeenBy(Myself),</span> <span class="pre">MoveToObject(Player1))</span></code> fonctionnera sur les personnages malgré un STATE_FEEBLEMINDED actif.<br />
+Ce n’est pas le cas des autres contraintes.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -460,6 +481,21 @@ Or si la distance entre les deux personnes est supérieure à la portée du sort
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenu
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#state-feebleminded">STATE_FEEBLEMINDED</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

@@ -132,6 +132,36 @@ THEN
 END
 ```
 ````
+
+````{tab-item} Parchemins
+```cr
+IF
+    ActionListEmpty()
+    !GlobalTimerNotExpired("BD_Cast", "LOCALS")
+    Global("BDAI_DISABLE_ITEMS", "LOCALS", 0)
+    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
+    CheckStat(Myself, 0, CASTERHOLD)
+    HasItemEquiped("SPELL_FILENAME", Myself)
+    Global("BDAI_NO_ARCANE", "LOCALS", 0) //# Uniquement pour les parchemins profane
+    Global("BDAI_DISABLE_DEFENSIVE_OR_OFFENSIVE_TODO", "LOCALS", 0)
+    OR(2)
+        CheckStat(Myself, 0, FORCESURGE)
+        CheckStatGT(Myself, 0, CHAOS_SHIELD)
+    OR(3)
+        !ButtonDisabled(BUTTON_QUICKITEM1)
+        !ButtonDisabled(BUTTON_QUICKITEM2)
+        !ButtonDisabled(BUTTON_QUICKITEM3)
+
+    //# TODO: Code spécifique
+THEN
+    RESPONSE #1
+        SetGlobalTimer("BD_Cast", "LOCALS", ONE_ROUND)
+        UseItem("SPELL_FILENAME", TARGET)
+END
+```
+
+Les parchemins étant des objets hybride, leur fonctionnement diffère sur plusieurs points.
+````
 `````
 
 ## Posséder le sort
@@ -323,15 +353,52 @@ Pour s'assurer que le prochain sort ne sera pas un hiatus :
         CheckStatGT(Myself, 0, CHAOS_SHIELD)
 ```
 
+Cela détecte également les zones d'entropies, qui n'ont pas besoin de traitement supplémentaire.
+
 ```{note}
 Certains sorts ou capacités sont protégés contre les hiatus.\
-Dans ce cas, le snippet ne doit pas être utilisé.\
 Pour en [savoir plus](https://gibberlings3.github.io/iesdp/file_formats/ie_formats/spl_v1.htm#Header_Flags).
 ```
 
-## Zone anti-magie et autre modificateur de réussite à l'incantation
+## Modificateur de réussite à l'incantation et zone anti-magie
 
-TODO
+3 caractéristiques influent directement sur la probabilité d'incanter les sorts :
+- `SPELLFAILUREMAGE` : influe sur les sorts profanes
+- `SPELLFAILUREPRIEST` : influe sur les sorts de divins et druidiques
+- `SPELL_FAILURE_INNATE` : influe sur les autres sorts
+
+Une valeur de 30 en `SPELLFAILUREMAGE` signifie que l'incantation d'un sort profane à 30% de chance d'échec.\
+Ces caractéristiques sont fiables car la mécanique est gérée par le moteur du jeu.\
+En se focalisant sur celles-ci, on peut ainsi traiter de nombreux cas de façon générique :
+
+- Les zones anti-magie
+- La surdité
+- Les convocations d'insectes
+- La capacité des tueurs de magiciens
+- ...
+
+### La "bonne" valeur ?
+
+Voici les choix de plusieurs mods, valeur au-delà de laquelle, les sorts ne sont pas incantés :
+- bddfai : 49% max
+- uscript v1 : 75% max
+- uscript v2 : 49% max
+- ep-script : 19% max
+
+Comme toujours, la question n'a pas une unique réponse.
+
+En combat, par défaut, 49% paraît acceptable. Avec des variations selon le niveau du sort 24% pour les plus hauts, 74% pour les plus bas.\
+Hors-combat, l'urgence n'existe pas, 0% d'échec est conseillé, quelque soit le sort. Sauf pour ceux qui soignent du poison…
+
+La réponse peut également évoluer selon les cas de figure : un demi-dieu qui doit affronter une horde dans un donjon aura une gestion différente du minion qui sait qu'il n'a pratiquement aucune chance de survivre à l'affrontement.\
+Dans une situation dramatique, 99% d'échec, soit 1% de réussite, c'est mieux que rien.
+
+Cela peut dépendre du caractère du personnage. Certains n'acceptant pas l'échec, d'autres aiment jouer avec le feu. Enfin, d'autres n'auront même pas conscience de tout ça et lanceront leurs sorts quelque soit la probabilité.
+
+```{note}
+Certains sorts ou capacités sont protégés contre la valeur de ces caractéristiques.\
+Pour en [savoir plus](https://gibberlings3.github.io/iesdp/file_formats/ie_formats/spl_v1.htm#Header_Flags).
+```
 
 ## Temps d'attente entre chaque incantation/utilisation d'objet
 
@@ -351,3 +418,39 @@ C'est notamment le cas lorsque l'on porte une armure lourde ou sous polymorphie.
 
 - `BUTTON_CASTSPELL` : pour les sorts profanes, divins et druidiques
 - `BUTTON_INNATEBUTTON` : pour les capacités spéciales
+
+
+## Spécificités
+
+```{note}
+Actions concernées :
+- Spell
+- SpellNoDec
+```
+
+### Cant target invisible
+
+La plupart des sorts ne peuvent pas cibler de personnage invisible (autre que soi-même).
+
+```cr
+    !StateCheck(TARGET, STATE_NOT_TARGETABLE)
+    CheckStat(TARGET, 0, SANCTUARY)
+```
+
+### Outdoor
+
+Certains sorts ne fonctionnent qu'en extérieur.
+
+```cr
+    AreaType(OUTDOOR)
+```
+
+### Not in combat
+
+Certains sorts ne fonctionnent qu'en dehors de tout combat.
+
+```cr
+    !ActuallyInCombat()
+```
+
+

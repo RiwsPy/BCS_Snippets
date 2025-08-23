@@ -13,7 +13,7 @@ Il n'est pas limité aux "Voleurs" par contre un minimum de maîtrise est néces
 IF
     ActionListEmpty()
     Global("BDAI_SKILL_MODE", "LOCALS", 0)
-    !DisabledButton(BUTTON_THIEVING)
+    !ButtonDisabled(BUTTON_THIEVING)
     CheckStatGT(Myself, 0, PICKPOCKET) //# Facultatif mais conseillé
     !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
     CheckStat(Myself, 0, CASTERHOLD)
@@ -33,7 +33,7 @@ IF
     //# …
 THEN
     RESPONSE #1
-        PickPocket(LastSeenBy(Myself))
+        PickPockets(LastSeenBy(Myself))
 END
 ```
 
@@ -45,7 +45,7 @@ La version minimale qui prévient les cas où le larçin sera impossible ou l'é
 IF
     ActionListEmpty()
     Global("BDAI_SKILL_MODE", "LOCALS", 0)
-    !DisabledButton(BUTTON_THIEVING)
+    !ButtonDisabled(BUTTON_THIEVING)
     CheckStatGT(Myself, 9, PICKPOCKET) //# Facultatif mais conseillé
     !StateCheck(Myself, STATE_INVISIBLE) //# Facultatif, à savoir que le larçin est une action qui dissipe l'invisibilité
     !StateCheck(Myself, STATE_DISABLED | STATE_REALLY_DEAD)
@@ -55,14 +55,15 @@ IF
     !See(NearestEnemyOf(Myself))
     See([NEUTRAL])
 
-    Range(LastSeenBy(Myself), 2) //# Facultatif, à savoir que dans le cas contraire, le personnage se déplacera et devra donc pouvoir se déplacer
+    Range(LastSeenBy(Myself), 2)
+
     !CheckStat(LastSeenBy(Myself), 255, PICKPOCKET)
     HasItemType(LastSeenBy(Myself), DROPPABLE)
 
     //# …
 THEN
     RESPONSE #1
-        PickPocket(LastSeenBy(Myself))
+        PickPockets(LastSeenBy(Myself))
 END
 ```
 - Pas de vol si un ennemi est à vue
@@ -76,7 +77,7 @@ END
 IF
     ActionListEmpty()
     Global("BDAI_SKILL_MODE", "LOCALS", 0)
-    !DisabledButton(BUTTON_THIEVING)
+    !ButtonDisabled(BUTTON_THIEVING)
     CheckStatGT(Myself, 49, PICKPOCKET)
     !StateCheck(Myself, STATE_INVISIBLE) //# Facultatif, à savoir que le larçin est une action qui dissipe l'invisibilité
     !StateCheck(Myself, STATE_DISABLED | STATE_REALLY_DEAD)
@@ -86,7 +87,7 @@ IF
     !See(NearestEnemyOf(Myself))
     See([NEUTRAL])
 
-    Range(LastSeenBy(Myself), 2) //# Facultatif, à savoir que dans le cas contraire, le personnage se déplacera et devra donc pouvoir se déplacer
+    Range(LastSeenBy(Myself), 2)
     CheckStatLT(LastSeenBy(Myself), 200, PICKPOCKET)
     HasItemType(LastSeenBy(Myself), DROPPABLE)
 
@@ -119,7 +120,7 @@ IF
     //# …
 THEN
     RESPONSE #1
-        PickPocket(LastSeenBy(Myself))
+        PickPockets(LastSeenBy(Myself))
 END
 ```
 
@@ -131,7 +132,7 @@ La version RP mais en vérifiant d'avoir au minimum 50% de réussite.
 IF
     ActionListEmpty()
     Global("BDAI_SKILL_MODE", "LOCALS", 0)
-    !DisabledButton(BUTTON_THIEVING)
+    !ButtonDisabled(BUTTON_THIEVING)
     CheckStatGT(Myself, 99, PICKPOCKET)
     !StateCheck(Myself, STATE_INVISIBLE) //# Facultatif, à savoir que le larçin est une action qui dissipe l'invisibilité
     !StateCheck(Myself, STATE_DISABLED | STATE_REALLY_DEAD)
@@ -141,7 +142,7 @@ IF
     !See(NearestEnemyOf(Myself))
     See([NEUTRAL])
 
-    Range(LastSeenBy(Myself), 2) //# Facultatif, à savoir que dans le cas contraire, le personnage se déplacera et devra donc pouvoir se déplacer
+    Range(LastSeenBy(Myself), 2)
     CheckStatLT(LastSeenBy(Myself), 150, PICKPOCKET)
     HasItemType(LastSeenBy(Myself), DROPPABLE)
 
@@ -168,7 +169,7 @@ IF
     //# …
 THEN
     RESPONSE #1
-        PickPocket(LastSeenBy(Myself))
+        PickPockets(LastSeenBy(Myself))
 END
 ```
 
@@ -179,3 +180,33 @@ La version RP Safe mais en vérifiant d'avoir 99% de réussite.
 ## Limites
 
 - Des objets peuvent être considérés comme volables mais placés dans des slots qui ne peuvent être volés (celui des bottes par exemple).
+
+### Augmenter la distance
+
+2 pieds est la distance maximale où le vol est possible. Au-delà, le personnage devra se déplacer (si c'est possible).\
+Laisser cette contrainte c'est assurer l'efficacité du bloc mais 2 pieds c'est faible, et il sera tentant d'augmenter cette distance.\
+Ce n'est pas sans conséquence.
+
+Les personnages avec un grand `PersonalSpace` ne peuvent voler ou être volé car la distance n'est jamais inférieure ou égale à 2.\
+Afin d'éviter que le personnage ne se bloque en cherchant (en vain) à voler une cible inatteignable, il est conseillé de scinder le bloc en deux :
+1. Identique à ceux présentés plus haut, servent à utiliser l'action `PickPockets`
+1. Gère une distance supérieure à 2 en utilisant `MoveToObject` mais surtout, les conditions de sortie
+
+```cr
+//# Bloc 1
+//# ...
+
+//# Bloc 2
+IF
+    //# ...
+
+    !Range(LastSeenBy(Myself), 2) //# est au-delà de la distance maximale
+    !PersonnalSpaceDistance(LastSeenBy(Myself), 1) //# condition de sortie
+THEN
+    RESPONSE #1
+        MoveToObject(LastSeenBy(Myself))
+END
+```
+
+En se déplaçant vers la cible, si les personnages sont "larges", on arrivera à PersonnalSpaceDistance inférieur à 1 et un Range supérieur à 2.\
+Ainsi, aucun des deux blocs ne sera en mesure de s'exécuter.

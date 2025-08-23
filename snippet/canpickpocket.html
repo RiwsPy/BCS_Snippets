@@ -399,7 +399,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limites">Limites</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limites">Limites</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#augmenter-la-distance">Augmenter la distance</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -423,7 +426,7 @@ Minimale</label><div class="sd-tab-content docutils">
 <div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
 <span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
 <span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_SKILL_MODE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="w">    </span><span class="o">!</span><span class="n">DisabledButton</span><span class="p">(</span><span class="no">BUTTON_THIEVING</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="no">BUTTON_THIEVING</span><span class="p">)</span>
 <span class="w">    </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">PICKPOCKET</span><span class="p">)</span><span class="w"> </span><span class="sr">//</span><span class="c1"># Facultatif mais conseillé</span>
 <span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_SLEEPING</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_HELPLESS</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_REALLY_DEAD</span><span class="p">)</span>
 <span class="w">    </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CASTERHOLD</span><span class="p">)</span>
@@ -443,7 +446,7 @@ Minimale</label><div class="sd-tab-content docutils">
 <span class="w">    </span><span class="sr">//</span><span class="c1"># …</span>
 <span class="no">THEN</span>
 <span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
-<span class="w">        </span><span class="n">PickPocket</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">))</span>
+<span class="w">        </span><span class="n">PickPockets</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">))</span>
 <span class="no">END</span>
 </pre></div>
 </div>
@@ -455,7 +458,7 @@ RP</label><div class="sd-tab-content docutils">
 <div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
 <span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
 <span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_SKILL_MODE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="w">    </span><span class="o">!</span><span class="n">DisabledButton</span><span class="p">(</span><span class="no">BUTTON_THIEVING</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="no">BUTTON_THIEVING</span><span class="p">)</span>
 <span class="w">    </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="no">PICKPOCKET</span><span class="p">)</span><span class="w"> </span><span class="sr">//</span><span class="c1"># Facultatif mais conseillé</span>
 <span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_INVISIBLE</span><span class="p">)</span><span class="w"> </span><span class="sr">//</span><span class="c1"># Facultatif, à savoir que le larçin est une action qui dissipe l&#39;invisibilité</span>
 <span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_DISABLED</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_REALLY_DEAD</span><span class="p">)</span>
@@ -465,14 +468,15 @@ RP</label><div class="sd-tab-content docutils">
 <span class="w">    </span><span class="o">!</span><span class="n">See</span><span class="p">(</span><span class="n">NearestEnemyOf</span><span class="p">(</span><span class="n">Myself</span><span class="p">))</span>
 <span class="w">    </span><span class="n">See</span><span class="p">(</span><span class="o">[</span><span class="no">NEUTRAL</span><span class="o">]</span><span class="p">)</span>
 
-<span class="w">    </span><span class="n">Range</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="sr">//</span><span class="c1"># Facultatif, à savoir que dans le cas contraire, le personnage se déplacera et devra donc pouvoir se déplacer</span>
+<span class="w">    </span><span class="n">Range</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+
 <span class="w">    </span><span class="o">!</span><span class="n">CheckStat</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="no">PICKPOCKET</span><span class="p">)</span>
 <span class="w">    </span><span class="n">HasItemType</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="no">DROPPABLE</span><span class="p">)</span>
 
 <span class="w">    </span><span class="sr">//</span><span class="c1"># …</span>
 <span class="no">THEN</span>
 <span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
-<span class="w">        </span><span class="n">PickPocket</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">))</span>
+<span class="w">        </span><span class="n">PickPockets</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">))</span>
 <span class="no">END</span>
 </pre></div>
 </div>
@@ -489,7 +493,7 @@ RP Safe</label><div class="sd-tab-content docutils">
 <div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
 <span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
 <span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_SKILL_MODE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="w">    </span><span class="o">!</span><span class="n">DisabledButton</span><span class="p">(</span><span class="no">BUTTON_THIEVING</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="no">BUTTON_THIEVING</span><span class="p">)</span>
 <span class="w">    </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">49</span><span class="p">,</span><span class="w"> </span><span class="no">PICKPOCKET</span><span class="p">)</span>
 <span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_INVISIBLE</span><span class="p">)</span><span class="w"> </span><span class="sr">//</span><span class="c1"># Facultatif, à savoir que le larçin est une action qui dissipe l&#39;invisibilité</span>
 <span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_DISABLED</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_REALLY_DEAD</span><span class="p">)</span>
@@ -499,7 +503,7 @@ RP Safe</label><div class="sd-tab-content docutils">
 <span class="w">    </span><span class="o">!</span><span class="n">See</span><span class="p">(</span><span class="n">NearestEnemyOf</span><span class="p">(</span><span class="n">Myself</span><span class="p">))</span>
 <span class="w">    </span><span class="n">See</span><span class="p">(</span><span class="o">[</span><span class="no">NEUTRAL</span><span class="o">]</span><span class="p">)</span>
 
-<span class="w">    </span><span class="n">Range</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="sr">//</span><span class="c1"># Facultatif, à savoir que dans le cas contraire, le personnage se déplacera et devra donc pouvoir se déplacer</span>
+<span class="w">    </span><span class="n">Range</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
 <span class="w">    </span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="no">PICKPOCKET</span><span class="p">)</span>
 <span class="w">    </span><span class="n">HasItemType</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="no">DROPPABLE</span><span class="p">)</span>
 
@@ -532,7 +536,7 @@ RP Safe</label><div class="sd-tab-content docutils">
 <span class="w">    </span><span class="sr">//</span><span class="c1"># …</span>
 <span class="no">THEN</span>
 <span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
-<span class="w">        </span><span class="n">PickPocket</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">))</span>
+<span class="w">        </span><span class="n">PickPockets</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">))</span>
 <span class="no">END</span>
 </pre></div>
 </div>
@@ -544,7 +548,7 @@ RP Safe+</label><div class="sd-tab-content docutils">
 <div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
 <span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
 <span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_SKILL_MODE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="w">    </span><span class="o">!</span><span class="n">DisabledButton</span><span class="p">(</span><span class="no">BUTTON_THIEVING</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="no">BUTTON_THIEVING</span><span class="p">)</span>
 <span class="w">    </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">99</span><span class="p">,</span><span class="w"> </span><span class="no">PICKPOCKET</span><span class="p">)</span>
 <span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_INVISIBLE</span><span class="p">)</span><span class="w"> </span><span class="sr">//</span><span class="c1"># Facultatif, à savoir que le larçin est une action qui dissipe l&#39;invisibilité</span>
 <span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_DISABLED</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_REALLY_DEAD</span><span class="p">)</span>
@@ -554,7 +558,7 @@ RP Safe+</label><div class="sd-tab-content docutils">
 <span class="w">    </span><span class="o">!</span><span class="n">See</span><span class="p">(</span><span class="n">NearestEnemyOf</span><span class="p">(</span><span class="n">Myself</span><span class="p">))</span>
 <span class="w">    </span><span class="n">See</span><span class="p">(</span><span class="o">[</span><span class="no">NEUTRAL</span><span class="o">]</span><span class="p">)</span>
 
-<span class="w">    </span><span class="n">Range</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="sr">//</span><span class="c1"># Facultatif, à savoir que dans le cas contraire, le personnage se déplacera et devra donc pouvoir se déplacer</span>
+<span class="w">    </span><span class="n">Range</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
 <span class="w">    </span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">150</span><span class="p">,</span><span class="w"> </span><span class="no">PICKPOCKET</span><span class="p">)</span>
 <span class="w">    </span><span class="n">HasItemType</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="no">DROPPABLE</span><span class="p">)</span>
 
@@ -581,7 +585,7 @@ RP Safe+</label><div class="sd-tab-content docutils">
 <span class="w">    </span><span class="sr">//</span><span class="c1"># …</span>
 <span class="no">THEN</span>
 <span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
-<span class="w">        </span><span class="n">PickPocket</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">))</span>
+<span class="w">        </span><span class="n">PickPockets</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">))</span>
 <span class="no">END</span>
 </pre></div>
 </div>
@@ -593,6 +597,35 @@ RP Safe+</label><div class="sd-tab-content docutils">
 <ul class="simple">
 <li><p>Des objets peuvent être considérés comme volables mais placés dans des slots qui ne peuvent être volés (celui des bottes par exemple).</p></li>
 </ul>
+<section id="augmenter-la-distance">
+<h3>Augmenter la distance<a class="headerlink" href="#augmenter-la-distance" title="Lien vers cette rubrique">#</a></h3>
+<p>2 pieds est la distance maximale où le vol est possible. Au-delà, le personnage devra se déplacer (si c’est possible).<br />
+Laisser cette contrainte c’est assurer l’efficacité du bloc mais 2 pieds c’est faible, et il sera tentant d’augmenter cette distance.<br />
+Ce n’est pas sans conséquence.</p>
+<p>Les personnages avec un grand <code class="docutils literal notranslate"><span class="pre">PersonalSpace</span></code> ne peuvent voler ou être volé car la distance n’est jamais inférieure ou égale à 2.<br />
+Afin d’éviter que le personnage ne se bloque en cherchant (en vain) à voler une cible inatteignable, il est conseillé de scinder le bloc en deux :</p>
+<ol class="arabic simple">
+<li><p>Identique à ceux présentés plus haut, servent à utiliser l’action <code class="docutils literal notranslate"><span class="pre">PickPockets</span></code></p></li>
+<li><p>Gère une distance supérieure à 2 en utilisant <code class="docutils literal notranslate"><span class="pre">MoveToObject</span></code> mais surtout, les conditions de sortie</p></li>
+</ol>
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="sr">//</span><span class="c1"># Bloc 1</span>
+<span class="sr">//</span><span class="c1"># ...</span>
+
+<span class="sr">//</span><span class="c1"># Bloc 2</span>
+<span class="no">IF</span>
+<span class="w">    </span><span class="sr">//</span><span class="c1"># ...</span>
+
+<span class="w">    </span><span class="o">!</span><span class="n">Range</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="sr">//</span><span class="c1"># est au-delà de la distance maximale</span>
+<span class="w">    </span><span class="o">!</span><span class="n">PersonnalSpaceDistance</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="sr">//</span><span class="c1"># condition de sortie</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
+<span class="w">        </span><span class="n">MoveToObject</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">))</span>
+<span class="no">END</span>
+</pre></div>
+</div>
+<p>En se déplaçant vers la cible, si les personnages sont « larges », on arrivera à PersonnalSpaceDistance inférieur à 1 et un Range supérieur à 2.<br />
+Ainsi, aucun des deux blocs ne sera en mesure de s’exécuter.</p>
+</section>
 </section>
 </section>
 
@@ -660,7 +693,10 @@ RP Safe+</label><div class="sd-tab-content docutils">
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limites">Limites</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limites">Limites</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#augmenter-la-distance">Augmenter la distance</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

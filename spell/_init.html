@@ -419,9 +419,18 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Snippet</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zone-anti-magie-et-autre-modificateur-de-reussite-a-l-incantation">Zone anti-magie et autre modificateur de réussite à l’incantation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modificateur-de-reussite-a-l-incantation-et-zone-anti-magie">Modificateur de réussite à l’incantation et zone anti-magie</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-bonne-valeur">La « bonne » valeur ?</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#temps-d-attente-entre-chaque-incantation-utilisation-d-objet">Temps d’attente entre chaque incantation/utilisation d’objet</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gui-bouton-desactive">GUI: Bouton désactivé</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specificites">Spécificités</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cant-target-invisible">Cant target invisible</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outdoor">Outdoor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#not-in-combat">Not in combat</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -560,6 +569,36 @@ Capacités spéciales</label><div class="sd-tab-content docutils">
 <span class="no">END</span>
 </pre></div>
 </div>
+</div>
+<input id="sd-tab-item-4" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-4">
+Parchemins</label><div class="sd-tab-content docutils">
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
+<span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
+<span class="w">    </span><span class="o">!</span><span class="n">GlobalTimerNotExpired</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_DISABLE_ITEMS&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_SLEEPING</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_HELPLESS</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_REALLY_DEAD</span><span class="p">)</span>
+<span class="w">    </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CASTERHOLD</span><span class="p">)</span>
+<span class="w">    </span><span class="n">HasItemEquiped</span><span class="p">(</span><span class="s2">&quot;SPELL_FILENAME&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Myself</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="sr">//</span><span class="c1"># Uniquement pour les parchemins profane</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_DISABLE_DEFENSIVE_OR_OFFENSIVE_TODO&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">FORCESURGE</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CHAOS_SHIELD</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="w">        </span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="n">BUTTON_QUICKITEM1</span><span class="p">)</span>
+<span class="w">        </span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="n">BUTTON_QUICKITEM2</span><span class="p">)</span>
+<span class="w">        </span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="n">BUTTON_QUICKITEM3</span><span class="p">)</span>
+
+<span class="w">    </span><span class="sr">//</span><span class="c1"># TODO: Code spécifique</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
+<span class="w">        </span><span class="n">SetGlobalTimer</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="no">ONE_ROUND</span><span class="p">)</span>
+<span class="w">        </span><span class="n">UseItem</span><span class="p">(</span><span class="s2">&quot;SPELL_FILENAME&quot;</span><span class="p">,</span><span class="w"> </span><span class="no">TARGET</span><span class="p">)</span>
+<span class="no">END</span>
+</pre></div>
+</div>
+<p>Les parchemins étant des objets hybride, leur fonctionnement diffère sur plusieurs points.</p>
 </div>
 </div>
 </section>
@@ -768,17 +807,53 @@ Il est possible de savoir si le prochain sort sera un hiatus.\</p>
 <span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CHAOS_SHIELD</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>Cela détecte également les zones d’entropies, qui n’ont pas besoin de traitement supplémentaire.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Certains sorts ou capacités sont protégés contre les hiatus.<br />
-Dans ce cas, le snippet ne doit pas être utilisé.<br />
 Pour en <a class="reference external" href="https://gibberlings3.github.io/iesdp/file_formats/ie_formats/spl_v1.htm#Header_Flags">savoir plus</a>.</p>
 </div>
 </section>
 </section>
-<section id="zone-anti-magie-et-autre-modificateur-de-reussite-a-l-incantation">
-<h2>Zone anti-magie et autre modificateur de réussite à l’incantation<a class="headerlink" href="#zone-anti-magie-et-autre-modificateur-de-reussite-a-l-incantation" title="Lien vers cette rubrique">#</a></h2>
-<p>TODO</p>
+<section id="modificateur-de-reussite-a-l-incantation-et-zone-anti-magie">
+<h2>Modificateur de réussite à l’incantation et zone anti-magie<a class="headerlink" href="#modificateur-de-reussite-a-l-incantation-et-zone-anti-magie" title="Lien vers cette rubrique">#</a></h2>
+<p>3 caractéristiques influent directement sur la probabilité d’incanter les sorts :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SPELLFAILUREMAGE</span></code> : influe sur les sorts profanes</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SPELLFAILUREPRIEST</span></code> : influe sur les sorts de divins et druidiques</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SPELL_FAILURE_INNATE</span></code> : influe sur les autres sorts</p></li>
+</ul>
+<p>Une valeur de 30 en <code class="docutils literal notranslate"><span class="pre">SPELLFAILUREMAGE</span></code> signifie que l’incantation d’un sort profane à 30% de chance d’échec.<br />
+Ces caractéristiques sont fiables car la mécanique est gérée par le moteur du jeu.<br />
+En se focalisant sur celles-ci, on peut ainsi traiter de nombreux cas de façon générique :</p>
+<ul class="simple">
+<li><p>Les zones anti-magie</p></li>
+<li><p>La surdité</p></li>
+<li><p>Les convocations d’insectes</p></li>
+<li><p>La capacité des tueurs de magiciens</p></li>
+<li><p>…</p></li>
+</ul>
+<section id="la-bonne-valeur">
+<h3>La « bonne » valeur ?<a class="headerlink" href="#la-bonne-valeur" title="Lien vers cette rubrique">#</a></h3>
+<p>Voici les choix de plusieurs mods, valeur au-delà de laquelle, les sorts ne sont pas incantés :</p>
+<ul class="simple">
+<li><p>bddfai : 49% max</p></li>
+<li><p>uscript v1 : 75% max</p></li>
+<li><p>uscript v2 : 49% max</p></li>
+<li><p>ep-script : 19% max</p></li>
+</ul>
+<p>Comme toujours, la question n’a pas une unique réponse.</p>
+<p>En combat, par défaut, 49% paraît acceptable. Avec des variations selon le niveau du sort 24% pour les plus hauts, 74% pour les plus bas.<br />
+Hors-combat, l’urgence n’existe pas, 0% d’échec est conseillé, quelque soit le sort. Sauf pour ceux qui soignent du poison…</p>
+<p>La réponse peut également évoluer selon les cas de figure : un demi-dieu qui doit affronter une horde dans un donjon aura une gestion différente du minion qui sait qu’il n’a pratiquement aucune chance de survivre à l’affrontement.<br />
+Dans une situation dramatique, 99% d’échec, soit 1% de réussite, c’est mieux que rien.</p>
+<p>Cela peut dépendre du caractère du personnage. Certains n’acceptant pas l’échec, d’autres aiment jouer avec le feu. Enfin, d’autres n’auront même pas conscience de tout ça et lanceront leurs sorts quelque soit la probabilité.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Certains sorts ou capacités sont protégés contre la valeur de ces caractéristiques.<br />
+Pour en <a class="reference external" href="https://gibberlings3.github.io/iesdp/file_formats/ie_formats/spl_v1.htm#Header_Flags">savoir plus</a>.</p>
+</div>
+</section>
 </section>
 <section id="temps-d-attente-entre-chaque-incantation-utilisation-d-objet">
 <h2>Temps d’attente entre chaque incantation/utilisation d’objet<a class="headerlink" href="#temps-d-attente-entre-chaque-incantation-utilisation-d-objet" title="Lien vers cette rubrique">#</a></h2>
@@ -800,6 +875,39 @@ C’est notamment le cas lorsque l’on porte une armure lourde ou sous polymorp
 <li><p><code class="docutils literal notranslate"><span class="pre">BUTTON_CASTSPELL</span></code> : pour les sorts profanes, divins et druidiques</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">BUTTON_INNATEBUTTON</span></code> : pour les capacités spéciales</p></li>
 </ul>
+</section>
+<section id="specificites">
+<h2>Spécificités<a class="headerlink" href="#specificites" title="Lien vers cette rubrique">#</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Actions concernées :</p>
+<ul class="simple">
+<li><p>Spell</p></li>
+<li><p>SpellNoDec</p></li>
+</ul>
+</div>
+<section id="cant-target-invisible">
+<h3>Cant target invisible<a class="headerlink" href="#cant-target-invisible" title="Lien vers cette rubrique">#</a></h3>
+<p>La plupart des sorts ne peuvent pas cibler de personnage invisible (autre que soi-même).</p>
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="no">TARGET</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_NOT_TARGETABLE</span><span class="p">)</span>
+<span class="w">    </span><span class="n">CheckStat</span><span class="p">(</span><span class="no">TARGET</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">SANCTUARY</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="outdoor">
+<h3>Outdoor<a class="headerlink" href="#outdoor" title="Lien vers cette rubrique">#</a></h3>
+<p>Certains sorts ne fonctionnent qu’en extérieur.</p>
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">AreaType</span><span class="p">(</span><span class="no">OUTDOOR</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="not-in-combat">
+<h3>Not in combat<a class="headerlink" href="#not-in-combat" title="Lien vers cette rubrique">#</a></h3>
+<p>Certains sorts ne fonctionnent qu’en dehors de tout combat.</p>
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="o">!</span><span class="n">ActuallyInCombat</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
 </section>
 </section>
 
@@ -887,9 +995,18 @@ C’est notamment le cas lorsque l’on porte une armure lourde ou sous polymorp
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Snippet</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zone-anti-magie-et-autre-modificateur-de-reussite-a-l-incantation">Zone anti-magie et autre modificateur de réussite à l’incantation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modificateur-de-reussite-a-l-incantation-et-zone-anti-magie">Modificateur de réussite à l’incantation et zone anti-magie</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-bonne-valeur">La « bonne » valeur ?</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#temps-d-attente-entre-chaque-incantation-utilisation-d-objet">Temps d’attente entre chaque incantation/utilisation d’objet</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gui-bouton-desactive">GUI: Bouton désactivé</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specificites">Spécificités</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cant-target-invisible">Cant target invisible</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outdoor">Outdoor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#not-in-combat">Not in combat</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
