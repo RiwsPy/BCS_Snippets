@@ -62,8 +62,8 @@
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
-    <link rel="next" title="Can I Use a Item?" href="../item/_init.html" />
-    <link rel="prev" title="Résurrection de masse (SPPR729)" href="massraise.html" />
+    <link rel="next" title="Résurrection de masse (SPPR729)" href="massraise.html" />
+    <link rel="prev" title="Actions Spell" href="_spell_actions.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="fr"/>
   </head>
@@ -197,9 +197,10 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Sorts spécifiques</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="_init.html">Can I Cast a Spell?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="stoneskin.html">Peau de pierre (SPWI408)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="massraise.html">Résurrection de masse (SPPR729)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_spell_actions.html">Actions Spell</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Délivrance de la paralysie (SPPR308)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="massraise.html">Résurrection de masse (SPPR729)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stoneskin.html">Peau de pierre (SPWI408)</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Objets spécifiques</span></p>
 <ul class="nav bd-sidenav">
@@ -442,10 +443,13 @@ Classique</label><div class="sd-tab-content docutils">
 
 <span class="w">    </span><span class="n">See</span><span class="p">(</span><span class="n">NearestAllyOf</span><span class="p">(</span><span class="n">Myself</span><span class="p">))</span>
 <span class="w">    </span><span class="n">StateCheck</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="no">STATE_STUNNED</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_HELPLESS</span><span class="p">)</span>
-<span class="w">    </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">MINORGLOBE</span><span class="p">)</span>
-<span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="no">STATE_SLEEPING</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_NOT_APPROACHABLE</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_FEEBLEMINDED</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_IMPROVEDINVISIBILITY</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="no">STATE_SLEEPING</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_NOT_APPROACHABLE</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_FEEBLEMINDED</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="no">STATE_IMPROVEDINVISIBILITY</span><span class="p">)</span>
+<span class="w">        </span><span class="o">!</span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">SEEINVISIBLE</span><span class="p">)</span>
 <span class="w">    </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">WEB</span><span class="p">)</span>
 <span class="w">    </span><span class="o">!</span><span class="n">CheckStat</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="no">PUPPETTYPE</span><span class="p">)</span>
+<span class="w">    </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">MINORGLOBE</span><span class="p">)</span>
 <span class="no">THEN</span>
 <span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
 <span class="w">        </span><span class="n">SetGlobalTimer</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="no">ONE_ROUND</span><span class="p">)</span>
@@ -456,7 +460,7 @@ Classique</label><div class="sd-tab-content docutils">
 </div>
 <input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" for="sd-tab-item-1">
-Complète</label><div class="sd-tab-content docutils">
+Bloc</label><div class="sd-tab-content docutils">
 <div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
 <span class="w">    </span><span class="n">ActuallyInCombat</span><span class="p">()</span>
 <span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
@@ -480,31 +484,31 @@ Complète</label><div class="sd-tab-content docutils">
 <span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
 <span class="w">        </span><span class="o">!</span><span class="n">See</span><span class="p">(</span><span class="n">NearestAllyOf</span><span class="p">(</span><span class="n">Myself</span><span class="p">))</span>
 <span class="w">        </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="no">STATE_STUNNED</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_HELPLESS</span><span class="p">)</span>
-<span class="w">        </span><span class="o">!</span><span class="n">CheckStat</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">MINORGLOBE</span><span class="p">)</span>
 <span class="w">        </span><span class="n">StateCheck</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="no">STATE_SLEEPING</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_NOT_APPROACHABLE</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_FEEBLEMINDED</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_IMPROVEDINVISIBILITY</span><span class="p">)</span>
 <span class="w">        </span><span class="o">!</span><span class="n">CheckStat</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">WEB</span><span class="p">)</span>
 <span class="w">        </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="no">PUPPETTYPE</span><span class="p">)</span>
+<span class="w">        </span><span class="o">!</span><span class="n">CheckStat</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">MINORGLOBE</span><span class="p">)</span>
 <span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
 <span class="w">        </span><span class="o">!</span><span class="n">See</span><span class="p">(</span><span class="n">SecondNearestAllyOf</span><span class="p">(</span><span class="n">Myself</span><span class="p">))</span>
 <span class="w">        </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="no">STATE_STUNNED</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_HELPLESS</span><span class="p">)</span>
-<span class="w">        </span><span class="o">!</span><span class="n">CheckStat</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">MINORGLOBE</span><span class="p">)</span>
 <span class="w">        </span><span class="n">StateCheck</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="no">STATE_SLEEPING</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_NOT_APPROACHABLE</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_FEEBLEMINDED</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_IMPROVEDINVISIBILITY</span><span class="p">)</span>
 <span class="w">        </span><span class="o">!</span><span class="n">CheckStat</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">WEB</span><span class="p">)</span>
 <span class="w">        </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="no">PUPPETTYPE</span><span class="p">)</span>
+<span class="w">        </span><span class="o">!</span><span class="n">CheckStat</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">MINORGLOBE</span><span class="p">)</span>
 <span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
 <span class="w">        </span><span class="o">!</span><span class="n">See</span><span class="p">(</span><span class="n">ThirdNearestAllyOf</span><span class="p">(</span><span class="n">Myself</span><span class="p">))</span>
 <span class="w">        </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="no">STATE_STUNNED</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_HELPLESS</span><span class="p">)</span>
-<span class="w">        </span><span class="o">!</span><span class="n">CheckStat</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">MINORGLOBE</span><span class="p">)</span>
 <span class="w">        </span><span class="n">StateCheck</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="no">STATE_SLEEPING</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_NOT_APPROACHABLE</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_FEEBLEMINDED</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_IMPROVEDINVISIBILITY</span><span class="p">)</span>
 <span class="w">        </span><span class="o">!</span><span class="n">CheckStat</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">WEB</span><span class="p">)</span>
 <span class="w">        </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="no">PUPPETTYPE</span><span class="p">)</span>
+<span class="w">        </span><span class="o">!</span><span class="n">CheckStat</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">MINORGLOBE</span><span class="p">)</span>
 <span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
 <span class="w">        </span><span class="o">!</span><span class="n">See</span><span class="p">(</span><span class="n">FourthNearestAllyOf</span><span class="p">(</span><span class="n">Myself</span><span class="p">))</span>
 <span class="w">        </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="no">STATE_STUNNED</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_HELPLESS</span><span class="p">)</span>
-<span class="w">        </span><span class="o">!</span><span class="n">CheckStat</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">MINORGLOBE</span><span class="p">)</span>
 <span class="w">        </span><span class="n">StateCheck</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="no">STATE_SLEEPING</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_NOT_APPROACHABLE</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_FEEBLEMINDED</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_IMPROVEDINVISIBILITY</span><span class="p">)</span>
 <span class="w">        </span><span class="o">!</span><span class="n">CheckStat</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">WEB</span><span class="p">)</span>
 <span class="w">        </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="no">PUPPETTYPE</span><span class="p">)</span>
+<span class="w">        </span><span class="o">!</span><span class="n">CheckStat</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">MINORGLOBE</span><span class="p">)</span>
 <span class="w">    </span><span class="n">Detect</span><span class="p">(</span><span class="n">Myself</span><span class="p">)</span>
 <span class="w">    </span><span class="n">False</span><span class="p">()</span>
 <span class="no">THEN</span>
@@ -520,6 +524,10 @@ Complète</label><div class="sd-tab-content docutils">
 <span class="no">END</span>
 </pre></div>
 </div>
+<ul class="simple">
+<li><p>On perd en finesse sur la gestion du <code class="docutils literal notranslate"><span class="pre">STATE_IMPROVEDINVISIBILITY</span></code> pour les personnages ayant <code class="docutils literal notranslate"><span class="pre">SEEINVISIBLE</span></code> actif</p></li>
+<li><p>L’utilisation de <code class="docutils literal notranslate"><span class="pre">EEex_SpellObjectOffset</span></code> résolverait ce problème</p></li>
+</ul>
 </div>
 </div>
 <p>Caractéristiques :</p>
@@ -538,7 +546,6 @@ Complète</label><div class="sd-tab-content docutils">
 <section id="limites">
 <h2>Limites<a class="headerlink" href="#limites" title="Lien vers cette rubrique">#</a></h2>
 <ul class="simple">
-<li><p>L’utilisation de <code class="docutils literal notranslate"><span class="pre">Spell</span></code> implique que le personnage a <code class="docutils literal notranslate"><span class="pre">STATE_NOT_TARGETABLE</span></code> et <code class="docutils literal notranslate"><span class="pre">SANCTUARY</span></code> inactifs, ce qui n’est pas une contrainte du sort</p></li>
 <li><p>Un personnage endormi pour une durée permanente qui a été guéri du sommeil matchera avec les conditions (la guérison ne soigne pas du <code class="docutils literal notranslate"><span class="pre">STATE_HELPLESS</span></code>)</p></li>
 </ul>
 </section>
@@ -548,7 +555,7 @@ Complète</label><div class="sd-tab-content docutils">
 <div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">StateCheck</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="no">STATE_STUNNED</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_HELPLESS</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Or, dans la plupart des mods, on retrouve</p>
+<p>Or, dans la plupart des mods, nous retrouvons</p>
 <div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="w">        </span><span class="n">StateCheck</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="no">STATE_STUNNED</span><span class="p">)</span>
 <span class="w">        </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">HELD</span><span class="p">)</span>
@@ -556,7 +563,7 @@ Complète</label><div class="sd-tab-content docutils">
 </div>
 <p>Les deux choix sont bons.<br />
 <code class="docutils literal notranslate"><span class="pre">HELD</span></code> a l’avantage de ne pas matcher avec le sommeil.<br />
-<code class="docutils literal notranslate"><span class="pre">STATE_HELPLESS</span></code> a l’avantage de matcher avec la <a class="reference external" href="https://gibberlings3.github.io/iesdp/opcodes/bgee.htm#op109">fausse pétrification</a> de l’opcode 109.</p>
+<code class="docutils literal notranslate"><span class="pre">STATE_HELPLESS</span></code> a l’avantage de matcher avec la <a class="reference external" href="https://gibberlings3.github.io/iesdp/opcodes/bgee.htm#op109">fausse pétrification</a>.</p>
 <p>C’est assez marginal et le plus déterminant a été la simplicité du code.<br />
 La première solution permet de générer un unique bloc pour gérer plusieurs cibles (voir l’onglet « Complète »).<br />
 Chose qui n’est pas possible avec la seconde.</p>
@@ -624,20 +631,20 @@ Chose qui n’est pas possible avec la seconde.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="massraise.html"
+       href="_spell_actions.html"
        title="page précédente">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">précédent</p>
-        <p class="prev-next-title">Résurrection de masse (SPPR729)</p>
+        <p class="prev-next-title">Actions Spell</p>
       </div>
     </a>
     <a class="right-next"
-       href="../item/_init.html"
+       href="massraise.html"
        title="page suivante">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">suivant</p>
-        <p class="prev-next-title">Can I Use a Item?</p>
+        <p class="prev-next-title">Résurrection de masse (SPPR729)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

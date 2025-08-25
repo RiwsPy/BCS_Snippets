@@ -62,7 +62,7 @@
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
-    <link rel="next" title="Peau de pierre (SPWI408)" href="stoneskin.html" />
+    <link rel="next" title="Actions Spell" href="_spell_actions.html" />
     <link rel="prev" title="✅ Can PickPocket" href="../snippet/canpickpocket.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="fr"/>
@@ -197,9 +197,10 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Sorts spécifiques</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Can I Cast a Spell?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="stoneskin.html">Peau de pierre (SPWI408)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="massraise.html">Résurrection de masse (SPPR729)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_spell_actions.html">Actions Spell</a></li>
 <li class="toctree-l1"><a class="reference internal" href="remove_paralysis.html">Délivrance de la paralysie (SPPR308)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="massraise.html">Résurrection de masse (SPPR729)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stoneskin.html">Peau de pierre (SPWI408)</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Objets spécifiques</span></p>
 <ul class="nav bd-sidenav">
@@ -401,33 +402,40 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#snippets-de-base">Snippets de base</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#posseder-le-sort">Posséder le sort</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#posseder-le-sort">Posséder le sort</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#snippet">Snippet</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#silence">Silence</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#blocage-de-la-capacite-a-lancer-des-sorts">Blocage de la capacité à lancer des sorts</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#poison">Poison</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#etat-des-lieux-des-autres-mods">État des lieux des autres mods</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#theorycrafting-sur-le-poison">TheoryCrafting sur le poison</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#balance-ton-sort-de-niveau-1">Balance ton sort (de niveau 1)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#snippet">Snippet</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Snippet</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maladie">Maladie</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Snippet</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Snippet</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mages-cagoules-d-athkatla">Mages cagoulés d’Athkatla</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hiatus-entropiques">Hiatus entropiques</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Snippet</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Snippet</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modificateur-de-reussite-a-l-incantation-et-zone-anti-magie">Modificateur de réussite à l’incantation et zone anti-magie</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-bonne-valeur">La « bonne » valeur ?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Snippet</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#temps-d-attente-entre-chaque-incantation-utilisation-d-objet">Temps d’attente entre chaque incantation/utilisation d’objet</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gui-bouton-desactive">GUI: Bouton désactivé</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gui-bouton-desactive">GUI: Bouton désactivé</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Snippet</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specificites">Spécificités</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cant-target-invisible">Cant target invisible</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#can-t-target-invisible">Can’t target invisible</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outdoor">Outdoor</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#not-in-combat">Not in combat</a></li>
 </ul>
@@ -605,9 +613,22 @@ Parchemins</label><div class="sd-tab-content docutils">
 </section>
 <section id="posseder-le-sort">
 <h2>Posséder le sort<a class="headerlink" href="#posseder-le-sort" title="Lien vers cette rubrique">#</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Actions concernées :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Spell</span></code></p></li>
+</ul>
+</div>
 <p>Dans la plupart des cas, on ne voudra lancer que les sorts que l’on possède, on utilisera alors le trigger <code class="docutils literal notranslate"><span class="pre">HaveSpell</span></code> ou <code class="docutils literal notranslate"><span class="pre">HaveSpellRES</span></code> avec l’action <code class="docutils literal notranslate"><span class="pre">Spell</span></code>.<br />
 Si on souhaite lancer des sorts non possédés on privilégiera les actions <code class="docutils literal notranslate"><span class="pre">SpellNoDec</span></code>, <code class="docutils literal notranslate"><span class="pre">ForceSpell</span></code> ou <code class="docutils literal notranslate"><span class="pre">ReallyForceSpell</span></code> ou encore <code class="docutils literal notranslate"><span class="pre">ForceSpellDead</span></code>.<br />
 Le choix de l’action impacte fortement le choix des contraintes du block <code class="docutils literal notranslate"><span class="pre">IF</span></code>.</p>
+<section id="snippet">
+<h3>Snippet<a class="headerlink" href="#snippet" title="Lien vers cette rubrique">#</a></h3>
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">HaveSpell</span><span class="p">(</span><span class="no">SPELL_NAME</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
 </section>
 <section id="silence">
 <span id="silence-section"></span><h2>Silence<a class="headerlink" href="#silence" title="Lien vers cette rubrique">#</a></h2>
@@ -629,20 +650,18 @@ Il faut donc bien penser à le mettre que lorsque cela est bien nécessaire.</p>
 <li><p>des mods peuvent modifier la composante verbale des sorts, le script devient alors partiellement inadapté</p></li>
 </ol>
 <hr class="docutils" />
-<p>Il existe une solution à ces deux problèmatiques, que l’on utilise déjà sans le savoir : <code class="docutils literal notranslate"><span class="pre">HaveSpell</span></code>.<br />
+<p>Il existe une solution à ces deux problèmatiques, que l’on utilise déjà : <code class="docutils literal notranslate"><span class="pre">HaveSpell</span></code>.<br />
 Celui-ci vérifie que :</p>
 <ul class="simple">
 <li><p>le sort est mémorisé</p></li>
 <li><p>si le sort nécessite une composante verbale, le lanceur de sort n’est pas sous l’effet d’un silence</p></li>
-<li><p>le lanceur n’est pas sous l’effet empêchant le lancement de sort (comme celle dans la Transformation de Tenser par exemple)</p></li>
+<li><p>le lanceur n’est pas sous l’effet empêchant le lancement de sort (comme celle dans la <code class="docutils literal notranslate"><span class="pre">Transformation de Tenser</span></code> par exemple)</p></li>
 </ul>
-<p>Oui, <code class="docutils literal notranslate"><span class="pre">HaveSpell(XX)</span></code> peut renvoyer faux même si le sort est mémorisé.</p>
 <p>Cela signifie que la présence d’une composante verbale est checkée au moment de le lancer :</p>
 <ul class="simple">
-<li><p>cela gère donc les modifications faites par les mods</p></li>
-<li><p>pas d’erreur d’inattention puisqu’il suffit de ne pas mettre <code class="docutils literal notranslate"><span class="pre">StateCheck(Myself,</span> <span class="pre">STATE_SILENCED)</span></code></p></li>
+<li><p>gestion dynamique des modifications des moddeurs</p></li>
+<li><p>plus d’erreur d’inattention</p></li>
 </ul>
-<p>Ainsi, le meilleur moyen de gérer le silence, c’est de laisser l’action <code class="docutils literal notranslate"><span class="pre">HaveSpell</span></code> faire le travail.</p>
 </section>
 <section id="blocage-de-la-capacite-a-lancer-des-sorts">
 <h2>Blocage de la capacité à lancer des sorts<a class="headerlink" href="#blocage-de-la-capacite-a-lancer-des-sorts" title="Lien vers cette rubrique">#</a></h2>
@@ -653,7 +672,7 @@ Celui-ci vérifie que :</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">Spell</span></code></p></li>
 </ul>
 </div>
-<p>Infligé par l’opcode 145, cet effet est géré automatiquement par <code class="docutils literal notranslate"><span class="pre">HaveSpell</span></code>.<br />
+<p>Infligé par l”<a class="reference external" href="https://gibberlings3.github.io/iesdp/opcodes/bgee.htm#op145">Opcode 145</a>, cet effet est géré automatiquement par <code class="docutils literal notranslate"><span class="pre">HaveSpell</span></code>.<br />
 Voir le point sur <a class="reference internal" href="#silence-section"><span class="std std-ref">Silence</span></a> pour plus d’informations.</p>
 </section>
 <section id="poison">
@@ -671,7 +690,7 @@ Voir le point sur <a class="reference internal" href="#silence-section"><span cl
 <li><p>Il n’a pas beaucoup de points de vie donc c’est vite dramatique</p></li>
 <li><p>Cela affecte clairement sa capacité à lancer des sorts (et de façon imprévisible)</p></li>
 </ol>
-<p>Le comble étant qu’il existe des sorts pour se soigner mais qu’elle est leur probabilité de réussite ?</p>
+<p>Le comble étant qu’il existe des sorts pour se soigner mais quelle est leur probabilité de réussite ?</p>
 <section id="etat-des-lieux-des-autres-mods">
 <h3>État des lieux des autres mods<a class="headerlink" href="#etat-des-lieux-des-autres-mods" title="Lien vers cette rubrique">#</a></h3>
 <ul class="simple">
@@ -684,14 +703,14 @@ Mais tentons une analyse.</p>
 </section>
 <section id="theorycrafting-sur-le-poison">
 <h3>TheoryCrafting sur le poison<a class="headerlink" href="#theorycrafting-sur-le-poison" title="Lien vers cette rubrique">#</a></h3>
-<p>Le poison frappe avec une fréquence fixe pouvant provoquer aléatoirement à chaque fois une interrumption de l’incantation du sort.</p>
+<p>Le poison frappe avec une fréquence fixe pouvant provoquer aléatoirement à chaque fois une interruption de l’incantation du sort.</p>
 <p>Lancer un sort est donc risqué car la probabilité d’échec est réelle mais… est-ce moins risqué de ne lancer AUCUN sort pendant 30 secondes ?</p>
-<p>Idéalement il faudrait incanter le sort entre deux dégâts afin de ne pas être inquiété. Sauf que l’on ne connait pas la fréquence à l’avance.</p>
+<p>Idéalement il faudrait incanter le sort entre deux dégâts afin de ne pas être inquiété. Sauf que l’on ne connait ni sa fréquence ni le moment où il va frapper.</p>
 <p>Voici quelques chiffres approximatifs :</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul class="simple">
-<li><p>Répartition des poison en fonction de leur fréquence d’apparition :</p>
+<li><p>Répartition des poison en fonction de leur fréquence des dégâts :</p>
 <ul>
 <li><p>1 seconde : 75%</p></li>
 <li><p>2 secondes : 5%</p></li>
@@ -736,15 +755,17 @@ Mais tentons une analyse.</p>
 </ol>
 <p>Quelques exceptions existent, comme les mots de pouvoir qui ont un temps d’incantation très court.<br />
 Il peut donc être intéressant de s’autoriser de lancer des sorts à incantation très rapide même empoisonné.</p>
+<p>Note : les parchemins ne peuvent être interrompus par le poison.</p>
 </section>
-<section id="snippet">
-<h3>Snippet<a class="headerlink" href="#snippet" title="Lien vers cette rubrique">#</a></h3>
+<section id="id1">
+<h3>Snippet<a class="headerlink" href="#id1" title="Lien vers cette rubrique">#</a></h3>
 <p>Pour s’assurer qu’un personnage n’est pas empoisonné ou qu’il ne puisse en subir les dégâts :</p>
 <div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="w">        </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_POISONED</span><span class="p">)</span>
 <span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">99</span><span class="p">,</span><span class="w"> </span><span class="no">RESISTPOISON</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>Il est possible d’être immunisé aux dégâts du poison sans être immunisé au poison en tant qu’effet (et inversement).</p>
 </section>
 </section>
 <section id="maladie">
@@ -771,15 +792,15 @@ Il peut donc être intéressant de s’autoriser de lancer des sorts à incantat
 Et il est difficilement possible de pouvoir les différencier.<br />
 Il serait alors dommage d’empêcher un mage de lancer des sorts parce qu’il a une maladie qui lui donne un malus de 1 en Force.<br />
 Il serait quand même envisageable de bloquer les sorts de haut niveau, au cas où.</p>
-<section id="id1">
-<h3>Snippet<a class="headerlink" href="#id1" title="Lien vers cette rubrique">#</a></h3>
+<section id="id2">
+<h3>Snippet<a class="headerlink" href="#id2" title="Lien vers cette rubrique">#</a></h3>
 <p>Pour s’assurer qu’un personnage n’est pas malade ou qu’il ne puisse pas subir les dégâts de la maladie :</p>
 <div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="w">        </span><span class="o">!</span><span class="n">CheckSpellState</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">DISEASED</span><span class="p">)</span>
 <span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">99</span><span class="p">,</span><span class="w"> </span><span class="no">RESISTPOISON</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Mais sans certitude que la maladie inflige bien des dommages.</p>
+<p>Mais sans certitude que la maladie inflige bien des dommages. Ce snippet ne sera donc pas utilisé de façon générique.</p>
 </section>
 </section>
 <section id="mages-cagoules-d-athkatla">
@@ -799,9 +820,9 @@ Il serait quand même envisageable de bloquer les sorts de haut niveau, au cas o
 </ul>
 </div>
 <p>Les hiatus entropiques sont également à prendre en compte lors d’un lancement d’un sort.<br />
-Il est possible de savoir si le prochain sort sera un hiatus.\</p>
-<section id="id2">
-<h3>Snippet<a class="headerlink" href="#id2" title="Lien vers cette rubrique">#</a></h3>
+Il est possible de savoir si le prochain sort sera un hiatus.</p>
+<section id="id3">
+<h3>Snippet<a class="headerlink" href="#id3" title="Lien vers cette rubrique">#</a></h3>
 <p>Pour s’assurer que le prochain sort ne sera pas un hiatus :</p>
 <div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="w">        </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">FORCESURGE</span><span class="p">)</span>
@@ -850,6 +871,32 @@ Dans toute situation où l’urgence n’existe pas (notamment hors combat), 0% 
 Dans une situation dramatique, 99% d’échec, soit 1% de réussite, c’est mieux que rien.</p>
 <p>Cela peut aussi dépendre du caractère du personnage.<br />
 Certains n’acceptant pas l’échec, d’autres aiment jouer avec le feu. Enfin, d’autres n’auront même pas conscience de tout ça et lanceront leurs sorts quelque soit la probabilité.</p>
+</section>
+<section id="id4">
+<h3>Snippet<a class="headerlink" href="#id4" title="Lien vers cette rubrique">#</a></h3>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-5" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-5">
+Sorts profanes</label><div class="sd-tab-content docutils">
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="no">SPELLFAILUREMAGE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-6" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-6">
+Sorts divins et druidiques</label><div class="sd-tab-content docutils">
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="no">SPELLFAILUREPRIEST</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-7" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-7">
+Autre</label><div class="sd-tab-content docutils">
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="no">SPELL_FAILURE_INNATE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Certains sorts ou capacités sont protégés contre la valeur de ces caractéristiques.<br />
@@ -873,10 +920,25 @@ TODO</p>
 </div>
 <p>On part du principe que si le bouton servant à accéder aux sorts est désactivé c’est que le personnage est en incapacité de lancer des sorts.<br />
 C’est notamment le cas lorsque l’on porte une armure lourde ou sous polymorphie.</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">BUTTON_CASTSPELL</span></code> : pour les sorts profanes, divins et druidiques</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">BUTTON_INNATEBUTTON</span></code> : pour les capacités spéciales</p></li>
-</ul>
+<section id="id5">
+<h3>Snippet<a class="headerlink" href="#id5" title="Lien vers cette rubrique">#</a></h3>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-8" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-8">
+Sorts profanes, divins et druidiques</label><div class="sd-tab-content docutils">
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="no">BUTTON_CASTSPELL</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-9" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-9">
+Capacités spéciales</label><div class="sd-tab-content docutils">
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="no">BUTTON_INNATEBUTTON</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 <section id="specificites">
 <h2>Spécificités<a class="headerlink" href="#specificites" title="Lien vers cette rubrique">#</a></h2>
@@ -888,8 +950,8 @@ C’est notamment le cas lorsque l’on porte une armure lourde ou sous polymorp
 <li><p><code class="docutils literal notranslate"><span class="pre">SpellNoDec</span></code></p></li>
 </ul>
 </div>
-<section id="cant-target-invisible">
-<h3>Cant target invisible<a class="headerlink" href="#cant-target-invisible" title="Lien vers cette rubrique">#</a></h3>
+<section id="can-t-target-invisible">
+<h3>Can’t target invisible<a class="headerlink" href="#can-t-target-invisible" title="Lien vers cette rubrique">#</a></h3>
 <p>La plupart des sorts ciblant un personnage ne peuvent se faire si ce dernier est invisible (sauf pour soi-même).</p>
 <div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="no">TARGET</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_NOT_TARGETABLE</span><span class="p">)</span>
 <span class="w">    </span><span class="n">CheckStat</span><span class="p">(</span><span class="no">TARGET</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">SANCTUARY</span><span class="p">)</span>
@@ -958,11 +1020,11 @@ Dans ce cas, ce bloc suffira :</p>
       </div>
     </a>
     <a class="right-next"
-       href="stoneskin.html"
+       href="_spell_actions.html"
        title="page suivante">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">suivant</p>
-        <p class="prev-next-title">Peau de pierre (SPWI408)</p>
+        <p class="prev-next-title">Actions Spell</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -983,33 +1045,40 @@ Dans ce cas, ce bloc suffira :</p>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#snippets-de-base">Snippets de base</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#posseder-le-sort">Posséder le sort</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#posseder-le-sort">Posséder le sort</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#snippet">Snippet</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#silence">Silence</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#blocage-de-la-capacite-a-lancer-des-sorts">Blocage de la capacité à lancer des sorts</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#poison">Poison</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#etat-des-lieux-des-autres-mods">État des lieux des autres mods</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#theorycrafting-sur-le-poison">TheoryCrafting sur le poison</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#balance-ton-sort-de-niveau-1">Balance ton sort (de niveau 1)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#snippet">Snippet</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Snippet</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maladie">Maladie</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Snippet</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Snippet</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mages-cagoules-d-athkatla">Mages cagoulés d’Athkatla</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hiatus-entropiques">Hiatus entropiques</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Snippet</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Snippet</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modificateur-de-reussite-a-l-incantation-et-zone-anti-magie">Modificateur de réussite à l’incantation et zone anti-magie</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#la-bonne-valeur">La « bonne » valeur ?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Snippet</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#temps-d-attente-entre-chaque-incantation-utilisation-d-objet">Temps d’attente entre chaque incantation/utilisation d’objet</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gui-bouton-desactive">GUI: Bouton désactivé</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gui-bouton-desactive">GUI: Bouton désactivé</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Snippet</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specificites">Spécificités</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cant-target-invisible">Cant target invisible</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#can-t-target-invisible">Can’t target invisible</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outdoor">Outdoor</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#not-in-combat">Not in combat</a></li>
 </ul>

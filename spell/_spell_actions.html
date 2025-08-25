@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Sommaire &#8212; BCS Snippets</title>
+    <title>Actions Spell &#8212; BCS Snippets</title>
   
   
   
@@ -58,12 +58,14 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'general/_init';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'spell/_spell_actions';</script>
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
-    <link rel="next" title="Dialogue - Initialisation" href="dialog.html" />
-    <link rel="prev" title="Bienvenue sur BSC Snippets" href="../intro.html" />
+    <link rel="next" title="Délivrance de la paralysie (SPPR308)" href="remove_paralysis.html" />
+    <link rel="prev" title="Can I Cast a Spell?" href="_init.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="fr"/>
   </head>
@@ -182,10 +184,10 @@
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Généralités</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Sommaire</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dialog.html">Dialogue - Initialisation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="athkatla_magec.html">Surveillance des Mages Cagoulés</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../general/_init.html">Sommaire</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/dialog.html">Dialogue - Initialisation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/athkatla_magec.html">Surveillance des Mages Cagoulés</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Snippets</span></p>
 <ul class="nav bd-sidenav">
@@ -195,12 +197,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../snippet/canpickpocket.html">✅ Can PickPocket</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Sorts spécifiques</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../spell/_init.html">Can I Cast a Spell?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../spell/_spell_actions.html">Actions Spell</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../spell/remove_paralysis.html">Délivrance de la paralysie (SPPR308)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../spell/massraise.html">Résurrection de masse (SPPR729)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../spell/stoneskin.html">Peau de pierre (SPWI408)</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="_init.html">Can I Cast a Spell?</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Actions Spell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="remove_paralysis.html">Délivrance de la paralysie (SPPR308)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="massraise.html">Résurrection de masse (SPPR729)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stoneskin.html">Peau de pierre (SPWI408)</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Objets spécifiques</span></p>
 <ul class="nav bd-sidenav">
@@ -277,7 +279,7 @@
       
       
       
-      <li><a href="https://github.com/RiwsPy/BCS_Snippets/issues/new?title=Issue%20on%20page%20%2Fgeneral/_init.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/RiwsPy/BCS_Snippets/issues/new?title=Issue%20on%20page%20%2Fspell/_spell_actions.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Ouvrez un problème"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -307,7 +309,7 @@
       
       
       
-      <li><a href="../_sources/general/_init.md" target="_blank"
+      <li><a href="../_sources/spell/_spell_actions.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Télécharger le fichier source"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -378,9 +380,7 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -391,26 +391,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Sommaire</h1>
+    <h1>Actions Spell</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contenu </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#realises-en-cours">Réalisés / En cours</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#combat">Combat</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modales">Modales</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objets">Objets</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generalites">Généralités</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#todo">TODO</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -420,99 +405,136 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="sommaire">
-<h1>Sommaire<a class="headerlink" href="#sommaire" title="Lien vers cette rubrique">#</a></h1>
-<section id="realises-en-cours">
-<h2>Réalisés / En cours<a class="headerlink" href="#realises-en-cours" title="Lien vers cette rubrique">#</a></h2>
-<section id="combat">
-<h3>Combat<a class="headerlink" href="#combat" title="Lien vers cette rubrique">#</a></h3>
+  <section class="tex2jax_ignore mathjax_ignore" id="actions-spell">
+<h1>Actions Spell<a class="headerlink" href="#actions-spell" title="Lien vers cette rubrique">#</a></h1>
+<p>Parfois, on a besoin de s’affranchir des contraintes habituelles de l’action <code class="docutils literal notranslate"><span class="pre">Spell</span></code>.<br />
+D’autres actions existent, encore faut-il connaître leurs propres contraintes.</p>
+<p>Voici un petit tableau qui récapitule les différences entres les actions principales.<br />
+Il est parfois possible d’ajouter des contraintes pour « simuler » un effet et parfois non.<br />
+Cela permet de mieux choisir l’action et les triggers qui vous permettrons de répondre au mieux au besoin.</p>
+<p><strong>Légende</strong> :</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="../snippet/opportunityattack.html"><span class="doc std std-doc">Réaliser une attaque d’opportunité contre une créature</span></a></p>
+<li><p>✅ : l’effet est géré et vous ne pouvez pas vous y soustraire</p>
 <ul>
-<li><p>Un bonus de +4 au dégâts et au toucher</p></li>
+<li><p>Si vous ne voulez pas de cet effet, regardez les actions plus permissives (colonne de droite)</p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="../snippet/backstab.html"><span class="doc std std-doc">Réaliser une attaque sournoise contre une créature</span></a></p></li>
-</ul>
-</section>
-<section id="modales">
-<h3>Modales<a class="headerlink" href="#modales" title="Lien vers cette rubrique">#</a></h3>
-<ul class="simple">
-<li><p><a class="reference internal" href="../snippet/canpickpocket.html"><span class="doc std std-doc">Vol à la tire</span></a></p></li>
-</ul>
-</section>
-<section id="objets">
-<h3>Objets<a class="headerlink" href="#objets" title="Lien vers cette rubrique">#</a></h3>
-<ul class="simple">
-<li><p><a class="reference internal" href="../item/potion_haste.html"><span class="doc std std-doc">Huile de rapidité</span></a></p></li>
-</ul>
-</section>
-<section id="generalites">
-<h3>Généralités<a class="headerlink" href="#generalites" title="Lien vers cette rubrique">#</a></h3>
-<ul class="simple">
-<li><p><a class="reference internal" href="../snippet/globalexists.html"><span class="doc std std-doc">GlobalExists / GlobalNotExists</span></a></p>
+<li><p>❌ : l’effet n’est pas géré et il n’y a pas de solution connue pour le simuler</p>
 <ul>
-<li><p>Différencier une variable qui est égale à 0 d’une variable qui n’existe pas</p></li>
+<li><p>Si vous voulez cet effet, regardez les actions moins permissives (colonne de gauche)</p></li>
+</ul>
+</li>
+<li><p>Autre : l’effet n’est pas géré par défaut mais l’action indiquée peut le simuler</p>
+<ul>
+<li><p>Si vous voulez de cet effet, ajoutez le trigger indiqué dans votre bloc <code class="docutils literal notranslate"><span class="pre">IF</span></code></p></li>
 </ul>
 </li>
 </ul>
-</section>
-</section>
-<section id="todo">
-<h2>TODO<a class="headerlink" href="#todo" title="Lien vers cette rubrique">#</a></h2>
-<ul class="simple">
-<li><p>Gestion du moral lors de l’utilisation des potions de soin</p></li>
-<li><p>Utiliser les potions de force à ceux qui combattent</p></li>
-<li><p>Gestion de la peur (ne pas lancer des sorts lents), de l’apaisement (perso et collectif)</p></li>
-<li><p>Identifier les zones de toiles, enchevêtrement et en sortir ou ne pas y entrer</p></li>
-<li><p>Zone d’air pur, au lancement du sort ou après</p></li>
-<li><p>Gestion de groupe, comment détecter un allié qui nécessite une intervention</p></li>
-<li><p>Un archer qui va chercher les flèches dans son inventaire</p></li>
-<li><p>Un PNJ qui va chercher des potions dans son inventaire</p></li>
-<li><p>Gestion des trolls au sol avec des flèches (avec score de connaissances ?)</p></li>
-<li><p>Forcer l’utilisation d’un objet avant de mourir pour éviter de le donner aux adversaires</p></li>
-<li><p>Détruire l’objet d’un personnage sans connaître son nom</p></li>
-<li><p>Négativer une variable</p></li>
-<li><p>Ressusciter un mort qui ne fait pas partie du groupe</p></li>
-<li><p>Influencer le comportement en fonction de la race ennemie</p></li>
-<li><p>Savoir si une créature est équipé d’une arme capable de me toucher</p></li>
-<li><p>Garder le focus sur une cible une fois attaquée</p></li>
-<li><p>Viser les créatures sans protection contre les CC quand on maîtrise le combat à 1 ou 2 mains</p></li>
-<li><p>Savoir si la cible est une créature invoquée</p></li>
-<li><p>Savoir si on peut réussir une attaque critique contre une créature</p></li>
-<li><p>Savoir si un bouclier est équipé</p></li>
-<li><p>Connaître sa vitesse de déplacement</p></li>
-<li><p>S’équiper en priorité d’une arme de mêlée et si non trouvée d’une arme de trait</p></li>
-<li><p>Chercher des flèches qui peuvent blesser une cible</p></li>
-<li><p>Donner un objet à un allié</p></li>
-<li><p>Savoir si deux personnes ont le même alignement de façon générique</p></li>
-<li><p>Savoir si deux personnes ont un alignement opposé de façon générique</p></li>
-<li><p>Remplir son carquois automatiquement</p></li>
-<li><p>S’équiper en priorité d’une arme de trait et si non trouvée d’une arme de mêlée</p></li>
-<li><p>Savoir si un carquois infini est équipé ?</p></li>
-<li><p>Savoir si un arc type Gesen est équipé ?</p></li>
-<li><p>Forcer une arme à une main si un bouclier est présent dans la main gauche</p></li>
-<li><p>Voler l’équipement d’une créature charmée, s’en équiper ?</p></li>
-<li><p>Utiliser un objet non équipé</p></li>
-<li><p>Améliorer la gestion du round d’attente entre les sorts ou les objets (STATE_HELPLESS, autre ?)</p></li>
-<li><p>Savoir si un objet maudit est équipé</p></li>
-<li><p>Se protéger contre les dégâts élémentaires adaptés (par déduction/anticipation ou après avoir reçu des dégâts élémentaires)</p></li>
-<li><p>Utiliser son arme de jet/trait sans malus</p></li>
-<li><p>Contrôler mentalement les STATE_FEEBLEMINDED</p></li>
-<li><p>Que faire une fois paniqué ?</p></li>
-<li><p>Savoir si un personnage est contrôlable par le joueur ou non</p></li>
-<li><p>Différencier les deux états de STATE_BERSERK</p></li>
-<li><p>Identifier les personnages qui nous font perdre de la réputation une fois tué</p></li>
-<li><p>Simuler l’action Spell sur une cible avec IMPROVEDINVISIBILITY</p></li>
-</ul>
-<p>D’une manière générale, gérer :</p>
-<ul class="simple">
-<li><p>les sorts particuliers</p></li>
-<li><p>l’utilisation des objets particuliers</p></li>
-<li><p>les modales</p></li>
-<li><p>les states</p></li>
-</ul>
-</section>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-0">
+Comparatif</label><div class="sd-tab-content docutils">
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Effet</p></th>
+<th class="head"><p>Spell</p></th>
+<th class="head"><p>ForceSpell</p></th>
+<th class="head"><p>ReallyForceSpell</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Sort possédé</p></td>
+<td><p>✅</p></td>
+<td><p>HaveSpell</p></td>
+<td><p>HaveSpell</p></td>
+</tr>
+<tr class="row-odd"><td><p>Retrait du sort</p></td>
+<td><p>✅</p></td>
+<td><p>RemoveSpell</p></td>
+<td><p>RemoveSpell</p></td>
+</tr>
+<tr class="row-even"><td><p>Temps d’incantation</p></td>
+<td><p>✅</p></td>
+<td><p>✅</p></td>
+<td><p>Wait<span class="math notranslate nohighlight">\(^*\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Effet incantatoire</p></td>
+<td><p>✅</p></td>
+<td><p>✅</p></td>
+<td><p>❌</p></td>
+</tr>
+<tr class="row-even"><td><p>Round d’attente entre action</p></td>
+<td><p>✅</p></td>
+<td><p>SetGlobalTimer</p></td>
+<td><p>SetGlobalTimer</p></td>
+</tr>
+<tr class="row-odd"><td><p>Contrainte de portée</p></td>
+<td><p>✅</p></td>
+<td><p>ForceSpellRange</p></td>
+<td><p>❌</p></td>
+</tr>
+<tr class="row-even"><td><p>Contrainte de silence</p></td>
+<td><p>✅</p></td>
+<td><p>HaveSpell</p></td>
+<td><p>HaveSpell</p></td>
+</tr>
+<tr class="row-odd"><td><p>Contrainte de OUTDOOR</p></td>
+<td><p>✅</p></td>
+<td><p>AreaType<span class="math notranslate nohighlight">\(^*\)</span></p></td>
+<td><p>AreaType<span class="math notranslate nohighlight">\(^*\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>Contrainte de NonCombat</p></td>
+<td><p>✅</p></td>
+<td><p>ActuallyInCombat<span class="math notranslate nohighlight">\(^*\)</span></p></td>
+<td><p>ActuallyInCombat<span class="math notranslate nohighlight">\(^*\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Contrainte sur la concentration</p></td>
+<td><p>✅</p></td>
+<td><p>❌</p></td>
+<td><p>❌</p></td>
+</tr>
+<tr class="row-even"><td><p>Contrainte sur l’échec incantation</p></td>
+<td><p>✅</p></td>
+<td><p>❌</p></td>
+<td><p>❌</p></td>
+</tr>
+<tr class="row-odd"><td><p>Contrainte ciblage de l’invisible</p></td>
+<td><p>✅</p></td>
+<td><p>See</p></td>
+<td><p>See</p></td>
+</tr>
+<tr class="row-even"><td><p>Affecté par les hiatus</p></td>
+<td><p>✅</p></td>
+<td><p>✅</p></td>
+<td><p>❌</p></td>
+</tr>
+<tr class="row-odd"><td><p>Gestion bonus niveau entropiste</p></td>
+<td><p>✅</p></td>
+<td><p>✅</p></td>
+<td><p>❌</p></td>
+</tr>
+<tr class="row-even"><td><p>Impact de l’hostilité sur l’invisibilité</p></td>
+<td><p>✅</p></td>
+<td><p>✅</p></td>
+<td><p>❌<span class="math notranslate nohighlight">\(^*\)</span><span class="math notranslate nohighlight">\(^*\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Activation des triggers SpellCast</p></td>
+<td><p>✅</p></td>
+<td><p>✅</p></td>
+<td><p>❌</p></td>
+</tr>
+<tr class="row-even"><td><p>Log de combat</p></td>
+<td><p>✅</p></td>
+<td><p>✅</p></td>
+<td><p>❌</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span class="math notranslate nohighlight">\(^*\)</span> : solution non dynamique<br />
+<span class="math notranslate nohighlight">\(^*\)</span><span class="math notranslate nohighlight">\(^*\)</span> : si le sort est hostile, il est possible de rajouter un <code class="docutils literal notranslate"><span class="pre">ApplySpell</span></code> sur le jeteur de sort qui contiendrait les opcodes <a class="reference external" href="https://gibberlings3.github.io/iesdp/opcodes/bgee.htm#op136">136</a> et <a class="reference external" href="https://gibberlings3.github.io/iesdp/opcodes/bgee.htm#op160">160</a>. Solution non dynamique.</p>
+</div>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -528,7 +550,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./general"
+            path: "./spell"
         },
         predefinedOutput: true
     }
@@ -546,20 +568,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../intro.html"
+       href="_init.html"
        title="page précédente">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">précédent</p>
-        <p class="prev-next-title">Bienvenue sur BSC Snippets</p>
+        <p class="prev-next-title">Can I Cast a Spell?</p>
       </div>
     </a>
     <a class="right-next"
-       href="dialog.html"
+       href="remove_paralysis.html"
        title="page suivante">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">suivant</p>
-        <p class="prev-next-title">Dialogue - Initialisation</p>
+        <p class="prev-next-title">Délivrance de la paralysie (SPPR308)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -569,28 +591,6 @@ document.write(`
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contenu
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#realises-en-cours">Réalisés / En cours</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#combat">Combat</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modales">Modales</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objets">Objets</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generalites">Généralités</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#todo">TODO</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>

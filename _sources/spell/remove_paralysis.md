@@ -33,10 +33,13 @@ IF
 
     See(NearestAllyOf(Myself))
     StateCheck(LastSeenBy(Myself), STATE_STUNNED | STATE_HELPLESS)
-    CheckStat(LastSeenBy(Myself), 0, MINORGLOBE)
-    !StateCheck(LastSeenBy(Myself), STATE_SLEEPING | STATE_NOT_APPROACHABLE | STATE_FEEBLEMINDED | STATE_IMPROVEDINVISIBILITY)
+    !StateCheck(LastSeenBy(Myself), STATE_SLEEPING | STATE_NOT_APPROACHABLE | STATE_FEEBLEMINDED)
+    OR(2)
+        !StateCheck(LastSeenBy(Myself), STATE_IMPROVEDINVISIBILITY)
+        !CheckStat(Myself, 0, SEEINVISIBLE)
     CheckStat(LastSeenBy(Myself), 0, WEB)
     !CheckStat(LastSeenBy(Myself), 2, PUPPETTYPE)
+    CheckStat(LastSeenBy(Myself), 0, MINORGLOBE)
 THEN
     RESPONSE #1
         SetGlobalTimer("BD_Cast", "LOCALS", ONE_ROUND)
@@ -45,7 +48,7 @@ END
 ```
 ````
 
-````{tab-item} Complète
+````{tab-item} Bloc
 ```cr
 IF
     ActuallyInCombat()
@@ -70,31 +73,31 @@ IF
     OR(6)
         !See(NearestAllyOf(Myself))
         !StateCheck(LastSeenBy(Myself), STATE_STUNNED | STATE_HELPLESS)
-        !CheckStat(LastSeenBy(Myself), 0, MINORGLOBE)
         StateCheck(LastSeenBy(Myself), STATE_SLEEPING | STATE_NOT_APPROACHABLE | STATE_FEEBLEMINDED | STATE_IMPROVEDINVISIBILITY)
         !CheckStat(LastSeenBy(Myself), 0, WEB)
         CheckStat(LastSeenBy(Myself), 2, PUPPETTYPE)
+        !CheckStat(LastSeenBy(Myself), 0, MINORGLOBE)
     OR(6)
         !See(SecondNearestAllyOf(Myself))
         !StateCheck(LastSeenBy(Myself), STATE_STUNNED | STATE_HELPLESS)
-        !CheckStat(LastSeenBy(Myself), 0, MINORGLOBE)
         StateCheck(LastSeenBy(Myself), STATE_SLEEPING | STATE_NOT_APPROACHABLE | STATE_FEEBLEMINDED | STATE_IMPROVEDINVISIBILITY)
         !CheckStat(LastSeenBy(Myself), 0, WEB)
         CheckStat(LastSeenBy(Myself), 2, PUPPETTYPE)
+        !CheckStat(LastSeenBy(Myself), 0, MINORGLOBE)
     OR(6)
         !See(ThirdNearestAllyOf(Myself))
         !StateCheck(LastSeenBy(Myself), STATE_STUNNED | STATE_HELPLESS)
-        !CheckStat(LastSeenBy(Myself), 0, MINORGLOBE)
         StateCheck(LastSeenBy(Myself), STATE_SLEEPING | STATE_NOT_APPROACHABLE | STATE_FEEBLEMINDED | STATE_IMPROVEDINVISIBILITY)
         !CheckStat(LastSeenBy(Myself), 0, WEB)
         CheckStat(LastSeenBy(Myself), 2, PUPPETTYPE)
+        !CheckStat(LastSeenBy(Myself), 0, MINORGLOBE)
     OR(6)
         !See(FourthNearestAllyOf(Myself))
         !StateCheck(LastSeenBy(Myself), STATE_STUNNED | STATE_HELPLESS)
-        !CheckStat(LastSeenBy(Myself), 0, MINORGLOBE)
         StateCheck(LastSeenBy(Myself), STATE_SLEEPING | STATE_NOT_APPROACHABLE | STATE_FEEBLEMINDED | STATE_IMPROVEDINVISIBILITY)
         !CheckStat(LastSeenBy(Myself), 0, WEB)
         CheckStat(LastSeenBy(Myself), 2, PUPPETTYPE)
+        !CheckStat(LastSeenBy(Myself), 0, MINORGLOBE)
     Detect(Myself)
     False()
 THEN
@@ -109,6 +112,8 @@ THEN
         Spell(LastSeenBy(Myself), CLERIC_REMOVE_PARALYSIS)
 END
 ```
+- On perd en finesse sur la gestion du `STATE_IMPROVEDINVISIBILITY` pour les personnages ayant `SEEINVISIBLE` actif
+- L'utilisation de `EEex_SpellObjectOffset` résolverait ce problème
 ````
 `````
 
@@ -127,7 +132,6 @@ Caractéristiques :
 
 ## Limites
 
-- L'utilisation de `Spell` implique que le personnage a `STATE_NOT_TARGETABLE` et `SANCTUARY` inactifs, ce qui n'est pas une contrainte du sort
 - Un personnage endormi pour une durée permanente qui a été guéri du sommeil matchera avec les conditions (la guérison ne soigne pas du `STATE_HELPLESS`)
 
 
@@ -138,7 +142,7 @@ Pour identifier les cibles qui peuvent être soignées nous avons
     StateCheck(LastSeenBy(Myself), STATE_STUNNED | STATE_HELPLESS)
 ```
 
-Or, dans la plupart des mods, on retrouve
+Or, dans la plupart des mods, nous retrouvons
 ```cr
     OR(2)
         StateCheck(LastSeenBy(Myself), STATE_STUNNED)
@@ -147,7 +151,7 @@ Or, dans la plupart des mods, on retrouve
 
 Les deux choix sont bons.\
 `HELD` a l'avantage de ne pas matcher avec le sommeil.\
-`STATE_HELPLESS` a l'avantage de matcher avec la [fausse pétrification](https://gibberlings3.github.io/iesdp/opcodes/bgee.htm#op109) de l'opcode 109.
+`STATE_HELPLESS` a l'avantage de matcher avec la [fausse pétrification](https://gibberlings3.github.io/iesdp/opcodes/bgee.htm#op109).
 
 C'est assez marginal et le plus déterminant a été la simplicité du code.\
 La première solution permet de générer un unique bloc pour gérer plusieurs cibles (voir l'onglet "Complète").\

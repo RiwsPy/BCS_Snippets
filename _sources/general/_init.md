@@ -54,13 +54,16 @@
 * Forcer une arme à une main si un bouclier est présent dans la main gauche
 * Voler l'équipement d'une créature charmée, s'en équiper ?
 * Utiliser un objet non équipé
-* Améliorer la gestion du temps d'attente entre les sorts ou les objets (STATE_HELPLESS, autre ?)
+* Améliorer la gestion du round d'attente entre les sorts ou les objets (STATE_HELPLESS, autre ?)
 * Savoir si un objet maudit est équipé
 * Se protéger contre les dégâts élémentaires adaptés (par déduction/anticipation ou après avoir reçu des dégâts élémentaires)
 * Utiliser son arme de jet/trait sans malus
 * Contrôler mentalement les STATE_FEEBLEMINDED
 * Que faire une fois paniqué ?
 * Savoir si un personnage est contrôlable par le joueur ou non
+* Différencier les deux états de STATE_BERSERK
+* Identifier les personnages qui nous font perdre de la réputation une fois tué
+* Simuler l'action Spell sur une cible avec IMPROVEDINVISIBILITY
 
 D'une manière générale, gérer :
 - les sorts particuliers

@@ -166,10 +166,20 @@ Les parchemins étant des objets hybride, leur fonctionnement diffère sur plusi
 
 ## Posséder le sort
 
+```{note}
+Actions concernées :
+- `Spell`
+```
+
 Dans la plupart des cas, on ne voudra lancer que les sorts que l'on possède, on utilisera alors le trigger `HaveSpell` ou `HaveSpellRES` avec l'action `Spell`.\
 Si on souhaite lancer des sorts non possédés on privilégiera les actions `SpellNoDec`, `ForceSpell` ou `ReallyForceSpell` ou encore `ForceSpellDead`.\
 Le choix de l'action impacte fortement le choix des contraintes du block `IF`.
 
+### Snippet
+
+```cr
+    HaveSpell(SPELL_NAME)
+```
 
 (silence-section)=
 ## Silence
@@ -192,20 +202,15 @@ Deux inconvénients :
 
 ---- 
 
-Il existe une solution à ces deux problèmatiques, que l'on utilise déjà sans le savoir : `HaveSpell`.\
+Il existe une solution à ces deux problèmatiques, que l'on utilise déjà : `HaveSpell`.\
 Celui-ci vérifie que :
 - le sort est mémorisé
 - si le sort nécessite une composante verbale, le lanceur de sort n'est pas sous l'effet d'un silence
-- le lanceur n'est pas sous l'effet empêchant le lancement de sort (comme celle dans la Transformation de Tenser par exemple)
-
-Oui, `HaveSpell(XX)` peut renvoyer faux même si le sort est mémorisé.
+- le lanceur n'est pas sous l'effet empêchant le lancement de sort (comme celle dans la `Transformation de Tenser` par exemple)
 
 Cela signifie que la présence d'une composante verbale est checkée au moment de le lancer :
-- cela gère donc les modifications faites par les mods
-- pas d'erreur d'inattention puisqu'il suffit de ne pas mettre `StateCheck(Myself, STATE_SILENCED)`
-
-
-Ainsi, le meilleur moyen de gérer le silence, c'est de laisser l'action `HaveSpell` faire le travail.
+- gestion dynamique des modifications des moddeurs
+- plus d'erreur d'inattention
 
 
 ## Blocage de la capacité à lancer des sorts
@@ -215,7 +220,7 @@ Actions concernées :
 - `Spell`
 ```
 
-Infligé par l'opcode 145, cet effet est géré automatiquement par `HaveSpell`.\
+Infligé par l'[Opcode 145](https://gibberlings3.github.io/iesdp/opcodes/bgee.htm#op145), cet effet est géré automatiquement par `HaveSpell`.\
 Voir le point sur [Silence](silence-section) pour plus d'informations.
 
 ## Poison
@@ -230,7 +235,7 @@ Un désastre pour les magiciens, le poison lui inflige des dégâts sur la duré
 1. Il n'a pas beaucoup de points de vie donc c'est vite dramatique
 2. Cela affecte clairement sa capacité à lancer des sorts (et de façon imprévisible)
 
-Le comble étant qu'il existe des sorts pour se soigner mais qu'elle est leur probabilité de réussite ?
+Le comble étant qu'il existe des sorts pour se soigner mais quelle est leur probabilité de réussite ?
 
 ### État des lieux des autres mods
 
@@ -246,17 +251,17 @@ Mais tentons une analyse.
 ### TheoryCrafting sur le poison
 
 
-Le poison frappe avec une fréquence fixe pouvant provoquer aléatoirement à chaque fois une interrumption de l'incantation du sort.
+Le poison frappe avec une fréquence fixe pouvant provoquer aléatoirement à chaque fois une interruption de l'incantation du sort.
 
 Lancer un sort est donc risqué car la probabilité d'échec est réelle mais… est-ce moins risqué de ne lancer AUCUN sort pendant 30 secondes ?
 
-Idéalement il faudrait incanter le sort entre deux dégâts afin de ne pas être inquiété. Sauf que l'on ne connait pas la fréquence à l'avance.
+Idéalement il faudrait incanter le sort entre deux dégâts afin de ne pas être inquiété. Sauf que l'on ne connait ni sa fréquence ni le moment où il va frapper.
 
 
 Voici quelques chiffres approximatifs :
 
 ```{note}
-- Répartition des poison en fonction de leur fréquence d'apparition :
+- Répartition des poison en fonction de leur fréquence des dégâts :
   * 1 seconde : 75%
   * 2 secondes : 5%
   * 3 secondes : 20%
@@ -283,6 +288,8 @@ Les sorts de niveau faible ont deux avantages :
 Quelques exceptions existent, comme les mots de pouvoir qui ont un temps d'incantation très court.\
 Il peut donc être intéressant de s'autoriser de lancer des sorts à incantation très rapide même empoisonné.
 
+Note : les parchemins ne peuvent être interrompus par le poison.
+
 
 ### Snippet
 Pour s'assurer qu'un personnage n'est pas empoisonné ou qu'il ne puisse en subir les dégâts :
@@ -292,6 +299,7 @@ Pour s'assurer qu'un personnage n'est pas empoisonné ou qu'il ne puisse en subi
         CheckStatGT(Myself, 99, RESISTPOISON)
 ```
 
+Il est possible d'être immunisé aux dégâts du poison sans être immunisé au poison en tant qu'effet (et inversement).
 
 ## Maladie
 
@@ -323,7 +331,7 @@ Pour s'assurer qu'un personnage n'est pas malade ou qu'il ne puisse pas subir le
         !CheckSpellState(Myself, DISEASED)
         CheckStatGT(Myself, 99, RESISTPOISON)
 ```
-Mais sans certitude que la maladie inflige bien des dommages.
+Mais sans certitude que la maladie inflige bien des dommages. Ce snippet ne sera donc pas utilisé de façon générique.
 
 
 ## Mages cagoulés d'Athkatla
@@ -342,7 +350,7 @@ Actions concernées :
 ```
 
 Les hiatus entropiques sont également à prendre en compte lors d'un lancement d'un sort.\
-Il est possible de savoir si le prochain sort sera un hiatus.\
+Il est possible de savoir si le prochain sort sera un hiatus.
 
 
 ### Snippet
@@ -396,6 +404,27 @@ Dans une situation dramatique, 99% d'échec, soit 1% de réussite, c'est mieux q
 Cela peut aussi dépendre du caractère du personnage.\
 Certains n'acceptant pas l'échec, d'autres aiment jouer avec le feu. Enfin, d'autres n'auront même pas conscience de tout ça et lanceront leurs sorts quelque soit la probabilité.
 
+
+### Snippet
+
+`````{tab-set}
+````{tab-item} Sorts profanes
+```cr
+    CheckStatLT(Myself, 50, SPELLFAILUREMAGE)
+```
+````
+````{tab-item} Sorts divins et druidiques
+```cr
+    CheckStatLT(Myself, 50, SPELLFAILUREPRIEST)
+```
+````
+````{tab-item} Autre
+```cr
+    CheckStatLT(Myself, 50, SPELL_FAILURE_INNATE)
+```
+````
+`````
+
 ```{note}
 Certains sorts ou capacités sont protégés contre la valeur de ces caractéristiques.\
 Pour en [savoir plus](https://gibberlings3.github.io/iesdp/file_formats/ie_formats/spl_v1.htm#Header_Flags).
@@ -417,8 +446,21 @@ Actions concernées :
 On part du principe que si le bouton servant à accéder aux sorts est désactivé c'est que le personnage est en incapacité de lancer des sorts.\
 C'est notamment le cas lorsque l'on porte une armure lourde ou sous polymorphie.
 
-- `BUTTON_CASTSPELL` : pour les sorts profanes, divins et druidiques
-- `BUTTON_INNATEBUTTON` : pour les capacités spéciales
+### Snippet
+
+`````{tab-set}
+````{tab-item} Sorts profanes, divins et druidiques
+```cr
+    !ButtonDisabled(BUTTON_CASTSPELL)
+```
+````
+
+````{tab-item} Capacités spéciales
+```cr
+    !ButtonDisabled(BUTTON_INNATEBUTTON)
+```
+````
+`````
 
 
 ## Spécificités
@@ -429,7 +471,7 @@ Actions concernées :
 - `SpellNoDec`
 ```
 
-### Cant target invisible
+### Can't target invisible
 
 La plupart des sorts ciblant un personnage ne peuvent se faire si ce dernier est invisible (sauf pour soi-même).
 
