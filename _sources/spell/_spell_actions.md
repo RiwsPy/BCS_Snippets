@@ -29,26 +29,29 @@ Cela permet de mieux choisir l'action et les triggers qui vous permettrons de r�
 ````{tab-item} Comparatif
 | Effet | Spell | ForceSpell | ReallyForceSpell |
 | - | - | - | - |
-| Sort possédé | ✅ | HaveSpell | HaveSpell |
-| Retrait du sort | ✅ | RemoveSpell | RemoveSpell |
-| Temps d'incantation | ✅ | ✅ | Wait$^*$ |
+| Sort possédé | ✅$^($$^1$$^)$ | HaveSpell | HaveSpell |
+| Retrait du sort | ✅$^($$^1$$^)$ | RemoveSpell | RemoveSpell |
+| Temps d'incantation | ✅ | ✅ | Wait$^($$^2$$^)$ |
 | Effet incantatoire | ✅ | ✅ | ❌ |
 | Round d'attente entre action | ✅ | SetGlobalTimer | SetGlobalTimer |
 | Contrainte de portée | ✅ | ForceSpellRange | ❌ |
 | Contrainte de silence | ✅ | HaveSpell | HaveSpell |
-| Contrainte de OUTDOOR | ✅ | AreaType$^*$ | AreaType$^*$ |
-| Contrainte de NonCombat | ✅ | ActuallyInCombat$^*$ | ActuallyInCombat$^*$ |
+| Contrainte de OUTDOOR | ✅ | AreaType$^($$^2$$^)$ | AreaType$^($$^2$$^)$ |
+| Contrainte de NonCombat | ✅ | ActuallyInCombat$^($$^2$$^)$ | ActuallyInCombat$^($$^2$$^)$ |
 | Contrainte sur la concentration | ✅ | ❌ | ❌ |
 | Contrainte sur l'échec incantation | ✅ | ❌ | ❌ |
 | Contrainte ciblage de l'invisible | ✅ | See | See |
 | Affecté par les hiatus | ✅ | ✅ | ❌ |
 | Gestion bonus niveau entropiste | ✅ | ✅ | ❌ |
-| Impact de l'hostilité sur l'invisibilité | ✅ | ✅ | ❌$^*$$^*$ |
+| Impact de l'hostilité sur l'invisibilité | ✅ | ✅ | ❌$^($$^3$$^)$ |
 | Activation des triggers SpellCast | ✅ | ✅ | ❌ |
-| Log de combat | ✅ | ✅ | ❌ |
+| Log de combat | ✅$^($$^4$$^)$ | ✅$^($$^4$$^)$ | ✅$^($$^4$$^)$ |
+| Incantation si STATE_DEAD | ❌ | ❌ | ReallyForceSpellDead |
 
-$^*$ : solution non dynamique\
-$^*$$^*$ : si le sort est hostile, il est possible de rajouter un `ApplySpell` sur le jeteur de sort qui contiendrait les opcodes [136](https://gibberlings3.github.io/iesdp/opcodes/bgee.htm#op136) et [160](https://gibberlings3.github.io/iesdp/opcodes/bgee.htm#op160). Solution non dynamique.
+$^($$^1$$^)$ : possible de supprimer cette contrainte en utilisant `SpellNoDec`\
+$^($$^2$$^)$ : solution non dynamique\
+$^($$^3$$^)$ : si le sort est hostile, il est possible de rajouter un `ApplySpell` sur le jeteur de sort qui contiendrait les opcodes [136](https://gibberlings3.github.io/iesdp/opcodes/bgee.htm#op136) et [160](https://gibberlings3.github.io/iesdp/opcodes/bgee.htm#op160), solution non dynamique\
+$^($$^4$$^)$ : seulement si la capacité à une StrRef
 ````
 `````
 

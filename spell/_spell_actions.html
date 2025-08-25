@@ -444,19 +444,19 @@ Comparatif</label><div class="sd-tab-content docutils">
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Sort possédé</p></td>
-<td><p>✅</p></td>
+<td><p>✅<span class="math notranslate nohighlight">\(^(\)</span><span class="math notranslate nohighlight">\(^1\)</span><span class="math notranslate nohighlight">\(^)\)</span></p></td>
 <td><p>HaveSpell</p></td>
 <td><p>HaveSpell</p></td>
 </tr>
 <tr class="row-odd"><td><p>Retrait du sort</p></td>
-<td><p>✅</p></td>
+<td><p>✅<span class="math notranslate nohighlight">\(^(\)</span><span class="math notranslate nohighlight">\(^1\)</span><span class="math notranslate nohighlight">\(^)\)</span></p></td>
 <td><p>RemoveSpell</p></td>
 <td><p>RemoveSpell</p></td>
 </tr>
 <tr class="row-even"><td><p>Temps d’incantation</p></td>
 <td><p>✅</p></td>
 <td><p>✅</p></td>
-<td><p>Wait<span class="math notranslate nohighlight">\(^*\)</span></p></td>
+<td><p>Wait<span class="math notranslate nohighlight">\(^(\)</span><span class="math notranslate nohighlight">\(^2\)</span><span class="math notranslate nohighlight">\(^)\)</span></p></td>
 </tr>
 <tr class="row-odd"><td><p>Effet incantatoire</p></td>
 <td><p>✅</p></td>
@@ -480,13 +480,13 @@ Comparatif</label><div class="sd-tab-content docutils">
 </tr>
 <tr class="row-odd"><td><p>Contrainte de OUTDOOR</p></td>
 <td><p>✅</p></td>
-<td><p>AreaType<span class="math notranslate nohighlight">\(^*\)</span></p></td>
-<td><p>AreaType<span class="math notranslate nohighlight">\(^*\)</span></p></td>
+<td><p>AreaType<span class="math notranslate nohighlight">\(^(\)</span><span class="math notranslate nohighlight">\(^2\)</span><span class="math notranslate nohighlight">\(^)\)</span></p></td>
+<td><p>AreaType<span class="math notranslate nohighlight">\(^(\)</span><span class="math notranslate nohighlight">\(^2\)</span><span class="math notranslate nohighlight">\(^)\)</span></p></td>
 </tr>
 <tr class="row-even"><td><p>Contrainte de NonCombat</p></td>
 <td><p>✅</p></td>
-<td><p>ActuallyInCombat<span class="math notranslate nohighlight">\(^*\)</span></p></td>
-<td><p>ActuallyInCombat<span class="math notranslate nohighlight">\(^*\)</span></p></td>
+<td><p>ActuallyInCombat<span class="math notranslate nohighlight">\(^(\)</span><span class="math notranslate nohighlight">\(^2\)</span><span class="math notranslate nohighlight">\(^)\)</span></p></td>
+<td><p>ActuallyInCombat<span class="math notranslate nohighlight">\(^(\)</span><span class="math notranslate nohighlight">\(^2\)</span><span class="math notranslate nohighlight">\(^)\)</span></p></td>
 </tr>
 <tr class="row-odd"><td><p>Contrainte sur la concentration</p></td>
 <td><p>✅</p></td>
@@ -516,7 +516,7 @@ Comparatif</label><div class="sd-tab-content docutils">
 <tr class="row-even"><td><p>Impact de l’hostilité sur l’invisibilité</p></td>
 <td><p>✅</p></td>
 <td><p>✅</p></td>
-<td><p>❌<span class="math notranslate nohighlight">\(^*\)</span><span class="math notranslate nohighlight">\(^*\)</span></p></td>
+<td><p>❌<span class="math notranslate nohighlight">\(^(\)</span><span class="math notranslate nohighlight">\(^3\)</span><span class="math notranslate nohighlight">\(^)\)</span></p></td>
 </tr>
 <tr class="row-odd"><td><p>Activation des triggers SpellCast</p></td>
 <td><p>✅</p></td>
@@ -524,15 +524,22 @@ Comparatif</label><div class="sd-tab-content docutils">
 <td><p>❌</p></td>
 </tr>
 <tr class="row-even"><td><p>Log de combat</p></td>
-<td><p>✅</p></td>
-<td><p>✅</p></td>
+<td><p>✅<span class="math notranslate nohighlight">\(^(\)</span><span class="math notranslate nohighlight">\(^4\)</span><span class="math notranslate nohighlight">\(^)\)</span></p></td>
+<td><p>✅<span class="math notranslate nohighlight">\(^(\)</span><span class="math notranslate nohighlight">\(^4\)</span><span class="math notranslate nohighlight">\(^)\)</span></p></td>
+<td><p>✅<span class="math notranslate nohighlight">\(^(\)</span><span class="math notranslate nohighlight">\(^4\)</span><span class="math notranslate nohighlight">\(^)\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Incantation si STATE_DEAD</p></td>
 <td><p>❌</p></td>
+<td><p>❌</p></td>
+<td><p>ReallyForceSpellDead</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<p><span class="math notranslate nohighlight">\(^*\)</span> : solution non dynamique<br />
-<span class="math notranslate nohighlight">\(^*\)</span><span class="math notranslate nohighlight">\(^*\)</span> : si le sort est hostile, il est possible de rajouter un <code class="docutils literal notranslate"><span class="pre">ApplySpell</span></code> sur le jeteur de sort qui contiendrait les opcodes <a class="reference external" href="https://gibberlings3.github.io/iesdp/opcodes/bgee.htm#op136">136</a> et <a class="reference external" href="https://gibberlings3.github.io/iesdp/opcodes/bgee.htm#op160">160</a>. Solution non dynamique.</p>
+<p><span class="math notranslate nohighlight">\(^(\)</span><span class="math notranslate nohighlight">\(^1\)</span><span class="math notranslate nohighlight">\(^)\)</span> : possible de supprimer cette contrainte en utilisant <code class="docutils literal notranslate"><span class="pre">SpellNoDec</span></code><br />
+<span class="math notranslate nohighlight">\(^(\)</span><span class="math notranslate nohighlight">\(^2\)</span><span class="math notranslate nohighlight">\(^)\)</span> : solution non dynamique<br />
+<span class="math notranslate nohighlight">\(^(\)</span><span class="math notranslate nohighlight">\(^3\)</span><span class="math notranslate nohighlight">\(^)\)</span> : si le sort est hostile, il est possible de rajouter un <code class="docutils literal notranslate"><span class="pre">ApplySpell</span></code> sur le jeteur de sort qui contiendrait les opcodes <a class="reference external" href="https://gibberlings3.github.io/iesdp/opcodes/bgee.htm#op136">136</a> et <a class="reference external" href="https://gibberlings3.github.io/iesdp/opcodes/bgee.htm#op160">160</a>, solution non dynamique<br />
+<span class="math notranslate nohighlight">\(^(\)</span><span class="math notranslate nohighlight">\(^4\)</span><span class="math notranslate nohighlight">\(^)\)</span> : seulement si la capacité à une StrRef</p>
 </div>
 </div>
 </section>
