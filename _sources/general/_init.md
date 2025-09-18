@@ -64,6 +64,8 @@
 * Différencier les deux états de STATE_BERSERK
 * Identifier les personnages qui nous font perdre de la réputation une fois tué
 * Simuler l'action Spell sur une cible avec IMPROVEDINVISIBILITY
+* Changer l'EA d'un personnage devrait aussi changer ceux de ses convocations
+* Création et gestion des 7èmes membres du groupe (et alternatives aux actions/trigger Party)
 
 D'une manière générale, gérer :
 - les sorts particuliers

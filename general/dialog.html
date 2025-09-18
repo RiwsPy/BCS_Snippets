@@ -193,6 +193,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../snippet/backstab.html">⚠️ Réaliser une attaque sournoise</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../snippet/opportunityattack.html">✅ Réaliser une attaque d’opportunité</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../snippet/canpickpocket.html">✅ Can PickPocket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../snippet/troll_ammo.html">⚠️ Finir un troll à distance</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Sorts spécifiques</span></p>
 <ul class="nav bd-sidenav">
@@ -460,7 +461,9 @@ BCS Snippet</label><div class="sd-tab-content docutils">
 <span class="w">    </span><span class="o">!</span><span class="n">ActualityInCombat</span><span class="p">()</span>
 <span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">CD_STATE_NOTVALID</span><span class="p">)</span>
 <span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Player1</span><span class="p">,</span><span class="w"> </span><span class="no">CD_STATE_NOTVALID</span><span class="p">)</span>
-<span class="w">    </span><span class="n">Allegiance</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">PC</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Allegiance</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">PC</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Allegiance</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">FAMILIAR</span><span class="p">)</span>
 <span class="w">    </span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="no">BUTTON_DIALOG</span><span class="p">)</span>
 <span class="w">    </span><span class="n">NextTriggerObject</span><span class="p">(</span><span class="n">Player1</span><span class="p">)</span>
 <span class="w">    </span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="no">BUTTON_DIALOG</span><span class="p">)</span>

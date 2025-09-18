@@ -1,6 +1,6 @@
 # ⚠️ Can I Move
 
-Snippet incomplet qui permet de savoir si le personnage peut se déplacer.\
+Snippet qui permet de savoir si le personnage peut se déplacer.\
 Aussi bizarre que cela puisse paraître, il n'existe pas de solution efficace pour connaître sa vitesse de déplacement.
 
 ```cr

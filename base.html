@@ -193,6 +193,7 @@
 <li class="toctree-l1"><a class="reference internal" href="snippet/backstab.html">⚠️ Réaliser une attaque sournoise</a></li>
 <li class="toctree-l1"><a class="reference internal" href="snippet/opportunityattack.html">✅ Réaliser une attaque d’opportunité</a></li>
 <li class="toctree-l1"><a class="reference internal" href="snippet/canpickpocket.html">✅ Can PickPocket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snippet/troll_ammo.html">⚠️ Finir un troll à distance</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Sorts spécifiques</span></p>
 <ul class="nav bd-sidenav">
@@ -424,7 +425,7 @@ document.write(`
 <li><p>Les contraintes inhérentes aux actions du bloc <code class="docutils literal notranslate"><span class="pre">RESPONSE</span></code></p></li>
 </ol>
 <p>Un exemple connu est celui de l’initialisation d’un dialogue.<br />
-Si je fais :</p>
+Exemple :</p>
 <div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
 <span class="w">    </span><span class="n">See</span><span class="p">(</span><span class="n">Player1</span><span class="p">)</span>
 <span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;myvar&quot;</span><span class="p">,</span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
@@ -435,8 +436,7 @@ Si je fais :</p>
 <span class="no">END</span>
 </pre></div>
 </div>
-<p>Pas mal de moddeurs risquent de sauter au plafond.</p>
-<p>Car ce n’est pas parce que l’action <code class="docutils literal notranslate"><span class="pre">StartDialogNotSet</span></code> est appelée qu’elle sera réellement appliquée.<br />
+<p>Ce n’est pas parce que l’action <code class="docutils literal notranslate"><span class="pre">StartDialogNotSet</span></code> est appelée qu’elle sera réellement appliquée.<br />
 Les contraintes internes à <code class="docutils literal notranslate"><span class="pre">StartDialogNotSet</span></code> doivent également être respectées.</p>
 <p><em>Exemple</em> : si le personnage est endormi, <code class="docutils literal notranslate"><span class="pre">StartDialogNotSet</span></code> ne fonctionnera pas.</p>
 <p>Or, cette contrainte n’est <strong>pas</strong> vérifiée dans le <code class="docutils literal notranslate"><span class="pre">IF</span></code>.<br />

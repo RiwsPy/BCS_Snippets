@@ -9,7 +9,7 @@ Les *Actions* ont leurs propres contraintes :
 
 
 Un exemple connu est celui de l'initialisation d'un dialogue.\
-Si je fais :
+Exemple :
 ```cr
 IF
     See(Player1)
@@ -21,10 +21,7 @@ THEN
 END
 ```
 
-
-Pas mal de moddeurs risquent de sauter au plafond.
-
-Car ce n'est pas parce que l'action `StartDialogNotSet` est appelée qu'elle sera réellement appliquée.\
+Ce n'est pas parce que l'action `StartDialogNotSet` est appelée qu'elle sera réellement appliquée.\
 Les contraintes internes à `StartDialogNotSet` doivent également être respectées.
 
 *Exemple* : si le personnage est endormi, `StartDialogNotSet` ne fonctionnera pas.

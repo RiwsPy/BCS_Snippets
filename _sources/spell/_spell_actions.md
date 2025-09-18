@@ -45,8 +45,8 @@ Cela permet de mieux choisir l'action et les triggers qui vous permettrons de r�
 | Gestion bonus niveau entropiste | ✅ | ✅ | ❌ |
 | Impact de l'hostilité sur l'invisibilité | ✅ | ✅ | ❌$^($$^3$$^)$ |
 | Activation des triggers SpellCast | ✅ | ✅ | ❌ |
-| Log de combat | ✅$^($$^4$$^)$ | ✅$^($$^4$$^)$ | ✅$^($$^4$$^)$ |
 | Incantation si STATE_DEAD | ❌ | ❌ | ReallyForceSpellDead |
+| Log de combat | ✅$^($$^4$$^)$ | ✅$^($$^4$$^)$ | ✅$^($$^4$$^)$ |
 
 $^($$^1$$^)$ : possible de supprimer cette contrainte en utilisant `SpellNoDec`\
 $^($$^2$$^)$ : solution non dynamique\
