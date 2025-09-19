@@ -37,7 +37,7 @@ IF
     HasItemCategory(Myself, BOW, FALSE)
     HasItemEquiped("AROW04", Myself)
     See(NearestEnemyOfType([0.0.TROLL]))
-    CheckStat(LastSeenBy(Myself), 0, MINHITPOINTS)
+    CheckStatLT(LastSeenBy(Myself), 1, MINHITPOINTS)
     CheckStatLT(LastSeenBy(Myself), 100, RESIST_ACID)
 THEN
     RESPONSE #1
@@ -59,7 +59,7 @@ IF
     HasItemCategory(Myself, BOW, TRUE)
     HasItemEquiped("AROW04", Myself)
     See(NearestEnemyOfType([0.0.TROLL]))
-    CheckStat(LastSeenBy(Myself), 0, MINHITPOINTS)
+    CheckStatLT(LastSeenBy(Myself), 1, MINHITPOINTS)
     CheckStatLT(LastSeenBy(Myself), 100, RESIST_ACID)
 THEN
     RESPONSE #1
@@ -79,7 +79,7 @@ IF
     Global("BDAI_DISABLE_ATTACK", "LOCALS", 0)
     CurrentAmmo("AROW04", Myself)
     See(NearestEnemyOfType([0.0.TROLL]))
-    CheckStat(LastSeenBy(Myself), 0, MINHITPOINTS)
+    CheckStatLT(LastSeenBy(Myself), 1, MINHITPOINTS)
     CheckStatLT(LastSeenBy(Myself), 100, RESIST_ACID)
 THEN
     RESPONSE #1
@@ -102,7 +102,7 @@ IF
         CurrentAmmo("BULL04", Myself)
         CheckItemSlot(Myself, "MELFMET", SLOT_MISC19)
     See(NearestEnemyOfType([0.0.TROLL]))
-    CheckStat(LastSeenBy(Myself), 0, MINHITPOINTS)
+    CheckStatLT(LastSeenBy(Myself), 1, MINHITPOINTS)
     CheckStatLT(LastSeenBy(Myself), 100, RESIST_FIRE)
 THEN
     RESPONSE #1
@@ -116,8 +116,8 @@ Comme la précédente mais on profite de la simplification des actions : on peut
 ````{tab-item} Sans switch 2 complète
 ```cr
 IF
-    Detect(Myself)
     ActionListEmpty()
+    Detect(Myself)
     Global("BDAI_DISABLE_ATTACK", "LOCALS", 0)
     OR(4)
         CurrentAmmo("AROW06", Myself)
@@ -127,15 +127,15 @@ IF
 
     OR(3)
         !See(NearestEnemyOfType([0.0.TROLL]))
-        !CheckStat(LastSeenBy(Myself), 0, MINHITPOINTS)
+        !CheckStatLT(LastSeenBy(Myself), 1, MINHITPOINTS)
         !CheckStatLT(LastSeenBy(Myself), 100, RESIST_FIRE)
     OR(3)
         !See(SecondNearestEnemyOfType([0.0.TROLL]))
-        !CheckStat(LastSeenBy(Myself), 0, MINHITPOINTS)
+        !CheckStatLT(LastSeenBy(Myself), 1, MINHITPOINTS)
         !CheckStatLT(LastSeenBy(Myself), 100, RESIST_FIRE)
     OR(3)
         !See(ThirdNearestEnemyOfType([0.0.TROLL]))
-        !CheckStat(LastSeenBy(Myself), 0, MINHITPOINTS)
+        !CheckStatLT(LastSeenBy(Myself), 1, MINHITPOINTS)
         !CheckStatLT(LastSeenBy(Myself), 100, RESIST_FIRE)
     Detect(Myself)
     False()
@@ -144,6 +144,7 @@ THEN
 END
 
 IF
+    ActionListEmpty()
     !Range(LastSeenBy(Myself), 0)
 THEN
     RESPONSE #1
@@ -161,8 +162,8 @@ END
 1. connaître leur identifiant (celles des mods sont incompatibles)
 1. connaître le type de dégât élémentaire qu'ils infligent (si des mods changent cela…)
 
-- ⚠️ à ne pas utiliser `WeaponCanDamage(LastSeenBy(Myself), MAINHAND)`, qui renverra faux car une fois au sol, les trolls sont immunisés aux dégâts physiques
+- ⚠️ `WeaponCanDamage(LastSeenBy(Myself), MAINHAND)` renverra faux car une fois au sol, les trolls sont immunisés aux dégâts physiques
 - Pas besoin de checker la distance minimale car aucun jet d'attaque n'est effectué
 
 
-- `CheckStat(LastSeenBy(Myself), 0, MINHITPOINTS)` n'est pas très RP, est on pourrait privilégier `StateCheck(LastSeenBy(Myself), STATE_SLEEPING)` qui est beaucoup plus visuel, les trolls étant immunisés au sommeil sauf pendant la période où ils sont au sol.
+- `CheckStatLT(LastSeenBy(Myself), 1, MINHITPOINTS)` n'est pas très RP, est on pourrait privilégier `StateCheck(LastSeenBy(Myself), STATE_SLEEPING)` qui est beaucoup plus visuel, les trolls étant immunisés au sommeil sauf pendant la période où ils sont au sol.

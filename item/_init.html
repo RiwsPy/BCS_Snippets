@@ -403,6 +403,21 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#snippets-de-base">Snippets de base</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trigger-useitem">Trigger UseItem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hasitem-et-numitems">HasItem et NumItems</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#note">Note</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gestion-des-objets-rechargeables">Gestion des objets rechargeables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alternatives">Alternatives</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#global-ou-locals">GLOBAL ou LOCALS</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#weidu">WeiDU</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unusable-le-blocage-par-l-apprentissage">Unusable, le blocage par l’apprentissage</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bitset-bitcheck-optionnel">BitSet / BitCheck (optionnel)</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#autre">Autre</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enchainement">Enchaînement</a></li>
 </ul>
@@ -428,8 +443,8 @@ document.write(`
 <p>Une question simple permet de répondre à ces deux questions de manière efficace : <em>l’objet est-il équipé ?</em></p>
 <p>Si oui, on considère que :</p>
 <ul class="simple">
-<li><p>il est « normalement » utilisable par le personnage (puisqu’il a pu s’en équiper)</p></li>
-<li><p>le joueur ou le moddeur autorise son utilisation (sinon il fallait le laisser dans le sac)</p></li>
+<li><p>Il est « normalement » utilisable par le personnage (puisqu’il a pu s’en équiper)</p></li>
+<li><p>Le joueur ou le moddeur autorise son utilisation (sinon il fallait le laisser dans le sac)</p></li>
 </ul>
 <p>Cela permet ainsi d’assurer au joueur de contraindre facilement le script :</p>
 <ul class="simple">
@@ -526,11 +541,200 @@ Capacités d’équipement</label><div class="sd-tab-content docutils">
 </div>
 </div>
 </section>
+<section id="trigger-useitem">
+<h2>Trigger UseItem<a class="headerlink" href="#trigger-useitem" title="Lien vers cette rubrique">#</a></h2>
+<p>Il est intéressant - et courant dans les scripts - de pouvoir utiliser un objet spécifique même dans le sac.</p>
+<p>Avant cela, il faut posséder l’objet.</p>
+</section>
+<section id="hasitem-et-numitems">
+<h2>HasItem et NumItems<a class="headerlink" href="#hasitem-et-numitems" title="Lien vers cette rubrique">#</a></h2>
+<p>Deux triggers existent pour déterminer si un personnage possède un objet spécifique.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Effet</p></th>
+<th class="head"><p>HasItem</p></th>
+<th class="head"><p>NumItems</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>S’arrête dès que trouvé</p></td>
+<td><p>✅</p></td>
+<td><p>❌</p></td>
+</tr>
+<tr class="row-odd"><td><p>Check le sac à dos</p></td>
+<td><p>✅</p></td>
+<td><p>✅</p></td>
+</tr>
+<tr class="row-even"><td><p>Check les sacs de contenance</p></td>
+<td><p>✅</p></td>
+<td><p>❌</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">HasItem</span></code> est généralement utilisé avant l’utilisation des objets. Il est potentiellement plus rapide.<br />
+<code class="docutils literal notranslate"><span class="pre">NumItems</span></code> est globalement inutilisé.</p>
+<p>Or, il y a un problème :<br />
+<code class="docutils literal notranslate"><span class="pre">UseItem</span></code> ne peut cibler les objets dans les sacs de contenance.<br />
+Et <code class="docutils literal notranslate"><span class="pre">HasItem</span></code> renvoie vrai si l’objet est présent dans un sac de contenance.<br />
+Il peut donc arriver que les triggers soient vrais mais que l’action soit impossible.<br />
+Il est donc conseillé de privilégier <code class="docutils literal notranslate"><span class="pre">NumItemsGT(&quot;ITEM_FILENAME&quot;,</span> <span class="pre">Myself,</span> <span class="pre">0)</span></code>, notamment pour les membres du groupe.</p>
+<section id="note">
+<h3>Note<a class="headerlink" href="#note" title="Lien vers cette rubrique">#</a></h3>
+<p>Si la créature ne possède pas l’objet, il est possible de le créer avant avec <code class="docutils literal notranslate"><span class="pre">GiveItemCreate(&quot;ITEM_FILENAME&quot;,</span> <span class="pre">Myself,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1)</span></code>.<br />
+Attention tout de même :</p>
+<ul class="simple">
+<li><p>Pour les membres du groupe, cela affiche une StrRef</p></li>
+<li><p>Si l’inventaire est plein, l’objet dans le premier slot du sac est abandonné</p></li>
+</ul>
+<p>Il convient donc de le privilégier pour les non-membres du groupe.</p>
+</section>
+</section>
+<section id="gestion-des-objets-rechargeables">
+<h2>Gestion des objets rechargeables<a class="headerlink" href="#gestion-des-objets-rechargeables" title="Lien vers cette rubrique">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">HasItem</span></code> et <code class="docutils literal notranslate"><span class="pre">NumItems</span></code> sont pratiques, notamment pour les objets à charge unique comme les potions.<br />
+Mais il arrive que des objets possèdent plusieurs charges et que le fait de posséder l’objet ne suffise pas à savoir s’il est utilisable ou non. Cela arrive fréquemment avec les objets équipés.</p>
+<p>Malheureusement, il n’existe pas de solution pour connaître le nombre de charges restantes d’un objet.<br />
+Les moddeurs procèdent alors à l’inverse : ils comptent le nombre de charge utilisée.<br />
+Puis, après un repos du groupe, les compteurs sont remis à 0.</p>
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
+<span class="w">    </span><span class="n">PartyRested</span><span class="p">()</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#100</span>
+<span class="w">        </span><span class="n">SetGlobal</span><span class="p">(</span><span class="s2">&quot;ITEM_FILENAME&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="no">END</span>
+
+<span class="no">IF</span>
+<span class="w">    </span><span class="o">...</span>
+<span class="w">    </span><span class="n">GlobalLT</span><span class="p">(</span><span class="s2">&quot;ITEM_FILENAME&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#100</span>
+<span class="w">        </span><span class="n">UseItem</span><span class="p">(</span><span class="s2">&quot;ITEM_FILENAME&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Myself</span><span class="p">)</span>
+<span class="w">        </span><span class="n">IncGlobal</span><span class="p">(</span><span class="s2">&quot;ITEM_FILENAME&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="no">END</span>
+</pre></div>
+</div>
+<p>Cela a plusieurs limites importantes :</p>
+<ol class="arabic simple">
+<li><p>L’utilisation de plusieurs objets de même nom vont entrer en conflit</p></li>
+<li><p>Le nombre de charge doit être défini et connu en amont (ici, 2)</p></li>
+<li><p>Si l’utilisation de l’objet a échoué, la variable est tout de même incrémentée (suite à l’utilisation maladroite de <code class="docutils literal notranslate"><span class="pre">HasItem</span></code> par exemple)</p></li>
+<li><p>L’utilisation manuelle des objets par le joueur ou un autre script n’est pas prise en compte</p></li>
+<li><p>Après une action <code class="docutils literal notranslate"><span class="pre">Rest</span></code>, les variables ne sont pas remises à 0</p></li>
+<li><p>Chaque objet nécessite sa propre variable</p></li>
+</ol>
+<section id="alternatives">
+<h3>Alternatives<a class="headerlink" href="#alternatives" title="Lien vers cette rubrique">#</a></h3>
+<p>On se rend vite compte que ce n’est pas parfait en l’état. Il convient donc de chercher des alternatives.</p>
+<section id="global-ou-locals">
+<h4>GLOBAL ou LOCALS<a class="headerlink" href="#global-ou-locals" title="Lien vers cette rubrique">#</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">GLOBAL</span></code> a l’avantage de fonctionner pour l’intégralité du groupe, par exemple si deux personnages différents utilisent chacun une charge d’un même objet.<br />
+<code class="docutils literal notranslate"><span class="pre">LOCALS</span></code> permet d’individualiser l’utilisation, ainsi un <code class="docutils literal notranslate"><span class="pre">ENEMY</span></code> pourra utiliser l’objet sans bloquer son utilisation par les membres du groupe.</p>
+<p>La solution va dépendre du contexte.<br />
+L’utilisation de <code class="docutils literal notranslate"><span class="pre">LOCALS</span></code> nous paraît plus générique et c’est la solution qui a été choisie ici mais ce n’est pas une obligation.</p>
+</section>
+<section id="weidu">
+<h4>WeiDU<a class="headerlink" href="#weidu" title="Lien vers cette rubrique">#</a></h4>
+<p>On pourrait incrémenter les variables dans l’objet même.<br />
+Cela permettrait de comptabiliser que les utilisations réelles de l’objet (3.), et cela fonctionnerait même si c’est le joueur qui utilise l’objet manuellement (4.).<br />
+Cela impliquerait de remplacer les <code class="docutils literal notranslate"><span class="pre">GLOBAL</span></code> par des <code class="docutils literal notranslate"><span class="pre">LOCALS</span></code>.</p>
+<p>Problème : si l’objet n’a plus de charge, la variable ne sera jamais incrémentée et le personnage essayera toujours d’utiliser l’objet.</p>
+</section>
+<section id="unusable-le-blocage-par-l-apprentissage">
+<h4>Unusable, le blocage par l’apprentissage<a class="headerlink" href="#unusable-le-blocage-par-l-apprentissage" title="Lien vers cette rubrique">#</a></h4>
+<p>Le trigger <code class="docutils literal notranslate"><span class="pre">Unusable</span></code> nous apporte une information utile ici.<br />
+Une fois l’objet déchargé, ce trigger vaut vrai lors du passage de script suivant. Cela est intéressant si couplé avec le timer <code class="docutils literal notranslate"><span class="pre">BD_Cast</span></code>.</p>
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
+<span class="w">    </span><span class="n">PartyRested</span><span class="p">()</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#100</span>
+<span class="w">        </span><span class="n">SetGlobal</span><span class="p">(</span><span class="s2">&quot;ITEM_FILENAME_IS_EMPTY&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="no">END</span>
+
+<span class="no">IF</span>
+<span class="w">    </span><span class="n">Unusable</span><span class="p">(</span><span class="s2">&quot;ITEM_FILENAME&quot;</span><span class="p">)</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#100</span>
+<span class="w">        </span><span class="n">SetGlobal</span><span class="p">(</span><span class="s2">&quot;ITEM_FILENAME_IS_EMPTY&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Continue</span><span class="p">()</span>
+<span class="no">END</span>
+
+<span class="no">IF</span>
+<span class="w">    </span><span class="o">...</span>
+<span class="w">    </span><span class="o">!</span><span class="n">GlobalTimerNotExpired</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;ITEM_FILENAME_IS_EMPTY&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#100</span>
+<span class="w">        </span><span class="n">SetGlobalTimer</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="no">ONE_ROUND</span><span class="p">)</span>
+<span class="w">        </span><span class="n">UseItem</span><span class="p">(</span><span class="s2">&quot;ITEM_FILENAME&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Myself</span><span class="p">)</span>
+<span class="no">END</span>
+</pre></div>
+</div>
+<p>Cela permet de bloquer l’utilisation d’un objet sans avoir à connaître son nombre de charge (2.).<br />
+Que l’utilisation de l’objet échoue ou non importe peu (3.).<br />
+Au pire des cas, le personnage essayera qu’une seule fois d’utiliser l’objet avant de le bloquer (4.).<br />
+La problématique de l’action <code class="docutils literal notranslate"><span class="pre">Rest</span></code> est réduite aux objets vidés (dont la variable <code class="docutils literal notranslate"><span class="pre">IS_EMPTY</span></code> = 1) (5.).</p>
+<p>Problème : cela ne permet pas de gérer efficacement les objets qui auraient plusieurs capacités (dès qu’une capacité est vidée, l’objet est bloqué).</p>
+</section>
+<section id="bitset-bitcheck-optionnel">
+<h4>BitSet / BitCheck (optionnel)<a class="headerlink" href="#bitset-bitcheck-optionnel" title="Lien vers cette rubrique">#</a></h4>
+<p>Grâce au trigger <code class="docutils literal notranslate"><span class="pre">Unusable</span></code>, on ne sauvegarde qu’une valeur 0 ou 1 dans les variables plutôt qu’un nombre d’utilisation.<br />
+Il devient alors possible d’utiliser une seule variable avec l’action <code class="docutils literal notranslate"><span class="pre">BitSet</span></code>. Chaque bit correspond à un objet, on peut donc sauvegarder jusqu’à 32 variables en une seule.<br />
+Lors du <code class="docutils literal notranslate"><span class="pre">PartyRested()</span></code>, une seule variable est à reset. Cela permet de le rajouter simplement à d’autres scripts/objets.</p>
+<p>Exemple avec deux objets :</p>
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
+<span class="w">    </span><span class="n">PartyRested</span><span class="p">()</span>
+<span class="w">    </span><span class="o">!</span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;EMPTY_ITEMS&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#100</span>
+<span class="w">        </span><span class="n">SetGlobal</span><span class="p">(</span><span class="s2">&quot;EMPTY_ITEMS&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="sr">//</span><span class="c1"># Une seule variable est à reset</span>
+<span class="no">END</span>
+
+<span class="no">IF</span>
+<span class="w">    </span><span class="n">Unusable</span><span class="p">(</span><span class="s2">&quot;ITEM_FILENAME1&quot;</span><span class="p">)</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#100</span>
+<span class="w">        </span><span class="n">BitSet</span><span class="p">(</span><span class="s2">&quot;EMPTY_ITEMS&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">BIT1</span><span class="p">)</span><span class="w"> </span><span class="sr">//</span><span class="c1"># Chaque bit correspond à un objet</span>
+<span class="w">        </span><span class="n">Continue</span><span class="p">()</span>
+<span class="no">END</span>
+
+<span class="no">IF</span>
+<span class="w">    </span><span class="n">Unusable</span><span class="p">(</span><span class="s2">&quot;ITEM_FILENAME2&quot;</span><span class="p">)</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#100</span>
+<span class="w">        </span><span class="n">BitSet</span><span class="p">(</span><span class="s2">&quot;EMPTY_ITEMS&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">BIT2</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Continue</span><span class="p">()</span>
+<span class="no">END</span>
+
+<span class="no">IF</span>
+<span class="w">    </span><span class="o">...</span>
+<span class="w">    </span><span class="o">!</span><span class="n">GlobalTimerNotExpired</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">BitCheck</span><span class="p">(</span><span class="s2">&quot;EMPTY_ITEMS&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">BIT1</span><span class="p">)</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#100</span>
+<span class="w">        </span><span class="n">SetGlobalTimer</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="no">ONE_ROUND</span><span class="p">)</span>
+<span class="w">        </span><span class="n">UseItem</span><span class="p">(</span><span class="s2">&quot;ITEM_FILENAME1&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Myself</span><span class="p">)</span>
+<span class="no">END</span>
+
+<span class="no">IF</span>
+<span class="w">    </span><span class="o">...</span>
+<span class="w">    </span><span class="o">!</span><span class="n">GlobalTimerNotExpired</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">BitCheck</span><span class="p">(</span><span class="s2">&quot;EMPTY_ITEMS&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">BIT2</span><span class="p">)</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#100</span>
+<span class="w">        </span><span class="n">SetGlobalTimer</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="no">ONE_ROUND</span><span class="p">)</span>
+<span class="w">        </span><span class="n">UseItem</span><span class="p">(</span><span class="s2">&quot;ITEM_FILENAME2&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Myself</span><span class="p">)</span>
+<span class="no">END</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
 <section id="autre">
 <h2>Autre<a class="headerlink" href="#autre" title="Lien vers cette rubrique">#</a></h2>
 <section id="enchainement">
 <h3>Enchaînement<a class="headerlink" href="#enchainement" title="Lien vers cette rubrique">#</a></h3>
-<p>Quand Enchaînement est en cours, privilégiez l’utilisation des sorts…</p>
+<p>Quand Enchaînement est en cours, privilégiez l’utilisation des sorts… en bloquant par défaut l’utilisation des objets.</p>
 <div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">AURACLEANSING</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -603,6 +807,21 @@ Capacités d’équipement</label><div class="sd-tab-content docutils">
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#snippets-de-base">Snippets de base</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trigger-useitem">Trigger UseItem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hasitem-et-numitems">HasItem et NumItems</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#note">Note</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gestion-des-objets-rechargeables">Gestion des objets rechargeables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alternatives">Alternatives</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#global-ou-locals">GLOBAL ou LOCALS</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#weidu">WeiDU</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unusable-le-blocage-par-l-apprentissage">Unusable, le blocage par l’apprentissage</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bitset-bitcheck-optionnel">BitSet / BitCheck (optionnel)</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#autre">Autre</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enchainement">Enchaînement</a></li>
 </ul>
