@@ -63,7 +63,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
     <link rel="next" title="Dialogue - Initialisation" href="dialog.html" />
-    <link rel="prev" title="Bienvenue sur BSC Snippets" href="../intro.html" />
+    <link rel="prev" title="Scripts IA réutilisables pour BG EE" href="../intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="fr"/>
   </head>
@@ -177,7 +177,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    Bienvenue sur BSC Snippets
+                    Scripts IA réutilisables pour BG EE
                 </a>
             </li>
         </ul>
@@ -193,6 +193,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../snippet/backstab.html">⚠️ Réaliser une attaque sournoise</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../snippet/opportunityattack.html">✅ Réaliser une attaque d’opportunité</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../snippet/canpickpocket.html">✅ Can PickPocket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../snippet/canhide.html">✅ Can Hide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../snippet/troll_ammo.html">⚠️ Finir un troll à distance</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Sorts spécifiques</span></p>
@@ -434,12 +435,14 @@ document.write(`
 </ul>
 </li>
 <li><p><a class="reference internal" href="../snippet/backstab.html"><span class="doc std std-doc">Réaliser une attaque sournoise contre une créature</span></a></p></li>
+<li><p><a class="reference internal" href="../snippet/troll_ammo.html"><span class="doc std std-doc">Achever les trolls au sol</span></a></p></li>
 </ul>
 </section>
 <section id="modales">
 <h3>Modales<a class="headerlink" href="#modales" title="Lien vers cette rubrique">#</a></h3>
 <ul class="simple">
 <li><p><a class="reference internal" href="../snippet/canpickpocket.html"><span class="doc std std-doc">Vol à la tire</span></a></p></li>
+<li><p><a class="reference internal" href="../snippet/canhide.html"><span class="doc std std-doc">Camouflage</span></a></p></li>
 </ul>
 </section>
 <section id="objets">
@@ -470,7 +473,6 @@ document.write(`
 <li><p>Gestion de groupe, comment détecter un allié qui nécessite une intervention</p></li>
 <li><p>Un archer qui va chercher les flèches dans son inventaire</p></li>
 <li><p>Un PNJ qui va chercher des potions dans son inventaire</p></li>
-<li><p>Gestion des trolls au sol avec des flèches (avec score de connaissances ?)</p></li>
 <li><p>Forcer l’utilisation d’un objet avant de mourir pour éviter de le donner aux adversaires</p></li>
 <li><p>Détruire l’objet d’un personnage sans connaître son nom</p></li>
 <li><p>Négativer une variable</p></li>
@@ -507,6 +509,8 @@ document.write(`
 <li><p>Simuler l’action Spell sur une cible avec IMPROVEDINVISIBILITY</p></li>
 <li><p>Changer l’EA d’un personnage devrait aussi changer ceux de ses convocations</p></li>
 <li><p>Création et gestion des 7èmes membres du groupe (et alternatives aux actions/trigger Party)</p></li>
+<li><p>Attaque groupée</p></li>
+<li><p>Déplacement en groupe</p></li>
 </ul>
 <p>D’une manière générale, gérer :</p>
 <ul class="simple">
@@ -554,7 +558,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">précédent</p>
-        <p class="prev-next-title">Bienvenue sur BSC Snippets</p>
+        <p class="prev-next-title">Scripts IA réutilisables pour BG EE</p>
       </div>
     </a>
     <a class="right-next"

@@ -62,7 +62,7 @@
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
-    <link rel="next" title="⚠️ Finir un troll à distance" href="troll_ammo.html" />
+    <link rel="next" title="✅ Can Hide" href="canhide.html" />
     <link rel="prev" title="✅ Réaliser une attaque d’opportunité" href="opportunityattack.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="fr"/>
@@ -177,7 +177,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    Bienvenue sur BSC Snippets
+                    Scripts IA réutilisables pour BG EE
                 </a>
             </li>
         </ul>
@@ -193,6 +193,7 @@
 <li class="toctree-l1"><a class="reference internal" href="backstab.html">⚠️ Réaliser une attaque sournoise</a></li>
 <li class="toctree-l1"><a class="reference internal" href="opportunityattack.html">✅ Réaliser une attaque d’opportunité</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">✅ Can PickPocket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="canhide.html">✅ Can Hide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="troll_ammo.html">⚠️ Finir un troll à distance</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Sorts spécifiques</span></p>
@@ -431,7 +432,7 @@ Minimale</label><div class="sd-tab-content docutils">
 <span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_SKILL_MODE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 <span class="w">    </span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="no">BUTTON_THIEVING</span><span class="p">)</span>
 <span class="w">    </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">PICKPOCKET</span><span class="p">)</span><span class="w"> </span><span class="sr">//</span><span class="c1"># Facultatif mais conseillé</span>
-<span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_SLEEPING</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_HELPLESS</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_REALLY_DEAD</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_DISABLED</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_REALLY_DEAD</span><span class="p">)</span>
 <span class="w">    </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CASTERHOLD</span><span class="p">)</span>
 <span class="w">    </span><span class="o">!</span><span class="n">InventoryFull</span><span class="p">(</span><span class="n">Myself</span><span class="p">)</span>
 
@@ -672,11 +673,11 @@ Ainsi, aucun des deux blocs ne sera en mesure de s’exécuter.</p>
       </div>
     </a>
     <a class="right-next"
-       href="troll_ammo.html"
+       href="canhide.html"
        title="page suivante">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">suivant</p>
-        <p class="prev-next-title">⚠️ Finir un troll à distance</p>
+        <p class="prev-next-title">✅ Can Hide</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

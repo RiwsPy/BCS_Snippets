@@ -1,4 +1,4 @@
-# Bienvenue sur BSC Snippets
+# Scripts IA réutilisables pour BG EE
 
 Snippets pour scripts BG Enhanced Editions.\
 Vous trouverez ici des bouts de code réutilisables pour les scripts de vos personnages (PJ ou PNJ).

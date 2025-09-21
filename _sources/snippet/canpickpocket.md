@@ -15,7 +15,7 @@ IF
     Global("BDAI_SKILL_MODE", "LOCALS", 0)
     !ButtonDisabled(BUTTON_THIEVING)
     CheckStatGT(Myself, 0, PICKPOCKET) //# Facultatif mais conseillé
-    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
+    !StateCheck(Myself, STATE_DISABLED | STATE_REALLY_DEAD)
     CheckStat(Myself, 0, CASTERHOLD)
     !InventoryFull(Myself)
 

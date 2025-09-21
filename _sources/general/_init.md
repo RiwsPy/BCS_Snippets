@@ -6,9 +6,11 @@
 - [Réaliser une attaque d'opportunité contre une créature](/snippet/opportunityattack)
   - Un bonus de +4 au dégâts et au toucher
 - [Réaliser une attaque sournoise contre une créature](/snippet/backstab)
+- [Achever les trolls au sol](/snippet/troll_ammo)
 
 ### Modales
 - [Vol à la tire](/snippet/canpickpocket)
+- [Camouflage](/snippet/canhide)
 
 ### Objets
 - [Huile de rapidité](/item/potion_haste)
@@ -29,7 +31,6 @@
 * Gestion de groupe, comment détecter un allié qui nécessite une intervention
 * Un archer qui va chercher les flèches dans son inventaire
 * Un PNJ qui va chercher des potions dans son inventaire
-* Gestion des trolls au sol avec des flèches (avec score de connaissances ?)
 * Forcer l'utilisation d'un objet avant de mourir pour éviter de le donner aux adversaires
 * Détruire l'objet d'un personnage sans connaître son nom
 * Négativer une variable
@@ -66,6 +67,8 @@
 * Simuler l'action Spell sur une cible avec IMPROVEDINVISIBILITY
 * Changer l'EA d'un personnage devrait aussi changer ceux de ses convocations
 * Création et gestion des 7èmes membres du groupe (et alternatives aux actions/trigger Party)
+* Attaque groupée
+* Déplacement en groupe
 
 D'une manière générale, gérer :
 - les sorts particuliers
