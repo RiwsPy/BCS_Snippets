@@ -40,7 +40,7 @@ IF
     CheckStatLT(LastSeenBy(Myself), 1, MINHITPOINTS)
     CheckStatLT(LastSeenBy(Myself), 100, RESIST_ACID)
 THEN
-    RESPONSE #1
+    RESPONSE #1
         XEquipItem("AROW04", Myself, SLOT_AMMO0, EQUIP)
         AttackOneRound(LastSeenBy(Myself))
 END
@@ -62,7 +62,7 @@ IF
     CheckStatLT(LastSeenBy(Myself), 1, MINHITPOINTS)
     CheckStatLT(LastSeenBy(Myself), 100, RESIST_ACID)
 THEN
-    RESPONSE #1
+    RESPONSE #1
         XEquipItem("AROW04", Myself, SLOT_AMMO0, EQUIP)
         AttackOneRound(LastSeenBy(Myself))
 END
@@ -82,7 +82,7 @@ IF
     CheckStatLT(LastSeenBy(Myself), 1, MINHITPOINTS)
     CheckStatLT(LastSeenBy(Myself), 100, RESIST_ACID)
 THEN
-    RESPONSE #1
+    RESPONSE #1
         AttackOneRound(LastSeenBy(Myself))
 END
 ```
@@ -105,7 +105,7 @@ IF
     CheckStatLT(LastSeenBy(Myself), 1, MINHITPOINTS)
     CheckStatLT(LastSeenBy(Myself), 100, RESIST_FIRE)
 THEN
-    RESPONSE #1
+    RESPONSE #1
         AttackOneRound(LastSeenBy(Myself))
 END
 ```
@@ -140,14 +140,14 @@ IF
     Detect(Myself)
     False()
 THEN
-    RESPONSE #0
+    RESPONSE #0
 END
 
 IF
     ActionListEmpty()
     !Range(LastSeenBy(Myself), 0)
 THEN
-    RESPONSE #1
+    RESPONSE #1
         AttackOneRound(LastSeenBy(Myself))
 END
 ```
