@@ -9,6 +9,7 @@
 - [Achever les trolls au sol](/snippet/troll_ammo)
 
 ### Modales
+- [Dialogue](/snippet/candialog)
 - [Vol à la tire](/snippet/canpickpocket)
 - [Camouflage](/snippet/canhide)
 

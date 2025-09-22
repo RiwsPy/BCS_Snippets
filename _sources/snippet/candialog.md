@@ -1,7 +1,7 @@
-# Dialogue - Initialisation
+# ✅ Can Dialogue
 
 ## Objectif
-Initier un dialogue entre deux personnages.
+Initier un dialogue entre un membre du groupe et un autre personnage.
 
 ----- 
 
@@ -20,19 +20,44 @@ Il existe désormais un template presque automatique à appliquer partout. Tout 
 ------
 
 `````{tab-set}
-````{tab-item} BCS Snippet
+
+````{tab-item} Générique
 ```cr
 IF
     ActionListEmpty()
     !ActualityInCombat()
-    !StateCheck(Myself, CD_STATE_NOTVALID)
-    !StateCheck(Player1, CD_STATE_NOTVALID)
+    !ButtonDisabled(BUTTON_DIALOG)
+    CheckStat(Myself, 0, CASTERHOLD)
+    Allegiance(Myself, NOTEVIL)
     OR(2)
-        Allegiance(Myself, PC)
+        IsValidForPartyDialog(Myself)
+        !StateCheck(Myself, CD_STATE_NOTVALID)
+    IsValidForPartyDialog(Player1)
+    !Detect(NearestEnemyOf(Myself))
+    See(Player1)
+THEN
+    RESPONSE #100
+        StartDialogueNoSet(Player1)
+END
+```
+Un snippet qui permet aux personnages du groupe, aux familiers ou aux neutres de parler avec un membre du groupe.
+````
+
+````{tab-item} Banter
+```cr
+IF
+    ActionListEmpty()
+    !ActualityInCombat()
+    !ButtonDisabled(BUTTON_DIALOG)
+    CheckStat(Myself, 0, CASTERHOLD)
+    OR(2)
+        IsValidForPartyDialog(Myself)
+        !StateCheck(Myself, CD_STATE_NOTVALID)
+    OR(2)
+        IsValidForPartyDialog(Myself)
         Allegiance(Myself, FAMILIAR)
-    !ButtonDisabled(BUTTON_DIALOG)
-    NextTriggerObject(Player1)
-    !ButtonDisabled(BUTTON_DIALOG)
+    IsValidForPartyDialog(Player1)
+    Allegiance(Player1, PC)
     !Detect([EVILCUTOFF])
     See(Player1)
 THEN
@@ -40,8 +65,11 @@ THEN
         StartDialogueNoSet(Player1)
 END
 ```
+
+Une version plus spécifique qui prend en compte les cas les plus courants pour un banter au sein du groupe ou avec des familiers.
 ````
-````{tab-item} Classique
+
+````{tab-item} "Classique"
 ```cr
 IF
     CombatCounter(0)
@@ -55,6 +83,8 @@ THEN
         StartDialogueNoSet(Player1)
 END
 ```
+
+Une version comme on peut en voir un peu partout.
 ````
 `````
 

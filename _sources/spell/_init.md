@@ -336,7 +336,7 @@ Mais sans certitude que la maladie inflige bien des dommages. Ce snippet ne sera
 
 ## Mages cagoulés d'Athkatla
 
-Lire [cette page](/general/athkatla_magec).
+Lire [cette page](/spell/athkatla_magec).
 
 
 ## Hiatus entropiques
