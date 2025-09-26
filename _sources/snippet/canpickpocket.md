@@ -1,4 +1,4 @@
-# ✅ Can PickPocket
+# ✔️ Can PickPocket
 
 Snippet qui permet de savoir si le vol à la tire est envisageable ou non.
 

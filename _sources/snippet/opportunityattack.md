@@ -1,4 +1,4 @@
-# ✅ Réaliser une attaque d'opportunité
+# ✔️ Réaliser une attaque d'opportunité
 
 Il s'agit d'une attaque de mêlée contre les personnages sans arme dans la main directrice (exceptés les moines) ou armés d'une arme à distance.
 

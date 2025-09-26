@@ -12,6 +12,7 @@
 - [Dialogue](/snippet/candialog)
 - [Vol à la tire](/snippet/canpickpocket)
 - [Camouflage](/snippet/canhide)
+- [Repoussement des morts-vivants](/snippet/canturn)
 
 ### Objets
 - [Huile de rapidité](/item/potion_haste)

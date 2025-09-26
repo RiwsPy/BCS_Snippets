@@ -1,4 +1,4 @@
-# ✅ Can Dialogue
+# ✔️ Can Dialogue
 
 ## Objectif
 Initier un dialogue entre un membre du groupe et un autre personnage.

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>✔️ Can Hide &#8212; BCS Snippets</title>
+    <title>✔️ Can Turn &#8212; BCS Snippets</title>
   
   
   
@@ -58,12 +58,12 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'snippet/canhide';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'snippet/canturn';</script>
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
-    <link rel="next" title="✔️ Can Turn" href="canturn.html" />
-    <link rel="prev" title="✔️ Can PickPocket" href="canpickpocket.html" />
+    <link rel="next" title="✔️ Signaux génériques" href="signal.html" />
+    <link rel="prev" title="✔️ Can Hide" href="canhide.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="fr"/>
   </head>
@@ -189,8 +189,8 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="candialog.html">✔️ Can Dialogue</a></li>
 <li class="toctree-l1"><a class="reference internal" href="canpickpocket.html">✔️ Can PickPocket</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">✔️ Can Hide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="canturn.html">✔️ Can Turn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="canhide.html">✔️ Can Hide</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">✔️ Can Turn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="signal.html">✔️ Signaux génériques</a></li>
 <li class="toctree-l1"><a class="reference internal" href="globalexists.html">✔️ GlobalExists</a></li>
 <li class="toctree-l1"><a class="reference internal" href="backstab.html">⚠️ Réaliser une attaque sournoise</a></li>
@@ -281,7 +281,7 @@
       
       
       
-      <li><a href="https://github.com/RiwsPy/BCS_Snippets/issues/new?title=Issue%20on%20page%20%2Fsnippet/canhide.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/RiwsPy/BCS_Snippets/issues/new?title=Issue%20on%20page%20%2Fsnippet/canturn.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Ouvrez un problème"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -311,7 +311,7 @@
       
       
       
-      <li><a href="../_sources/snippet/canhide.md" target="_blank"
+      <li><a href="../_sources/snippet/canturn.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Télécharger le fichier source"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -382,7 +382,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -393,11 +395,19 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>✔️ Can Hide</h1>
+    <h1>✔️ Can Turn</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contenu </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#canturn-la-difference-de-niveau-qui-va-bien">CanTurn: La différence de niveau qui va bien</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -407,134 +417,202 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="can-hide">
-<h1>✔️ Can Hide<a class="headerlink" href="#can-hide" title="Lien vers cette rubrique">#</a></h1>
-<p>Snippet qui permet au personnage de se camoufler.<br />
-Toujours utilisable quelque soit l’allégeance du personnage.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="can-turn">
+<h1>✔️ Can Turn<a class="headerlink" href="#can-turn" title="Lien vers cette rubrique">#</a></h1>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" for="sd-tab-item-0">
 Base</label><div class="sd-tab-content docutils">
 <div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
 <span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
-<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_SKILL_MODE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_SKILL_MODE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span>
 <span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_DISABLED</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_REALLY_DEAD</span><span class="p">)</span>
 <span class="w">    </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CASTERHOLD</span><span class="p">)</span>
-<span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_INVISIBLE</span><span class="p">)</span>
-<span class="w">    </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">SANCTUARY</span><span class="p">)</span>
-<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="w">        </span><span class="o">!</span><span class="n">CheckSpellState</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">CANNOT_TURN_INVISIBLE</span><span class="p">)</span>
-<span class="w">        </span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_NONDETECTION</span><span class="p">)</span>
-<span class="w">    </span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="no">BUTTON_STEALTH</span><span class="p">)</span>
-<span class="w">    </span><span class="o">!</span><span class="n">ModalState</span><span class="p">(</span><span class="no">STEALTH</span><span class="p">)</span>
-<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">49</span><span class="p">,</span><span class="w"> </span><span class="no">HIDEINSHADOWS</span><span class="p">)</span>
-<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">49</span><span class="p">,</span><span class="w"> </span><span class="no">STEALTH</span><span class="p">)</span>
-<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="w">        </span><span class="n">Allegiance</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">NOTEVIL</span><span class="p">)</span>
-<span class="w">        </span><span class="o">!</span><span class="n">See</span><span class="p">(</span><span class="o">[</span><span class="no">GOODCUTOFF</span><span class="o">]</span><span class="p">)</span>
-<span class="w">        </span><span class="n">Kit</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">SHADOWDANCER</span><span class="p">)</span>
-<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="w">        </span><span class="n">Allegiance</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">EVILCUTOFF</span><span class="p">)</span>
-<span class="w">        </span><span class="o">!</span><span class="n">See</span><span class="p">(</span><span class="o">[</span><span class="no">EVILCUTOFF</span><span class="o">]</span><span class="p">)</span>
-<span class="w">        </span><span class="n">Kit</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">SHADOWDANCER</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="no">BUTTON_TURNUNDEAD</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">ModalState</span><span class="p">(</span><span class="no">TURNUNDEAD</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">TURNUNDEADLEVEL</span><span class="p">)</span>
 <span class="no">THEN</span>
 <span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
-<span class="w">        </span><span class="n">Hide</span><span class="p">()</span>
+<span class="w">        </span><span class="n">Turn</span><span class="p">()</span>
 <span class="no">END</span>
 </pre></div>
 </div>
-<p>Tous les personnages peuvent se camoufler, il n’y a aucune restriction de classe à cela.<br />
-C’est le niveau de maîtrise qui limite fortement l’utilisation de cette action.</p>
-<p><code class="docutils literal notranslate"><span class="pre">NearestEnemyOf</span></code> fonctionne mal pour le cas des personnages <code class="docutils literal notranslate"><span class="pre">NEUTRAL</span></code>.<br />
-De plus, <code class="docutils literal notranslate"><span class="pre">See([...])</span></code> permet de filtrer naturellement les personnages avec un <code class="docutils literal notranslate"><span class="pre">STATE_SLEEPING</span></code> et <code class="docutils literal notranslate"><span class="pre">STATE_DEAD</span></code> actif, c’est l’idéal car la présence de ces personnages ne bloque pas l’action.</p>
+<p>Une fois de plus, il n’y a pas de restrictions de classe ou de kit.<br />
+La condition de posséder un niveau de <code class="docutils literal notranslate"><span class="pre">TURNUNDEADLEVEL</span></code> plus le fait que le joueur ait choisi cette modale via <code class="docutils literal notranslate"><span class="pre">BDAI_SKILL_MODE</span></code>, ne laisse pas de place au doute.<br />
+Pas non plus besoin de bloquer spécifiquement un kit sous prétexte qu’il ne peut pas repousser les morts-vivants comme l’Inquisiteur. La contrainte <code class="docutils literal notranslate"><span class="pre">!ButtonDisabled(BUTTON_TURNUNDEAD)</span></code> est suffisante et beaucoup plus générique.</p>
+<p>Pour information, l’Inquisiteur a le bouton bloqué.<br />
+Si un mod lève cette restriction : alors le script lui permettra de repousser les morts-vivants.<br />
+À l’inverse si un mod ajoute un autre kit qui ne peut repousser les morts-vivants, alors le script ne lui permettra pas de les repousser.</p>
 </div>
 <input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" for="sd-tab-item-1">
-Lumière</label><div class="sd-tab-content docutils">
+À portée</label><div class="sd-tab-content docutils">
 <div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
 <span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
-<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_SKILL_MODE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_SKILL_MODE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span>
 <span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_DISABLED</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_REALLY_DEAD</span><span class="p">)</span>
 <span class="w">    </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CASTERHOLD</span><span class="p">)</span>
-<span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_INVISIBLE</span><span class="p">)</span>
-<span class="w">    </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">SANCTUARY</span><span class="p">)</span>
-<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="w">        </span><span class="o">!</span><span class="n">CheckSpellState</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">CANNOT_TURN_INVISIBLE</span><span class="p">)</span>
-<span class="w">        </span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_NONDETECTION</span><span class="p">)</span>
-<span class="w">    </span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="no">BUTTON_STEALTH</span><span class="p">)</span>
-<span class="w">    </span><span class="o">!</span><span class="n">ModalState</span><span class="p">(</span><span class="no">STEALTH</span><span class="p">)</span>
-<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">49</span><span class="p">,</span><span class="w"> </span><span class="no">HIDEINSHADOWS</span><span class="p">)</span>
-<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">49</span><span class="p">,</span><span class="w"> </span><span class="no">STEALTH</span><span class="p">)</span>
-<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">99</span><span class="p">,</span><span class="w"> </span><span class="no">HIDEINSHADOWS</span><span class="p">)</span>
-<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">99</span><span class="p">,</span><span class="w"> </span><span class="no">STEALTH</span><span class="p">)</span>
-<span class="w">        </span><span class="o">!</span><span class="n">TimeOfDay</span><span class="p">(</span><span class="no">DAY</span><span class="p">)</span>
-<span class="w">        </span><span class="o">!</span><span class="n">AreaType</span><span class="p">(</span><span class="no">OUTDOOR</span><span class="p">)</span>
-<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="w">        </span><span class="n">Allegiance</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">NOTEVIL</span><span class="p">)</span>
-<span class="w">        </span><span class="o">!</span><span class="n">See</span><span class="p">(</span><span class="o">[</span><span class="no">GOODCUTOFF</span><span class="o">]</span><span class="p">)</span>
-<span class="w">        </span><span class="n">Kit</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">SHADOWDANCER</span><span class="p">)</span>
-<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="w">        </span><span class="n">Allegiance</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">EVILCUTOFF</span><span class="p">)</span>
-<span class="w">        </span><span class="o">!</span><span class="n">See</span><span class="p">(</span><span class="o">[</span><span class="no">EVILCUTOFF</span><span class="o">]</span><span class="p">)</span>
-<span class="w">        </span><span class="n">Kit</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">SHADOWDANCER</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="no">BUTTON_TURNUNDEAD</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">ModalState</span><span class="p">(</span><span class="no">TURNUNDEAD</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">TURNUNDEADLEVEL</span><span class="p">)</span>
+<span class="w">    </span><span class="n">See</span><span class="p">(</span><span class="n">NearestEnemyOfType</span><span class="p">(</span><span class="o">[</span><span class="mi">0</span><span class="o">.</span><span class="n">UNDEAD</span><span class="o">]</span><span class="p">))</span>
+<span class="w">    </span><span class="n">Range</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">13</span><span class="p">)</span>
 <span class="no">THEN</span>
 <span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
-<span class="w">        </span><span class="n">Hide</span><span class="p">()</span>
+<span class="w">        </span><span class="n">Turn</span><span class="p">()</span>
 <span class="no">END</span>
 </pre></div>
 </div>
-<p>L’environnement extérieur influence la probabilité de réussite du camouflage.<br />
-Il est deux fois plus difficile de se camoufler de jour en extérieur.</p>
+<p>Le facteur environnemental est important.<br />
+Repousser les morts-vivants est rarement utile en plein centre-ville.<br />
+La condition la plus simpliste est donc de vérifier la présence de morts-vivants ennemis.<br />
+Comme la capacité de repoussement a une portée de 13, on rajoute cette contrainte.</p>
+<p>À savoir que dans ce cas, les personnages <code class="docutils literal notranslate"><span class="pre">NEUTRAL</span></code> ne repousseront pas les morts-vivants.<br />
+Il est à noter que des morts-vivants charmés par des personnages <code class="docutils literal notranslate"><span class="pre">NEUTRAL</span></code> deviennent <code class="docutils literal notranslate"><span class="pre">ENEMY</span></code>.</p>
 </div>
 <input id="sd-tab-item-2" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" for="sd-tab-item-2">
-Shadowdancer</label><div class="sd-tab-content docutils">
+Can Turn</label><div class="sd-tab-content docutils">
 <div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
 <span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
-<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_SKILL_MODE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_SKILL_MODE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span>
 <span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_DISABLED</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_REALLY_DEAD</span><span class="p">)</span>
 <span class="w">    </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CASTERHOLD</span><span class="p">)</span>
-<span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_INVISIBLE</span><span class="p">)</span>
-<span class="w">    </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">SANCTUARY</span><span class="p">)</span>
-<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="w">        </span><span class="o">!</span><span class="n">CheckSpellState</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">CANNOT_TURN_INVISIBLE</span><span class="p">)</span>
-<span class="w">        </span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_NONDETECTION</span><span class="p">)</span>
-<span class="w">    </span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="no">BUTTON_STEALTH</span><span class="p">)</span>
-<span class="w">    </span><span class="o">!</span><span class="n">ModalState</span><span class="p">(</span><span class="no">STEALTH</span><span class="p">)</span>
-<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">49</span><span class="p">,</span><span class="w"> </span><span class="no">HIDEINSHADOWS</span><span class="p">)</span>
-<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">49</span><span class="p">,</span><span class="w"> </span><span class="no">STEALTH</span><span class="p">)</span>
-<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">99</span><span class="p">,</span><span class="w"> </span><span class="no">HIDEINSHADOWS</span><span class="p">)</span>
-<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">99</span><span class="p">,</span><span class="w"> </span><span class="no">STEALTH</span><span class="p">)</span>
-<span class="w">        </span><span class="o">!</span><span class="n">TimeOfDay</span><span class="p">(</span><span class="no">DAY</span><span class="p">)</span>
-<span class="w">        </span><span class="o">!</span><span class="n">AreaType</span><span class="p">(</span><span class="no">OUTDOOR</span><span class="p">)</span>
-<span class="w">    </span><span class="n">Kit</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">SHADOWDANCER</span><span class="p">)</span>
-<span class="w">    </span><span class="n">Allegiance</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">NOTEVIL</span><span class="p">)</span>
-<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="w">        </span><span class="o">!</span><span class="n">See</span><span class="p">(</span><span class="o">[</span><span class="no">EVILCUTOFF</span><span class="o">]</span><span class="p">)</span>
-<span class="w">        </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">SEEINVISIBLE</span><span class="p">)</span>
-<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="w">        </span><span class="o">!</span><span class="n">See</span><span class="p">(</span><span class="n">SecondNearest</span><span class="p">(</span><span class="o">[</span><span class="no">EVILCUTOFF</span><span class="o">]</span><span class="p">))</span>
-<span class="w">        </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">SEEINVISIBLE</span><span class="p">)</span>
-<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="w">        </span><span class="o">!</span><span class="n">See</span><span class="p">(</span><span class="n">ThirdNearest</span><span class="p">(</span><span class="o">[</span><span class="no">EVILCUTOFF</span><span class="o">]</span><span class="p">))</span>
-<span class="w">        </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">SEEINVISIBLE</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="no">BUTTON_TURNUNDEAD</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">ModalState</span><span class="p">(</span><span class="no">TURNUNDEAD</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">TURNUNDEADLEVEL</span><span class="p">)</span>
+<span class="w">    </span><span class="n">See</span><span class="p">(</span><span class="n">NearestEnemyOfType</span><span class="p">(</span><span class="o">[</span><span class="mi">0</span><span class="o">.</span><span class="n">UNDEAD</span><span class="o">]</span><span class="p">))</span>
+<span class="w">    </span><span class="n">Range</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">13</span><span class="p">)</span>
+<span class="w">    </span><span class="n">CanTurn</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
 <span class="no">THEN</span>
 <span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
-<span class="w">        </span><span class="n">Hide</span><span class="p">()</span>
+<span class="w">        </span><span class="n">Turn</span><span class="p">()</span>
 <span class="no">END</span>
 </pre></div>
 </div>
-<p>Gérer spécifiquement le kit du Maître des ombres facilite les contraintes et permet donc d’aller un peu plus loin.<br />
-Car s’il peut se camoufler au beau milieu d’un champ de bataille.<br />
-Encore faut-il que les personnages ennemis puissent ne pas voir l’invisible.<br />
-Le fonctionnement est assez proche de celui d’une potion d’invisibilité.</p>
+<p>Le fait d’être à portée n’est pas suffisant en soi.<br />
+L’adversaire peut-être immunisé aux effets ou posséder un niveau trop élevé par rapport au niveau de repoussement de la créature active.<br />
+C’est ici que <code class="docutils literal notranslate"><span class="pre">CanTurn</span></code> rentre en action.<br />
+Cette action va s’assurer que le personnage a une chance de repousser la cible.<br />
+Des informations complémentaires sont présentées ci-dessous pour vous permettre de choisir une valeur cohérente à vos besoins.</p>
+</div>
+<input id="sd-tab-item-3" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-3">
+Élitéiste</label><div class="sd-tab-content docutils">
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
+<span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_SKILL_MODE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_DISABLED</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_REALLY_DEAD</span><span class="p">)</span>
+<span class="w">    </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CASTERHOLD</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="no">BUTTON_TURNUNDEAD</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">ModalState</span><span class="p">(</span><span class="no">TURNUNDEAD</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">TURNUNDEADLEVEL</span><span class="p">)</span>
+<span class="w">    </span><span class="n">See</span><span class="p">(</span><span class="n">NearestEnemyOfType</span><span class="p">(</span><span class="o">[</span><span class="mi">0</span><span class="o">.</span><span class="n">UNDEAD</span><span class="o">]</span><span class="p">))</span>
+<span class="w">    </span><span class="n">Range</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">13</span><span class="p">)</span>
+<span class="w">    </span><span class="n">CanTurn</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
+<span class="w">        </span><span class="n">Turn</span><span class="p">()</span>
+<span class="no">END</span>
+</pre></div>
+</div>
+<p>Même principe que le précédent, mais le personnage s’assure du résultat maximal avec la probabilité maximale.</p>
+</div>
+<input id="sd-tab-item-4" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-4">
+Can Turn groupé</label><div class="sd-tab-content docutils">
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
+<span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_SKILL_MODE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_DISABLED</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_REALLY_DEAD</span><span class="p">)</span>
+<span class="w">    </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CASTERHOLD</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="no">BUTTON_TURNUNDEAD</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">ModalState</span><span class="p">(</span><span class="no">TURNUNDEAD</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">TURNUNDEADLEVEL</span><span class="p">)</span>
+<span class="w">    </span><span class="n">See</span><span class="p">(</span><span class="n">ThirdNearestEnemyOfType</span><span class="p">(</span><span class="o">[</span><span class="mi">0</span><span class="o">.</span><span class="n">UNDEAD</span><span class="o">]</span><span class="p">))</span>
+<span class="w">    </span><span class="n">Range</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">13</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CanTurn</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CanTurn</span><span class="p">(</span><span class="n">SecondNearestEnemyOfType</span><span class="p">(</span><span class="o">[</span><span class="mi">0</span><span class="o">.</span><span class="n">UNDEAD</span><span class="o">]</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CanTurn</span><span class="p">(</span><span class="n">NearestEnemyOfType</span><span class="p">(</span><span class="o">[</span><span class="mi">0</span><span class="o">.</span><span class="n">UNDEAD</span><span class="o">]</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
+<span class="w">        </span><span class="n">Turn</span><span class="p">()</span>
+<span class="no">END</span>
+</pre></div>
+</div>
+<p>Face à un groupe de morts-vivants, on peut abaisser le niveau de différence minimal pour activer le repoussement.<br />
+Lorsque l’on tombe sur un groupe, il n’est pas rare que la plupart des ennemis soient de niveau similaire.</p>
 </div>
 </div>
+<section id="canturn-la-difference-de-niveau-qui-va-bien">
+<h2>CanTurn: La différence de niveau qui va bien<a class="headerlink" href="#canturn-la-difference-de-niveau-qui-va-bien" title="Lien vers cette rubrique">#</a></h2>
+<p>En utilisant l’action <code class="docutils literal notranslate"><span class="pre">CanTurn</span></code>, il est nécessaire d’y associer une valeur. Laquelle choisir ?<br />
+La valeur de la différence de niveau est délicate et propre à chacun. Mais quelques informations permettront de faire des choix pertinents.</p>
+<p>Voici un tableau récapitulatif :<br />
+<strong>Différence de niveau</strong> = Niveau de repoussement du repousseur - Niveau d’expérience du repoussé</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Différence de niveau</p></th>
+<th class="head"><p>% de repoussement mineur</p></th>
+<th class="head"><p>% de repoussement majeur</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>-1</p></td>
+<td><p>0%</p></td>
+<td><p>0%</p></td>
+</tr>
+<tr class="row-odd"><td><p>0</p></td>
+<td><p>25%</p></td>
+<td><p>0%</p></td>
+</tr>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>50%</p></td>
+<td><p>0%</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>75%</p></td>
+<td><p>0%</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>100%</p></td>
+<td><p>0%</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>100%</p></td>
+<td><p>0%</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>75%</p></td>
+<td><p>25%</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>50%</p></td>
+<td><p>50%</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>25%</p></td>
+<td><p>75%</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>0%</p></td>
+<td><p>100%</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>On distingue deux bornes :</p>
+<ul class="simple">
+<li><p>En dessous de 0, l’efficacité est nulle</p></li>
+<li><p>À partir de 8, l’efficacité est maximale</p></li>
+</ul>
+<p>On a deux bornes intermédiaires :</p>
+<ul class="simple">
+<li><p>À partir de 3, on assure un effet (mineur ou majeur)</p></li>
+<li><p>À partir de 5, on a la possibilité de réussir un repoussement majeur</p></li>
+</ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -568,20 +646,20 @@ Le fonctionnement est assez proche de celui d’une potion d’invisibilité.</p
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="canpickpocket.html"
+       href="canhide.html"
        title="page précédente">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">précédent</p>
-        <p class="prev-next-title">✔️ Can PickPocket</p>
+        <p class="prev-next-title">✔️ Can Hide</p>
       </div>
     </a>
     <a class="right-next"
-       href="canturn.html"
+       href="signal.html"
        title="page suivante">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">suivant</p>
-        <p class="prev-next-title">✔️ Can Turn</p>
+        <p class="prev-next-title">✔️ Signaux génériques</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -591,6 +669,21 @@ Le fonctionnement est assez proche de celui d’une potion d’invisibilité.</p
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenu
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#canturn-la-difference-de-niveau-qui-va-bien">CanTurn: La différence de niveau qui va bien</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

@@ -1,4 +1,4 @@
-# ✅ Can Hide
+# ✔️ Can Hide
 
 Snippet qui permet au personnage de se camoufler.\
 Toujours utilisable quelque soit l'allégeance du personnage.

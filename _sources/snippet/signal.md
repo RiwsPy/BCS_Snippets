@@ -1,4 +1,4 @@
-# ✅ Signaux génériques
+# ✔️ Signaux génériques
 
 Un signal est un condition qui va permettre, s'il est capté, aux créatures d'activer un comportement spéficique.\
 Le jeu en possède plusieurs comme `HitBy`, `Help`, `OnCreation`...\

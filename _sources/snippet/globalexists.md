@@ -1,4 +1,4 @@
-# ✅ GlobalExists
+# ✔️ GlobalExists
 
 `Global("var", "X", 0)` vaut vrai dans deux cas :
 1. la variable vaut 0
