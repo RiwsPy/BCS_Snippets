@@ -16,7 +16,7 @@ On utilisant les variables `GLOBAL`, on a une alternative pour arriver à nos fi
 THEN
     RESPONSE #1
         SetGlobal("BCS_SIGNAL_IsActive", "GLOBAL", 1)
-        ...
+        //# TODO: logique
         SetGlobal("BCS_SIGNAL_IsActive", "GLOBAL", 0)
 END
 
@@ -28,7 +28,7 @@ IF
 THEN
     RESPONSE #1
         SetGlobal("BCS_SIGNAL_IsActived", "LOCALS", 1)
-        ...
+        //# TODO: logique
 END
 
 //# À la fin du signal on désactive la variable LOCALS
@@ -60,7 +60,7 @@ IF
 THEN
     RESPONSE #1
         SetGlobal("BCS_SIGNAL_IsActived", "LOCALS", 1)
-        ...
+        //# TODO: logique
 END
 
 //# À la fin du signal on désactive la variable LOCALS
@@ -95,7 +95,7 @@ THEN
     RESPONSE #1
         IncrementGlobal("BCS_SIGNAL_Counter", "GLOBAL", -1)
         SetGlobal("BCS_SIGNAL_IsActived", "LOCALS", 1)
-        ...
+        //# TODO: logique
 END
 
 //# À la fin du signal on désactive la variable LOCALS
@@ -127,7 +127,7 @@ IF
 THEN
     RESPONSE #1
         IncrementGlobal("BCS_SIGNAL_Counter", "GLOBAL", -1)
-        ...
+        //# TODO: logique
 END
 ```
 Il n'y a plus de limite d'activation par créature.\

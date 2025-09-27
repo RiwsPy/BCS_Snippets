@@ -1,5 +1,7 @@
 # ✔️ Can Turn
 
+Le repoussement des morts-vivants pour les PJ et les PNJ.
+
 `````{tab-set}
 ````{tab-item} Base
 ```cr

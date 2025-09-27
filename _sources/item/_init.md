@@ -160,7 +160,7 @@ THEN
 END
 
 IF
-    ...
+    //# TODO: logique
     GlobalLT("ITEM_FILENAME", "GLOBAL", 2)
 THEN
     RESPONSE #100
@@ -222,7 +222,7 @@ THEN
 END
 
 IF
-    ...
+    //# TODO: logique
     !GlobalTimerNotExpired("BD_Cast", "LOCALS")
     Global("ITEM_FILENAME_IS_EMPTY", "LOCALS", 0)
 THEN
@@ -275,7 +275,7 @@ THEN
 END
 
 IF
-    ...
+    //# TODO: logique
     !GlobalTimerNotExpired("BD_Cast", "LOCALS")
     !BitCheck("EMPTY_ITEMS", "LOCALS", BIT1)
 THEN
@@ -285,7 +285,7 @@ THEN
 END
 
 IF
-    ...
+    //# TODO: logique
     !GlobalTimerNotExpired("BD_Cast", "LOCALS")
     !BitCheck("EMPTY_ITEMS", "LOCALS", BIT2)
 THEN

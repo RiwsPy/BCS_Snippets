@@ -195,6 +195,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../snippet/globalexists.html">✔️ GlobalExists</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../snippet/backstab.html">⚠️ Réaliser une attaque sournoise</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../snippet/opportunityattack.html">✔️ Réaliser une attaque d’opportunité</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../snippet/cansummon.html">⚠️ Can Summon Creature</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../snippet/troll_ammo.html">⚠️ Finir un troll à distance</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Sorts spécifiques</span></p>
@@ -608,7 +609,7 @@ Puis, après un repos du groupe, les compteurs sont remis à 0.</p>
 <span class="no">END</span>
 
 <span class="no">IF</span>
-<span class="w">    </span><span class="o">...</span>
+<span class="w">    </span><span class="sr">//</span><span class="c1"># TODO: logique</span>
 <span class="w">    </span><span class="n">GlobalLT</span><span class="p">(</span><span class="s2">&quot;ITEM_FILENAME&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
 <span class="no">THEN</span>
 <span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#100</span>
@@ -663,7 +664,7 @@ Une fois l’objet déchargé, ce trigger vaut vrai lors du passage de script su
 <span class="no">END</span>
 
 <span class="no">IF</span>
-<span class="w">    </span><span class="o">...</span>
+<span class="w">    </span><span class="sr">//</span><span class="c1"># TODO: logique</span>
 <span class="w">    </span><span class="o">!</span><span class="n">GlobalTimerNotExpired</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">)</span>
 <span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;ITEM_FILENAME_IS_EMPTY&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 <span class="no">THEN</span>
@@ -710,7 +711,7 @@ Lors du <code class="docutils literal notranslate"><span class="pre">PartyRested
 <span class="no">END</span>
 
 <span class="no">IF</span>
-<span class="w">    </span><span class="o">...</span>
+<span class="w">    </span><span class="sr">//</span><span class="c1"># TODO: logique</span>
 <span class="w">    </span><span class="o">!</span><span class="n">GlobalTimerNotExpired</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">)</span>
 <span class="w">    </span><span class="o">!</span><span class="n">BitCheck</span><span class="p">(</span><span class="s2">&quot;EMPTY_ITEMS&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">BIT1</span><span class="p">)</span>
 <span class="no">THEN</span>
@@ -720,7 +721,7 @@ Lors du <code class="docutils literal notranslate"><span class="pre">PartyRested
 <span class="no">END</span>
 
 <span class="no">IF</span>
-<span class="w">    </span><span class="o">...</span>
+<span class="w">    </span><span class="sr">//</span><span class="c1"># TODO: logique</span>
 <span class="w">    </span><span class="o">!</span><span class="n">GlobalTimerNotExpired</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">)</span>
 <span class="w">    </span><span class="o">!</span><span class="n">BitCheck</span><span class="p">(</span><span class="s2">&quot;EMPTY_ITEMS&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">BIT2</span><span class="p">)</span>
 <span class="no">THEN</span>
