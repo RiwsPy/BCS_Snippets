@@ -17,9 +17,9 @@ Si oui, on considère que :
 - Le joueur ou le moddeur autorise son utilisation (sinon il fallait le laisser dans le sac)
 
 Cela permet ainsi d'assurer au joueur de contraindre facilement le script :
-- Quelle potion/munition/arme/... sont autorisées (celles équipées)
-- Lesquelles ne sont pas autorisées (celles dans le sac)
-- Combien il peut en utiliser
+- Quelle potion/munition/arme/... sont autorisées ? Celles équipées
+- Lesquelles ne sont pas autorisées ? Celles dans le sac
+- Combien peut-il en utiliser ? Le nombre d'équipés
 - Ajouter/enlever des objets pendant le combat
 
 Cerise sur le gâteau, cela permet aussi d'améliorer les performances du script en limitant le nombre de slots à checker.
@@ -50,7 +50,7 @@ END
 On vérifie que :
 - un round s'est déroulé depuis la dernière action
 - le personnage puisse utiliser des objets
-- l'object est équipé
+- l'objet est équipé
 - l'action UseItem puisse s'exécuter
 - le personnage n'est pas en train de réaliser une action
 ````
@@ -160,7 +160,7 @@ THEN
 END
 
 IF
-    //# TODO: logique
+    //# …
     GlobalLT("ITEM_FILENAME", "GLOBAL", 2)
 THEN
     RESPONSE #100
@@ -222,7 +222,7 @@ THEN
 END
 
 IF
-    //# TODO: logique
+    //# …
     !GlobalTimerNotExpired("BD_Cast", "LOCALS")
     Global("ITEM_FILENAME_IS_EMPTY", "LOCALS", 0)
 THEN
@@ -244,7 +244,7 @@ Problème : cela ne permet pas de gérer efficacement les objets qui auraient pl
 
 #### BitSet / BitCheck (optionnel)
 
-Grâce au trigger `Unusable`, on ne sauvegarde qu'une valeur 0 ou 1 dans les variables plutôt qu'un nombre d'utilisation.\
+Grâce au trigger `Unusable`, on ne sauvegarde qu'une valeur binaire (0 ou 1) dans les variables plutôt qu'un nombre d'utilisation.\
 Il devient alors possible d'utiliser une seule variable avec l'action `BitSet`. Chaque bit correspond à un objet, on peut donc sauvegarder jusqu'à 32 variables en une seule.\
 Lors du `PartyRested()`, une seule variable est à reset. Cela permet de le rajouter simplement à d'autres scripts/objets.
 
@@ -275,7 +275,7 @@ THEN
 END
 
 IF
-    //# TODO: logique
+    //# …
     !GlobalTimerNotExpired("BD_Cast", "LOCALS")
     !BitCheck("EMPTY_ITEMS", "LOCALS", BIT1)
 THEN
@@ -285,7 +285,7 @@ THEN
 END
 
 IF
-    //# TODO: logique
+    //# …
     !GlobalTimerNotExpired("BD_Cast", "LOCALS")
     !BitCheck("EMPTY_ITEMS", "LOCALS", BIT2)
 THEN

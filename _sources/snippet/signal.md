@@ -12,23 +12,24 @@ On utilisant les variables `GLOBAL`, on a une alternative pour arriver à nos fi
 `````{tab-set}
 ````{tab-item} Classique
 ```cr
-//# Script quelqueconque
+IF
+    //# Script quelqueconque
 THEN
     RESPONSE #1
         SetGlobal("BCS_SIGNAL_IsActive", "GLOBAL", 1)
-        //# TODO: logique
+        //# …
         SetGlobal("BCS_SIGNAL_IsActive", "GLOBAL", 0)
 END
 
 //# Script du personnage
-//# On active la réponse au signal
+//# On active localement la réponse au signal global
 IF
     Global("BCS_SIGNAL_IsActive", "GLOBAL", 1)
     Global("BCS_SIGNAL_IsActived", "LOCALS", 0)
 THEN
     RESPONSE #1
         SetGlobal("BCS_SIGNAL_IsActived", "LOCALS", 1)
-        //# TODO: logique
+        //# …
 END
 
 //# À la fin du signal on désactive la variable LOCALS
@@ -46,7 +47,8 @@ L'activation et la désactivation de la variable `GLOBAL` doivent être gérées
 
 ````{tab-item} Timer
 ```cr
-//# Script quelqueconque
+IF
+    //# Script quelqueconque
 THEN
     RESPONSE #1
         SetGlobalTimer("BCS_SIGNAL_Timer", "GLOBAL", ONE_ROUND)
@@ -60,7 +62,7 @@ IF
 THEN
     RESPONSE #1
         SetGlobal("BCS_SIGNAL_IsActived", "LOCALS", 1)
-        //# TODO: logique
+        //# …
 END
 
 //# À la fin du signal on désactive la variable LOCALS
@@ -95,7 +97,7 @@ THEN
     RESPONSE #1
         IncrementGlobal("BCS_SIGNAL_Counter", "GLOBAL", -1)
         SetGlobal("BCS_SIGNAL_IsActived", "LOCALS", 1)
-        //# TODO: logique
+        //# …
 END
 
 //# À la fin du signal on désactive la variable LOCALS
@@ -127,7 +129,7 @@ IF
 THEN
     RESPONSE #1
         IncrementGlobal("BCS_SIGNAL_Counter", "GLOBAL", -1)
-        //# TODO: logique
+        //# …
 END
 ```
 Il n'y a plus de limite d'activation par créature.\

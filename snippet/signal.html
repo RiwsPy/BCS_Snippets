@@ -422,23 +422,24 @@ Ils possèdent deux limites :</p>
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" for="sd-tab-item-0">
 Classique</label><div class="sd-tab-content docutils">
-<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="sr">//</span><span class="c1"># Script quelqueconque</span>
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
+<span class="w">    </span><span class="sr">//</span><span class="c1"># Script quelqueconque</span>
 <span class="no">THEN</span>
 <span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
 <span class="w">        </span><span class="n">SetGlobal</span><span class="p">(</span><span class="s2">&quot;BCS_SIGNAL_IsActive&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
-<span class="w">        </span><span class="sr">//</span><span class="c1"># TODO: logique</span>
+<span class="w">        </span><span class="sr">//</span><span class="c1"># …</span>
 <span class="w">        </span><span class="n">SetGlobal</span><span class="p">(</span><span class="s2">&quot;BCS_SIGNAL_IsActive&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 <span class="no">END</span>
 
 <span class="sr">//</span><span class="c1"># Script du personnage</span>
-<span class="sr">//</span><span class="c1"># On active la réponse au signal</span>
+<span class="sr">//</span><span class="c1"># On active localement la réponse au signal global</span>
 <span class="no">IF</span>
 <span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BCS_SIGNAL_IsActive&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
 <span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BCS_SIGNAL_IsActived&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 <span class="no">THEN</span>
 <span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
 <span class="w">        </span><span class="n">SetGlobal</span><span class="p">(</span><span class="s2">&quot;BCS_SIGNAL_IsActived&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
-<span class="w">        </span><span class="sr">//</span><span class="c1"># TODO: logique</span>
+<span class="w">        </span><span class="sr">//</span><span class="c1"># …</span>
 <span class="no">END</span>
 
 <span class="sr">//</span><span class="c1"># À la fin du signal on désactive la variable LOCALS</span>
@@ -457,7 +458,8 @@ L’activation et la désactivation de la variable <code class="docutils literal
 <input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" for="sd-tab-item-1">
 Timer</label><div class="sd-tab-content docutils">
-<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="sr">//</span><span class="c1"># Script quelqueconque</span>
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
+<span class="w">    </span><span class="sr">//</span><span class="c1"># Script quelqueconque</span>
 <span class="no">THEN</span>
 <span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
 <span class="w">        </span><span class="n">SetGlobalTimer</span><span class="p">(</span><span class="s2">&quot;BCS_SIGNAL_Timer&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="w"> </span><span class="no">ONE_ROUND</span><span class="p">)</span>
@@ -471,7 +473,7 @@ Timer</label><div class="sd-tab-content docutils">
 <span class="no">THEN</span>
 <span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
 <span class="w">        </span><span class="n">SetGlobal</span><span class="p">(</span><span class="s2">&quot;BCS_SIGNAL_IsActived&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
-<span class="w">        </span><span class="sr">//</span><span class="c1"># TODO: logique</span>
+<span class="w">        </span><span class="sr">//</span><span class="c1"># …</span>
 <span class="no">END</span>
 
 <span class="sr">//</span><span class="c1"># À la fin du signal on désactive la variable LOCALS</span>
@@ -507,7 +509,7 @@ VIP</label><div class="sd-tab-content docutils">
 <span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
 <span class="w">        </span><span class="n">IncrementGlobal</span><span class="p">(</span><span class="s2">&quot;BCS_SIGNAL_Counter&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 <span class="w">        </span><span class="n">SetGlobal</span><span class="p">(</span><span class="s2">&quot;BCS_SIGNAL_IsActived&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
-<span class="w">        </span><span class="sr">//</span><span class="c1"># TODO: logique</span>
+<span class="w">        </span><span class="sr">//</span><span class="c1"># …</span>
 <span class="no">END</span>
 
 <span class="sr">//</span><span class="c1"># À la fin du signal on désactive la variable LOCALS</span>
@@ -540,7 +542,7 @@ VIP - Ration double</label><div class="sd-tab-content docutils">
 <span class="no">THEN</span>
 <span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
 <span class="w">        </span><span class="n">IncrementGlobal</span><span class="p">(</span><span class="s2">&quot;BCS_SIGNAL_Counter&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="w">        </span><span class="sr">//</span><span class="c1"># TODO: logique</span>
+<span class="w">        </span><span class="sr">//</span><span class="c1"># …</span>
 <span class="no">END</span>
 </pre></div>
 </div>

@@ -17,7 +17,7 @@ IF
     //# Contrainte d'invisibilité
     OR(4)
         StateCheck(Myself, STATE_INVISIBLE)
-        CheckStat(Myself, 1, ASSASSINATE) // BitCheck BIT0 and BIT1 instead
+        CheckStat(Myself, 1, ASSASSINATE) //# BitCheck BIT0 and BIT1 instead
         CheckStat(Myself, 2, ASSASSINATE)
         False() //# Check 3E sneak attack
 

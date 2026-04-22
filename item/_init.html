@@ -452,9 +452,9 @@ document.write(`
 </ul>
 <p>Cela permet ainsi d’assurer au joueur de contraindre facilement le script :</p>
 <ul class="simple">
-<li><p>Quelle potion/munition/arme/… sont autorisées (celles équipées)</p></li>
-<li><p>Lesquelles ne sont pas autorisées (celles dans le sac)</p></li>
-<li><p>Combien il peut en utiliser</p></li>
+<li><p>Quelle potion/munition/arme/… sont autorisées ? Celles équipées</p></li>
+<li><p>Lesquelles ne sont pas autorisées ? Celles dans le sac</p></li>
+<li><p>Combien peut-il en utiliser ? Le nombre d’équipés</p></li>
 <li><p>Ajouter/enlever des objets pendant le combat</p></li>
 </ul>
 <p>Cerise sur le gâteau, cela permet aussi d’améliorer les performances du script en limitant le nombre de slots à checker.</p>
@@ -485,7 +485,7 @@ Basique</label><div class="sd-tab-content docutils">
 <ul class="simple">
 <li><p>un round s’est déroulé depuis la dernière action</p></li>
 <li><p>le personnage puisse utiliser des objets</p></li>
-<li><p>l’object est équipé</p></li>
+<li><p>l’objet est équipé</p></li>
 <li><p>l’action UseItem puisse s’exécuter</p></li>
 <li><p>le personnage n’est pas en train de réaliser une action</p></li>
 </ul>
@@ -609,7 +609,7 @@ Puis, après un repos du groupe, les compteurs sont remis à 0.</p>
 <span class="no">END</span>
 
 <span class="no">IF</span>
-<span class="w">    </span><span class="sr">//</span><span class="c1"># TODO: logique</span>
+<span class="w">    </span><span class="sr">//</span><span class="c1"># …</span>
 <span class="w">    </span><span class="n">GlobalLT</span><span class="p">(</span><span class="s2">&quot;ITEM_FILENAME&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
 <span class="no">THEN</span>
 <span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#100</span>
@@ -664,7 +664,7 @@ Une fois l’objet déchargé, ce trigger vaut vrai lors du passage de script su
 <span class="no">END</span>
 
 <span class="no">IF</span>
-<span class="w">    </span><span class="sr">//</span><span class="c1"># TODO: logique</span>
+<span class="w">    </span><span class="sr">//</span><span class="c1"># …</span>
 <span class="w">    </span><span class="o">!</span><span class="n">GlobalTimerNotExpired</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">)</span>
 <span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;ITEM_FILENAME_IS_EMPTY&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 <span class="no">THEN</span>
@@ -682,7 +682,7 @@ La problématique de l’action <code class="docutils literal notranslate"><span
 </section>
 <section id="bitset-bitcheck-optionnel">
 <h4>BitSet / BitCheck (optionnel)<a class="headerlink" href="#bitset-bitcheck-optionnel" title="Lien vers cette rubrique">#</a></h4>
-<p>Grâce au trigger <code class="docutils literal notranslate"><span class="pre">Unusable</span></code>, on ne sauvegarde qu’une valeur 0 ou 1 dans les variables plutôt qu’un nombre d’utilisation.<br />
+<p>Grâce au trigger <code class="docutils literal notranslate"><span class="pre">Unusable</span></code>, on ne sauvegarde qu’une valeur binaire (0 ou 1) dans les variables plutôt qu’un nombre d’utilisation.<br />
 Il devient alors possible d’utiliser une seule variable avec l’action <code class="docutils literal notranslate"><span class="pre">BitSet</span></code>. Chaque bit correspond à un objet, on peut donc sauvegarder jusqu’à 32 variables en une seule.<br />
 Lors du <code class="docutils literal notranslate"><span class="pre">PartyRested()</span></code>, une seule variable est à reset. Cela permet de le rajouter simplement à d’autres scripts/objets.</p>
 <p>Exemple avec deux objets :</p>
@@ -711,7 +711,7 @@ Lors du <code class="docutils literal notranslate"><span class="pre">PartyRested
 <span class="no">END</span>
 
 <span class="no">IF</span>
-<span class="w">    </span><span class="sr">//</span><span class="c1"># TODO: logique</span>
+<span class="w">    </span><span class="sr">//</span><span class="c1"># …</span>
 <span class="w">    </span><span class="o">!</span><span class="n">GlobalTimerNotExpired</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">)</span>
 <span class="w">    </span><span class="o">!</span><span class="n">BitCheck</span><span class="p">(</span><span class="s2">&quot;EMPTY_ITEMS&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">BIT1</span><span class="p">)</span>
 <span class="no">THEN</span>
@@ -721,7 +721,7 @@ Lors du <code class="docutils literal notranslate"><span class="pre">PartyRested
 <span class="no">END</span>
 
 <span class="no">IF</span>
-<span class="w">    </span><span class="sr">//</span><span class="c1"># TODO: logique</span>
+<span class="w">    </span><span class="sr">//</span><span class="c1"># …</span>
 <span class="w">    </span><span class="o">!</span><span class="n">GlobalTimerNotExpired</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">)</span>
 <span class="w">    </span><span class="o">!</span><span class="n">BitCheck</span><span class="p">(</span><span class="s2">&quot;EMPTY_ITEMS&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">BIT2</span><span class="p">)</span>
 <span class="no">THEN</span>

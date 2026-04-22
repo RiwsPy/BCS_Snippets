@@ -166,4 +166,4 @@ END
 - Pas besoin de checker la distance minimale car aucun jet d'attaque n'est effectué
 
 
-- `CheckStatLT(LastSeenBy(Myself), 1, MINHITPOINTS)` n'est pas très RP, est on pourrait privilégier `StateCheck(LastSeenBy(Myself), STATE_SLEEPING)` qui est beaucoup plus visuel, les trolls étant immunisés au sommeil sauf pendant la période où ils sont au sol.
+- `CheckStatLT(LastSeenBy(Myself), 1, MINHITPOINTS)` n'est pas très RP, on pourrait privilégier `StateCheck(LastSeenBy(Myself), STATE_SLEEPING)` qui est beaucoup plus visuel, les trolls étant immunisés au sommeil sauf pendant la période où ils sont au sol.

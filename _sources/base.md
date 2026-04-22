@@ -31,7 +31,7 @@ Le bloc s'éxécutera mais pas en totalité :
 * `SetGlobal` oui
 * `StartDialogNotSet` non
 
-Or si ce cas se produit, nous nous retrouvons avec un mod buggué, car le dialogue ne pourra jamais redémarrer : `GetGlobal("myvar","LOCALS")` valant 2.
+Or si ce cas se produit, nous nous retrouvons avec un mod buggué, car le dialogue ne pourra jamais redémarrer : `Global("myvar","LOCALS")` valant 2.
 
 Chaque Action aura ses spécificités mais il y a un aspect redondant à prendre en compte : la présence (ou non) de l'action dans les fichiers IDS : `ACTION`, `ACTSLEEP` et `INSTANT`.
 

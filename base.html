@@ -449,7 +449,7 @@ Le bloc s’éxécutera mais pas en totalité :</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">SetGlobal</span></code> oui</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">StartDialogNotSet</span></code> non</p></li>
 </ul>
-<p>Or si ce cas se produit, nous nous retrouvons avec un mod buggué, car le dialogue ne pourra jamais redémarrer : <code class="docutils literal notranslate"><span class="pre">GetGlobal(&quot;myvar&quot;,&quot;LOCALS&quot;)</span></code> valant 2.</p>
+<p>Or si ce cas se produit, nous nous retrouvons avec un mod buggué, car le dialogue ne pourra jamais redémarrer : <code class="docutils literal notranslate"><span class="pre">Global(&quot;myvar&quot;,&quot;LOCALS&quot;)</span></code> valant 2.</p>
 <p>Chaque Action aura ses spécificités mais il y a un aspect redondant à prendre en compte : la présence (ou non) de l’action dans les fichiers IDS : <code class="docutils literal notranslate"><span class="pre">ACTION</span></code>, <code class="docutils literal notranslate"><span class="pre">ACTSLEEP</span></code> et <code class="docutils literal notranslate"><span class="pre">INSTANT</span></code>.</p>
 </section>
 <section id="trois-types-d-action">
