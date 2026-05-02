@@ -421,20 +421,20 @@ Il y a deux types d’invocations :</p>
 <label class="sd-tab-label" for="sd-tab-item-0">
 Non groupé</label><div class="sd-tab-content docutils">
 <div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
-<span class="w">    </span><span class="sr">//</span><span class="c1"># logique</span>
+<span class="w">    </span><span class="sr">//</span><span class="c1"># …</span>
 <span class="w">    </span><span class="o">!</span><span class="n">InParty</span><span class="p">(</span><span class="n">Myself</span><span class="p">)</span>
 <span class="w">    </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="no">PUPPETMASTERID</span><span class="p">)</span>
 <span class="no">THEN</span>
 </pre></div>
 </div>
-<p>Les restrictions se limites aux membres du groupe et aux copies des membres (image projetée, simulacre…).<br />
+<p>Les restrictions s’appliquent aux membres du groupe et à leurs copies (image projetée, simulacre…).<br />
 Pour les autres : il n’y a pas de limite.</p>
 </div>
 <input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" for="sd-tab-item-1">
 Classique</label><div class="sd-tab-content docutils">
 <div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
-<span class="w">    </span><span class="sr">//</span><span class="c1"># logique</span>
+<span class="w">    </span><span class="sr">//</span><span class="c1"># …</span>
 <span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="w">        </span><span class="n">InParty</span><span class="p">(</span><span class="n">Myself</span><span class="p">)</span>
 <span class="w">        </span><span class="o">!</span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="no">PUPPETMASTERID</span><span class="p">)</span>
@@ -463,7 +463,7 @@ Comme on ne peut pas additionner leur nombre, il faut ruser.</p>
 <label class="sd-tab-label" for="sd-tab-item-2">
 Solaire 1</label><div class="sd-tab-content docutils">
 <div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
-<span class="w">    </span><span class="sr">//</span><span class="c1"># logique</span>
+<span class="w">    </span><span class="sr">//</span><span class="c1"># …</span>
 <span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="w">        </span><span class="n">InParty</span><span class="p">(</span><span class="n">Myself</span><span class="p">)</span>
 <span class="w">        </span><span class="o">!</span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="no">PUPPETMASTERID</span><span class="p">)</span>
@@ -494,7 +494,7 @@ Excepté qu’une seule solaire peut-être présente à la fois.</p>
 <label class="sd-tab-label" for="sd-tab-item-3">
 Solaire 2</label><div class="sd-tab-content docutils">
 <div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
-<span class="w">    </span><span class="sr">//</span><span class="c1"># logique</span>
+<span class="w">    </span><span class="sr">//</span><span class="c1"># …</span>
 <span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="w">        </span><span class="n">InParty</span><span class="p">(</span><span class="n">Myself</span><span class="p">)</span>
 <span class="w">        </span><span class="o">!</span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="no">PUPPETMASTERID</span><span class="p">)</span>
@@ -525,12 +525,11 @@ Excepté qu’une seule solaire peut-être présente à la fois.</p>
 ⚠️ : plutôt que de tester l’animation du personnage, il est possible de tester sa classe, cela est conforme pour la version vanilla mais ce n’est pas assuré pour les versions moddées.</p>
 </div>
 </div>
-<p>Les snippets sont orientés pour l’invocation d’une seule créature.<br />
-Dans où plusieurs sont invocables, il est conseillé de modifier les conditions.</p>
+<p>Les snippets sont optimisés pour l’invocation d’une seule créature.</p>
 <p>⚠️ deux limites récurrentes :</p>
 <ol class="arabic simple">
 <li><p>les créatures hors du champ de vision de l’invocateur ne sont pas prises en compte</p></li>
-<li><p>la limitation n’est pas dynamique, il est possible de modifier <code class="docutils literal notranslate"><span class="pre">SUMMLIMT.2da</span></code> et dans ce cas, le snippet ne sera plus adapté</p></li>
+<li><p>la limitation n’est pas dynamique, il est possible de modifier <code class="docutils literal notranslate"><span class="pre">SUMMLIMT.2da</span></code> et dans ce cas, le snippet sera inadapté</p></li>
 </ol>
 </section>
 

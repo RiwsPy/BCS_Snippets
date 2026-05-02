@@ -10,14 +10,14 @@ Il y a deux types d'invocations :
 ```cr
 
 IF
-    //# logique
+    //# …
     !InParty(Myself)
     CheckStat(Myself, -1, PUPPETMASTERID)
 THEN
 
 ```
 
-Les restrictions se limites aux membres du groupe et aux copies des membres (image projetée, simulacre...).\
+Les restrictions s'appliquent aux membres du groupe et à leurs copies (image projetée, simulacre...).\
 Pour les autres : il n'y a pas de limite.
 ````
 
@@ -25,7 +25,7 @@ Pour les autres : il n'y a pas de limite.
 ```cr
 
 IF
-    //# logique
+    //# …
     OR(2)
         InParty(Myself)
         !CheckStat(Myself, -1, PUPPETMASTERID)
@@ -56,7 +56,7 @@ Comme on ne peut pas additionner leur nombre, il faut ruser.
 ```cr
 
 IF
-    //# logique
+    //# …
     OR(2)
         InParty(Myself)
         !CheckStat(Myself, -1, PUPPETMASTERID)
@@ -89,7 +89,7 @@ Une solaire doit posséder le genre `BOTH`.\
 ```cr
 
 IF
-    //# logique
+    //# …
     OR(2)
         InParty(Myself)
         !CheckStat(Myself, -1, PUPPETMASTERID)
@@ -123,9 +123,8 @@ Une solaire doit posséder le genre `BOTH`.\
 ````
 `````
 
-Les snippets sont orientés pour l'invocation d'une seule créature.\
-Dans où plusieurs sont invocables, il est conseillé de modifier les conditions.
+Les snippets sont optimisés pour l'invocation d'une seule créature.
 
 ⚠️ deux limites récurrentes :
 1. les créatures hors du champ de vision de l'invocateur ne sont pas prises en compte
-1. la limitation n'est pas dynamique, il est possible de modifier `SUMMLIMT.2da` et dans ce cas, le snippet ne sera plus adapté
+1. la limitation n'est pas dynamique, il est possible de modifier `SUMMLIMT.2da` et dans ce cas, le snippet sera inadapté

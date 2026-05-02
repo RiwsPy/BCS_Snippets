@@ -1,6 +1,6 @@
 # ✔️ Signaux génériques
 
-Un signal est un condition qui va permettre, s'il est capté, aux créatures d'activer un comportement spéficique.\
+Un signal est une condition qui va permettre, s'il est capté, aux créatures d'activer un comportement spéficique.\
 Le jeu en possède plusieurs comme `HitBy`, `Help`, `OnCreation`...\
 Ils possèdent deux limites :
 1. Ils sont pour la plupart spécifique à la créature

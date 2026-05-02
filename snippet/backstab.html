@@ -420,17 +420,21 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="realiser-une-attaque-sournoise">
 <h1>⚠️ Réaliser une attaque sournoise<a class="headerlink" href="#realiser-une-attaque-sournoise" title="Lien vers cette rubrique">#</a></h1>
-<p>Snippet qui cherche à savoir si le personnage est en mesure de réussir une attaque sournoise et d’infliger des dégâts.</p>
+<p>Snippet qui cherche à savoir si le personnage est en mesure de réussir une attaque sournoise et d’infliger des dégâts.<br />
+Dans le même temps, il cherche à gérer les sneak attacks.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-0">
+Base</label><div class="sd-tab-content docutils">
 <div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
 <span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
 <span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_DISABLE_ATTACK&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 
-<span class="w">    </span><span class="sr">//</span><span class="c1"># arme compatible et utilisable par les voleurs</span>
-<span class="w">    </span><span class="o">!</span><span class="n">IsWeaponRanged</span><span class="p">(</span><span class="n">Myself</span><span class="p">)</span>
+<span class="w">    </span><span class="sr">//</span><span class="c1"># Dégâts bonus</span>
+<span class="w">    </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="no">BACKSTABDAMAGEMULTIPLIER</span><span class="p">)</span>
 
-<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="no">BACKSTABDAMAGEMULTIPLIER</span><span class="p">)</span>
-<span class="w">        </span><span class="n">False</span><span class="p">()</span><span class="w"> </span><span class="sr">//</span><span class="c1"># Check 3E sneak attack + valeur (selon kit/class)</span>
+<span class="w">    </span><span class="sr">//</span><span class="c1"># Arme compatible et utilisable par les voleurs</span>
+<span class="w">    </span><span class="o">!</span><span class="n">IsWeaponRanged</span><span class="p">(</span><span class="n">Myself</span><span class="p">)</span>
 
 <span class="w">    </span><span class="sr">//</span><span class="c1"># Contrainte d&#39;invisibilité</span>
 <span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
@@ -439,14 +443,24 @@ document.write(`
 <span class="w">        </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="no">ASSASSINATE</span><span class="p">)</span>
 <span class="w">        </span><span class="n">False</span><span class="p">()</span><span class="w"> </span><span class="sr">//</span><span class="c1"># Check 3E sneak attack</span>
 
-<span class="w">    </span><span class="n">See</span><span class="p">(</span><span class="o">[</span><span class="no">ANYONE</span><span class="o">]</span><span class="p">)</span><span class="w"> </span><span class="sr">//</span><span class="c1"># TODO</span>
-
 <span class="w">    </span><span class="sr">//</span><span class="c1"># Contrainte de position</span>
 <span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="w">        </span><span class="n">Allegiance</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">NOTGOOD</span><span class="p">)</span>
 <span class="w">        </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="no">ASSASSINATE</span><span class="p">)</span><span class="w"> </span><span class="sr">//</span><span class="c1"># BitCheck BIT0 and BIT2 instead</span>
 <span class="w">        </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="no">ASSASSINATE</span><span class="p">)</span>
-<span class="w">        </span><span class="n">False</span><span class="p">()</span><span class="w">  </span><span class="sr">//</span><span class="c1"># placement dans le dos</span>
+<span class="w">        </span><span class="n">False</span><span class="p">()</span><span class="w">  </span><span class="sr">//</span><span class="c1"># placement dans le dos nécessaire</span>
+
+<span class="w">    </span><span class="sr">//</span><span class="c1"># Recherche de cible…</span>
+<span class="no">THEN</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-1">
+Ciblage</label><div class="sd-tab-content docutils">
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
+<span class="w">    </span><span class="sr">//</span><span class="c1"># …</span>
+<span class="w">    </span><span class="n">See</span><span class="p">(</span><span class="o">[</span><span class="no">ANYONE</span><span class="o">]</span><span class="p">)</span><span class="w"> </span><span class="sr">//</span><span class="c1"># TODO</span>
 
 <span class="w">    </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">IMMUNITY_TO_BACKSTAB</span><span class="p">)</span>
 <span class="w">    </span><span class="o">!</span><span class="n">Kit</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="no">BARBARIAN</span><span class="p">)</span>
@@ -457,13 +471,175 @@ document.write(`
 <span class="no">THEN</span>
 </pre></div>
 </div>
+<p>La caractéristique <code class="docutils literal notranslate"><span class="pre">IMMUNITY_TO_BACKSTAB</span></code> protège contre les attaques sournoises et les sneak attacks.<br />
+Les personnages de kit <code class="docutils literal notranslate"><span class="pre">BARBARIAN</span></code> sont également immunisés.<br />
+On enlève aussi les personnages protégés de peaux de pierre ainsi que ceux qui ne peuvent être touchés par l’arme équipée.</p>
+<p>Il s’agit des contraintes qui empêchent l’attaque de réussir.<br />
+D’autres contraintes moins fortes peuvent être ajoutées comme <code class="docutils literal notranslate"><span class="pre">!StateCheck(LastSeenBy(Myself),</span> <span class="pre">STATE_MIRRORIMAGE)</span></code>.</p>
+</div>
+<input id="sd-tab-item-2" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-2">
+Bloc sans positionnement</label><div class="sd-tab-content docutils">
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
+<span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
+<span class="w">    </span><span class="n">Detect</span><span class="p">(</span><span class="n">Myself</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_DISABLE_ATTACK&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+
+<span class="w">    </span><span class="sr">//</span><span class="c1"># Dégâts bonus</span>
+<span class="w">    </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="no">BACKSTABDAMAGEMULTIPLIER</span><span class="p">)</span>
+
+<span class="w">    </span><span class="sr">//</span><span class="c1"># Arme compatible et utilisable par les voleurs</span>
+<span class="w">    </span><span class="o">!</span><span class="n">IsWeaponRanged</span><span class="p">(</span><span class="n">Myself</span><span class="p">)</span>
+
+<span class="w">    </span><span class="sr">//</span><span class="c1"># Contrainte d&#39;invisibilité</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="w">        </span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_INVISIBLE</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="no">ASSASSINATE</span><span class="p">)</span><span class="w"> </span><span class="sr">//</span><span class="c1"># BitCheck BIT0 and BIT1 instead</span>
+<span class="w">        </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="no">ASSASSINATE</span><span class="p">)</span>
+<span class="w">        </span><span class="n">False</span><span class="p">()</span><span class="w"> </span><span class="sr">//</span><span class="c1"># Check 3E sneak attack</span>
+
+<span class="w">    </span><span class="sr">//</span><span class="c1"># Absence de contrainte de position</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Allegiance</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">NOTGOOD</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="no">ASSASSINATE</span><span class="p">)</span><span class="w"> </span><span class="sr">//</span><span class="c1"># BitCheck BIT0 and BIT2 instead</span>
+<span class="w">        </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="no">ASSASSINATE</span><span class="p">)</span>
+
+<span class="w">    </span><span class="sr">//</span><span class="c1"># Ciblage</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="w">        </span><span class="o">!</span><span class="n">See</span><span class="p">(</span><span class="n">NearestEnemyOf</span><span class="p">(</span><span class="n">Myself</span><span class="p">))</span>
+<span class="w">        </span><span class="o">!</span><span class="n">CheckStat</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">IMMUNITY_TO_BACKSTAB</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Kit</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="no">BARBARIAN</span><span class="p">)</span>
+<span class="w">        </span><span class="o">!</span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="no">STONESKINS</span><span class="p">)</span>
+<span class="w">        </span><span class="o">!</span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="no">STONESKINSGOLEM</span><span class="p">)</span>
+<span class="w">        </span><span class="o">!</span><span class="n">WeaponEffectiveVs</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="no">MAINHAND</span><span class="p">)</span>
+<span class="w">        </span><span class="o">!</span><span class="n">WeaponCanDamage</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="no">MAINHAND</span><span class="p">)</span>
+<span class="w">    </span><span class="sr">//</span><span class="c1"># …</span>
+
+<span class="w">    </span><span class="n">Detect</span><span class="p">(</span><span class="n">Myself</span><span class="p">)</span>
+<span class="w">    </span><span class="n">False</span><span class="p">()</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#0</span>
+<span class="no">END</span>
+
+<span class="no">IF</span>
+<span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
+<span class="w">    </span><span class="o">!</span><span class="n">Range</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
+<span class="w">        </span><span class="n">AttackOneRound</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">))</span>
+<span class="no">END</span>
+</pre></div>
+</div>
+<p>Dans ces conditions avantageuses, le personnage peut réussir une attaque sournoise ou une sneak attack sans avoir à se repositionner car l’angle d’attaque n’a aucun impact.</p>
+</div>
+<input id="sd-tab-item-3" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-3">
+Bloc avec positionnement</label><div class="sd-tab-content docutils">
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="n">ActionListEmpty</span><span class="p">()</span>
+<span class="w">        </span><span class="n">Trigger</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Detect</span><span class="p">(</span><span class="n">Myself</span><span class="p">)</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_DISABLE_ATTACK&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+
+<span class="w">    </span><span class="sr">//</span><span class="c1"># Dégâts bonus</span>
+<span class="w">    </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="no">BACKSTABDAMAGEMULTIPLIER</span><span class="p">)</span>
+
+<span class="w">    </span><span class="sr">//</span><span class="c1"># Arme compatible et utilisable par les voleurs</span>
+<span class="w">    </span><span class="o">!</span><span class="n">IsWeaponRanged</span><span class="p">(</span><span class="n">Myself</span><span class="p">)</span>
+
+<span class="w">    </span><span class="sr">//</span><span class="c1"># Contrainte d&#39;invisibilité</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="w">        </span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_INVISIBLE</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="no">ASSASSINATE</span><span class="p">)</span><span class="w"> </span><span class="sr">//</span><span class="c1"># BitCheck BIT0 and BIT1 instead</span>
+<span class="w">        </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="no">ASSASSINATE</span><span class="p">)</span>
+<span class="w">        </span><span class="n">False</span><span class="p">()</span><span class="w"> </span><span class="sr">//</span><span class="c1"># Check 3E sneak attack</span>
+
+<span class="w">    </span><span class="sr">//</span><span class="c1"># Ciblage</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="w">        </span><span class="o">!</span><span class="n">See</span><span class="p">(</span><span class="n">NearestEnemyOf</span><span class="p">(</span><span class="n">Myself</span><span class="p">))</span>
+<span class="w">        </span><span class="o">!</span><span class="n">CheckStat</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">IMMUNITY_TO_BACKSTAB</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Kit</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="no">BARBARIAN</span><span class="p">)</span>
+<span class="w">        </span><span class="o">!</span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="no">STONESKINS</span><span class="p">)</span>
+<span class="w">        </span><span class="o">!</span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="no">STONESKINSGOLEM</span><span class="p">)</span>
+<span class="w">        </span><span class="o">!</span><span class="n">WeaponEffectiveVs</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="no">MAINHAND</span><span class="p">)</span>
+<span class="w">        </span><span class="o">!</span><span class="n">WeaponCanDamage</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="no">MAINHAND</span><span class="p">)</span>
+<span class="w">    </span><span class="sr">//</span><span class="c1"># …</span>
+
+<span class="w">    </span><span class="n">Detect</span><span class="p">(</span><span class="n">Myself</span><span class="p">)</span>
+<span class="w">    </span><span class="n">False</span><span class="p">()</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#0</span>
+<span class="no">END</span>
+
+<span class="sr">//</span><span class="c1"># Gestion du cas où le positionnement n&#39;est pas requis</span>
+<span class="no">IF</span>
+<span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
+<span class="w">    </span><span class="o">!</span><span class="n">Range</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Allegiance</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">NOTGOOD</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="no">ASSASSINATE</span><span class="p">)</span><span class="w"> </span><span class="sr">//</span><span class="c1"># BitCheck BIT0 and BIT2 instead</span>
+<span class="w">        </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="no">ASSASSINATE</span><span class="p">)</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
+<span class="w">        </span><span class="n">AttackOneRound</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">))</span>
+<span class="no">END</span>
+
+<span class="sr">//</span><span class="c1"># Gestion du cas où le positionnement est requis</span>
+<span class="no">IF</span>
+<span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
+<span class="w">    </span><span class="o">!</span><span class="n">Range</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">PersonalSpaceDistance</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
+<span class="w">        </span><span class="n">MoveToObjectOffset</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="o">[-</span><span class="mf">10.0</span><span class="o">]</span><span class="p">)</span><span class="w"> </span><span class="sr">//</span><span class="c1"># on s&#39;approche sans gêner la cible</span>
+<span class="w">        </span><span class="n">Continue</span><span class="p">()</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
+<span class="w">        </span><span class="n">MoveToObjectOffset</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="o">[</span><span class="mf">10.0</span><span class="o">]</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Continue</span><span class="p">()</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
+<span class="w">        </span><span class="n">MoveToObjectOffset</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="o">[</span><span class="mi">0</span><span class="o">.</span><span class="n n-Operator">-</span><span class="mi">10</span><span class="o">]</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Continue</span><span class="p">()</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
+<span class="w">        </span><span class="n">MoveToObjectOffset</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="o">[</span><span class="mf">0.10</span><span class="o">]</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Continue</span><span class="p">()</span>
+<span class="no">END</span>
+
+<span class="sr">//</span><span class="c1"># Moins contraignant, on rentrera forcément dedans après le Continue() du bloc précédent</span>
+<span class="sr">//</span><span class="c1"># On rentrera également dedans si la cible est à 3 pieds ou moins</span>
+<span class="no">IF</span>
+<span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
+<span class="w">    </span><span class="o">!</span><span class="n">Range</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
+<span class="w">        </span><span class="n">SendTrigger</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
+<span class="w">        </span><span class="n">FollowObjectFormation</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="sr">//</span><span class="c1"># position quiconce arrière</span>
+<span class="no">END</span>
+
+<span class="no">IF</span>
+<span class="w">    </span><span class="o">!</span><span class="n">ActionListEmpty</span><span class="p">()</span>
+<span class="w">    </span><span class="n">Trigger</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">Range</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">PersonalSpaceDistance</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
+<span class="w">        </span><span class="n">AttackOneRound</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">))</span>
+<span class="no">END</span>
+</pre></div>
+</div>
+<p>En cas de positionnement, deux passages de scripts sont requis. Le premier permet de se positionner, le second d’attaquer.<br />
+Le <code class="docutils literal notranslate"><span class="pre">FollowObjectFormation</span></code> permet de se positionner derrière le personnage mais l’action n’a pas de limite de durée.<br />
+La créature va donc « Follow » jusqu’au prochain passage de script, attention car <code class="docutils literal notranslate"><span class="pre">ActionListEmpty()</span></code> vaudra faux.<br />
+Pendant ce second passage, le trigger 32 permet de savoir que le personnage devrait être placé derrière sa cible. Nous attaquons la cible compatible la plus proche, sans certitude qu’il s’agisse de la même cible.<br />
+Le trigger peut être remplacé par une variable LOCALS.</p>
+</div>
+</div>
 <div class="admonition warning">
 <p class="admonition-title">Avertissement</p>
-<p>Beaucoup de paramètres sont manquants :</p>
+<p>Plusieurs paramètres sont perfectibles :</p>
 <ul class="simple">
 <li><p>On ne peut assurer que l’arme actuelle soit compatible avec les attaques sournoises</p></li>
 <li><p>On ne sait pas si les sneak attacks sont activées ou non (les contraintes ne sont pas les mêmes)</p></li>
-<li><p>On ne sait pas comment la créature est positionnée par rapport à l’adversaire</p></li>
 <li><p>Seules les valeurs les plus simples de ASSASSINATE sont testées</p></li>
 </ul>
 </div>
@@ -472,6 +648,7 @@ document.write(`
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">HasItemCategory</span></code> : on pourrait autoriser certains types d’arme sans être certain que cette arme soit vraiment compatible pour les voleurs, et cela pourrait retirer toutes les armes des autres categorie qui pourraient être compatible. Enfin, ça ne gère pas les ajouts de catégorie pour les mods.</p></li>
 <li><p>Avec <code class="docutils literal notranslate"><span class="pre">Class(Myself,</span> <span class="pre">THIEF)</span></code>, on peut imaginer qu’il utilise des armes pour voleur mais trop limitant. Pas adapté avec la HLA « Use Any Item ».</p></li>
+<li><p>La contrainte <code class="docutils literal notranslate"><span class="pre">CheckStatGT(Myself,</span> <span class="pre">1,</span> <span class="pre">BACKSTABDAMAGEMULTIPLIER)</span></code> est nécessaire pour les attaques sournoises mais est aussi un trick qui améliore la gestion des sneak attacks. Car en général, les personnages ayant un bonus pour les attaques sournoises, en ont également un pour les sneak attacks.</p></li>
 </ul>
 </section>
 </section>
