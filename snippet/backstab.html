@@ -191,6 +191,7 @@
 <li class="toctree-l1"><a class="reference internal" href="canpickpocket.html">✔️ Can PickPocket</a></li>
 <li class="toctree-l1"><a class="reference internal" href="canhide.html">✔️ Can Hide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="canturn.html">✔️ Can Turn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cansleep.html">✔️ Enemies can Rest</a></li>
 <li class="toctree-l1"><a class="reference internal" href="signal.html">✔️ Signaux génériques</a></li>
 <li class="toctree-l1"><a class="reference internal" href="globalexists.html">✔️ GlobalExists</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">⚠️ Réaliser une attaque sournoise</a></li>
@@ -627,10 +628,10 @@ Bloc avec positionnement</label><div class="sd-tab-content docutils">
 <span class="no">END</span>
 </pre></div>
 </div>
-<p>En cas de positionnement, deux passages de scripts sont requis. Le premier permet de se positionner, le second d’attaquer.<br />
+<p>En cas de positionnement, deux cycles de script sont requis. Le premier permet de se positionner, le second d’attaquer.<br />
 Le <code class="docutils literal notranslate"><span class="pre">FollowObjectFormation</span></code> permet de se positionner derrière le personnage mais l’action n’a pas de limite de durée.<br />
-La créature va donc « Follow » jusqu’au prochain passage de script, attention car <code class="docutils literal notranslate"><span class="pre">ActionListEmpty()</span></code> vaudra faux.<br />
-Pendant ce second passage, le trigger 32 permet de savoir que le personnage devrait être placé derrière sa cible. Nous attaquons la cible compatible la plus proche, sans certitude qu’il s’agisse de la même cible.<br />
+La créature va donc « Follow » jusqu’au prochain cycle de script, attention car <code class="docutils literal notranslate"><span class="pre">ActionListEmpty()</span></code> vaudra faux.<br />
+Pendant ce second cycle, le trigger 32 permet de savoir que le personnage devrait être placé derrière sa cible. Nous attaquons la cible compatible la plus proche, sans certitude qu’il s’agisse de la même cible.<br />
 Le trigger peut être remplacé par une variable LOCALS.</p>
 </div>
 </div>
@@ -742,7 +743,7 @@ Par rivvers
 
   <p class="copyright">
     
-      © Copyright 2025.
+      © Copyright 2026.
       <br/>
     
   </p>

@@ -68,8 +68,7 @@ THEN
 END
 ```
 
-On ne switch pas d'arme, les conditions réclament qu'un arc soit équipé.\
-Cela simplifie les vérifications et contrairement à la solution précédente, on sait qu'un arc est équipé.
+On ne switch pas d'arme, les conditions réclament qu'un arc soit réellement équipé.
 ````
 
 ````{tab-item} Sans switch
@@ -124,7 +123,6 @@ IF
         CurrentAmmo("AROW08", Myself)
         CurrentAmmo("BULL04", Myself)
         CheckItemSlot(Myself, "MELFMET", SLOT_MISC19)
-
     OR(3)
         !See(NearestEnemyOfType([0.0.TROLL]))
         !CheckStatLT(LastSeenBy(Myself), 1, MINHITPOINTS)
@@ -157,10 +155,14 @@ END
 `````
 
 ## Notes
-- Cela a plusieurs limites importantes :
+
+Cela a plusieurs limites importantes :
 1. devoir tester les projectiles un par un
-1. connaître leur identifiant (celles des mods sont incompatibles)
+1. connaître leurs identifiants (ceux des mods sont incompatibles)
 1. connaître le type de dégât élémentaire qu'ils infligent (si des mods changent cela…)
+
+
+## À savoir
 
 - ⚠️ `WeaponCanDamage(LastSeenBy(Myself), MAINHAND)` renverra faux car une fois au sol, les trolls sont immunisés aux dégâts physiques
 - Pas besoin de checker la distance minimale car aucun jet d'attaque n'est effectué

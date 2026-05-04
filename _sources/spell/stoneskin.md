@@ -165,7 +165,7 @@ Conditions :
 * Un combat est en cours
 * Probabilité de lancer avec taux de réussite acceptable (plus de 50%)
 * Aucune peau restante
-* La créature a subit des dégâts physiques lors du dernier passage de script
+* La créature a subit des dégâts physiques lors du dernier cycle de script
 * Gestion des zones anti-magie d'Athkatla
 ````
 

@@ -165,7 +165,7 @@ IF
 THEN
     RESPONSE #100
         UseItem("ITEM_FILENAME", Myself)
-        IncGlobal("ITEM_FILENAME", "GLOBAL", 1)
+        IncrementGlobal("ITEM_FILENAME", "GLOBAL", 1)
 END
 ```
 
@@ -203,7 +203,7 @@ Problème : si l'objet n'a plus de charge, la variable ne sera jamais incrément
 #### Unusable, le blocage par l'apprentissage
 
 Le trigger `Unusable` nous apporte une information utile ici.\
-Une fois l'objet déchargé, ce trigger vaut vrai lors du passage de script suivant. Cela est intéressant si couplé avec le timer `BD_Cast`.
+Une fois l'objet déchargé, ce trigger vaut vrai lors du cycle de script suivant. Cela est intéressant si couplé avec le timer `BD_Cast`.
 
 ```cr
 IF

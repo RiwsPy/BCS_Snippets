@@ -191,6 +191,7 @@
 <li class="toctree-l1"><a class="reference internal" href="canpickpocket.html">✔️ Can PickPocket</a></li>
 <li class="toctree-l1"><a class="reference internal" href="canhide.html">✔️ Can Hide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="canturn.html">✔️ Can Turn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cansleep.html">✔️ Enemies can Rest</a></li>
 <li class="toctree-l1"><a class="reference internal" href="signal.html">✔️ Signaux génériques</a></li>
 <li class="toctree-l1"><a class="reference internal" href="globalexists.html">✔️ GlobalExists</a></li>
 <li class="toctree-l1"><a class="reference internal" href="backstab.html">⚠️ Réaliser une attaque sournoise</a></li>
@@ -410,6 +411,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ciblage">Ciblage</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#au-sol">Au sol</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notes">Notes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-savoir">À savoir</a></li>
 </ul>
             </nav>
         </div>
@@ -488,8 +490,7 @@ Switch de munition</label><div class="sd-tab-content docutils">
 <span class="no">END</span>
 </pre></div>
 </div>
-<p>On ne switch pas d’arme, les conditions réclament qu’un arc soit équipé.<br />
-Cela simplifie les vérifications et contrairement à la solution précédente, on sait qu’un arc est équipé.</p>
+<p>On ne switch pas d’arme, les conditions réclament qu’un arc soit réellement équipé.</p>
 </div>
 <input id="sd-tab-item-2" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" for="sd-tab-item-2">
@@ -544,7 +545,6 @@ Sans switch 2 complète</label><div class="sd-tab-content docutils">
 <span class="w">        </span><span class="n">CurrentAmmo</span><span class="p">(</span><span class="s2">&quot;AROW08&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Myself</span><span class="p">)</span>
 <span class="w">        </span><span class="n">CurrentAmmo</span><span class="p">(</span><span class="s2">&quot;BULL04&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Myself</span><span class="p">)</span>
 <span class="w">        </span><span class="n">CheckItemSlot</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;MELFMET&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">SLOT_MISC19</span><span class="p">)</span>
-
 <span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <span class="w">        </span><span class="o">!</span><span class="n">See</span><span class="p">(</span><span class="n">NearestEnemyOfType</span><span class="p">(</span><span class="o">[</span><span class="mf">0.0</span><span class="o">.</span><span class="n">TROLL</span><span class="o">]</span><span class="p">))</span>
 <span class="w">        </span><span class="o">!</span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="no">MINHITPOINTS</span><span class="p">)</span>
@@ -577,14 +577,15 @@ Sans switch 2 complète</label><div class="sd-tab-content docutils">
 </section>
 <section id="notes">
 <h2>Notes<a class="headerlink" href="#notes" title="Lien vers cette rubrique">#</a></h2>
-<ul class="simple">
-<li><p>Cela a plusieurs limites importantes :</p></li>
-</ul>
+<p>Cela a plusieurs limites importantes :</p>
 <ol class="arabic simple">
 <li><p>devoir tester les projectiles un par un</p></li>
-<li><p>connaître leur identifiant (celles des mods sont incompatibles)</p></li>
+<li><p>connaître leurs identifiants (ceux des mods sont incompatibles)</p></li>
 <li><p>connaître le type de dégât élémentaire qu’ils infligent (si des mods changent cela…)</p></li>
 </ol>
+</section>
+<section id="a-savoir">
+<h2>À savoir<a class="headerlink" href="#a-savoir" title="Lien vers cette rubrique">#</a></h2>
 <ul class="simple">
 <li><p>⚠️ <code class="docutils literal notranslate"><span class="pre">WeaponCanDamage(LastSeenBy(Myself),</span> <span class="pre">MAINHAND)</span></code> renverra faux car une fois au sol, les trolls sont immunisés aux dégâts physiques</p></li>
 <li><p>Pas besoin de checker la distance minimale car aucun jet d’attaque n’est effectué</p></li>
@@ -661,6 +662,7 @@ Sans switch 2 complète</label><div class="sd-tab-content docutils">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ciblage">Ciblage</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#au-sol">Au sol</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notes">Notes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-savoir">À savoir</a></li>
 </ul>
   </nav></div>
 
@@ -685,7 +687,7 @@ Par rivvers
 
   <p class="copyright">
     
-      © Copyright 2025.
+      © Copyright 2026.
       <br/>
     
   </p>

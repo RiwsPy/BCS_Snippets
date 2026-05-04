@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>✔️ GlobalExists &#8212; BCS Snippets</title>
+    <title>✔️ Enemies can Rest &#8212; BCS Snippets</title>
   
   
   
@@ -58,12 +58,12 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'snippet/globalexists';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'snippet/cansleep';</script>
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
-    <link rel="next" title="⚠️ Réaliser une attaque sournoise" href="backstab.html" />
-    <link rel="prev" title="✔️ Signaux génériques" href="signal.html" />
+    <link rel="next" title="✔️ Signaux génériques" href="signal.html" />
+    <link rel="prev" title="✔️ Can Turn" href="canturn.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="fr"/>
   </head>
@@ -191,9 +191,9 @@
 <li class="toctree-l1"><a class="reference internal" href="canpickpocket.html">✔️ Can PickPocket</a></li>
 <li class="toctree-l1"><a class="reference internal" href="canhide.html">✔️ Can Hide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="canturn.html">✔️ Can Turn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cansleep.html">✔️ Enemies can Rest</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">✔️ Enemies can Rest</a></li>
 <li class="toctree-l1"><a class="reference internal" href="signal.html">✔️ Signaux génériques</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">✔️ GlobalExists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="globalexists.html">✔️ GlobalExists</a></li>
 <li class="toctree-l1"><a class="reference internal" href="backstab.html">⚠️ Réaliser une attaque sournoise</a></li>
 <li class="toctree-l1"><a class="reference internal" href="opportunityattack.html">✔️ Réaliser une attaque d’opportunité</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cansummon.html">⚠️ Can Summon Creature</a></li>
@@ -283,7 +283,7 @@
       
       
       
-      <li><a href="https://github.com/RiwsPy/BCS_Snippets/issues/new?title=Issue%20on%20page%20%2Fsnippet/globalexists.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/RiwsPy/BCS_Snippets/issues/new?title=Issue%20on%20page%20%2Fsnippet/cansleep.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Ouvrez un problème"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -313,7 +313,7 @@
       
       
       
-      <li><a href="../_sources/snippet/globalexists.md" target="_blank"
+      <li><a href="../_sources/snippet/cansleep.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Télécharger le fichier source"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -397,7 +397,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>✔️ GlobalExists</h1>
+    <h1>✔️ Enemies can Rest</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -407,8 +407,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple">Exemple</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pourquoi-ca-marche">Pourquoi ça marche ?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quelles-consequences-au-repos">Quelles conséquences au repos ?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methodologies-de-repos">Méthodologies de repos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#informations">Informations</a></li>
 </ul>
             </nav>
         </div>
@@ -420,72 +421,191 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="globalexists">
-<h1>✔️ GlobalExists<a class="headerlink" href="#globalexists" title="Lien vers cette rubrique">#</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">Global(&quot;var&quot;,</span> <span class="pre">&quot;X&quot;,</span> <span class="pre">0)</span></code> vaut vrai dans deux cas :</p>
-<ol class="arabic simple">
-<li><p>la variable vaut 0</p></li>
-<li><p>la variable n’est pas définie</p></li>
-</ol>
-<p>Ce snippet permet de différencier ces deux cas.<br />
-C’est notamment utile pour tester les variables de la version vanilla que l’on ne peut pas modifier ou celles des autres mods sur lesquelles on a pas la main.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="enemies-can-rest">
+<h1>✔️ Enemies can Rest<a class="headerlink" href="#enemies-can-rest" title="Lien vers cette rubrique">#</a></h1>
+<p>Il n’y a pas que les membres du groupe qui devrait pouvoir se reposer.<br />
+De la même façon, on aimerait que tous les personnages puissent se souvenir de ses sorts et se soigner pour commencer la journée du bon pied.</p>
+<section id="quelles-consequences-au-repos">
+<h2>Quelles conséquences au repos ?<a class="headerlink" href="#quelles-consequences-au-repos" title="Lien vers cette rubrique">#</a></h2>
+<p>Se reposer, oui. Mais avec quelles conséquences ?<br />
+Habituellement pour le groupe, cela permet au groupe de se soigner, de se remémorer les sorts utilisés et de recharger les objets.<br />
+Mais les membres du groupe peuvent aussi profiter de la pause pour refaire le plein de potions et de munitions.</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" for="sd-tab-item-0">
-GlobalExists</label><div class="sd-tab-content docutils">
+Classique</label><div class="sd-tab-content docutils">
+<ul class="simple">
+<li><p>❓ Soin des blessures</p></li>
+<li><p>✅ Remémorisation des sorts et rechargement des objets</p></li>
+<li><p>❌ Réinitialisation des variables de combat</p></li>
+<li><p>✅ Conservation des variables hors combat</p></li>
+<li><p>❌ Complétion du stock d’objets</p></li>
+<li><p>✅ Solution générique</p></li>
+</ul>
 <div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
-<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="w">        </span><span class="o">!</span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;var&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="w">        </span><span class="n">GlobalTimerExpired</span><span class="p">(</span><span class="s2">&quot;var&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;GLOBAL&quot;</span><span class="p">)</span>
-<span class="no">THEN</span>
-</pre></div>
-</div>
-</div>
-<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
-<label class="sd-tab-label" for="sd-tab-item-1">
-!GlobalExists</label><div class="sd-tab-content docutils">
-<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
-<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;var&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="w">    </span><span class="o">!</span><span class="n">GlobalTimerExpired</span><span class="p">(</span><span class="s2">&quot;var&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;GLOBAL&quot;</span><span class="p">)</span>
-<span class="no">THEN</span>
-</pre></div>
-</div>
-</div>
-</div>
-<section id="exemple">
-<h2>Exemple<a class="headerlink" href="#exemple" title="Lien vers cette rubrique">#</a></h2>
-<p>La string ne s’affichera qu’une seule fois :</p>
-<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
-<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;var&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="w">    </span><span class="o">!</span><span class="n">GlobalTimerExpired</span><span class="p">(</span><span class="s2">&quot;var&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="sr">//</span><span class="c1"># …</span>
 <span class="no">THEN</span>
 <span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
-<span class="w">        </span><span class="n">DisplayStringHead</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
-<span class="w">        </span><span class="n">SetGlobal</span><span class="p">(</span><span class="s2">&quot;var&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Rest</span><span class="p">()</span>
+<span class="w">        </span><span class="sr">//</span><span class="c1"># …</span>
 <span class="no">END</span>
 </pre></div>
 </div>
-</section>
-<section id="pourquoi-ca-marche">
-<h2>Pourquoi ça marche ?<a class="headerlink" href="#pourquoi-ca-marche" title="Lien vers cette rubrique">#</a></h2>
-<p>Mixer des méthodes qui jouent avec des variables et des timers peut être déroutant au premier abord.<br />
-Il faut savoir que les timers ne sont rien d’autre que des variables.</p>
+<p>Cela restaure les sorts et les capacités d’équipement, cela peut soigner.<br />
+On peut compléter en réinitialisant manuellement les variables de combat (utilisation d’objets, déclencheurs…).</p>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-1">
+Avec soin</label><div class="sd-tab-content docutils">
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Global(&quot;var&quot;,</span> <span class="pre">&quot;LOCALS&quot;,</span> <span class="pre">0)</span></code> nous permet de savoir que la variable :</p>
-<ul>
-<li><p>n’existe pas</p></li>
-<li><p>ou vaut 0</p></li>
+<li><p>✅ Soin des blessures</p></li>
+<li><p>✅ Remémorisation des sorts et rechargement des objets</p></li>
+<li><p>❌ Réinitialisation des variables de combat</p></li>
+<li><p>✅ Conservation des variables hors combat</p></li>
+<li><p>❌ Complétion du stock d’objets</p></li>
+<li><p>✅ Solution générique</p></li>
 </ul>
-</li>
-<li><p><code class="docutils literal notranslate"><span class="pre">!GlobalTimerExpired</span></code> nous permet de savoir que la variable :</p>
-<ul>
-<li><p>n’existe pas</p></li>
-<li><p>ou que sa valeur est supérieure au temps du jeu</p></li>
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
+<span class="w">    </span><span class="sr">//</span><span class="c1"># …</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
+<span class="w">        </span><span class="n">ApplySpell</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">RESTORE_FULL_HEALTH</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Rest</span><span class="p">()</span>
+<span class="w">        </span><span class="sr">//</span><span class="c1"># …</span>
+<span class="no">END</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">RESTORE_FULL_HEALTH</span></code> rend toute la santé, soigne du poison, de la maladie et de la débilité mentale.</p>
+</div>
+<input id="sd-tab-item-2" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-2">
+Totale</label><div class="sd-tab-content docutils">
+<ul class="simple">
+<li><p>✅ Soin des blessures</p></li>
+<li><p>✅ Remémorisation des sorts et rechargement des objets</p></li>
+<li><p>✅ Réinitialisation des variables de combat</p></li>
+<li><p>❌ Conservation des variables hors combat</p></li>
+<li><p>✅ Complétion du stock d’objets</p></li>
+<li><p>❌ Solution générique</p></li>
 </ul>
-</li>
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
+<span class="w">    </span><span class="o">!</span><span class="n">InParty</span><span class="p">(</span><span class="n">Myself</span><span class="p">)</span>
+<span class="w">    </span><span class="sr">//</span><span class="c1"># …</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
+<span class="w">        </span><span class="n">ChangeAnimationNoEffect</span><span class="p">(</span><span class="s2">&quot;TODO&quot;</span><span class="p">)</span>
+<span class="no">END</span>
+</pre></div>
+</div>
+<p>⚠️ À utiliser en connaissance de cause.<br />
+Cette méthode permet de réinitialiser totalement le personnage en une seule ligne.<br />
+C’est notamment pratique pour ne pas oublier des variables ou objets, notamment ceux ajoutés/modifiés par les autres mods.</p>
+<p>Elle a deux impacts majeurs :</p>
+<ul class="simple">
+<li><p>le script doit être spécifique à une animation de créature ou gérer unitairement les différents cas</p></li>
+<li><p>On perd les variables sans rapport avec le combat, <code class="docutils literal notranslate"><span class="pre">NumTimesTalkedTo</span></code>, les objets volés ou donnés sont restaurés…</p></li>
 </ul>
-<p>Comme la variable ne peut valoir 0 et être supérieure au temps de jeu, alors, la seule raison pour que le bloc s’exécute, c’est que la variable n’existe pas.<br />
-Et comme <code class="docutils literal notranslate"><span class="pre">SetGlobal(&quot;var&quot;,</span> <span class="pre">&quot;LOCALS&quot;,</span> <span class="pre">0)</span></code> la créé, alors le bloc ne s’éxécute qu’une fois.</p>
+</div>
+</div>
+</section>
+<section id="methodologies-de-repos">
+<h2>Méthodologies de repos<a class="headerlink" href="#methodologies-de-repos" title="Lien vers cette rubrique">#</a></h2>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-3">
+Simple</label><div class="sd-tab-content docutils">
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
+<span class="w">    </span><span class="o">!</span><span class="n">ActuallyInCombat</span><span class="p">()</span>
+<span class="w">    </span><span class="o">!</span><span class="n">InParty</span><span class="p">(</span><span class="n">Myself</span><span class="p">)</span>
+<span class="w">    </span><span class="n">OnCreation</span><span class="p">()</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
+<span class="w">        </span><span class="sr">//</span><span class="w"> </span><span class="ss">TODO</span><span class="p">:</span><span class="w"> </span><span class="n">méthode</span><span class="w"> </span><span class="n">choisie</span>
+<span class="w">        </span><span class="n">Continue</span><span class="p">()</span>
+<span class="no">END</span>
+</pre></div>
+</div>
+<p>Solution en un seul bloc sans timer ni variable.<br />
+Le personnage est reposé à chaque rechargement de la zone où il est présent.</p>
+</div>
+<input id="sd-tab-item-4" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-4">
+Avec timer</label><div class="sd-tab-content docutils">
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="sr">//</span><span class="w"> </span><span class="n">Initialisation</span>
+<span class="no">IF</span>
+<span class="w">    </span><span class="n">OnCreation</span><span class="p">()</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BCS_NeedResting&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
+<span class="w">        </span><span class="n">SetGlobalTimer</span><span class="p">(</span><span class="s2">&quot;BCS_NeedResting&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="no">EIGHT_HOURS</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Continue</span><span class="p">()</span>
+<span class="no">END</span>
+
+<span class="no">IF</span>
+<span class="w">    </span><span class="o">!</span><span class="n">ActuallyInCombat</span><span class="p">()</span>
+<span class="w">    </span><span class="o">!</span><span class="n">InParty</span><span class="p">(</span><span class="n">Myself</span><span class="p">)</span>
+<span class="w">    </span><span class="n">GlobalTimerExpired</span><span class="p">(</span><span class="s2">&quot;BCS_NeedResting&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">)</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
+<span class="w">        </span><span class="n">SetGlobalTimer</span><span class="p">(</span><span class="s2">&quot;BCS_NeedResting&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="no">EIGHT_HOURS</span><span class="p">)</span>
+<span class="w">        </span><span class="sr">//</span><span class="w"> </span><span class="ss">TODO</span><span class="p">:</span><span class="w"> </span><span class="n">méthode</span><span class="w"> </span><span class="n">choisie</span>
+<span class="no">END</span>
+</pre></div>
+</div>
+<p>Le personnage se repose toutes les 8 heures (hors combat).<br />
+Indépendamment du fait que le groupe se soit reposé ou non.</p>
+</div>
+<input id="sd-tab-item-5" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-5">
+PartyRested</label><div class="sd-tab-content docutils">
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="sr">//</span><span class="w"> </span><span class="n">Baldur</span><span class="o">.</span><span class="n">bcs</span>
+<span class="no">IF</span>
+<span class="w">    </span><span class="n">PartyRested</span><span class="p">()</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
+<span class="w">        </span><span class="n">IncrementGlobal</span><span class="p">(</span><span class="s2">&quot;BCS_PARTY_REST_COUNT&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Continue</span><span class="p">()</span>
+<span class="no">END</span>
+<span class="sr">//</span>
+
+<span class="sr">//</span><span class="w"> </span><span class="n">Script</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">la</span><span class="w"> </span><span class="n">créature</span>
+<span class="sr">//</span><span class="w"> </span><span class="n">variables</span><span class="w"> </span><span class="n">non</span><span class="w"> </span><span class="n">synchronisées</span><span class="p">,</span><span class="w"> </span><span class="n">initialisation</span><span class="w"> </span><span class="n">ou</span><span class="w"> </span><span class="n">membre</span><span class="w"> </span><span class="n">du</span><span class="w"> </span><span class="ss">groupe</span><span class="p">:</span><span class="w"> </span><span class="n">pas</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">repos</span><span class="w"> </span><span class="n">et</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">synchronise</span><span class="w"> </span><span class="n">les</span><span class="w"> </span><span class="n">variables</span>
+<span class="no">IF</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BCS_%NAME%_REST_COUNT&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">        </span><span class="n">InParty</span><span class="p">(</span><span class="n">Myself</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">GlobalsEqual</span><span class="p">(</span><span class="s2">&quot;BCS_%NAME%_REST_COUNT&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;BCS_PARTY_REST_COUNT&quot;</span><span class="p">)</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
+<span class="w">        </span><span class="n">SetGlobal</span><span class="p">(</span><span class="s2">&quot;BCS_%NAME%_REST_COUNT&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">        </span><span class="n">SmallWait</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="w">        </span><span class="n">AddGlobals</span><span class="p">(</span><span class="s2">&quot;BCS_%NAME%_REST_COUNT&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;BCS_PARTY_REST_COUNT&quot;</span><span class="p">)</span>
+<span class="no">END</span>
+
+<span class="no">IF</span>
+<span class="w">    </span><span class="o">!</span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BCS_%NAME%_REST_COUNT&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">GlobalsEqual</span><span class="p">(</span><span class="s2">&quot;BCS_%NAME%_REST_COUNT&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;BCS_PARTY_REST_COUNT&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">InParty</span><span class="p">(</span><span class="n">Myself</span><span class="p">)</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
+<span class="w">        </span><span class="n">SetGlobal</span><span class="p">(</span><span class="s2">&quot;BCS_%NAME%_REST_COUNT&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">        </span><span class="sr">//</span><span class="w"> </span><span class="ss">TODO</span><span class="p">:</span><span class="w"> </span><span class="n">méthode</span><span class="w"> </span><span class="n">choisie</span>
+<span class="w">        </span><span class="n">AddGlobals</span><span class="p">(</span><span class="s2">&quot;BCS_%NAME%_REST_COUNT&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;BCS_PARTY_REST_COUNT&quot;</span><span class="p">)</span>
+<span class="no">END</span>
+</pre></div>
+</div>
+<p>Si on veut vraiment faire corréler le repos des créatures avec le repos du groupe.<br />
+Beaucoup plus contraignant.<br />
+On ruse avec l’utilisation de GLOBAL qui s’incrémente à chaque repos du groupe.<br />
+Fonctionnel pour un script spécifique à un personnage ou couplé avec WeiDU (si nom unique).</p>
+</div>
+</div>
+</section>
+<section id="informations">
+<h2>Informations<a class="headerlink" href="#informations" title="Lien vers cette rubrique">#</a></h2>
+<ul class="simple">
+<li><p>PartyRested() n’est pas capté par les personnages hors du groupe</p></li>
+</ul>
 </section>
 </section>
 
@@ -520,20 +640,20 @@ Et comme <code class="docutils literal notranslate"><span class="pre">SetGlobal(
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="signal.html"
+       href="canturn.html"
        title="page précédente">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">précédent</p>
-        <p class="prev-next-title">✔️ Signaux génériques</p>
+        <p class="prev-next-title">✔️ Can Turn</p>
       </div>
     </a>
     <a class="right-next"
-       href="backstab.html"
+       href="signal.html"
        title="page suivante">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">suivant</p>
-        <p class="prev-next-title">⚠️ Réaliser une attaque sournoise</p>
+        <p class="prev-next-title">✔️ Signaux génériques</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -553,8 +673,9 @@ Et comme <code class="docutils literal notranslate"><span class="pre">SetGlobal(
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple">Exemple</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pourquoi-ca-marche">Pourquoi ça marche ?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quelles-consequences-au-repos">Quelles conséquences au repos ?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methodologies-de-repos">Méthodologies de repos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#informations">Informations</a></li>
 </ul>
   </nav></div>
 

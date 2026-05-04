@@ -8,8 +8,8 @@ Ce snippet permet de différencier ces deux cas.\
 C'est notamment utile pour tester les variables de la version vanilla que l'on ne peut pas modifier ou celles des autres mods sur lesquelles on a pas la main.
 
 
-## GlobalExists
-
+`````{tab-set}
+````{tab-item} GlobalExists
 ```cr
 IF
     OR(2)
@@ -17,17 +17,16 @@ IF
         GlobalTimerExpired("var", "GLOBAL")
 THEN
 ```
-
-
-## GlobalNotExists
-
+````
+````{tab-item} !GlobalExists
 ```cr
 IF
     Global("var", "GLOBAL", 0)
     !GlobalTimerExpired("var", "GLOBAL")
 THEN
 ```
-
+````
+`````
 
 
 ## Exemple

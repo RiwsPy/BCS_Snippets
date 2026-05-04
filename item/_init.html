@@ -191,6 +191,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../snippet/canpickpocket.html">✔️ Can PickPocket</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../snippet/canhide.html">✔️ Can Hide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../snippet/canturn.html">✔️ Can Turn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../snippet/cansleep.html">✔️ Enemies can Rest</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../snippet/signal.html">✔️ Signaux génériques</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../snippet/globalexists.html">✔️ GlobalExists</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../snippet/backstab.html">⚠️ Réaliser une attaque sournoise</a></li>
@@ -614,7 +615,7 @@ Puis, après un repos du groupe, les compteurs sont remis à 0.</p>
 <span class="no">THEN</span>
 <span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#100</span>
 <span class="w">        </span><span class="n">UseItem</span><span class="p">(</span><span class="s2">&quot;ITEM_FILENAME&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Myself</span><span class="p">)</span>
-<span class="w">        </span><span class="n">IncGlobal</span><span class="p">(</span><span class="s2">&quot;ITEM_FILENAME&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">        </span><span class="n">IncrementGlobal</span><span class="p">(</span><span class="s2">&quot;ITEM_FILENAME&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
 <span class="no">END</span>
 </pre></div>
 </div>
@@ -647,7 +648,7 @@ Cela impliquerait de remplacer les <code class="docutils literal notranslate"><s
 <section id="unusable-le-blocage-par-l-apprentissage">
 <h4>Unusable, le blocage par l’apprentissage<a class="headerlink" href="#unusable-le-blocage-par-l-apprentissage" title="Lien vers cette rubrique">#</a></h4>
 <p>Le trigger <code class="docutils literal notranslate"><span class="pre">Unusable</span></code> nous apporte une information utile ici.<br />
-Une fois l’objet déchargé, ce trigger vaut vrai lors du passage de script suivant. Cela est intéressant si couplé avec le timer <code class="docutils literal notranslate"><span class="pre">BD_Cast</span></code>.</p>
+Une fois l’objet déchargé, ce trigger vaut vrai lors du cycle de script suivant. Cela est intéressant si couplé avec le timer <code class="docutils literal notranslate"><span class="pre">BD_Cast</span></code>.</p>
 <div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
 <span class="w">    </span><span class="n">PartyRested</span><span class="p">()</span>
 <span class="no">THEN</span>
@@ -854,7 +855,7 @@ Par rivvers
 
   <p class="copyright">
     
-      © Copyright 2025.
+      © Copyright 2026.
       <br/>
     
   </p>

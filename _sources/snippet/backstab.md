@@ -210,10 +210,10 @@ END
 
 ```
 
-En cas de positionnement, deux passages de scripts sont requis. Le premier permet de se positionner, le second d'attaquer.\
+En cas de positionnement, deux cycles de script sont requis. Le premier permet de se positionner, le second d'attaquer.\
 Le `FollowObjectFormation` permet de se positionner derrière le personnage mais l'action n'a pas de limite de durée.\
-La créature va donc "Follow" jusqu'au prochain passage de script, attention car `ActionListEmpty()` vaudra faux.\
-Pendant ce second passage, le trigger 32 permet de savoir que le personnage devrait être placé derrière sa cible. Nous attaquons la cible compatible la plus proche, sans certitude qu'il s'agisse de la même cible.\
+La créature va donc "Follow" jusqu'au prochain cycle de script, attention car `ActionListEmpty()` vaudra faux.\
+Pendant ce second cycle, le trigger 32 permet de savoir que le personnage devrait être placé derrière sa cible. Nous attaquons la cible compatible la plus proche, sans certitude qu'il s'agisse de la même cible.\
 Le trigger peut être remplacé par une variable LOCALS.
 
 ````
