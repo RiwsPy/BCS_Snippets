@@ -1,3 +1,9 @@
+---
+myst:
+  substitutions:
+    TARGET: LastSeenBy(Myself)
+---
+
 # ⚠️ Finir un troll à distance
 
 Certains mods proposent de s'équiper de munitions pour "terminer" les trolls tombés au sol.
@@ -31,6 +37,10 @@ Enfin, les trolls peuvent avoir des résistances élémentaires variables, il co
 ````{tab-item} Avec switch
 ```cr
 IF
+    ActionListEmpty()
+    Global("BDAI_DISABLE_ATTACK", "LOCALS", 0)
+    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
+    CheckStat(Myself, 0, CASTERHOLD)
     CanEquipRanged()
     HasItemCategory(Myself, BOW, FALSE)
     HasItemEquiped("AROW04", Myself)
@@ -52,6 +62,10 @@ La plus permissive des solutions : on peut switcher d'arme et de munitions.\
 ````{tab-item} Switch de munition
 ```cr
 IF
+    ActionListEmpty()
+    Global("BDAI_DISABLE_ATTACK", "LOCALS", 0)
+    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
+    CheckStat(Myself, 0, CASTERHOLD)
     HasItemCategory(Myself, BOW, TRUE)
     HasItemEquiped("AROW04", Myself)
     See(NearestEnemyOfType([0.0.TROLL]))
@@ -70,6 +84,10 @@ On ne switch pas d'arme, les conditions réclament qu'un arc soit réellement é
 ````{tab-item} Sans switch
 ```cr
 IF
+    ActionListEmpty()
+    Global("BDAI_DISABLE_ATTACK", "LOCALS", 0)
+    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
+    CheckStat(Myself, 0, CASTERHOLD)
     CurrentAmmo("AROW04", Myself)
     See(NearestEnemyOfType([0.0.TROLL]))
     CheckStatLT(LastSeenBy(Myself), 1, MINHITPOINTS)
@@ -89,6 +107,10 @@ Mais quelle est la probabilité que cela se produise ?
 ````{tab-item} Sans switch 2
 ```cr
 IF
+    ActionListEmpty()
+    Global("BDAI_DISABLE_ATTACK", "LOCALS", 0)
+    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
+    CheckStat(Myself, 0, CASTERHOLD)
     OR(4)
         CurrentAmmo("AROW06", Myself)
         CurrentAmmo("AROW08", Myself)
@@ -111,6 +133,10 @@ Comme la précédente mais on profite de la simplification des actions : on peut
 ```cr
 IF
     Detect(Myself)
+    ActionListEmpty()
+    Global("BDAI_DISABLE_ATTACK", "LOCALS", 0)
+    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
+    CheckStat(Myself, 0, CASTERHOLD)
     OR(4)
         CurrentAmmo("AROW06", Myself)
         CurrentAmmo("AROW08", Myself)

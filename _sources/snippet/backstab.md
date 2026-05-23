@@ -7,6 +7,10 @@ Dans le même temps, il cherche à gérer les sneak attacks.
 ````{tab-item} Base
 ```cr
 IF
+    ActionListEmpty()
+    Global("BDAI_DISABLE_ATTACK", "LOCALS", 0)
+    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
+    CheckStat(Myself, 0, CASTERHOLD)
 
     //# Dégâts bonus
     CheckStatGT(Myself, 1, BACKSTABDAMAGEMULTIPLIER)
@@ -60,6 +64,10 @@ D'autres contraintes moins fortes peuvent être ajoutées comme `!StateCheck(Las
 
 IF
     Detect(Myself)
+    ActionListEmpty()
+    Global("BDAI_DISABLE_ATTACK", "LOCALS", 0)
+    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
+    CheckStat(Myself, 0, CASTERHOLD)
 
     //# Dégâts bonus
     CheckStatGT(Myself, 1, BACKSTABDAMAGEMULTIPLIER)
