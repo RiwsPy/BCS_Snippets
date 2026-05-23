@@ -428,8 +428,6 @@ Dans le même temps, il cherche à gérer les sneak attacks.</p>
 <label class="sd-tab-label" for="sd-tab-item-0">
 Base</label><div class="sd-tab-content docutils">
 <div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
-<span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
-<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_DISABLE_ATTACK&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 
 <span class="w">    </span><span class="sr">//</span><span class="c1"># Dégâts bonus</span>
 <span class="w">    </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="no">BACKSTABDAMAGEMULTIPLIER</span><span class="p">)</span>
@@ -482,9 +480,7 @@ D’autres contraintes moins fortes peuvent être ajoutées comme <code class="d
 <label class="sd-tab-label" for="sd-tab-item-2">
 Bloc sans positionnement</label><div class="sd-tab-content docutils">
 <div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
-<span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
 <span class="w">    </span><span class="n">Detect</span><span class="p">(</span><span class="n">Myself</span><span class="p">)</span>
-<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_DISABLE_ATTACK&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 
 <span class="w">    </span><span class="sr">//</span><span class="c1"># Dégâts bonus</span>
 <span class="w">    </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="no">BACKSTABDAMAGEMULTIPLIER</span><span class="p">)</span>
@@ -523,7 +519,6 @@ Bloc sans positionnement</label><div class="sd-tab-content docutils">
 <span class="no">END</span>
 
 <span class="no">IF</span>
-<span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
 <span class="w">    </span><span class="o">!</span><span class="n">Range</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 <span class="no">THEN</span>
 <span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
@@ -542,6 +537,8 @@ Bloc avec positionnement</label><div class="sd-tab-content docutils">
 <span class="w">        </span><span class="n">Trigger</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
 <span class="w">    </span><span class="n">Detect</span><span class="p">(</span><span class="n">Myself</span><span class="p">)</span>
 <span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_DISABLE_ATTACK&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_SLEEPING</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_HELPLESS</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_REALLY_DEAD</span><span class="p">)</span>
+<span class="w">    </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CASTERHOLD</span><span class="p">)</span>
 
 <span class="w">    </span><span class="sr">//</span><span class="c1"># Dégâts bonus</span>
 <span class="w">    </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="no">BACKSTABDAMAGEMULTIPLIER</span><span class="p">)</span>

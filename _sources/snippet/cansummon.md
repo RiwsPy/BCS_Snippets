@@ -125,6 +125,7 @@ Une solaire doit posséder le genre `BOTH`.\
 
 Les snippets sont optimisés pour l'invocation d'une seule créature.
 
-⚠️ deux limites récurrentes :
+⚠️ plusieurs limites récurrentes :
 1. les créatures hors du champ de vision de l'invocateur ne sont pas prises en compte
 1. la limitation n'est pas dynamique, il est possible de modifier `SUMMLIMT.2da` et dans ce cas, le snippet sera inadapté
+1. l'EA `GOODCUTOFF` est trop large, il faudrait plutôt tester EA <= 15

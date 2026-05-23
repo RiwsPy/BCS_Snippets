@@ -6,8 +6,6 @@ Il s'agit d'une attaque de mêlée contre les personnages sans arme dans la main
 ````{tab-item} Classique
 ```cr
 IF
-    ActionListEmpty()
-    Global("BDAI_DISABLE_ATTACK", "LOCALS", 0)
     //# …
 
     //# je dois être équipé d'une arme de mêlée ou de mes poings si je suis Moine

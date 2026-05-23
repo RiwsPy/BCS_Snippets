@@ -31,8 +31,6 @@ Enfin, les trolls peuvent avoir des résistances élémentaires variables, il co
 ````{tab-item} Avec switch
 ```cr
 IF
-    ActionListEmpty()
-    Global("BDAI_DISABLE_ATTACK", "LOCALS", 0)
     CanEquipRanged()
     HasItemCategory(Myself, BOW, FALSE)
     HasItemEquiped("AROW04", Myself)
@@ -54,8 +52,6 @@ La plus permissive des solutions : on peut switcher d'arme et de munitions.\
 ````{tab-item} Switch de munition
 ```cr
 IF
-    ActionListEmpty()
-    Global("BDAI_DISABLE_ATTACK", "LOCALS", 0)
     HasItemCategory(Myself, BOW, TRUE)
     HasItemEquiped("AROW04", Myself)
     See(NearestEnemyOfType([0.0.TROLL]))
@@ -74,12 +70,11 @@ On ne switch pas d'arme, les conditions réclament qu'un arc soit réellement é
 ````{tab-item} Sans switch
 ```cr
 IF
-    ActionListEmpty()
-    Global("BDAI_DISABLE_ATTACK", "LOCALS", 0)
     CurrentAmmo("AROW04", Myself)
     See(NearestEnemyOfType([0.0.TROLL]))
     CheckStatLT(LastSeenBy(Myself), 1, MINHITPOINTS)
     CheckStatLT(LastSeenBy(Myself), 100, RESIST_ACID)
+    WeaponEffectiveVs(LastSeenBy(Myself), MAINHAND)
 THEN
     RESPONSE #1
         AttackOneRound(LastSeenBy(Myself))
@@ -87,14 +82,13 @@ END
 ```
 
 Ici le projectile est directement équipé, les vérifications sont donc plus simples et les actions aussi.\
+En bonus, on peut vérifier que l'arme actuelle est suffisamment enchantée.\
 Mais quelle est la probabilité que cela se produise ?
 ````
 
 ````{tab-item} Sans switch 2
 ```cr
 IF
-    ActionListEmpty()
-    Global("BDAI_DISABLE_ATTACK", "LOCALS", 0)
     OR(4)
         CurrentAmmo("AROW06", Myself)
         CurrentAmmo("AROW08", Myself)
@@ -103,6 +97,7 @@ IF
     See(NearestEnemyOfType([0.0.TROLL]))
     CheckStatLT(LastSeenBy(Myself), 1, MINHITPOINTS)
     CheckStatLT(LastSeenBy(Myself), 100, RESIST_FIRE)
+    WeaponEffectiveVs(LastSeenBy(Myself), MAINHAND)
 THEN
     RESPONSE #1
         AttackOneRound(LastSeenBy(Myself))
@@ -115,26 +110,27 @@ Comme la précédente mais on profite de la simplification des actions : on peut
 ````{tab-item} Sans switch 2 complète
 ```cr
 IF
-    ActionListEmpty()
     Detect(Myself)
-    Global("BDAI_DISABLE_ATTACK", "LOCALS", 0)
     OR(4)
         CurrentAmmo("AROW06", Myself)
         CurrentAmmo("AROW08", Myself)
         CurrentAmmo("BULL04", Myself)
         CheckItemSlot(Myself, "MELFMET", SLOT_MISC19)
-    OR(3)
+    OR(4)
         !See(NearestEnemyOfType([0.0.TROLL]))
         !CheckStatLT(LastSeenBy(Myself), 1, MINHITPOINTS)
         !CheckStatLT(LastSeenBy(Myself), 100, RESIST_FIRE)
-    OR(3)
+        !WeaponEffectiveVs(LastSeenBy(Myself), MAINHAND)
+    OR(4)
         !See(SecondNearestEnemyOfType([0.0.TROLL]))
         !CheckStatLT(LastSeenBy(Myself), 1, MINHITPOINTS)
         !CheckStatLT(LastSeenBy(Myself), 100, RESIST_FIRE)
-    OR(3)
+        !WeaponEffectiveVs(LastSeenBy(Myself), MAINHAND)
+    OR(4)
         !See(ThirdNearestEnemyOfType([0.0.TROLL]))
         !CheckStatLT(LastSeenBy(Myself), 1, MINHITPOINTS)
         !CheckStatLT(LastSeenBy(Myself), 100, RESIST_FIRE)
+        !WeaponEffectiveVs(LastSeenBy(Myself), MAINHAND)
     Detect(Myself)
     False()
 THEN
@@ -142,7 +138,6 @@ THEN
 END
 
 IF
-    ActionListEmpty()
     !Range(LastSeenBy(Myself), 0)
 THEN
     RESPONSE #1

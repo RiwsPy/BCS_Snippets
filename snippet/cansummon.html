@@ -527,10 +527,11 @@ Excepté qu’une seule solaire peut-être présente à la fois.</p>
 </div>
 </div>
 <p>Les snippets sont optimisés pour l’invocation d’une seule créature.</p>
-<p>⚠️ deux limites récurrentes :</p>
+<p>⚠️ plusieurs limites récurrentes :</p>
 <ol class="arabic simple">
 <li><p>les créatures hors du champ de vision de l’invocateur ne sont pas prises en compte</p></li>
 <li><p>la limitation n’est pas dynamique, il est possible de modifier <code class="docutils literal notranslate"><span class="pre">SUMMLIMT.2da</span></code> et dans ce cas, le snippet sera inadapté</p></li>
+<li><p>l’EA <code class="docutils literal notranslate"><span class="pre">GOODCUTOFF</span></code> est trop large, il faudrait plutôt tester EA &lt;= 15</p></li>
 </ol>
 </section>
 

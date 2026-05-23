@@ -148,7 +148,7 @@ Il convient donc de le privilégier pour les non-membres du groupe.
 Mais il arrive que des objets possèdent plusieurs charges et que le fait de posséder l'objet ne suffise pas à savoir s'il est utilisable ou non. Cela arrive fréquemment avec les objets équipés.
 
 Malheureusement, il n'existe pas de solution pour connaître le nombre de charges restantes d'un objet.\
-Les moddeurs procèdent alors à l'inverse : ils comptent le nombre de charge utilisée.\
+Les moddeurs procèdent alors à l'inverse : ils comptent le nombre de charges utilisées.\
 Puis, après un repos du groupe, les compteurs sont remis à 0.
 
 ```cr
