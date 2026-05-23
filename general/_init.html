@@ -192,6 +192,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../snippet/canhide.html">✔️ Can Hide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../snippet/canturn.html">✔️ Can Turn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../snippet/cansleep.html">✔️ Enemies can Rest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../snippet/modal_swap.html">✔️ Modal swap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../snippet/signal.html">✔️ Signaux génériques</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../snippet/globalexists.html">✔️ GlobalExists</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../snippet/backstab.html">⚠️ Réaliser une attaque sournoise</a></li>
@@ -410,6 +411,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#realises-en-cours">Réalisés / En cours</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#combat">Combat</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modales">Modales</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sorts">Sorts</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objets">Objets</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generalites">Généralités</a></li>
 </ul>
@@ -440,6 +442,7 @@ document.write(`
 </li>
 <li><p><a class="reference internal" href="../snippet/backstab.html"><span class="doc std std-doc">Réaliser une attaque sournoise contre une créature</span></a></p></li>
 <li><p><a class="reference internal" href="../snippet/troll_ammo.html"><span class="doc std std-doc">Achever les trolls au sol</span></a></p></li>
+<li><p><a class="reference internal" href="../snippet/cansummon.html"><span class="doc std std-doc">Invoquer une créature</span></a></p></li>
 </ul>
 </section>
 <section id="modales">
@@ -449,6 +452,15 @@ document.write(`
 <li><p><a class="reference internal" href="../snippet/canpickpocket.html"><span class="doc std std-doc">Vol à la tire</span></a></p></li>
 <li><p><a class="reference internal" href="../snippet/canhide.html"><span class="doc std std-doc">Camouflage</span></a></p></li>
 <li><p><a class="reference internal" href="../snippet/canturn.html"><span class="doc std std-doc">Repoussement des morts-vivants</span></a></p></li>
+<li><p><a class="reference internal" href="../snippet/modal_swap.html"><span class="doc std std-doc">Switcher de modale</span></a></p></li>
+</ul>
+</section>
+<section id="sorts">
+<h3>Sorts<a class="headerlink" href="#sorts" title="Lien vers cette rubrique">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="../spell/massraise.html"><span class="doc std std-doc">Resurrection de masse</span></a></p></li>
+<li><p><a class="reference internal" href="../spell/remove_paralysis.html"><span class="doc std std-doc">Dissipation de la paralysie</span></a></p></li>
+<li><p><a class="reference internal" href="../spell/stoneskin.html"><span class="doc std std-doc">Peau de pierre</span></a></p></li>
 </ul>
 </section>
 <section id="objets">
@@ -517,6 +529,11 @@ document.write(`
 <li><p>Création et gestion des 7èmes membres du groupe (et alternatives aux actions/trigger Party)</p></li>
 <li><p>Attaque groupée</p></li>
 <li><p>Déplacement en groupe</p></li>
+<li><p>Délivrer d’une malédiction</p></li>
+<li><p>Les humanoïdes peuvent ouvrir des portes</p></li>
+<li><p>Les ennemis récupèrent leurs capacités lorsque le groupe dort</p></li>
+<li><p>Savoir si un adversaire peut me toucher avec son arme</p></li>
+<li><p>Auto-retranscription d’un sort</p></li>
 </ul>
 <p>D’une manière générale, gérer :</p>
 <ul class="simple">
@@ -595,6 +612,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#realises-en-cours">Réalisés / En cours</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#combat">Combat</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modales">Modales</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sorts">Sorts</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objets">Objets</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generalites">Généralités</a></li>
 </ul>

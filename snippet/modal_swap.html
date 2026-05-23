@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>✔️ GlobalExists &#8212; BCS Snippets</title>
+    <title>✔️ Modal swap &#8212; BCS Snippets</title>
   
   
   
@@ -58,12 +58,12 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'snippet/globalexists';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'snippet/modal_swap';</script>
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
-    <link rel="next" title="⚠️ Réaliser une attaque sournoise" href="backstab.html" />
-    <link rel="prev" title="✔️ Signaux génériques" href="signal.html" />
+    <link rel="next" title="✔️ Signaux génériques" href="signal.html" />
+    <link rel="prev" title="✔️ Enemies can Rest" href="cansleep.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="fr"/>
   </head>
@@ -192,9 +192,9 @@
 <li class="toctree-l1"><a class="reference internal" href="canhide.html">✔️ Can Hide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="canturn.html">✔️ Can Turn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cansleep.html">✔️ Enemies can Rest</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modal_swap.html">✔️ Modal swap</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">✔️ Modal swap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="signal.html">✔️ Signaux génériques</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">✔️ GlobalExists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="globalexists.html">✔️ GlobalExists</a></li>
 <li class="toctree-l1"><a class="reference internal" href="backstab.html">⚠️ Réaliser une attaque sournoise</a></li>
 <li class="toctree-l1"><a class="reference internal" href="opportunityattack.html">✔️ Réaliser une attaque d’opportunité</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cansummon.html">⚠️ Can Summon Creature</a></li>
@@ -284,7 +284,7 @@
       
       
       
-      <li><a href="https://github.com/RiwsPy/BCS_Snippets/issues/new?title=Issue%20on%20page%20%2Fsnippet/globalexists.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/RiwsPy/BCS_Snippets/issues/new?title=Issue%20on%20page%20%2Fsnippet/modal_swap.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Ouvrez un problème"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -314,7 +314,7 @@
       
       
       
-      <li><a href="../_sources/snippet/globalexists.md" target="_blank"
+      <li><a href="../_sources/snippet/modal_swap.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Télécharger le fichier source"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -385,9 +385,7 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -398,20 +396,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>✔️ GlobalExists</h1>
+    <h1>✔️ Modal swap</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contenu </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple">Exemple</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pourquoi-ca-marche">Pourquoi ça marche ?</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -421,73 +410,91 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="globalexists">
-<h1>✔️ GlobalExists<a class="headerlink" href="#globalexists" title="Lien vers cette rubrique">#</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">Global(&quot;var&quot;,</span> <span class="pre">&quot;X&quot;,</span> <span class="pre">0)</span></code> vaut vrai dans deux cas :</p>
-<ol class="arabic simple">
-<li><p>la variable vaut 0</p></li>
-<li><p>la variable n’est pas définie</p></li>
-</ol>
-<p>Ce snippet permet de différencier ces deux cas.<br />
-C’est notamment utile pour tester les variables de la version vanilla que l’on ne peut pas modifier ou celles des autres mods sur lesquelles on a pas la main.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="modal-swap">
+<h1>✔️ Modal swap<a class="headerlink" href="#modal-swap" title="Lien vers cette rubrique">#</a></h1>
+<p>Il est agréable de configurer une touche pour changer de modale active d’un personnage.<br />
+Passer du mode <code class="docutils literal notranslate"><span class="pre">détection</span> <span class="pre">des</span> <span class="pre">pièges</span></code> à <code class="docutils literal notranslate"><span class="pre">furtivité</span></code> par exemple.</p>
+<p>Ici, on réutilise les variables du script générique <code class="docutils literal notranslate"><span class="pre">bddefai</span></code>.<br />
+De plus, on regarde les maîtrises du personnage pour savoir s’il possède des points dans la compétence et on vérifie également que le bouton correspondant est bien actif.</p>
+<p>La vérification du bouton est plus dynamique que la vérification des kits pour bloquer l’accès à une modale car cela fonctionne également pour les kits (et objets) ajoutés ou modifiés par des mods.</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" for="sd-tab-item-0">
-GlobalExists</label><div class="sd-tab-content docutils">
+Basique</label><div class="sd-tab-content docutils">
 <div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
+<span class="w">    </span><span class="n">HotKey</span><span class="p">(</span><span class="s2">&quot;X&quot;</span><span class="p">)</span>
 <span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="w">        </span><span class="o">!</span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;var&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="w">        </span><span class="n">GlobalTimerExpired</span><span class="p">(</span><span class="s2">&quot;var&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;GLOBAL&quot;</span><span class="p">)</span>
-<span class="no">THEN</span>
-</pre></div>
-</div>
-</div>
-<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
-<label class="sd-tab-label" for="sd-tab-item-1">
-!GlobalExists</label><div class="sd-tab-content docutils">
-<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
-<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;var&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;GLOBAL&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="w">    </span><span class="o">!</span><span class="n">GlobalTimerExpired</span><span class="p">(</span><span class="s2">&quot;var&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;GLOBAL&quot;</span><span class="p">)</span>
-<span class="no">THEN</span>
-</pre></div>
-</div>
-</div>
-</div>
-<section id="exemple">
-<h2>Exemple<a class="headerlink" href="#exemple" title="Lien vers cette rubrique">#</a></h2>
-<p>La string ne s’affichera qu’une seule fois :</p>
-<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
-<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;var&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="w">    </span><span class="o">!</span><span class="n">GlobalTimerExpired</span><span class="p">(</span><span class="s2">&quot;var&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="n">GlobalLT</span><span class="p">(</span><span class="s2">&quot;BDAI_SKILL_MODE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">        </span><span class="n">GlobalGT</span><span class="p">(</span><span class="s2">&quot;BDAI_SKILL_MODE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Class</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">THIEF_ALL</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Class</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">MONK</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Class</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">SHAMAN</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">TRAPS</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">DETECTILLUSIONS</span><span class="p">)</span>
 <span class="no">THEN</span>
 <span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
-<span class="w">        </span><span class="n">DisplayStringHead</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
-<span class="w">        </span><span class="n">SetGlobal</span><span class="p">(</span><span class="s2">&quot;var&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">        </span><span class="n">SetGlobal</span><span class="p">(</span><span class="s2">&quot;BDAI_SKILL_MODE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="no">END</span>
+
+<span class="no">IF</span>
+<span class="w">    </span><span class="n">HotKey</span><span class="p">(</span><span class="s2">&quot;X&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="n">GlobalLT</span><span class="p">(</span><span class="s2">&quot;BDAI_SKILL_MODE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="n">GlobalGT</span><span class="p">(</span><span class="s2">&quot;BDAI_SKILL_MODE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="no">BUTTON_STEALTH</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Class</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">THIEF_ALL</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Class</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">RANGER_ALL</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Class</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">MONK</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">HIDEINSHADOWS</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">STEALTH</span><span class="p">)</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
+<span class="w">        </span><span class="n">SetGlobal</span><span class="p">(</span><span class="s2">&quot;BDAI_SKILL_MODE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+<span class="no">END</span>
+
+<span class="no">IF</span>
+<span class="w">    </span><span class="n">HotKey</span><span class="p">(</span><span class="s2">&quot;X&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="n">GlobalLT</span><span class="p">(</span><span class="s2">&quot;BDAI_SKILL_MODE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
+<span class="w">        </span><span class="n">GlobalGT</span><span class="p">(</span><span class="s2">&quot;BDAI_SKILL_MODE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="no">BUTTON_BATTLESONG</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Class</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">BARD_ALL</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Class</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">SHAMAN</span><span class="p">)</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
+<span class="w">        </span><span class="n">SetGlobal</span><span class="p">(</span><span class="s2">&quot;BDAI_SKILL_MODE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
+<span class="no">END</span>
+
+<span class="no">IF</span>
+<span class="w">    </span><span class="n">HotKey</span><span class="p">(</span><span class="s2">&quot;X&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_SKILL_MODE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="no">BUTTON_TURNUNDEAD</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Class</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">CLERIC_ALL</span><span class="p">)</span>
+<span class="w">        </span><span class="n">Class</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">PALADIN_ALL</span><span class="p">)</span>
+<span class="w">    </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">TURNUNDEADLEVEL</span><span class="p">)</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
+<span class="w">        </span><span class="n">SetGlobal</span><span class="p">(</span><span class="s2">&quot;BDAI_SKILL_MODE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span>
+<span class="no">END</span>
+
+<span class="no">IF</span>
+<span class="w">    </span><span class="n">HotKey</span><span class="p">(</span><span class="s2">&quot;X&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_SKILL_MODE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="no">THEN</span>
+<span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#1</span>
+<span class="w">        </span><span class="n">SetGlobal</span><span class="p">(</span><span class="s2">&quot;BDAI_SKILL_MODE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 <span class="no">END</span>
 </pre></div>
 </div>
-</section>
-<section id="pourquoi-ca-marche">
-<h2>Pourquoi ça marche ?<a class="headerlink" href="#pourquoi-ca-marche" title="Lien vers cette rubrique">#</a></h2>
-<p>Mixer des méthodes qui jouent avec des variables et des timers peut être déroutant au premier abord.<br />
-Il faut savoir que les timers ne sont rien d’autre que des variables.</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Global(&quot;var&quot;,</span> <span class="pre">&quot;LOCALS&quot;,</span> <span class="pre">0)</span></code> nous permet de savoir que la variable :</p>
-<ul>
-<li><p>n’existe pas</p></li>
-<li><p>ou vaut 0</p></li>
-</ul>
-</li>
-<li><p><code class="docutils literal notranslate"><span class="pre">!GlobalTimerExpired</span></code> nous permet de savoir que la variable :</p>
-<ul>
-<li><p>n’existe pas</p></li>
-<li><p>ou que sa valeur est supérieure au temps du jeu</p></li>
-</ul>
-</li>
-</ul>
-<p>Comme la variable ne peut valoir 0 et être supérieure au temps de jeu, alors, la seule raison pour que le bloc s’exécute, c’est que la variable n’existe pas.<br />
-Et comme <code class="docutils literal notranslate"><span class="pre">SetGlobal(&quot;var&quot;,</span> <span class="pre">&quot;LOCALS&quot;,</span> <span class="pre">0)</span></code> la créé, alors le bloc ne s’éxécute qu’une fois.</p>
-</section>
+</div>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -521,20 +528,20 @@ Et comme <code class="docutils literal notranslate"><span class="pre">SetGlobal(
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="signal.html"
+       href="cansleep.html"
        title="page précédente">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">précédent</p>
-        <p class="prev-next-title">✔️ Signaux génériques</p>
+        <p class="prev-next-title">✔️ Enemies can Rest</p>
       </div>
     </a>
     <a class="right-next"
-       href="backstab.html"
+       href="signal.html"
        title="page suivante">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">suivant</p>
-        <p class="prev-next-title">⚠️ Réaliser une attaque sournoise</p>
+        <p class="prev-next-title">✔️ Signaux génériques</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -544,22 +551,6 @@ Et comme <code class="docutils literal notranslate"><span class="pre">SetGlobal(
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contenu
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple">Exemple</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pourquoi-ca-marche">Pourquoi ça marche ?</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>

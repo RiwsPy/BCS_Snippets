@@ -7,12 +7,20 @@
   - Un bonus de +4 au dégâts et au toucher
 - [Réaliser une attaque sournoise contre une créature](/snippet/backstab)
 - [Achever les trolls au sol](/snippet/troll_ammo)
+- [Invoquer une créature](/snippet/cansummon)
 
 ### Modales
 - [Dialogue](/snippet/candialog)
 - [Vol à la tire](/snippet/canpickpocket)
 - [Camouflage](/snippet/canhide)
 - [Repoussement des morts-vivants](/snippet/canturn)
+- [Switcher de modale](/snippet/modal_swap)
+
+
+### Sorts
+- [Resurrection de masse](/spell/massraise)
+- [Dissipation de la paralysie](/spell/remove_paralysis)
+- [Peau de pierre](/spell/stoneskin)
 
 ### Objets
 - [Huile de rapidité](/item/potion_haste)
@@ -71,6 +79,11 @@
 * Création et gestion des 7èmes membres du groupe (et alternatives aux actions/trigger Party)
 * Attaque groupée
 * Déplacement en groupe
+* Délivrer d'une malédiction
+* Les humanoïdes peuvent ouvrir des portes
+* Les ennemis récupèrent leurs capacités lorsque le groupe dort
+* Savoir si un adversaire peut me toucher avec son arme
+* Auto-retranscription d'un sort
 
 D'une manière générale, gérer :
 - les sorts particuliers
