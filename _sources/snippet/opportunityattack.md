@@ -10,6 +10,7 @@ IF
     Global("BDAI_DISABLE_ATTACK", "LOCALS", 0)
     !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
     CheckStat(Myself, 0, CASTERHOLD)
+    !CheckStat(Myself, 2, ENCUMBERANCE)
     //# …
 
     //# je dois être équipé d'une arme de mêlée ou de mes poings si je suis Moine

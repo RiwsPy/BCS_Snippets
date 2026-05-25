@@ -68,6 +68,7 @@ IF
     Global("BDAI_DISABLE_ATTACK", "LOCALS", 0)
     !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
     CheckStat(Myself, 0, CASTERHOLD)
+    !CheckStat(Myself, 2, ENCUMBERANCE)
 
     //# Dégâts bonus
     CheckStatGT(Myself, 1, BACKSTABDAMAGEMULTIPLIER)
@@ -128,6 +129,7 @@ IF
     Global("BDAI_DISABLE_ATTACK", "LOCALS", 0)
     !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
     CheckStat(Myself, 0, CASTERHOLD)
+    !CheckStat(Myself, 2, ENCUMBERANCE)
 
     //# Dégâts bonus
     CheckStatGT(Myself, 1, BACKSTABDAMAGEMULTIPLIER)

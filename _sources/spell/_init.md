@@ -23,6 +23,7 @@ Il s'agit d'une base qui peut/doit être adapté aux besoins.
 IF
     ActionListEmpty()
     Global("BDAI_DISABLE_DEFENSIVE_OR_OFFENSIVE_TODO", "LOCALS", 0)
+    HaveSpell(SPELL_NAME)
     !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
     CheckStat(Myself, 0, CASTERHOLD)
     OR(2)
@@ -34,7 +35,6 @@ IF
     OR(2)
         CheckStat(Myself, 0, FORCESURGE)
         CheckStatGT(Myself, 0, CHAOS_SHIELD)
-    HaveSpell(SPELL_NAME)
 
     //# TODO: Code spécifique
 THEN
@@ -52,6 +52,7 @@ IF
     !ButtonDisabled(BUTTON_CASTSPELL)
     Global("BDAI_NO_ARCANE", "LOCALS", 0)
     Global("BDAI_DISABLE_DEFENSIVE_OR_OFFENSIVE_TODO", "LOCALS", 0)
+    HaveSpell(SPELL_NAME)
     !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
     CheckStat(Myself, 0, CASTERHOLD)
     CheckStatLT(Myself, 50, SPELLFAILUREMAGE)
@@ -64,7 +65,6 @@ IF
     OR(2)
         CheckStat(Myself, 0, FORCESURGE)
         CheckStatGT(Myself, 0, CHAOS_SHIELD)
-    HaveSpell(SPELL_NAME)
 
     //# TODO: Code spécifique
 THEN
@@ -81,6 +81,7 @@ IF
     ActionListEmpty()
     !ButtonDisabled(BUTTON_CASTSPELL)
     Global("BDAI_DISABLE_DEFENSIVE_OR_OFFENSIVE_TODO", "LOCALS", 0)
+    HaveSpell(SPELL_NAME)
     !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
     CheckStat(Myself, 0, CASTERHOLD)
     CheckStatLT(Myself, 50, SPELLFAILUREPRIEST)
@@ -93,7 +94,6 @@ IF
     OR(2)
         CheckStat(Myself, 0, FORCESURGE)
         CheckStatGT(Myself, 0, CHAOS_SHIELD)
-    HaveSpell(SPELL_NAME)
 
     //# TODO: Code spécifique
 THEN
@@ -110,6 +110,7 @@ IF
     ActionListEmpty()
     !ButtonDisabled(BUTTON_INNATEBUTTON)
     Global("BDAI_DISABLE_DEFENSIVE_OR_OFFENSIVE_TODO", "LOCALS", 0)
+    HaveSpell(SPELL_NAME)
     !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
     CheckStat(Myself, 0, CASTERHOLD)
     CheckStatLT(Myself, 50, SPELL_FAILURE_INNATE)
@@ -122,7 +123,6 @@ IF
     OR(2)
         CheckStat(Myself, 0, FORCESURGE)
         CheckStatGT(Myself, 0, CHAOS_SHIELD)
-    HaveSpell(SPELL_NAME)
 
     //# TODO: Code spécifique
 THEN

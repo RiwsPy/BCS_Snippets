@@ -10,21 +10,19 @@ La vérification du bouton est plus dynamique que la vérification des kits pour
 
 
 `````{tab-set}
-````{tab-item} Basique
+````{tab-item} Alliés
 ```cr
 IF
     HotKey("X")
-    OR(2)
-        GlobalLT("BDAI_SKILL_MODE", "LOCALS", 1)
-        GlobalGT("BDAI_SKILL_MODE", "LOCALS", 4)
+    GlobalLT("BDAI_SKILL_MODE", "LOCALS", 1)
     !ButtonDisabled(14)
+    OR(2)
+        CheckStatGT(Myself, 0, TRAPS)
+        CheckStatGT(Myself, 0, DETECTILLUSIONS)
     OR(3)
         Class(Myself, THIEF_ALL)
         Class(Myself, MONK)
         Class(Myself, SHAMAN)
-    OR(2)
-        CheckStatGT(Myself, 0, TRAPS)
-        CheckStatGT(Myself, 0, DETECTILLUSIONS)
 THEN
     RESPONSE #1
         SetGlobal("BDAI_SKILL_MODE", "LOCALS", 1)
@@ -32,17 +30,15 @@ END
 
 IF
     HotKey("X")
-    OR(2)
-        GlobalLT("BDAI_SKILL_MODE", "LOCALS", 2)
-        GlobalGT("BDAI_SKILL_MODE", "LOCALS", 4)
+    GlobalLT("BDAI_SKILL_MODE", "LOCALS", 2)
     !ButtonDisabled(BUTTON_STEALTH)
+    OR(2)
+        CheckStatGT(Myself, 0, HIDEINSHADOWS)
+        CheckStatGT(Myself, 0, STEALTH)
     OR(3)
         Class(Myself, THIEF_ALL)
         Class(Myself, RANGER_ALL)
         Class(Myself, MONK)
-    OR(2)
-        CheckStatGT(Myself, 0, HIDEINSHADOWS)
-        CheckStatGT(Myself, 0, STEALTH)
 THEN
     RESPONSE #1
         SetGlobal("BDAI_SKILL_MODE", "LOCALS", 2)
@@ -50,9 +46,7 @@ END
 
 IF
     HotKey("X")
-    OR(2)
-        GlobalLT("BDAI_SKILL_MODE", "LOCALS", 3)
-        GlobalGT("BDAI_SKILL_MODE", "LOCALS", 4)
+    GlobalLT("BDAI_SKILL_MODE", "LOCALS", 3)
     !ButtonDisabled(BUTTON_BATTLESONG)
     OR(2)
         Class(Myself, BARD_ALL)
@@ -64,12 +58,12 @@ END
 
 IF
     HotKey("X")
-    !Global("BDAI_SKILL_MODE", "LOCALS", 4)
+    GlobalLT("BDAI_SKILL_MODE", "LOCALS", 4)
     !ButtonDisabled(BUTTON_TURNUNDEAD)
+    CheckStatGT(Myself, 0, TURNUNDEADLEVEL)
     OR(2)
         Class(Myself, CLERIC_ALL)
         Class(Myself, PALADIN_ALL)
-    CheckStatGT(Myself, 0, TURNUNDEADLEVEL)
 THEN
     RESPONSE #1
         SetGlobal("BDAI_SKILL_MODE", "LOCALS", 4)
@@ -85,4 +79,156 @@ END
 
 ```
 ````
+
+````{tab-item} Non-alliés
+```cr
+IF
+    GlobalLT("BDAI_SKILL_MODE", "LOCALS", 1)
+    !ButtonDisabled(14)
+    Allegiance(Myself, NOTGOOD)
+    OR(2)
+        CheckStatGT(Myself, 0, TRAPS)
+        CheckStatGT(Myself, 0, DETECTILLUSIONS)
+THEN
+    RESPONSE #1
+        SetGlobal("BDAI_SKILL_MODE", "LOCALS", 1)
+END
+
+IF
+    GlobalLT("BDAI_SKILL_MODE", "LOCALS", 1)
+    !ButtonDisabled(BUTTON_STEALTH)
+    Allegiance(Myself, NOTGOOD)
+    OR(2)
+        CheckStatGT(Myself, 0, HIDEINSHADOWS)
+        CheckStatGT(Myself, 0, STEALTH)
+THEN
+    RESPONSE #1
+        SetGlobal("BDAI_SKILL_MODE", "LOCALS", 2)
+END
+
+IF
+    GlobalLT("BDAI_SKILL_MODE", "LOCALS", 1)
+    !ButtonDisabled(BUTTON_BATTLESONG)
+    Allegiance(Myself, NOTGOOD)
+    OR(2)
+        Class(Myself, BARD_ALL)
+        Class(Myself, SHAMAN)
+    OR(2)
+        Allegiance(Myself, NOTEVIL)
+        Class(Myself, SHAMAN)
+THEN
+    RESPONSE #1
+        SetGlobal("BDAI_SKILL_MODE", "LOCALS", 3)
+END
+
+IF
+    GlobalLT("BDAI_SKILL_MODE", "LOCALS", 1)
+    !ButtonDisabled(BUTTON_TURNUNDEAD)
+    Allegiance(Myself, NOTGOOD)
+    CheckStatGT(Myself, 0, TURNUNDEADLEVEL)
+THEN
+    RESPONSE #1
+        SetGlobal("BDAI_SKILL_MODE", "LOCALS", 4)
+END
+
+
+```
+
+Le trigger `HotKey` n'est pas adapté pour les non-alliés.\
+De plus, les contraintes de classes s'appliquent difficilement à des personnages non joueurs.\
+Cas particulier du Barde, dont le chant bénéficie toujours aux membres du groupe, on le fera chanter au mieux s'il n'est pas ennemi.
+````
+
+````{tab-item} Générique
+```cr
+IF
+    OR(2)
+        HotKey("X")
+        Allegiance(Myself, NOTGOOD)
+    GlobalLT("BDAI_SKILL_MODE", "LOCALS", 1)
+    !ButtonDisabled(14)
+    OR(2)
+        CheckStatGT(Myself, 0, TRAPS)
+        CheckStatGT(Myself, 0, DETECTILLUSIONS)
+    OR(4)
+        Class(Myself, THIEF_ALL)
+        Class(Myself, MONK)
+        Class(Myself, SHAMAN)
+        Allegiance(Myself, NOTGOOD)
+THEN
+    RESPONSE #1
+        SetGlobal("BDAI_SKILL_MODE", "LOCALS", 1)
+END
+
+IF
+    OR(2)
+        HotKey("X")
+        Allegiance(Myself, NOTGOOD)
+    GlobalLT("BDAI_SKILL_MODE", "LOCALS", 2)
+    OR(2)
+        GlobalLT("BDAI_SKILL_MODE", "LOCALS", 1)
+        Allegiance(Myself, GOODCUTOFF)
+    !ButtonDisabled(BUTTON_STEALTH)
+    OR(2)
+        CheckStatGT(Myself, 0, HIDEINSHADOWS)
+        CheckStatGT(Myself, 0, STEALTH)
+    OR(4)
+        Class(Myself, THIEF_ALL)
+        Class(Myself, RANGER_ALL)
+        Class(Myself, MONK)
+        Allegiance(Myself, NOTGOOD)
+THEN
+    RESPONSE #1
+        SetGlobal("BDAI_SKILL_MODE", "LOCALS", 2)
+END
+
+IF
+    OR(2)
+        HotKey("X")
+        Allegiance(Myself, NOTGOOD)
+    GlobalLT("BDAI_SKILL_MODE", "LOCALS", 3)
+    OR(2)
+        GlobalLT("BDAI_SKILL_MODE", "LOCALS", 1)
+        Allegiance(Myself, GOODCUTOFF)
+    !ButtonDisabled(BUTTON_BATTLESONG)
+    OR(2)
+        Class(Myself, BARD_ALL)
+        Class(Myself, SHAMAN)
+    OR(2)
+        Allegiance(Myself, NOTEVIL)
+        Class(Myself, SHAMAN)
+THEN
+    RESPONSE #1
+        SetGlobal("BDAI_SKILL_MODE", "LOCALS", 3)
+END
+
+IF
+    OR(2)
+        HotKey("X")
+        Allegiance(Myself, NOTGOOD)
+    GlobalLT("BDAI_SKILL_MODE", "LOCALS", 4)
+    OR(2)
+        GlobalLT("BDAI_SKILL_MODE", "LOCALS", 1)
+        Allegiance(Myself, GOODCUTOFF)
+    !ButtonDisabled(BUTTON_TURNUNDEAD)
+    CheckStatGT(Myself, 0, TURNUNDEADLEVEL)
+    OR(3)
+        Class(Myself, CLERIC_ALL)
+        Class(Myself, PALADIN_ALL)
+        Allegiance(Myself, NOTGOOD)
+THEN
+    RESPONSE #1
+        SetGlobal("BDAI_SKILL_MODE", "LOCALS", 4)
+END
+
+IF
+    HotKey("X")
+    !Global("BDAI_SKILL_MODE", "LOCALS", 0)
+THEN
+    RESPONSE #1
+        SetGlobal("BDAI_SKILL_MODE", "LOCALS", 0)
+END
+```
+````
+
 `````

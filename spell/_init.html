@@ -207,7 +207,9 @@
 <li class="toctree-l1"><a class="reference internal" href="_spell_actions.html">Actions Spell</a></li>
 <li class="toctree-l1"><a class="reference internal" href="remove_paralysis.html">Délivrance de la paralysie (SPPR308)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="massraise.html">Résurrection de masse (SPPR729)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="melfmet.html">Météore de Melf (SPWI325)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stoneskin.html">Peau de pierre (SPWI408)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spell_immunity.html">Immunité contre les sorts (SPWI510)</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Objets spécifiques</span></p>
 <ul class="nav bd-sidenav">
@@ -473,6 +475,7 @@ Basique</label><div class="sd-tab-content docutils">
 <div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
 <span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
 <span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_DISABLE_DEFENSIVE_OR_OFFENSIVE_TODO&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="n">HaveSpell</span><span class="p">(</span><span class="no">SPELL_NAME</span><span class="p">)</span>
 <span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_SLEEPING</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_HELPLESS</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_REALLY_DEAD</span><span class="p">)</span>
 <span class="w">    </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CASTERHOLD</span><span class="p">)</span>
 <span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
@@ -484,7 +487,6 @@ Basique</label><div class="sd-tab-content docutils">
 <span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="w">        </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">FORCESURGE</span><span class="p">)</span>
 <span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CHAOS_SHIELD</span><span class="p">)</span>
-<span class="w">    </span><span class="n">HaveSpell</span><span class="p">(</span><span class="no">SPELL_NAME</span><span class="p">)</span>
 
 <span class="w">    </span><span class="sr">//</span><span class="c1"># TODO: Code spécifique</span>
 <span class="no">THEN</span>
@@ -503,6 +505,7 @@ Sort profane</label><div class="sd-tab-content docutils">
 <span class="w">    </span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="no">BUTTON_CASTSPELL</span><span class="p">)</span>
 <span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_NO_ARCANE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 <span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_DISABLE_DEFENSIVE_OR_OFFENSIVE_TODO&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="n">HaveSpell</span><span class="p">(</span><span class="no">SPELL_NAME</span><span class="p">)</span>
 <span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_SLEEPING</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_HELPLESS</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_REALLY_DEAD</span><span class="p">)</span>
 <span class="w">    </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CASTERHOLD</span><span class="p">)</span>
 <span class="w">    </span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="no">SPELLFAILUREMAGE</span><span class="p">)</span>
@@ -515,7 +518,6 @@ Sort profane</label><div class="sd-tab-content docutils">
 <span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="w">        </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">FORCESURGE</span><span class="p">)</span>
 <span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CHAOS_SHIELD</span><span class="p">)</span>
-<span class="w">    </span><span class="n">HaveSpell</span><span class="p">(</span><span class="no">SPELL_NAME</span><span class="p">)</span>
 
 <span class="w">    </span><span class="sr">//</span><span class="c1"># TODO: Code spécifique</span>
 <span class="no">THEN</span>
@@ -533,6 +535,7 @@ Sort divin/druidique</label><div class="sd-tab-content docutils">
 <span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
 <span class="w">    </span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="no">BUTTON_CASTSPELL</span><span class="p">)</span>
 <span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_DISABLE_DEFENSIVE_OR_OFFENSIVE_TODO&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="n">HaveSpell</span><span class="p">(</span><span class="no">SPELL_NAME</span><span class="p">)</span>
 <span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_SLEEPING</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_HELPLESS</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_REALLY_DEAD</span><span class="p">)</span>
 <span class="w">    </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CASTERHOLD</span><span class="p">)</span>
 <span class="w">    </span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="no">SPELLFAILUREPRIEST</span><span class="p">)</span>
@@ -545,7 +548,6 @@ Sort divin/druidique</label><div class="sd-tab-content docutils">
 <span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="w">        </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">FORCESURGE</span><span class="p">)</span>
 <span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CHAOS_SHIELD</span><span class="p">)</span>
-<span class="w">    </span><span class="n">HaveSpell</span><span class="p">(</span><span class="no">SPELL_NAME</span><span class="p">)</span>
 
 <span class="w">    </span><span class="sr">//</span><span class="c1"># TODO: Code spécifique</span>
 <span class="no">THEN</span>
@@ -563,6 +565,7 @@ Capacités spéciales</label><div class="sd-tab-content docutils">
 <span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
 <span class="w">    </span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="no">BUTTON_INNATEBUTTON</span><span class="p">)</span>
 <span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_DISABLE_DEFENSIVE_OR_OFFENSIVE_TODO&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="n">HaveSpell</span><span class="p">(</span><span class="no">SPELL_NAME</span><span class="p">)</span>
 <span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_SLEEPING</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_HELPLESS</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_REALLY_DEAD</span><span class="p">)</span>
 <span class="w">    </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CASTERHOLD</span><span class="p">)</span>
 <span class="w">    </span><span class="n">CheckStatLT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="no">SPELL_FAILURE_INNATE</span><span class="p">)</span>
@@ -575,7 +578,6 @@ Capacités spéciales</label><div class="sd-tab-content docutils">
 <span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="w">        </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">FORCESURGE</span><span class="p">)</span>
 <span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CHAOS_SHIELD</span><span class="p">)</span>
-<span class="w">    </span><span class="n">HaveSpell</span><span class="p">(</span><span class="no">SPELL_NAME</span><span class="p">)</span>
 
 <span class="w">    </span><span class="sr">//</span><span class="c1"># TODO: Code spécifique</span>
 <span class="no">THEN</span>

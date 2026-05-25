@@ -63,7 +63,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
     <link rel="next" title="Huile de rapidité (POTN14)" href="potion_haste.html" />
-    <link rel="prev" title="Peau de pierre (SPWI408)" href="../spell/stoneskin.html" />
+    <link rel="prev" title="Immunité contre les sorts (SPWI510)" href="../spell/spell_immunity.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="fr"/>
   </head>
@@ -207,7 +207,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../spell/_spell_actions.html">Actions Spell</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../spell/remove_paralysis.html">Délivrance de la paralysie (SPPR308)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../spell/massraise.html">Résurrection de masse (SPPR729)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../spell/melfmet.html">Météore de Melf (SPWI325)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../spell/stoneskin.html">Peau de pierre (SPWI408)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../spell/spell_immunity.html">Immunité contre les sorts (SPWI510)</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Objets spécifiques</span></p>
 <ul class="current nav bd-sidenav">
@@ -581,7 +583,7 @@ Capacités d’équipement</label><div class="sd-tab-content docutils">
 <p><code class="docutils literal notranslate"><span class="pre">HasItem</span></code> est généralement utilisé avant l’utilisation des objets. Il est potentiellement plus rapide.<br />
 <code class="docutils literal notranslate"><span class="pre">NumItems</span></code> est globalement inutilisé.</p>
 <p>Or, il y a un problème :<br />
-<code class="docutils literal notranslate"><span class="pre">UseItem</span></code> ne peut cibler les objets dans les sacs de contenance.<br />
+<code class="docutils literal notranslate"><span class="pre">UseItem</span></code> ne peut pas cibler les objets dans les sacs de contenance.<br />
 Et <code class="docutils literal notranslate"><span class="pre">HasItem</span></code> renvoie vrai si l’objet est présent dans un sac de contenance.<br />
 Il peut donc arriver que les triggers soient vrais mais que l’action soit impossible.<br />
 Il est donc conseillé de privilégier <code class="docutils literal notranslate"><span class="pre">NumItemsGT(&quot;ITEM_FILENAME&quot;,</span> <span class="pre">Myself,</span> <span class="pre">0)</span></code>, notamment pour les membres du groupe.</p>
@@ -779,12 +781,12 @@ Lors du <code class="docutils literal notranslate"><span class="pre">PartyRested
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../spell/stoneskin.html"
+       href="../spell/spell_immunity.html"
        title="page précédente">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">précédent</p>
-        <p class="prev-next-title">Peau de pierre (SPWI408)</p>
+        <p class="prev-next-title">Immunité contre les sorts (SPWI510)</p>
       </div>
     </a>
     <a class="right-next"

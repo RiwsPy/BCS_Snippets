@@ -17,6 +17,7 @@ IF
     ActionListEmpty()
     !ButtonDisabled(BUTTON_CASTSPELL)
     Global("BDAI_DISABLE_DEFENSIVE", "LOCALS", 0)
+    HaveSpell(CLERIC_REMOVE_PARALYSIS)
     !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
     CheckStat(Myself, 0, CASTERHOLD)
     CheckStatLT(Myself, 50, SPELLFAILUREPRIEST)
@@ -29,7 +30,6 @@ IF
     OR(2)
         CheckStat(Myself, 0, FORCESURGE)
         CheckStatGT(Myself, 0, CHAOS_SHIELD)
-    HaveSpell(CLERIC_REMOVE_PARALYSIS)
 
     See(NearestAllyOf(Myself))
     StateCheck(LastSeenBy(Myself), STATE_STUNNED | STATE_HELPLESS)
@@ -55,6 +55,7 @@ IF
     ActionListEmpty()
     !ButtonDisabled(BUTTON_CASTSPELL)
     Global("BDAI_DISABLE_DEFENSIVE", "LOCALS", 0)
+    HaveSpell(CLERIC_REMOVE_PARALYSIS)
     !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
     CheckStat(Myself, 0, CASTERHOLD)
     CheckStatLT(Myself, 50, SPELLFAILUREPRIEST)
@@ -67,7 +68,6 @@ IF
     OR(2)
         CheckStat(Myself, 0, FORCESURGE)
         CheckStatGT(Myself, 0, CHAOS_SHIELD)
-    HaveSpell(CLERIC_REMOVE_PARALYSIS)
 
     Detect(Myself)
     OR(6)

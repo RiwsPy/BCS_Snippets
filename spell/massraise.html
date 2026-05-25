@@ -62,7 +62,7 @@
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
-    <link rel="next" title="Peau de pierre (SPWI408)" href="stoneskin.html" />
+    <link rel="next" title="Météore de Melf (SPWI325)" href="melfmet.html" />
     <link rel="prev" title="Délivrance de la paralysie (SPPR308)" href="remove_paralysis.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="fr"/>
@@ -207,7 +207,9 @@
 <li class="toctree-l1"><a class="reference internal" href="_spell_actions.html">Actions Spell</a></li>
 <li class="toctree-l1"><a class="reference internal" href="remove_paralysis.html">Délivrance de la paralysie (SPPR308)</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Résurrection de masse (SPPR729)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="melfmet.html">Météore de Melf (SPWI325)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stoneskin.html">Peau de pierre (SPWI408)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spell_immunity.html">Immunité contre les sorts (SPWI510)</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Objets spécifiques</span></p>
 <ul class="nav bd-sidenav">
@@ -423,6 +425,7 @@ Base</label><div class="sd-tab-content docutils">
 <span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
 <span class="w">    </span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="no">BUTTON_CASTSPELL</span><span class="p">)</span>
 <span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_DISABLE_DEFENSIVE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="n">HaveSpell</span><span class="p">(</span><span class="no">CLERIC_MASS_RAISE_DEAD</span><span class="p">)</span>
 <span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_SLEEPING</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_HELPLESS</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_REALLY_DEAD</span><span class="p">)</span>
 <span class="w">    </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CASTERHOLD</span><span class="p">)</span>
 <span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
@@ -431,7 +434,6 @@ Base</label><div class="sd-tab-content docutils">
 <span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="w">        </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_POISONED</span><span class="p">)</span>
 <span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">99</span><span class="p">,</span><span class="w"> </span><span class="no">RESISTPOISON</span><span class="p">)</span>
-<span class="w">    </span><span class="n">HaveSpell</span><span class="p">(</span><span class="no">CLERIC_MASS_RAISE_DEAD</span><span class="p">)</span>
 <span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="w">        </span><span class="o">!</span><span class="n">CheckSpellState</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">DISEASED</span><span class="p">)</span>
 <span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">99</span><span class="p">,</span><span class="w"> </span><span class="no">RESISTPOISON</span><span class="p">)</span>
@@ -469,6 +471,7 @@ Allié hors-combat</label><div class="sd-tab-content docutils">
 <span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
 <span class="w">    </span><span class="o">!</span><span class="n">ButtonDisabled</span><span class="p">(</span><span class="no">BUTTON_CASTSPELL</span><span class="p">)</span>
 <span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_DISABLE_DEFENSIVE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="n">HaveSpell</span><span class="p">(</span><span class="no">CLERIC_MASS_RAISE_DEAD</span><span class="p">)</span>
 <span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_SLEEPING</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_HELPLESS</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_REALLY_DEAD</span><span class="p">)</span>
 <span class="w">    </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CASTERHOLD</span><span class="p">)</span>
 <span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
@@ -477,7 +480,6 @@ Allié hors-combat</label><div class="sd-tab-content docutils">
 <span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="w">        </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_POISONED</span><span class="p">)</span>
 <span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">99</span><span class="p">,</span><span class="w"> </span><span class="no">RESISTPOISON</span><span class="p">)</span>
-<span class="w">    </span><span class="n">HaveSpell</span><span class="p">(</span><span class="no">CLERIC_MASS_RAISE_DEAD</span><span class="p">)</span>
 <span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="w">        </span><span class="o">!</span><span class="n">CheckSpellState</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">DISEASED</span><span class="p">)</span>
 <span class="w">        </span><span class="n">CheckStatGT</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">99</span><span class="p">,</span><span class="w"> </span><span class="no">RESISTPOISON</span><span class="p">)</span>
@@ -551,11 +553,11 @@ Allié hors-combat</label><div class="sd-tab-content docutils">
       </div>
     </a>
     <a class="right-next"
-       href="stoneskin.html"
+       href="melfmet.html"
        title="page suivante">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">suivant</p>
-        <p class="prev-next-title">Peau de pierre (SPWI408)</p>
+        <p class="prev-next-title">Météore de Melf (SPWI325)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

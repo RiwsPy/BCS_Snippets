@@ -80,6 +80,7 @@ IF
     !ButtonDisabled(BUTTON_CASTSPELL)
     Global("BDAI_NO_ARCANE", "LOCALS", 0)
     Global("BDAI_DISABLE_DEFENSIVE", "LOCALS", 0)
+    HaveSpell(WIZARD_STONE_SKIN)
     !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
     CheckStat(Myself, 0, CASTERHOLD)
     CheckStatLT(Myself, 50, SPELLFAILUREMAGE)
@@ -89,7 +90,6 @@ IF
     OR(2)
         !StateCheck(Myself, STATE_POISONED)
         CheckStatGT(Myself, 99, RESISTPOISON)
-    HaveSpell(WIZARD_STONE_SKIN)
 
     CheckStatLT(Myself, 1, STONESKINS)
     CheckStatLT(Myself, 1, STONESKINSGOLEM)
@@ -119,6 +119,7 @@ IF
     !ButtonDisabled(BUTTON_CASTSPELL)
     Global("BDAI_NO_ARCANE", "LOCALS", 0)
     Global("BDAI_DISABLE_DEFENSIVE", "LOCALS", 0)
+    HaveSpell(WIZARD_STONE_SKIN)
     !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
     CheckStat(Myself, 0, CASTERHOLD)
     CheckStatLT(Myself, 50, SPELLFAILUREMAGE)
@@ -128,7 +129,6 @@ IF
     OR(2)
         !StateCheck(Myself, STATE_POISONED)
         CheckStatGT(Myself, 99, RESISTPOISON)
-    HaveSpell(WIZARD_STONE_SKIN)
 
     CheckStatLT(Myself, 1, STONESKINS)
     CheckStatLT(Myself, 1, STONESKINSGOLEM)
@@ -176,6 +176,7 @@ IF
     !ButtonDisabled(BUTTON_CASTSPELL)
     Global("BDAI_NO_ARCANE", "LOCALS", 0)
     Global("BDAI_DISABLE_DEFENSIVE", "LOCALS", 0)
+    HaveSpell(WIZARD_STONE_SKIN)
     !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
     CheckStat(Myself, 0, CASTERHOLD)
     CheckStatLT(Myself, 50, SPELLFAILUREMAGE)
@@ -185,7 +186,6 @@ IF
     OR(2)
         !StateCheck(Myself, STATE_POISONED)
         CheckStatGT(Myself, 99, RESISTPOISON)
-    HaveSpell(WIZARD_STONE_SKIN)
 
     CheckStatLT(Myself, 2, STONESKINS)
     CheckStatLT(Myself, 2, STONESKINSGOLEM)

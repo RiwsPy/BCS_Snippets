@@ -126,7 +126,7 @@ Deux triggers existent pour déterminer si un personnage possède un objet spéc
 `NumItems` est globalement inutilisé.
 
 Or, il y a un problème :\
-`UseItem` ne peut cibler les objets dans les sacs de contenance.\
+`UseItem` ne peut pas cibler les objets dans les sacs de contenance.\
 Et `HasItem` renvoie vrai si l'objet est présent dans un sac de contenance.\
 Il peut donc arriver que les triggers soient vrais mais que l'action soit impossible.\
 Il est donc conseillé de privilégier `NumItemsGT("ITEM_FILENAME", Myself, 0)`, notamment pour les membres du groupe.

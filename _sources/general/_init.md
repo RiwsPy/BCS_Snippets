@@ -21,6 +21,7 @@
 - [Resurrection de masse](/spell/massraise)
 - [Dissipation de la paralysie](/spell/remove_paralysis)
 - [Peau de pierre](/spell/stoneskin)
+- [Immunité contre les sorts](/spell/spell_immunity)
 
 ### Objets
 - [Huile de rapidité](/item/potion_haste)
