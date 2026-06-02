@@ -213,7 +213,7 @@ NextTriggerObject(Player1)
 ````
 
 
-### HELD / CASTERHOLD / SUMMON_DISABLE_ACTION / Insélectionnable / IsActive
+### HELD / CASTERHOLD / SUMMON_DISABLE_ACTION / Insélectionnable / IsActive / Protection contre un type de créature
 
 TODO. Trop marginales pour être pertinente (dans la version vanilla).
 

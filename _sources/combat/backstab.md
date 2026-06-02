@@ -201,7 +201,7 @@ IF
     !Range(LastSeenBy(Myself), 0)
 THEN
     RESPONSE #1
-        SendTrigger(32)
+        SendTrigger(Myself, 32)
         FollowObjectFormation(LastSeenBy(Myself), 10, 1) //# position quiconce arrière
 END
 

@@ -3,11 +3,13 @@
 ## Réalisés / En cours
 
 ### Combat
-- [Réaliser une attaque d'opportunité contre une créature](/snippet/opportunityattack)
+- [Réaliser une attaque d'opportunité contre une créature](/combat/opportunityattack)
   - Un bonus de +4 au dégâts et au toucher
-- [Réaliser une attaque sournoise contre une créature](/snippet/backstab)
-- [Achever les trolls au sol](/snippet/troll_ammo)
-- [Invoquer une créature](/snippet/cansummon)
+- [Réaliser une attaque sournoise contre une créature](/combat/backstab)
+- [Achever les trolls au sol](/combat/troll_ammo)
+- [Invoquer une créature](/combat/cansummon)
+- [Ne pas subir de malus de distance](/combat/range_distance)
+
 
 ### Modales
 - [Dialogue](/snippet/candialog)
@@ -23,8 +25,11 @@
 - [Peau de pierre](/spell/stoneskin)
 - [Immunité contre les sorts](/spell/spell_immunity)
 
+
 ### Objets
 - [Huile de rapidité](/item/potion_haste)
+- [Retranscription de sort](/item/learn_spell)
+
 
 ### Généralités
 - [GlobalExists / GlobalNotExists](/snippet/globalexists)
@@ -84,7 +89,6 @@
 * Les humanoïdes peuvent ouvrir des portes
 * Les ennemis récupèrent leurs capacités lorsque le groupe dort
 * Savoir si un adversaire peut me toucher avec son arme
-* Auto-retranscription d'un sort
 
 D'une manière générale, gérer :
 - les sorts particuliers
