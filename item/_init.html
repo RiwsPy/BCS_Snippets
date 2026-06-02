@@ -193,6 +193,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../snippet/canturn.html">✔️ Can Turn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../snippet/cansleep.html">✔️ Enemies can Rest</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../snippet/modal_swap.html">✔️ Modal swap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../snippet/align_compare.html">✔️ Comparaison d’allégeance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../snippet/signal.html">✔️ Signaux génériques</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../snippet/globalexists.html">✔️ GlobalExists</a></li>
 </ul>
@@ -485,8 +486,8 @@ Basique</label><div class="sd-tab-content docutils">
 <span class="w">    </span><span class="sr">//</span><span class="c1"># TODO: Code spécifique</span>
 <span class="no">THEN</span>
 <span class="w">    </span><span class="no">REPONSE</span><span class="w"> </span><span class="c1">#1</span>
-<span class="w">        </span><span class="n">SetGlobalTimer</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="no">ONE_ROUND</span><span class="p">)</span>
 <span class="w">        </span><span class="n">UseItem</span><span class="p">(</span><span class="s2">&quot;ITEM_FILENAME&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Myself</span><span class="p">)</span>
+<span class="w">        </span><span class="n">SetGlobalTimer</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="no">ONE_MINUTE</span><span class="p">)</span>
 <span class="no">END</span>
 </pre></div>
 </div>
@@ -517,8 +518,8 @@ Objets rapides</label><div class="sd-tab-content docutils">
 <span class="w">    </span><span class="sr">//</span><span class="c1"># TODO: Code spécifique</span>
 <span class="no">THEN</span>
 <span class="w">    </span><span class="no">REPONSE</span><span class="w"> </span><span class="c1">#1</span>
-<span class="w">        </span><span class="n">SetGlobalTimer</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="no">ONE_ROUND</span><span class="p">)</span>
 <span class="w">        </span><span class="n">UseItem</span><span class="p">(</span><span class="s2">&quot;ITEM_FILENAME&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Myself</span><span class="p">)</span>
+<span class="w">        </span><span class="n">SetGlobalTimer</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="no">ONE_MINUTE</span><span class="p">)</span>
 <span class="no">END</span>
 </pre></div>
 </div>
@@ -542,8 +543,8 @@ Capacités d’équipement</label><div class="sd-tab-content docutils">
 <span class="w">    </span><span class="sr">//</span><span class="c1"># TODO: Code spécifique</span>
 <span class="no">THEN</span>
 <span class="w">    </span><span class="no">REPONSE</span><span class="w"> </span><span class="c1">#1</span>
-<span class="w">        </span><span class="n">SetGlobalTimer</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="no">ONE_ROUND</span><span class="p">)</span>
 <span class="w">        </span><span class="n">UseItem</span><span class="p">(</span><span class="s2">&quot;ITEM_FILENAME&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Myself</span><span class="p">)</span>
+<span class="w">        </span><span class="n">SetGlobalTimer</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="no">ONE_MINUTE</span><span class="p">)</span>
 <span class="no">END</span>
 </pre></div>
 </div>
@@ -587,10 +588,10 @@ Capacités d’équipement</label><div class="sd-tab-content docutils">
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">HasItem</span></code> est généralement utilisé avant l’utilisation des objets. Il est potentiellement plus rapide.<br />
 <code class="docutils literal notranslate"><span class="pre">NumItems</span></code> est globalement inutilisé.</p>
-<p>Or, il y a un problème :<br />
+<p>Mais il y a un problème :<br />
 <code class="docutils literal notranslate"><span class="pre">UseItem</span></code> ne peut pas cibler les objets dans les sacs de contenance.<br />
-Et <code class="docutils literal notranslate"><span class="pre">HasItem</span></code> renvoie vrai si l’objet est présent dans un sac de contenance.<br />
-Il peut donc arriver que les triggers soient vrais mais que l’action soit impossible.<br />
+Or <code class="docutils literal notranslate"><span class="pre">HasItem</span></code> renvoie vrai si l’objet est présent dans un sac de contenance.<br />
+Ainsi, même si <code class="docutils literal notranslate"><span class="pre">HasItem</span></code> est vrai, cela n’assure pas que <code class="docutils literal notranslate"><span class="pre">UseItem</span></code> sera fonctionnel.<br />
 Il est donc conseillé de privilégier <code class="docutils literal notranslate"><span class="pre">NumItemsGT(&quot;ITEM_FILENAME&quot;,</span> <span class="pre">Myself,</span> <span class="pre">0)</span></code>, notamment pour les membres du groupe.</p>
 <section id="note">
 <h3>Note<a class="headerlink" href="#note" title="Lien vers cette rubrique">#</a></h3>
@@ -636,9 +637,9 @@ Puis, après un repos du groupe, les compteurs sont remis à 0.</p>
 <li><p>Après une action <code class="docutils literal notranslate"><span class="pre">Rest</span></code>, les variables ne sont pas remises à 0</p></li>
 <li><p>Chaque objet nécessite sa propre variable</p></li>
 </ol>
+<p>On se rend vite compte que ce n’est pas parfait en l’état. Il convient donc de chercher des alternatives.</p>
 <section id="alternatives">
 <h3>Alternatives<a class="headerlink" href="#alternatives" title="Lien vers cette rubrique">#</a></h3>
-<p>On se rend vite compte que ce n’est pas parfait en l’état. Il convient donc de chercher des alternatives.</p>
 <section id="global-ou-locals">
 <h4>GLOBAL ou LOCALS<a class="headerlink" href="#global-ou-locals" title="Lien vers cette rubrique">#</a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">GLOBAL</span></code> a l’avantage de fonctionner pour l’intégralité du groupe, par exemple si deux personnages différents utilisent chacun une charge d’un même objet.<br />
@@ -678,8 +679,8 @@ Une fois l’objet déchargé, ce trigger vaut vrai lors du cycle de script suiv
 <span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;ITEM_FILENAME_IS_EMPTY&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 <span class="no">THEN</span>
 <span class="w">    </span><span class="no">RESPONSE</span><span class="w"> </span><span class="c1">#100</span>
-<span class="w">        </span><span class="n">SetGlobalTimer</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="no">ONE_ROUND</span><span class="p">)</span>
 <span class="w">        </span><span class="n">UseItem</span><span class="p">(</span><span class="s2">&quot;ITEM_FILENAME&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Myself</span><span class="p">)</span>
+<span class="w">        </span><span class="n">SetGlobalTimer</span><span class="p">(</span><span class="s2">&quot;BD_Cast&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="no">ONE_ROUND</span><span class="p">)</span>
 <span class="no">END</span>
 </pre></div>
 </div>

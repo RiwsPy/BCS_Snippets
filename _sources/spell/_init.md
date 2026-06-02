@@ -155,8 +155,8 @@ IF
     //# TODO: Code spécifique
 THEN
     RESPONSE #1
-        SetGlobalTimer("BD_Cast", "LOCALS", ONE_ROUND)
         UseItem("SPELL_FILENAME", TARGET)
+        SetGlobalTimer("BD_Cast", "LOCALS", ONE_MINUTE)
 END
 ```
 

@@ -43,8 +43,8 @@ IF
     //# TODO: Code spécifique
 THEN
     REPONSE #1
-        SetGlobalTimer("BD_Cast", "LOCALS", ONE_ROUND)
         UseItem("ITEM_FILENAME", Myself)
+        SetGlobalTimer("BD_Cast", "LOCALS", ONE_MINUTE)
 END
 ```
 On vérifie que :
@@ -72,8 +72,8 @@ IF
     //# TODO: Code spécifique
 THEN
     REPONSE #1
-        SetGlobalTimer("BD_Cast", "LOCALS", ONE_ROUND)
         UseItem("ITEM_FILENAME", Myself)
+        SetGlobalTimer("BD_Cast", "LOCALS", ONE_MINUTE)
 END
 ```
 On vérifie que :
@@ -94,8 +94,8 @@ IF
     //# TODO: Code spécifique
 THEN
     REPONSE #1
-        SetGlobalTimer("BD_Cast", "LOCALS", ONE_ROUND)
         UseItem("ITEM_FILENAME", Myself)
+        SetGlobalTimer("BD_Cast", "LOCALS", ONE_MINUTE)
 END
 ```
 On vérifie que :
@@ -125,10 +125,10 @@ Deux triggers existent pour déterminer si un personnage possède un objet spéc
 `HasItem` est généralement utilisé avant l'utilisation des objets. Il est potentiellement plus rapide.\
 `NumItems` est globalement inutilisé.
 
-Or, il y a un problème :\
+Mais il y a un problème :\
 `UseItem` ne peut pas cibler les objets dans les sacs de contenance.\
-Et `HasItem` renvoie vrai si l'objet est présent dans un sac de contenance.\
-Il peut donc arriver que les triggers soient vrais mais que l'action soit impossible.\
+Or `HasItem` renvoie vrai si l'objet est présent dans un sac de contenance.\
+Ainsi, même si `HasItem` est vrai, cela n'assure pas que `UseItem` sera fonctionnel.\
 Il est donc conseillé de privilégier `NumItemsGT("ITEM_FILENAME", Myself, 0)`, notamment pour les membres du groupe.
 
 
@@ -177,9 +177,9 @@ Cela a plusieurs limites importantes :
 1. Après une action `Rest`, les variables ne sont pas remises à 0
 1. Chaque objet nécessite sa propre variable
 
-### Alternatives
-
 On se rend vite compte que ce n'est pas parfait en l'état. Il convient donc de chercher des alternatives.
+
+### Alternatives
 
 #### GLOBAL ou LOCALS
 
@@ -227,8 +227,8 @@ IF
     Global("ITEM_FILENAME_IS_EMPTY", "LOCALS", 0)
 THEN
     RESPONSE #100
-        SetGlobalTimer("BD_Cast", "LOCALS", ONE_ROUND)
         UseItem("ITEM_FILENAME", Myself)
+        SetGlobalTimer("BD_Cast", "LOCALS", ONE_ROUND)
 END
 
 ```
