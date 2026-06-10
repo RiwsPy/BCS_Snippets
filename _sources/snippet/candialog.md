@@ -176,7 +176,7 @@ Or `See` a des limites que ne possède pas `Detect` dans sa capacité à détect
 ## StartDialogueNoSet
 
 Pour savoir si la solution proposée est cohérente, il faut connaître `StartDialogueNoSet` et vérifier que ses contraintes sont bien respectées dans le `IF`.\
-On explique pourquoi [ici](/base).
+On explique pourquoi [ici](/general/base).
 
 Les contraintes du `StartDialogueNoSet` s'applique sur la personne qui va initier le dialogue. On va donc se focaliser sur elle.
 

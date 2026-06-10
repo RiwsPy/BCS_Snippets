@@ -24,7 +24,7 @@ Les objectifs sont :
     - On cherche des solutions avec ce qui existe déjà
 - On ne gère pas tous les cas particuliers de tous les mods existants
     - On propose des solutions simples, flexibles et robustes qui s'adaptent à la majorité des cas
-- On code comme dans les années 2000 mais en se basant sur les connaissances de l'Infinity Engine de 2025
+- On code comme dans les années 2000 mais en se basant sur les dernières connaissances de l'Infinity Engine
     - On accepte qu'il n'y ai pas de solutions ou que celles-ci soient imparfaites mais on cherche à les améliorer
 - Il y a une dose de psychologie dans les solutions proposées. Les personnages se reposent sur leurs avantages : ils essayent de tirer partie des règles du moteur de jeu pour accroître leur chance. C'est une question de survie dans un monde où on rencontre des demi-dieux énervés à tous les coins de rue
 - Expérimentez, cassez les habitudes, sortez des sentiers battus
