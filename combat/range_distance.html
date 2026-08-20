@@ -421,7 +421,9 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="portee-a-distance">
 <h1>✔️ Portée à distance<a class="headerlink" href="#portee-a-distance" title="Lien vers cette rubrique">#</a></h1>
-<p>Être à distance de tir ne suffit pas pour s’assurer de pouvoir tirer un projectile sans subir un malus de toucher.</p>
+<p>Être à distance de tir ne suffit pas pour s’assurer de pouvoir tirer un projectile sans subir un malus de toucher.<br />
+Il y a un malus (-8) si la cible est à une distance de moins de 4 et un malus (-2) si la cible est à une distance de plus de 32.<br />
+Notez qu’aucun jet de toucher n’est effectué sur les cibles <code class="docutils literal notranslate"><span class="pre">STATE_HELPLESS</span></code>.</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" for="sd-tab-item-0">
@@ -433,8 +435,10 @@ Base</label><div class="sd-tab-content docutils">
 <span class="w">    </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CASTERHOLD</span><span class="p">)</span>
 
 <span class="w">    </span><span class="n">IsWeaponRanged</span><span class="p">(</span><span class="n">Myself</span><span class="p">)</span>
+
 <span class="w">    </span><span class="n">See</span><span class="p">(</span><span class="n">NearestEnemyOf</span><span class="p">(</span><span class="n">Myself</span><span class="p">))</span>
 <span class="w">    </span><span class="n">InWeaponRange</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">))</span>
+
 <span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="w">        </span><span class="o">!</span><span class="n">PersonalSpaceDistance</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span>
 <span class="w">        </span><span class="n">StateCheck</span><span class="p">(</span><span class="n">LastSeenBy</span><span class="p">(</span><span class="n">Myself</span><span class="p">),</span><span class="w"> </span><span class="no">STATE_HELPLESS</span><span class="p">)</span>
@@ -444,6 +448,43 @@ Base</label><div class="sd-tab-content docutils">
 <span class="no">THEN</span>
 </pre></div>
 </div>
+<p>La limite de tir est le champ visuel de la créature active.</p>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-1">
+Limitless</label><div class="sd-tab-content docutils">
+<div class="highlight-cr notranslate"><div class="highlight"><pre><span></span><span class="no">IF</span>
+<span class="w">    </span><span class="n">ActionListEmpty</span><span class="p">()</span>
+<span class="w">    </span><span class="n">Global</span><span class="p">(</span><span class="s2">&quot;BDAI_DISABLE_ATTACK&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;LOCALS&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_SLEEPING</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_HELPLESS</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">STATE_REALLY_DEAD</span><span class="p">)</span>
+<span class="w">    </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">CASTERHOLD</span><span class="p">)</span>
+
+<span class="w">    </span><span class="n">IsWeaponRanged</span><span class="p">(</span><span class="n">Myself</span><span class="p">)</span>
+
+<span class="w">    </span><span class="sr">//</span><span class="c1"># target is attackable, Player1 for example</span>
+<span class="w">    </span><span class="n">InMyArea</span><span class="p">(</span><span class="n">Player1</span><span class="p">)</span>
+<span class="w">    </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Player1</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_REALLY_DEAD</span><span class="p">)</span>
+<span class="w">    </span><span class="n">IsActive</span><span class="p">(</span><span class="n">Player1</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="o">!</span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Player1</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_INVISIBLE</span><span class="p">)</span>
+<span class="w">        </span><span class="o">!</span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">SEEINVISIBLE</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Player1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">SANCTUARY</span><span class="p">)</span>
+<span class="w">        </span><span class="o">!</span><span class="n">CheckStat</span><span class="p">(</span><span class="n">Myself</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">SEEINVISIBLE</span><span class="p">)</span>
+
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="o">!</span><span class="n">PersonalSpaceDistance</span><span class="p">(</span><span class="n">Player1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span>
+<span class="w">        </span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Player1</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_HELPLESS</span><span class="p">)</span>
+<span class="w">    </span><span class="no">OR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="n">PersonalSpaceDistance</span><span class="p">(</span><span class="n">Player1</span><span class="p">,</span><span class="w"> </span><span class="mi">32</span><span class="p">)</span>
+<span class="w">        </span><span class="n">StateCheck</span><span class="p">(</span><span class="n">Player1</span><span class="p">,</span><span class="w"> </span><span class="no">STATE_HELPLESS</span><span class="p">)</span>
+<span class="no">THEN</span>
+</pre></div>
+</div>
+<p>Il est possible de viser au-delà du champ visuel de la créature active si la portée de l’arme le permet mais cela nécessite de ne pas utiliser <code class="docutils literal notranslate"><span class="pre">See</span></code>.<br />
+De plus, <code class="docutils literal notranslate"><span class="pre">InWeaponRange</span></code> renvoie faux si la cible est hors champ.<br />
+Les objets comme <code class="docutils literal notranslate"><span class="pre">PlayerX</span></code> peuvent répondre à la problématique du <code class="docutils literal notranslate"><span class="pre">See</span></code>.<br />
+Contrairement à la solution précédente, si la cible est hors portée de l’arme, le personnage se déplacera.</p>
 </div>
 </div>
 </section>
