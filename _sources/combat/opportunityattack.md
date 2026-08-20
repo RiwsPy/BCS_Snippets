@@ -7,10 +7,10 @@ Il s'agit d'une attaque de mêlée contre les personnages sans arme dans la main
 ```cr
 IF
     ActionListEmpty()
-    Global("BDAI_DISABLE_ATTACK", "LOCALS", 0)
-    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
+    Global("BDAI_DISABLE_ATTACK", "LOCALS", 0)      //# Attacking is authorized
+    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)  //# ACTION actions are usable
     CheckStat(Myself, 0, CASTERHOLD)
-    !CheckStat(Myself, 2, ENCUMBERANCE)
+    !CheckStat(Myself, 2, ENCUMBERANCE)             //# Can move
     //# …
 
     //# je dois être équipé d'une arme de mêlée ou de mes poings si je suis Moine

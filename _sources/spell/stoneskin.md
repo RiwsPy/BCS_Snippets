@@ -37,12 +37,12 @@ IF
     !ButtonDisabled(BUTTON_CASTSPELL)
     Global("BDAI_NO_ARCANE", "LOCALS", 0)
     Global("BDAI_DISABLE_DEFENSIVE", "LOCALS", 0)
-    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
+    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)  //# ACTION actions are usable
     CheckStat(Myself, 0, CASTERHOLD)
-    CheckStatLT(Myself, 50, SPELLFAILUREMAGE)
+    CheckStatLT(Myself, 50, SPELLFAILUREMAGE)         //# failure rate less than 50%
     OR(2)
-        !GlobalTimerNotExpired("BD_Cast", "LOCALS")
-        !CheckStat(Myself, 0, AURACLEANSING)
+        !GlobalTimerNotExpired("BD_Cast", "LOCALS")   //# BD_Cast is expired
+        !CheckStat(Myself, 0, AURACLEANSING)          //# or Auracleansing is active
     OR(2)
         See(NearestEnemyOf(Myself))
         CheckStat(Myself, 0, SPELLFAILUREMAGE)
@@ -78,16 +78,16 @@ Conditions :
 IF
     ActionListEmpty()
     !ButtonDisabled(BUTTON_CASTSPELL)
-    Global("BDAI_NO_ARCANE", "LOCALS", 0)
-    Global("BDAI_DISABLE_DEFENSIVE", "LOCALS", 0)
+    Global("BDAI_NO_ARCANE", "LOCALS", 0)            //# CowledWizard dont check this area
+    Global("BDAI_DISABLE_DEFENSIVE", "LOCALS", 0)    //# Using DEFENSIVE magic is authorized
     HaveSpell(WIZARD_STONE_SKIN)
-    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
+    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)  //# ACTION actions are usable
     CheckStat(Myself, 0, CASTERHOLD)
-    CheckStatLT(Myself, 50, SPELLFAILUREMAGE)
+    CheckStatLT(Myself, 50, SPELLFAILUREMAGE)         //# failure rate less than 50%
     OR(2)
-        !GlobalTimerNotExpired("BD_Cast", "LOCALS")
-        !CheckStat(Myself, 0, AURACLEANSING)
-    OR(2)
+        !GlobalTimerNotExpired("BD_Cast", "LOCALS")   //# BD_Cast is expired
+        !CheckStat(Myself, 0, AURACLEANSING)          //# or Auracleansing is active
+    OR(2)                                             //# not poisoned or immune to poison
         !StateCheck(Myself, STATE_POISONED)
         CheckStatGT(Myself, 99, RESISTPOISON)
 
@@ -117,16 +117,16 @@ Conditions :
 IF
     ActionListEmpty()
     !ButtonDisabled(BUTTON_CASTSPELL)
-    Global("BDAI_NO_ARCANE", "LOCALS", 0)
-    Global("BDAI_DISABLE_DEFENSIVE", "LOCALS", 0)
+    Global("BDAI_NO_ARCANE", "LOCALS", 0)            //# CowledWizard dont check this area
+    Global("BDAI_DISABLE_DEFENSIVE", "LOCALS", 0)    //# Using DEFENSIVE magic is authorized
     HaveSpell(WIZARD_STONE_SKIN)
-    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
+    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)  //# ACTION actions are usable
     CheckStat(Myself, 0, CASTERHOLD)
-    CheckStatLT(Myself, 50, SPELLFAILUREMAGE)
+    CheckStatLT(Myself, 50, SPELLFAILUREMAGE)         //# failure rate less than 50%
     OR(2)
-        !GlobalTimerNotExpired("BD_Cast", "LOCALS")
-        !CheckStat(Myself, 0, AURACLEANSING)
-    OR(2)
+        !GlobalTimerNotExpired("BD_Cast", "LOCALS")   //# BD_Cast is expired
+        !CheckStat(Myself, 0, AURACLEANSING)          //# or Auracleansing is active
+    OR(2)                                             //# not poisoned or immune to poison
         !StateCheck(Myself, STATE_POISONED)
         CheckStatGT(Myself, 99, RESISTPOISON)
 
@@ -174,16 +174,16 @@ Conditions :
 IF
     ActionListEmpty()
     !ButtonDisabled(BUTTON_CASTSPELL)
-    Global("BDAI_NO_ARCANE", "LOCALS", 0)
-    Global("BDAI_DISABLE_DEFENSIVE", "LOCALS", 0)
+    Global("BDAI_NO_ARCANE", "LOCALS", 0)            //# CowledWizard dont check this area
+    Global("BDAI_DISABLE_DEFENSIVE", "LOCALS", 0)    //# Using DEFENSIVE magic is authorized
     HaveSpell(WIZARD_STONE_SKIN)
-    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
+    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)  //# ACTION actions are usable
     CheckStat(Myself, 0, CASTERHOLD)
-    CheckStatLT(Myself, 50, SPELLFAILUREMAGE)
+    CheckStatLT(Myself, 50, SPELLFAILUREMAGE)         //# failure rate less than 50%
     OR(2)
-        !GlobalTimerNotExpired("BD_Cast", "LOCALS")
-        !CheckStat(Myself, 0, AURACLEANSING)
-    OR(2)
+        !GlobalTimerNotExpired("BD_Cast", "LOCALS")   //# BD_Cast is expired
+        !CheckStat(Myself, 0, AURACLEANSING)          //# or Auracleansing is active
+    OR(2)                                             //# not poisoned or immune to poison
         !StateCheck(Myself, STATE_POISONED)
         CheckStatGT(Myself, 99, RESISTPOISON)
 

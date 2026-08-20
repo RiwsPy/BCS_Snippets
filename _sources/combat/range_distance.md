@@ -11,8 +11,8 @@ Notez qu'aucun jet de toucher n'est effectué sur les cibles `STATE_HELPLESS`.
 ```cr
 IF
     ActionListEmpty()
-    Global("BDAI_DISABLE_ATTACK", "LOCALS", 0)
-    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
+    Global("BDAI_DISABLE_ATTACK", "LOCALS", 0)      //# Attacking is authorized
+    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)  //# ACTION actions are usable
     CheckStat(Myself, 0, CASTERHOLD)
 
     IsWeaponRanged(Myself)
@@ -36,8 +36,8 @@ La limite de tir est le champ visuel de la créature active.
 ```cr
 IF
     ActionListEmpty()
-    Global("BDAI_DISABLE_ATTACK", "LOCALS", 0)
-    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
+    Global("BDAI_DISABLE_ATTACK", "LOCALS", 0)      //# Attacking is authorized
+    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)  //# ACTION actions are usable
     CheckStat(Myself, 0, CASTERHOLD)
 
     IsWeaponRanged(Myself)

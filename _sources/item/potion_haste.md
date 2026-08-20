@@ -13,11 +13,11 @@ On hérite du snippet des [Objets rapides](/item/_init).
 ```cr
 IF
     ActionListEmpty()
-    !GlobalTimerNotExpired("BD_Cast", "LOCALS")
-    Global("BDAI_DISABLE_ITEMS", "LOCALS", 0)
-    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
+    !GlobalTimerNotExpired("BD_Cast", "LOCALS")   //# BD_Cast is expired
+    Global("BDAI_DISABLE_ITEMS", "LOCALS", 0)       //# Using items is authorized
+    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)  //# ACTION actions are usable
     CheckStat(Myself, 0, CASTERHOLD)
-    HasItemEquiped("POTN14", Myself)
+    HasItemEquiped("POTN14", Myself)    //# POTN14 is equiped
     OR(3)
         !ButtonDisabled(BUTTON_QUICKITEM1)
         !ButtonDisabled(BUTTON_QUICKITEM2)
@@ -40,11 +40,11 @@ On vérifie que :
 ```cr
 IF
     ActionListEmpty()
-    !GlobalTimerNotExpired("BD_Cast", "LOCALS")
-    Global("BDAI_DISABLE_ITEMS", "LOCALS", 0)
-    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
+    !GlobalTimerNotExpired("BD_Cast", "LOCALS")   //# BD_Cast is expired
+    Global("BDAI_DISABLE_ITEMS", "LOCALS", 0)       //# Using items is authorized
+    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)  //# ACTION actions are usable
     CheckStat(Myself, 0, CASTERHOLD)
-    HasItemEquiped("POTN14", Myself)
+    HasItemEquiped("POTN14", Myself)    //# POTN14 is equiped
     OR(3)
         !ButtonDisabled(BUTTON_QUICKITEM1)
         !ButtonDisabled(BUTTON_QUICKITEM2)
@@ -75,11 +75,11 @@ On reprend la précédente en ajoutant :
 ```cr
 IF
     ActionListEmpty()
-    !GlobalTimerNotExpired("BD_Cast", "LOCALS")
-    Global("BDAI_DISABLE_ITEMS", "LOCALS", 0)
-    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
+    !GlobalTimerNotExpired("BD_Cast", "LOCALS")   //# BD_Cast is expired
+    Global("BDAI_DISABLE_ITEMS", "LOCALS", 0)       //# Using items is authorized
+    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)  //# ACTION actions are usable
     CheckStat(Myself, 0, CASTERHOLD)
-    HasItemEquiped("POTN14", Myself)
+    HasItemEquiped("POTN14", Myself)    //# POTN14 is equiped
     OR(3)
         !ButtonDisabled(BUTTON_QUICKITEM1)
         !ButtonDisabled(BUTTON_QUICKITEM2)
@@ -121,11 +121,11 @@ On reprend la précédente en ajoutant :
 ```cr
 IF
     ActionListEmpty()
-    !GlobalTimerNotExpired("BD_Cast", "LOCALS")
-    Global("BDAI_DISABLE_ITEMS", "LOCALS", 0)
-    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
+    !GlobalTimerNotExpired("BD_Cast", "LOCALS")   //# BD_Cast is expired
+    Global("BDAI_DISABLE_ITEMS", "LOCALS", 0)       //# Using items is authorized
+    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)  //# ACTION actions are usable
     CheckStat(Myself, 0, CASTERHOLD)
-    HasItemEquiped("POTN14", Myself)
+    HasItemEquiped("POTN14", Myself)    //# POTN14 is equiped
     OR(3)
         !ButtonDisabled(BUTTON_QUICKITEM1)
         !ButtonDisabled(BUTTON_QUICKITEM2)
@@ -152,11 +152,11 @@ Parce que cette potion permet aussi de courir plus vite.
 ```cr
 IF
     ActionListEmpty()
-    !GlobalTimerNotExpired("BD_Cast", "LOCALS")
-    Global("BDAI_DISABLE_ITEMS", "LOCALS", 0)
-    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
+    !GlobalTimerNotExpired("BD_Cast", "LOCALS")   //# BD_Cast is expired
+    Global("BDAI_DISABLE_ITEMS", "LOCALS", 0)       //# Using items is authorized
+    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)  //# ACTION actions are usable
     CheckStat(Myself, 0, CASTERHOLD)
-    HasItemEquiped("POTN14", Myself)
+    HasItemEquiped("POTN14", Myself)    //# POTN14 is equiped
     OR(3)
         !ButtonDisabled(BUTTON_QUICKITEM1)
         !ButtonDisabled(BUTTON_QUICKITEM2)

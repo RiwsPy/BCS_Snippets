@@ -22,17 +22,17 @@ Il s'agit d'une base qui peut/doit être adapté aux besoins.
 ```cr
 IF
     ActionListEmpty()
-    Global("BDAI_DISABLE_DEFENSIVE_OR_OFFENSIVE_TODO", "LOCALS", 0)
+    Global("BDAI_DISABLE_DEFENSIVE_OR_OFFENSIVE_TODO", "LOCALS", 0)    //# Using DEFENSIVE_OR_OFFENSIVE_TODO magic is authorized
     HaveSpell(SPELL_NAME)
-    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
+    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)  //# ACTION actions are usable
     CheckStat(Myself, 0, CASTERHOLD)
     OR(2)
-        !GlobalTimerNotExpired("BD_Cast", "LOCALS")
-        !CheckStat(Myself, 0, AURACLEANSING)
-    OR(2)
+        !GlobalTimerNotExpired("BD_Cast", "LOCALS")   //# BD_Cast is expired
+        !CheckStat(Myself, 0, AURACLEANSING)          //# or Auracleansing is active
+    OR(2)                                             //# not poisoned or immune to poison
         !StateCheck(Myself, STATE_POISONED)
         CheckStatGT(Myself, 99, RESISTPOISON)
-    OR(2)
+    OR(2)                                             //# no surge or have a protection against it
         CheckStat(Myself, 0, FORCESURGE)
         CheckStatGT(Myself, 0, CHAOS_SHIELD)
 
@@ -50,19 +50,19 @@ END
 IF
     ActionListEmpty()
     !ButtonDisabled(BUTTON_CASTSPELL)
-    Global("BDAI_NO_ARCANE", "LOCALS", 0)
-    Global("BDAI_DISABLE_DEFENSIVE_OR_OFFENSIVE_TODO", "LOCALS", 0)
+    Global("BDAI_NO_ARCANE", "LOCALS", 0)            //# CowledWizard dont check this area
+    Global("BDAI_DISABLE_DEFENSIVE_OR_OFFENSIVE_TODO", "LOCALS", 0)    //# Using DEFENSIVE_OR_OFFENSIVE_TODO magic is authorized
     HaveSpell(SPELL_NAME)
-    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
+    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)  //# ACTION actions are usable
     CheckStat(Myself, 0, CASTERHOLD)
-    CheckStatLT(Myself, 50, SPELLFAILUREMAGE)
+    CheckStatLT(Myself, 50, SPELLFAILUREMAGE)         //# failure rate less than 50%
     OR(2)
-        !GlobalTimerNotExpired("BD_Cast", "LOCALS")
-        !CheckStat(Myself, 0, AURACLEANSING)
-    OR(2)
+        !GlobalTimerNotExpired("BD_Cast", "LOCALS")   //# BD_Cast is expired
+        !CheckStat(Myself, 0, AURACLEANSING)          //# or Auracleansing is active
+    OR(2)                                             //# not poisoned or immune to poison
         !StateCheck(Myself, STATE_POISONED)
         CheckStatGT(Myself, 99, RESISTPOISON)
-    OR(2)
+    OR(2)                                             //# no surge or have a protection against it
         CheckStat(Myself, 0, FORCESURGE)
         CheckStatGT(Myself, 0, CHAOS_SHIELD)
 
@@ -80,18 +80,18 @@ END
 IF
     ActionListEmpty()
     !ButtonDisabled(BUTTON_CASTSPELL)
-    Global("BDAI_DISABLE_DEFENSIVE_OR_OFFENSIVE_TODO", "LOCALS", 0)
+    Global("BDAI_DISABLE_DEFENSIVE_OR_OFFENSIVE_TODO", "LOCALS", 0)    //# Using DEFENSIVE_OR_OFFENSIVE_TODO magic is authorized
     HaveSpell(SPELL_NAME)
-    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
+    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)  //# ACTION actions are usable
     CheckStat(Myself, 0, CASTERHOLD)
-    CheckStatLT(Myself, 50, SPELLFAILUREPRIEST)
+    CheckStatLT(Myself, 50, SPELLFAILUREPRIEST)       //# failure rate less than 50%
     OR(2)
-        !GlobalTimerNotExpired("BD_Cast", "LOCALS")
-        !CheckStat(Myself, 0, AURACLEANSING)
-    OR(2)
+        !GlobalTimerNotExpired("BD_Cast", "LOCALS")   //# BD_Cast is expired
+        !CheckStat(Myself, 0, AURACLEANSING)          //# or Auracleansing is active
+    OR(2)                                             //# not poisoned or immune to poison
         !StateCheck(Myself, STATE_POISONED)
         CheckStatGT(Myself, 99, RESISTPOISON)
-    OR(2)
+    OR(2)                                             //# no surge or have a protection against it
         CheckStat(Myself, 0, FORCESURGE)
         CheckStatGT(Myself, 0, CHAOS_SHIELD)
 
@@ -109,18 +109,18 @@ END
 IF
     ActionListEmpty()
     !ButtonDisabled(BUTTON_INNATEBUTTON)
-    Global("BDAI_DISABLE_DEFENSIVE_OR_OFFENSIVE_TODO", "LOCALS", 0)
+    Global("BDAI_DISABLE_DEFENSIVE_OR_OFFENSIVE_TODO", "LOCALS", 0)    //# Using DEFENSIVE_OR_OFFENSIVE_TODO magic is authorized
     HaveSpell(SPELL_NAME)
-    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
+    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)  //# ACTION actions are usable
     CheckStat(Myself, 0, CASTERHOLD)
-    CheckStatLT(Myself, 50, SPELL_FAILURE_INNATE)
+    CheckStatLT(Myself, 50, SPELL_FAILURE_INNATE)     //# failure rate less than 50%
     OR(2)
-        !GlobalTimerNotExpired("BD_Cast", "LOCALS")
-        !CheckStat(Myself, 0, AURACLEANSING)
-    OR(2)
+        !GlobalTimerNotExpired("BD_Cast", "LOCALS")   //# BD_Cast is expired
+        !CheckStat(Myself, 0, AURACLEANSING)          //# or Auracleansing is active
+    OR(2)                                             //# not poisoned or immune to poison
         !StateCheck(Myself, STATE_POISONED)
         CheckStatGT(Myself, 99, RESISTPOISON)
-    OR(2)
+    OR(2)                                             //# no surge or have a protection against it
         CheckStat(Myself, 0, FORCESURGE)
         CheckStatGT(Myself, 0, CHAOS_SHIELD)
 
@@ -137,14 +137,14 @@ END
 ```cr
 IF
     ActionListEmpty()
-    !GlobalTimerNotExpired("BD_Cast", "LOCALS")
-    Global("BDAI_DISABLE_ITEMS", "LOCALS", 0)
-    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
+    !GlobalTimerNotExpired("BD_Cast", "LOCALS")   //# BD_Cast is expired
+    Global("BDAI_DISABLE_ITEMS", "LOCALS", 0)       //# Using items is authorized
+    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)  //# ACTION actions are usable
     CheckStat(Myself, 0, CASTERHOLD)
-    HasItemEquiped("SPELL_FILENAME", Myself)
+    HasItemEquiped("SPELL_FILENAME", Myself)    //# SPELL_FILENAME is equiped
     Global("BDAI_NO_ARCANE", "LOCALS", 0) //# Uniquement pour les parchemins profane
     Global("BDAI_DISABLE_DEFENSIVE_OR_OFFENSIVE_TODO", "LOCALS", 0)
-    OR(2)
+    OR(2)                                             //# no surge or have a protection against it
         CheckStat(Myself, 0, FORCESURGE)
         CheckStatGT(Myself, 0, CHAOS_SHIELD)
     OR(3)
@@ -294,7 +294,7 @@ Note : les parchemins ne peuvent être interrompus par le poison.
 ### Snippet
 Pour s'assurer qu'un personnage n'est pas empoisonné ou qu'il ne puisse en subir les dégâts :
 ```cr
-    OR(2)
+    OR(2)                                             //# not poisoned or immune to poison
         !StateCheck(Myself, STATE_POISONED)
         CheckStatGT(Myself, 99, RESISTPOISON)
 ```
@@ -327,7 +327,7 @@ Il serait quand même envisageable de bloquer les sorts de haut niveau, au cas o
 ### Snippet
 Pour s'assurer qu'un personnage n'est pas malade ou qu'il ne puisse pas subir les dégâts de la maladie :
 ```cr
-    OR(2)
+    OR(2)                                             //# not deseased or immune to poison
         !CheckSpellState(Myself, DISEASED)
         CheckStatGT(Myself, 99, RESISTPOISON)
 ```
@@ -356,7 +356,7 @@ Il est possible de savoir si le prochain sort sera un hiatus.
 ### Snippet
 Pour s'assurer que le prochain sort ne sera pas un hiatus :
 ```cr
-    OR(2)
+    OR(2)                                             //# no surge or have a protection against it
         CheckStat(Myself, 0, FORCESURGE)
         CheckStatGT(Myself, 0, CHAOS_SHIELD)
 ```

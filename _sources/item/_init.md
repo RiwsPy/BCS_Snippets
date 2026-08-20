@@ -34,11 +34,11 @@ Il s'agit d'une base qui peut/doit être adapté aux besoins.
 ```cr
 IF
     ActionListEmpty()
-    !GlobalTimerNotExpired("BD_Cast", "LOCALS")
-    Global("BDAI_DISABLE_ITEMS", "LOCALS", 0)
-    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
+    !GlobalTimerNotExpired("BD_Cast", "LOCALS")   //# BD_Cast is expired
+    Global("BDAI_DISABLE_ITEMS", "LOCALS", 0)       //# Using items is authorized
+    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)  //# ACTION actions are usable
     CheckStat(Myself, 0, CASTERHOLD)
-    HasItemEquiped("ITEM_FILENAME", Myself)
+    HasItemEquiped("ITEM_FILENAME", Myself)    //# ITEM_FILENAME is equiped
 
     //# TODO: Code spécifique
 THEN
@@ -59,11 +59,11 @@ On vérifie que :
 ```cr
 IF
     ActionListEmpty()
-    !GlobalTimerNotExpired("BD_Cast", "LOCALS")
-    Global("BDAI_DISABLE_ITEMS", "LOCALS", 0)
-    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
+    !GlobalTimerNotExpired("BD_Cast", "LOCALS")   //# BD_Cast is expired
+    Global("BDAI_DISABLE_ITEMS", "LOCALS", 0)       //# Using items is authorized
+    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)  //# ACTION actions are usable
     CheckStat(Myself, 0, CASTERHOLD)
-    HasItemEquiped("ITEM_FILENAME", Myself)
+    HasItemEquiped("ITEM_FILENAME", Myself)    //# ITEM_FILENAME is equiped
     OR(3)
         !ButtonDisabled(BUTTON_QUICKITEM1)
         !ButtonDisabled(BUTTON_QUICKITEM2)
@@ -84,11 +84,11 @@ On vérifie que :
 ```cr
 IF
     ActionListEmpty()
-    !GlobalTimerNotExpired("BD_Cast", "LOCALS")
-    Global("BDAI_DISABLE_ITEMS", "LOCALS", 0)
-    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
+    !GlobalTimerNotExpired("BD_Cast", "LOCALS")   //# BD_Cast is expired
+    Global("BDAI_DISABLE_ITEMS", "LOCALS", 0)       //# Using items is authorized
+    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)  //# ACTION actions are usable
     CheckStat(Myself, 0, CASTERHOLD)
-    HasItemEquiped("ITEM_FILENAME", Myself)
+    HasItemEquiped("ITEM_FILENAME", Myself)    //# ITEM_FILENAME is equiped
     !ButtonDisabled(BUTTON_USEITEM)
 
     //# TODO: Code spécifique

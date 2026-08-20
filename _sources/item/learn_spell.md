@@ -14,11 +14,11 @@ myst:
 IF
     !ActuallyInCombat()
     ActionListEmpty()
-    !GlobalTimerNotExpired("BD_Cast", "LOCALS")
-    Global("BDAI_DISABLE_ITEMS", "LOCALS", 0)
-    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
+    !GlobalTimerNotExpired("BD_Cast", "LOCALS")   //# BD_Cast is expired
+    Global("BDAI_DISABLE_ITEMS", "LOCALS", 0)       //# Using items is authorized
+    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)  //# ACTION actions are usable
     CheckStat(Myself, 0, CASTERHOLD)
-    HasItemEquiped("SCRL1N", Myself)
+    HasItemEquiped("SCRL1N", Myself)    //# SCRL1N is equiped
 
     OR(2)
         Class(Myself, MAGE_ALL)

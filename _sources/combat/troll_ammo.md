@@ -38,8 +38,8 @@ Enfin, les trolls peuvent avoir des résistances élémentaires variables, il co
 ```cr
 IF
     ActionListEmpty()
-    Global("BDAI_DISABLE_ATTACK", "LOCALS", 0)
-    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
+    Global("BDAI_DISABLE_ATTACK", "LOCALS", 0)      //# Attacking is authorized
+    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)  //# ACTION actions are usable
     CheckStat(Myself, 0, CASTERHOLD)
     CanEquipRanged()
     HasItemCategory(Myself, BOW, FALSE)
@@ -63,8 +63,8 @@ La plus permissive des solutions : on peut switcher d'arme et de munitions.\
 ```cr
 IF
     ActionListEmpty()
-    Global("BDAI_DISABLE_ATTACK", "LOCALS", 0)
-    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
+    Global("BDAI_DISABLE_ATTACK", "LOCALS", 0)      //# Attacking is authorized
+    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)  //# ACTION actions are usable
     CheckStat(Myself, 0, CASTERHOLD)
     HasItemCategory(Myself, BOW, TRUE)
     HasItemEquiped("AROW04", Myself)
@@ -85,8 +85,8 @@ On ne switch pas d'arme, les conditions réclament qu'un arc soit réellement é
 ```cr
 IF
     ActionListEmpty()
-    Global("BDAI_DISABLE_ATTACK", "LOCALS", 0)
-    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
+    Global("BDAI_DISABLE_ATTACK", "LOCALS", 0)      //# Attacking is authorized
+    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)  //# ACTION actions are usable
     CheckStat(Myself, 0, CASTERHOLD)
     CurrentAmmo("AROW04", Myself)
     See(NearestEnemyOfType([0.0.TROLL]))
@@ -108,8 +108,8 @@ Mais quelle est la probabilité que cela se produise ?
 ```cr
 IF
     ActionListEmpty()
-    Global("BDAI_DISABLE_ATTACK", "LOCALS", 0)
-    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
+    Global("BDAI_DISABLE_ATTACK", "LOCALS", 0)      //# Attacking is authorized
+    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)  //# ACTION actions are usable
     CheckStat(Myself, 0, CASTERHOLD)
     OR(4)
         CurrentAmmo("AROW06", Myself)
@@ -134,8 +134,8 @@ Comme la précédente mais on profite de la simplification des actions : on peut
 IF
     Detect(Myself)
     ActionListEmpty()
-    Global("BDAI_DISABLE_ATTACK", "LOCALS", 0)
-    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
+    Global("BDAI_DISABLE_ATTACK", "LOCALS", 0)      //# Attacking is authorized
+    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)  //# ACTION actions are usable
     CheckStat(Myself, 0, CASTERHOLD)
     OR(4)
         CurrentAmmo("AROW06", Myself)

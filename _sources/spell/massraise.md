@@ -22,17 +22,17 @@ Une difficulté ici est que l'on ne peut pas se baser sur des [object], car les 
 IF
     ActionListEmpty()
     !ButtonDisabled(BUTTON_CASTSPELL)
-    Global("BDAI_DISABLE_DEFENSIVE", "LOCALS", 0)
+    Global("BDAI_DISABLE_DEFENSIVE", "LOCALS", 0)    //# Using DEFENSIVE magic is authorized
     HaveSpell(CLERIC_MASS_RAISE_DEAD)
-    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
+    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)  //# ACTION actions are usable
     CheckStat(Myself, 0, CASTERHOLD)
     OR(2)
-        !GlobalTimerNotExpired("BD_Cast", "LOCALS")
-        !CheckStat(Myself, 0, AURACLEANSING)
-    OR(2)
+        !GlobalTimerNotExpired("BD_Cast", "LOCALS")   //# BD_Cast is expired
+        !CheckStat(Myself, 0, AURACLEANSING)          //# or Auracleansing is active
+    OR(2)                                             //# not poisoned or immune to poison
         !StateCheck(Myself, STATE_POISONED)
         CheckStatGT(Myself, 99, RESISTPOISON)
-    OR(2)
+    OR(2)                                             //# not deseased or immune to poison
         !CheckSpellState(Myself, DISEASED)
         CheckStatGT(Myself, 99, RESISTPOISON)
     CheckStat(Myself, 0, CLERIC_INSECT_PLAGUE)
@@ -66,17 +66,17 @@ Le sort est lancé si :
 IF
     ActionListEmpty()
     !ButtonDisabled(BUTTON_CASTSPELL)
-    Global("BDAI_DISABLE_DEFENSIVE", "LOCALS", 0)
+    Global("BDAI_DISABLE_DEFENSIVE", "LOCALS", 0)    //# Using DEFENSIVE magic is authorized
     HaveSpell(CLERIC_MASS_RAISE_DEAD)
-    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)
+    !StateCheck(Myself, STATE_SLEEPING | STATE_HELPLESS | STATE_REALLY_DEAD)  //# ACTION actions are usable
     CheckStat(Myself, 0, CASTERHOLD)
     OR(2)
-        !GlobalTimerNotExpired("BD_Cast", "LOCALS")
-        !CheckStat(Myself, 0, AURACLEANSING)
-    OR(2)
+        !GlobalTimerNotExpired("BD_Cast", "LOCALS")   //# BD_Cast is expired
+        !CheckStat(Myself, 0, AURACLEANSING)          //# or Auracleansing is active
+    OR(2)                                             //# not poisoned or immune to poison
         !StateCheck(Myself, STATE_POISONED)
         CheckStatGT(Myself, 99, RESISTPOISON)
-    OR(2)
+    OR(2)                                             //# not deseased or immune to poison
         !CheckSpellState(Myself, DISEASED)
         CheckStatGT(Myself, 99, RESISTPOISON)
     CheckStat(Myself, 0, CLERIC_INSECT_PLAGUE)
